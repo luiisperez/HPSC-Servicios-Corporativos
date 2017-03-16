@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="emp_apellido" xml:space="preserve">
+    <value>@emp_apellido</value>
+    <comment>Apellido del empleado</comment>
+  </data>
+  <data name="emp_contrasena" xml:space="preserve">
+    <value>@emp_password</value>
+    <comment>Contrasena del empleado</comment>
+  </data>
+  <data name="emp_correo" xml:space="preserve">
+    <value>@emp_correo</value>
+    <comment>Correo del empleado</comment>
+  </data>
+  <data name="emp_nombre" xml:space="preserve">
+    <value>@emp_nombre</value>
+    <comment>Nombre del empleado</comment>
+  </data>
+  <data name="emp_usuario" xml:space="preserve">
+    <value>@emp_usuario</value>
+    <comment>Usuario del empleado</comment>
+  </data>
+  <data name="ProcedimientoAgregarEmpleado" xml:space="preserve">
+    <value>AGREGAR_EMPLEADO</value>
+    <comment>Procedimiento para agregar empleados a la BD</comment>
+  </data>
+  <data name="ProcedimientoConsultarEmpleado" xml:space="preserve">
+    <value>CONSULTAR_EMPLEADO</value>
+    <comment>Procedimiento para consultar un empleado en la BD por el usuario</comment>
+  </data>
+  <data name="ProcedimientoModificarEmpleado" xml:space="preserve">
+    <value>MODIFICAR_EMPLEADO</value>
+    <comment>Procedimiento para actualizar los datos de un empleado en la BD</comment>
+  </data>
+  <data name="ProcedimientoConsultarEmpleadoCorreo" xml:space="preserve">
+    <value>CONSULTAR_EMPLEADO_CORREO</value>
+    <comment>Procedimiento para consultar un empleado en la BD por el correo</comment>
+  </data>
+  <data name="ProcedimientoEliminarEmpleado" xml:space="preserve">
+    <value>ELIMINAR_EMPLEADO</value>
+    <comment>Procedimiento para eliminar un empleado de la BD</comment>
+  </data>
+  <data name="ProcedimientoCambiarPwdEmpleado" xml:space="preserve">
+    <value>CAMBIAR_PWD_EMPLEADO</value>
+    <comment>Procedimiento para cambiar el password de un empleado de la BD</comment>
+  </data>
+  <data name="ProcedimientoConsultarEmpleados" xml:space="preserve">
+    <value>CONSULTAR_EMPLEADOS</value>
+    <comment>Procedimiento para consultar todos los empleados de la BD</comment>
+  </data>
+  <data name="ProcedimientoConsultarRoles" xml:space="preserve">
+    <value>CONSULTAR_ROLES</value>
+    <comment>Procedimiento para consultar los roles existentes en la BD</comment>
+  </data>
+  <data name="emp_rol" xml:space="preserve">
+    <value>@emp_rol</value>
+    <comment>Rol del empleado</comment>
+  </data>
+  <data name="ProcedimientoAgregarRolEmpleado" xml:space="preserve">
+    <value>AGREGAR_ROL_EMPLEADO</value>
+    <comment>Procedimiento para agregar roles a los empleados registrados</comment>
+  </data>
+</root>

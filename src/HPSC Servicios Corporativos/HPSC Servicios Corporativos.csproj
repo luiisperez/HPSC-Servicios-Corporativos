@@ -1,0 +1,893 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4260FE2B-5C25-4B8A-809E-567880598B03}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HPSC_Servicios_Corporativos</RootNamespace>
+    <AssemblyName>HPSC Servicios Corporativos</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Recaptcha">
+      <HintPath>..\..\lib\reCaptcha\Recaptcha.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Vista\Common\img\eliminar.ico" />
+    <Content Include="Vista\Common\img\hpsc-logo.ico" />
+    <Content Include="Vista\Common\plugins\datatables\dataTables.bootstrap.css" />
+    <Content Include="Vista\Common\plugins\datatables\dataTables.bootstrap.js" />
+    <Content Include="Vista\Common\plugins\datatables\dataTables.bootstrap.min.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\css\dataTables.autoFill.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\css\dataTables.autoFill.min.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\examples\columns.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\examples\complete-callback.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\examples\fill-both.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\examples\fill-horizontal.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\examples\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\examples\scrolling.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\examples\simple.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\examples\step-callback.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\images\filler.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\js\dataTables.autoFill.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\js\dataTables.autoFill.min.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\AutoFill\Readme.txt" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\css\dataTables.colReorder.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\css\dataTables.colReorder.min.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\alt_insert.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\colvis.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\col_filter.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\fixedcolumns.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\fixedheader.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\jqueryui.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\new_init.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\predefined.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\realtime.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\reset.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\scrolling.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\server_side.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\simple.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\examples\state_save.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\images\insert.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\js\dataTables.colReorder.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\js\dataTables.colReorder.min.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\License.txt" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\css\dataTables.colVis.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\css\dataTables.colvis.jqueryui.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\css\dataTables.colVis.min.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\button_order.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\exclude_columns.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\group_columns.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\jqueryui.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\mouseover.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\new_init.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\restore.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\simple.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\text.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\title_callback.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\two_tables.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\examples\two_tables_identical.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\js\dataTables.colVis.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\js\dataTables.colVis.min.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\License.txt" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\css\dataTables.fixedColumns.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\css\dataTables.fixedColumns.min.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\bootstrap.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\colvis.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\col_filter.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\css_size.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\index_column.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\left_right_columns.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\right_column.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\rowspan.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\server-side-processing.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\simple.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\size_fixed.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\size_fluid.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\examples\two_columns.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\js\dataTables.fixedColumns.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\js\dataTables.fixedColumns.min.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\License.txt" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedHeader\css\dataTables.fixedHeader.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedHeader\css\dataTables.fixedHeader.min.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedHeader\examples\header_footer.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedHeader\examples\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedHeader\examples\simple.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedHeader\examples\top_left_right.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedHeader\examples\two_tables.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedHeader\examples\zIndexes.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedHeader\js\dataTables.fixedHeader.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedHeader\js\dataTables.fixedHeader.min.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedHeader\Readme.txt" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\KeyTable\css\dataTables.keyTable.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\KeyTable\css\dataTables.keyTable.min.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\KeyTable\examples\events.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\KeyTable\examples\html.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\KeyTable\examples\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\KeyTable\examples\scrolling.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\KeyTable\examples\simple.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\KeyTable\js\dataTables.keyTable.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\KeyTable\js\dataTables.keyTable.min.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\KeyTable\Readme.txt" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\css\dataTables.responsive.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\child-rows\column-control.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\child-rows\custom-renderer.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\child-rows\disable-child-rows.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\child-rows\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\child-rows\right-column.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\child-rows\whole-row-control.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\display-control\auto.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\display-control\classes.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\display-control\complexHeader.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\display-control\fixedHeader.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\display-control\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\display-control\init-classes.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\initialisation\ajax.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\initialisation\className.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\initialisation\default.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\initialisation\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\initialisation\new.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\initialisation\option.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\styling\bootstrap.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\styling\compact.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\styling\foundation.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\styling\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\examples\styling\scrolling.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\js\dataTables.responsive.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\js\dataTables.responsive.min.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\License.txt" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\css\dataTables.scroller.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\css\dataTables.scroller.min.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\examples\api_scrolling.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\examples\data\2500.txt" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\examples\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\examples\large_js_source.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\examples\server-side_processing.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\examples\simple.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\examples\state_saving.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\images\loading-background.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\js\dataTables.scroller.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\js\dataTables.scroller.min.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\Readme.txt" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\css\dataTables.tableTools.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\css\dataTables.tableTools.min.css" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\ajax.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\alter_buttons.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\bootstrap.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\button_text.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\collection.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\defaults.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\index.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\jqueryui.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\multiple_tables.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\multi_instance.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\new_init.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\pdf_message.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\plug-in.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\select_column.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\select_multi.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\select_os.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\select_single.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\simple.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\examples\swf_path.html" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\collection.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\collection_hover.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\copy.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\copy_hover.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\csv.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\csv_hover.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\pdf.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\pdf_hover.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\print.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\print_hover.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\xls.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\xls_hover.png" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\js\dataTables.tableTools.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\js\dataTables.tableTools.min.js" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\swf\copy_csv_xls.swf" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Vista\Common\plugins\datatables\images\sort_asc.png" />
+    <Content Include="Vista\Common\plugins\datatables\images\sort_asc_disabled.png" />
+    <Content Include="Vista\Common\plugins\datatables\images\sort_both.png" />
+    <Content Include="Vista\Common\plugins\datatables\images\sort_desc.png" />
+    <Content Include="Vista\Common\plugins\datatables\images\sort_desc_disabled.png" />
+    <Content Include="Vista\Common\plugins\datatables\jquery.dataTables.css" />
+    <Content Include="Vista\Common\plugins\datatables\jquery.dataTables.js" />
+    <Content Include="Vista\Common\plugins\datatables\jquery.dataTables.min.css" />
+    <Content Include="Vista\Common\plugins\datatables\jquery.dataTables.min.js" />
+    <Content Include="Vista\Common\plugins\datatables\jquery.dataTables_themeroller.css" />
+    <Content Include="Vista\Empleados\administracionHPSC.aspx" />
+    <Content Include="Vista\Empleados\gestion-empleados\rolesempleados.aspx" />
+    <Content Include="Vista\Empleados\gestion-empleados\visualizarempleados.aspx" />
+    <Content Include="Vista\Empleados\blank-page.html" />
+    <Content Include="Vista\Empleados\bootstrap-elements.html" />
+    <Content Include="Vista\Empleados\bootstrap-grid.html" />
+    <Content Include="Vista\Empleados\charts.html" />
+    <Content Include="Vista\Empleados\css\bootstrap-rtl.css" />
+    <Content Include="Vista\Empleados\css\bootstrap-rtl.min.css" />
+    <Content Include="Vista\Empleados\css\bootstrap.css" />
+    <Content Include="Vista\Empleados\css\bootstrap.min.css" />
+    <Content Include="Vista\Empleados\css\plugins\morris.css" />
+    <Content Include="Vista\Empleados\css\sb-admin-rtl.css" />
+    <Content Include="Vista\Empleados\css\sb-admin.css" />
+    <Content Include="Vista\Empleados\font-awesome\css\font-awesome.css" />
+    <Content Include="Vista\Empleados\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Vista\Empleados\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Vista\Empleados\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Vista\Empleados\forms.html" />
+    <Content Include="Vista\Empleados\index-rtl.html" />
+    <Content Include="Vista\Empleados\index.html" />
+    <Content Include="Vista\Empleados\js\bootstrap.js" />
+    <Content Include="Vista\Empleados\js\bootstrap.min.js" />
+    <Content Include="Vista\Empleados\js\cargadorMenu.js" />
+    <Content Include="Vista\Empleados\js\jquery.js" />
+    <Content Include="Vista\Empleados\js\plugins\flot\excanvas.min.js" />
+    <Content Include="Vista\Empleados\js\plugins\flot\flot-data.js" />
+    <Content Include="Vista\Empleados\js\plugins\flot\jquery.flot.js" />
+    <Content Include="Vista\Empleados\js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Vista\Empleados\js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Vista\Empleados\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Vista\Empleados\js\plugins\morris\morris-data.js" />
+    <Content Include="Vista\Empleados\js\plugins\morris\morris.js" />
+    <Content Include="Vista\Empleados\js\plugins\morris\morris.min.js" />
+    <Content Include="Vista\Empleados\js\plugins\morris\raphael.min.js" />
+    <Content Include="Vista\Empleados\tables.html" />
+    <Content Include="Vista\Index\assets\css\bootstrap\bootstrap.css" />
+    <Content Include="Vista\Index\assets\css\bootstrap\bootstrap.min.css" />
+    <Content Include="Vista\Index\assets\css\plugins\animate.css" />
+    <Content Include="Vista\Index\assets\css\plugins\background.css" />
+    <Content Include="Vista\Index\assets\css\plugins\magnific-popup.css" />
+    <Content Include="Vista\Index\assets\css\plugins\owl-carousel\AjaxLoader.gif" />
+    <Content Include="Vista\Index\assets\css\plugins\owl-carousel\grabbing.png" />
+    <Content Include="Vista\Index\assets\css\plugins\owl-carousel\owl.carousel.css" />
+    <Content Include="Vista\Index\assets\css\plugins\owl-carousel\owl.theme.css" />
+    <Content Include="Vista\Index\assets\css\plugins\owl-carousel\owl.transitions.css" />
+    <Content Include="Vista\Index\assets\css\hpsc.css" />
+    <Content Include="Vista\Index\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="Vista\Index\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Vista\Index\assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Vista\Index\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Vista\Index\assets\img\bg-aside.jpg" />
+    <Content Include="Vista\Index\assets\img\bg-footer.jpg" />
+    <Content Include="Vista\Index\assets\img\bg-header.jpg" />
+    <Content Include="Vista\Index\assets\img\bg-mobile-fallback.jpg" />
+    <Content Include="Vista\Index\assets\img\bg-pricing.jpg" />
+    <Content Include="Vista\Index\assets\img\client-logos\logo-1%402x.png" />
+    <Content Include="Vista\Index\assets\img\client-logos\logo-1.png" />
+    <Content Include="Vista\Index\assets\img\client-logos\logo-2%402x.png" />
+    <Content Include="Vista\Index\assets\img\client-logos\logo-2.png" />
+    <Content Include="Vista\Index\assets\img\creative\about.jpg" />
+    <Content Include="Vista\Index\assets\img\creative\bg-aside.jpg" />
+    <Content Include="Vista\Index\assets\img\creative\bg-header.jpg" />
+    <Content Include="Vista\Index\assets\img\creative\logo%402x.png" />
+    <Content Include="Vista\Index\assets\img\creative\logo.png" />
+    <Content Include="Vista\Index\assets\img\creative\portfolio\bg-1.jpg" />
+    <Content Include="Vista\Index\assets\img\creative\portfolio\bg-2.jpg" />
+    <Content Include="Vista\Index\assets\img\creative\portfolio\bg-3.jpg" />
+    <Content Include="Vista\Index\assets\img\creative\portfolio\bg-4.jpg" />
+    <Content Include="Vista\Index\assets\img\creative\profile%402x.png" />
+    <Content Include="Vista\Index\assets\img\creative\profile.png" />
+    <Content Include="Vista\Index\assets\img\culinary\bg-aside.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\bg-footer.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\bg-header.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\bg-pricing.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\logo%402x.png" />
+    <Content Include="Vista\Index\assets\img\culinary\logo.png" />
+    <Content Include="Vista\Index\assets\img\culinary\menu\1.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\menu\2.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\menu\3.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\menu\4.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\menu\5.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\menu\6.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\people\1.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\people\2.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\people\3.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\people\4.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\people\5.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\people\6.jpg" />
+    <Content Include="Vista\Index\assets\img\culinary\profile%402x.png" />
+    <Content Include="Vista\Index\assets\img\culinary\profile.png" />
+    <Content Include="Vista\Index\assets\img\demo\screenshot-agency.png" />
+    <Content Include="Vista\Index\assets\img\demo\screenshot-creative.png" />
+    <Content Include="Vista\Index\assets\img\demo\screenshot-culinary.png" />
+    <Content Include="Vista\Index\assets\img\demo\screenshot-fashion.png" />
+    <Content Include="Vista\Index\assets\img\demo\screenshot-legal.png" />
+    <Content Include="Vista\Index\assets\img\demo\screenshot-video.png" />
+    <Content Include="Vista\Index\assets\img\fashion\bg-aside.jpg" />
+    <Content Include="Vista\Index\assets\img\fashion\bg-footer.jpg" />
+    <Content Include="Vista\Index\assets\img\fashion\bg-header.jpg" />
+    <Content Include="Vista\Index\assets\img\fashion\bg-locations.jpg" />
+    <Content Include="Vista\Index\assets\img\fashion\gallery\1.jpg" />
+    <Content Include="Vista\Index\assets\img\fashion\gallery\2.jpg" />
+    <Content Include="Vista\Index\assets\img\fashion\gallery\3.jpg" />
+    <Content Include="Vista\Index\assets\img\fashion\gallery\4.jpg" />
+    <Content Include="Vista\Index\assets\img\fashion\gallery\5.jpg" />
+    <Content Include="Vista\Index\assets\img\fashion\gallery\6.jpg" />
+    <Content Include="Vista\Index\assets\img\fashion\logo%402x.png" />
+    <Content Include="Vista\Index\assets\img\fashion\logo.png" />
+    <Content Include="Vista\Index\assets\img\fashion\profile%402x.png" />
+    <Content Include="Vista\Index\assets\img\fashion\profile.png" />
+    <Content Include="Vista\Index\assets\img\legal\bg-aside.jpg" />
+    <Content Include="Vista\Index\assets\img\legal\bg-header.jpg" />
+    <Content Include="Vista\Index\assets\img\legal\bg-locations.jpg" />
+    <Content Include="Vista\Index\assets\img\legal\logo%402x.png" />
+    <Content Include="Vista\Index\assets\img\legal\logo.png" />
+    <Content Include="Vista\Index\assets\img\legal\people\1.jpg" />
+    <Content Include="Vista\Index\assets\img\legal\people\2.jpg" />
+    <Content Include="Vista\Index\assets\img\legal\people\3.jpg" />
+    <Content Include="Vista\Index\assets\img\legal\people\4.jpg" />
+    <Content Include="Vista\Index\assets\img\legal\people\5.jpg" />
+    <Content Include="Vista\Index\assets\img\legal\profile%402x.png" />
+    <Content Include="Vista\Index\assets\img\legal\profile.png" />
+    <Content Include="Vista\Index\assets\img\logo%402x.png" />
+    <Content Include="Vista\Index\assets\img\logo.png" />
+    <Content Include="Vista\Index\assets\img\people\1.jpg" />
+    <Content Include="Vista\Index\assets\img\people\2.jpg" />
+    <Content Include="Vista\Index\assets\img\people\3.jpg" />
+    <Content Include="Vista\Index\assets\img\people\4.jpg" />
+    <Content Include="Vista\Index\assets\img\people\5.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\bg-1.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\bg-2.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\bg-3.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\bg-4.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\grid\graphic\1.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\grid\graphic\2.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\grid\graphic\3.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\grid\graphic\4.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\grid\graphic\5.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\grid\identity\1.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\grid\identity\2.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\grid\identity\3.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\grid\web\1.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\grid\web\2.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\grid\web\3.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\grid\web\4.jpg" />
+    <Content Include="Vista\Index\assets\img\portfolio\mobile-screens.png" />
+    <Content Include="Vista\Index\assets\img\portfolio\tablet-screens.png" />
+    <Content Include="Vista\Index\assets\img\profile%402x.png" />
+    <Content Include="Vista\Index\assets\img\profile.png" />
+    <Content Include="Vista\Index\assets\img\testimonials\1.jpg" />
+    <Content Include="Vista\Index\assets\js\bootstrap\bootstrap.js" />
+    <Content Include="Vista\Index\assets\js\bootstrap\bootstrap.min.js" />
+    <Content Include="Vista\Index\assets\js\contact_me.js" />
+    <Content Include="Vista\Index\assets\js\jquery.js" />
+    <Content Include="Vista\Index\assets\js\plugins\background\background.js" />
+    <Content Include="Vista\Index\assets\js\plugins\background\core.js" />
+    <Content Include="Vista\Index\assets\js\plugins\background\transition.js" />
+    <Content Include="Vista\Index\assets\js\plugins\cbpAnimatedHeader.js" />
+    <Content Include="Vista\Index\assets\js\plugins\classie.js" />
+    <Content Include="Vista\Index\assets\js\plugins\jqBootstrapValidation.js" />
+    <Content Include="Vista\Index\assets\js\plugins\jquery.easing.min.js" />
+    <Content Include="Vista\Index\assets\js\plugins\jquery.magnific-popup\jquery.magnific-popup.js" />
+    <Content Include="Vista\Index\assets\js\plugins\jquery.magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="Vista\Index\assets\js\plugins\jquery.mixitup.js" />
+    <Content Include="Vista\Index\assets\js\plugins\owl-carousel\owl.carousel.js" />
+    <Content Include="Vista\Index\assets\js\plugins\retina\retina.js" />
+    <Content Include="Vista\Index\assets\js\plugins\retina\retina.min.js" />
+    <Content Include="Vista\Index\assets\js\plugins\wow\wow.js" />
+    <Content Include="Vista\Index\assets\js\plugins\wow\wow.min.js" />
+    <Content Include="Vista\Index\assets\js\vitality.js" />
+    <Content Include="Vista\Index\index.aspx" />
+    <Content Include="Vista\Index\postlogin.aspx" />
+    <Content Include="Vista\Registro\assets\css\bootstrap\bootstrap.css" />
+    <Content Include="Vista\Registro\assets\css\bootstrap\bootstrap.min.css" />
+    <Content Include="Vista\Registro\assets\css\hpsc.css" />
+    <Content Include="Vista\Registro\assets\css\plugins\animate.css" />
+    <Content Include="Vista\Registro\assets\css\plugins\background.css" />
+    <Content Include="Vista\Registro\assets\css\plugins\magnific-popup.css" />
+    <Content Include="Vista\Registro\assets\css\plugins\owl-carousel\AjaxLoader.gif" />
+    <Content Include="Vista\Registro\assets\css\plugins\owl-carousel\grabbing.png" />
+    <Content Include="Vista\Registro\assets\css\plugins\owl-carousel\owl.carousel.css" />
+    <Content Include="Vista\Registro\assets\css\plugins\owl-carousel\owl.theme.css" />
+    <Content Include="Vista\Registro\assets\css\plugins\owl-carousel\owl.transitions.css" />
+    <Content Include="Vista\Registro\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="Vista\Registro\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Vista\Registro\assets\img\background-header.jpg" />
+    <Content Include="Vista\Registro\assets\img\bg-aside.jpg" />
+    <Content Include="Vista\Registro\assets\img\bg-caracas2.jpg" />
+    <Content Include="Vista\Registro\assets\img\bg-header-day.jpg" />
+    <Content Include="Vista\Registro\assets\img\bg-header.jpg" />
+    <Content Include="Vista\Registro\assets\img\bg-mobile-fallback.jpg" />
+    <Content Include="Vista\Registro\assets\img\bg-pricing.jpg" />
+    <Content Include="Vista\Registro\assets\img\bg.jpg" />
+    <Content Include="Vista\Registro\assets\img\bgfooter.jpg" />
+    <Content Include="Vista\Registro\assets\img\hpsc%402x.png" />
+    <Content Include="Vista\Registro\assets\img\hpsc-logo%402x.png" />
+    <Content Include="Vista\Registro\assets\img\hpsc-logo.png" />
+    <Content Include="Vista\Registro\assets\img\hpsc.png" />
+    <Content Include="Vista\Registro\assets\img\logos-aliados\cron.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-aliados\Cron.png" />
+    <Content Include="Vista\Registro\assets\img\logos-aliados\excon.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-aliados\hp.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-aliados\hpe.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-aliados\microsoft.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-aliados\mt_2005.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\aguilar.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\cocacola.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\ford.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\movistar.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\novobanco.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\Originales\aguilar.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\Originales\cocacola.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\Originales\ford.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\Originales\movistar.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\Originales\novobanco.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\Originales\polar.jpg" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\polar.jpg" />
+    <Content Include="Vista\Registro\assets\img\night-bg-opacity.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\bg-1.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\bg-2.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\bg-3.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\bg-4.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\grid\graphic\1.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\grid\graphic\2.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\grid\graphic\3.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\grid\graphic\4.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\grid\graphic\5.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\grid\identity\1.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\grid\identity\2.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\grid\identity\3.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\grid\web\1.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\grid\web\2.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\grid\web\3.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\grid\web\4.jpg" />
+    <Content Include="Vista\Registro\assets\img\portfolio\mobile-screens.png" />
+    <Content Include="Vista\Registro\assets\img\portfolio\tablet-screens.png" />
+    <Content Include="Vista\Registro\assets\img\profile%402x.png" />
+    <Content Include="Vista\Registro\assets\img\profile.png" />
+    <Content Include="Vista\Registro\assets\img\registro-bg.jpg" />
+    <Content Include="Vista\Registro\assets\img\servicios\1.jpg" />
+    <Content Include="Vista\Registro\assets\img\servicios\2.jpg" />
+    <Content Include="Vista\Registro\assets\img\servicios\3.jpg" />
+    <Content Include="Vista\Registro\assets\img\servicios\4.jpg" />
+    <Content Include="Vista\Registro\assets\img\servicios\5.jpg" />
+    <Content Include="Vista\Registro\assets\img\testimonios\aguilar.jpg" />
+    <Content Include="Vista\Registro\assets\img\testimonios\cocacola.jpg" />
+    <Content Include="Vista\Registro\assets\img\testimonios\cron.jpg" />
+    <Content Include="Vista\Registro\assets\img\testimonios\excon.jpg" />
+    <Content Include="Vista\Registro\assets\img\testimonios\ford.jpg" />
+    <Content Include="Vista\Registro\assets\img\testimonios\hp.jpg" />
+    <Content Include="Vista\Registro\assets\img\testimonios\hpe.jpg" />
+    <Content Include="Vista\Registro\assets\img\testimonios\microsoft.jpg" />
+    <Content Include="Vista\Registro\assets\img\testimonios\movistar.jpg" />
+    <Content Include="Vista\Registro\assets\img\testimonios\mt_2005.jpg" />
+    <Content Include="Vista\Registro\assets\img\testimonios\novobanco.jpg" />
+    <Content Include="Vista\Registro\assets\img\testimonios\polar.jpg" />
+    <Content Include="Vista\Registro\assets\js\bootstrap\bootstrap.js" />
+    <Content Include="Vista\Registro\assets\js\bootstrap\bootstrap.min.js" />
+    <Content Include="Vista\Registro\assets\js\jquery.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\background\background.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\background\core.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\background\transition.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\cbpAnimatedHeader.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\classie.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\jqBootstrapValidation.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\jquery.easing.min.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\jquery.magnific-popup\jquery.magnific-popup.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\jquery.magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\jquery.mixitup.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\owl-carousel\owl.carousel.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\retina\retina.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\retina\retina.min.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\wow\wow.js" />
+    <Content Include="Vista\Registro\assets\js\plugins\wow\wow.min.js" />
+    <Content Include="Vista\Registro\assets\js\vitality.js" />
+    <Content Include="Vista\Registro\borrarcuenta.aspx" />
+    <Content Include="Vista\Registro\cambiopassword.aspx" />
+    <Content Include="Vista\Registro\modificardatosempleado.aspx" />
+    <Content Include="Vista\Registro\recuperacionpassword.aspx" />
+    <Content Include="Vista\Registro\registro.aspx" />
+    <Content Include="Vista\Registro\validarregistro.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controlador\Comando.cs" />
+    <Compile Include="Controlador\FabricaComando.cs" />
+    <Compile Include="Controlador\ModuloEmpleados\AgregarCliente.cs" />
+    <Compile Include="Controlador\ModuloEmpleados\RecursosModuloClientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursosModuloClientes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controlador\ModuloEmpleados\ValidacionDatosCliente.cs" />
+    <Compile Include="Controlador\ModuloUsuarios\AgregarEmpleado.cs" />
+    <Compile Include="Controlador\ModuloUsuarios\AsignarRol.cs" />
+    <Compile Include="Controlador\ModuloUsuarios\CambiarPassword.cs" />
+    <Compile Include="Controlador\ModuloUsuarios\ConsultarEmpleados.cs" />
+    <Compile Include="Controlador\ModuloUsuarios\ConsultarRoles.cs" />
+    <Compile Include="Controlador\ModuloUsuarios\EliminarEmpleado.cs" />
+    <Compile Include="Controlador\ModuloUsuarios\EnviarConfirmacion.cs" />
+    <Compile Include="Controlador\ModuloUsuarios\IniciarSesion.cs" />
+    <Compile Include="Controlador\ModuloUsuarios\ModificarEmpleado.cs" />
+    <Compile Include="Controlador\ModuloUsuarios\RecursosModuloUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursosModuloUsuarios.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controlador\ModuloUsuarios\ValidacionDatos.cs" />
+    <Compile Include="Modelo\Acceso a datos\DAO.cs" />
+    <Compile Include="Modelo\Acceso a datos\FabricaDAO.cs" />
+    <Compile Include="Modelo\Acceso a datos\ModuloClientes\DAOCliente.cs" />
+    <Compile Include="Modelo\Acceso a datos\ModuloClientes\RecursoDAO_Cliente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursoDAO_Cliente.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Acceso a datos\ModuloUsuarios\DAOEmpleado.cs" />
+    <Compile Include="Modelo\Acceso a datos\ModuloUsuarios\RecursoDAO_Usuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursoDAO_Usuario.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Comun\Mail.cs" />
+    <Compile Include="Modelo\Comun\Parametro.cs" />
+    <Compile Include="Modelo\Comun\RecursoMail.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursoMail.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Comun\ResultadoBD.cs" />
+    <Compile Include="Modelo\Objetos\Cliente.cs" />
+    <Compile Include="Modelo\Objetos\Empleado.cs" />
+    <Compile Include="Modelo\Objetos\FabricaObjetos.cs" />
+    <Compile Include="Modelo\Objetos\reCaptchaV2.cs" />
+    <Compile Include="Modelo\Objetos\Rol.cs" />
+    <Compile Include="Modelo\Objetos\UsuarioRegistrar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\Empleados\administracionHPSC.aspx.cs">
+      <DependentUpon>administracionHPSC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\administracionHPSC.aspx.designer.cs">
+      <DependentUpon>administracionHPSC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-empleados\rolesempleados.aspx.cs">
+      <DependentUpon>rolesempleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-empleados\rolesempleados.aspx.designer.cs">
+      <DependentUpon>rolesempleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-empleados\visualizarempleados.aspx.cs">
+      <DependentUpon>visualizarempleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-empleados\visualizarempleados.aspx.designer.cs">
+      <DependentUpon>visualizarempleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Index\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Index\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Index\postlogin.aspx.cs">
+      <DependentUpon>postlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Index\postlogin.aspx.designer.cs">
+      <DependentUpon>postlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Registro\borrarcuenta.aspx.cs">
+      <DependentUpon>borrarcuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Registro\borrarcuenta.aspx.designer.cs">
+      <DependentUpon>borrarcuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Registro\cambiopassword.aspx.cs">
+      <DependentUpon>cambiopassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Registro\cambiopassword.aspx.designer.cs">
+      <DependentUpon>cambiopassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Registro\modificardatosempleado.aspx.cs">
+      <DependentUpon>modificardatosempleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Registro\modificardatosempleado.aspx.designer.cs">
+      <DependentUpon>modificardatosempleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Registro\recuperacionpassword.aspx.cs">
+      <DependentUpon>recuperacionpassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Registro\recuperacionpassword.aspx.designer.cs">
+      <DependentUpon>recuperacionpassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Registro\registro.aspx.cs">
+      <DependentUpon>registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Registro\registro.aspx.designer.cs">
+      <DependentUpon>registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Registro\validarregistro.aspx.cs">
+      <DependentUpon>validarregistro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Registro\validarregistro.aspx.designer.cs">
+      <DependentUpon>validarregistro.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Vista\Index\assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Vista\Index\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Vista\Index\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Vista\Index\assets\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Vista\Index\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Vista\Index\assets\font-awesome\less\animated.less" />
+    <Content Include="Vista\Index\assets\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Vista\Index\assets\font-awesome\less\core.less" />
+    <Content Include="Vista\Index\assets\font-awesome\less\fixed-width.less" />
+    <Content Include="Vista\Index\assets\font-awesome\less\font-awesome.less" />
+    <Content Include="Vista\Index\assets\font-awesome\less\icons.less" />
+    <Content Include="Vista\Index\assets\font-awesome\less\larger.less" />
+    <Content Include="Vista\Index\assets\font-awesome\less\list.less" />
+    <Content Include="Vista\Index\assets\font-awesome\less\mixins.less" />
+    <Content Include="Vista\Index\assets\font-awesome\less\path.less" />
+    <Content Include="Vista\Index\assets\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Vista\Index\assets\font-awesome\less\stacked.less" />
+    <Content Include="Vista\Index\assets\font-awesome\less\variables.less" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\_animated.scss" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\_core.scss" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\_icons.scss" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\_larger.scss" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\_list.scss" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\_mixins.scss" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\_path.scss" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\_stacked.scss" />
+    <Content Include="Vista\Index\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="Vista\Index\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Vista\Index\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Vista\Index\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Vista\Index\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Vista\Index\assets\less\about.less" />
+    <Content Include="Vista\Index\assets\less\asides.less" />
+    <Content Include="Vista\Index\assets\less\buttons.less" />
+    <Content Include="Vista\Index\assets\less\contact.less" />
+    <Content Include="Vista\Index\assets\less\footer.less" />
+    <Content Include="Vista\Index\assets\less\global.less" />
+    <Content Include="Vista\Index\assets\less\header.less" />
+    <Content Include="Vista\Index\assets\less\mixins.less" />
+    <Content Include="Vista\Index\assets\less\navbar.less" />
+    <Content Include="Vista\Index\assets\less\portfolio.less" />
+    <Content Include="Vista\Index\assets\less\pricing.less" />
+    <Content Include="Vista\Index\assets\less\services.less" />
+    <Content Include="Vista\Index\assets\less\themes.less" />
+    <Content Include="Vista\Index\assets\less\typography.less" />
+    <Content Include="Vista\Index\assets\less\variables.less" />
+    <Content Include="Vista\Index\assets\less\vitality.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Vista\Registro\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\animated.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\core.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\fixed-width.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\font-awesome.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\icons.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\larger.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\list.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\mixins.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\path.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\stacked.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\variables.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_animated.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_core.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_icons.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_larger.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_list.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_mixins.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_path.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_stacked.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\aguilar.psd" />
+    <Content Include="Vista\Registro\assets\less\about.less" />
+    <Content Include="Vista\Registro\assets\less\asides.less" />
+    <Content Include="Vista\Registro\assets\less\buttons.less" />
+    <Content Include="Vista\Registro\assets\less\contact.less" />
+    <Content Include="Vista\Registro\assets\less\footer.less" />
+    <Content Include="Vista\Registro\assets\less\global.less" />
+    <Content Include="Vista\Registro\assets\less\header.less" />
+    <Content Include="Vista\Registro\assets\less\mixins.less" />
+    <Content Include="Vista\Registro\assets\less\navbar.less" />
+    <Content Include="Vista\Registro\assets\less\portfolio.less" />
+    <Content Include="Vista\Registro\assets\less\pricing.less" />
+    <Content Include="Vista\Registro\assets\less\services.less" />
+    <Content Include="Vista\Registro\assets\less\themes.less" />
+    <Content Include="Vista\Registro\assets\less\typography.less" />
+    <Content Include="Vista\Registro\assets\less\variables.less" />
+    <Content Include="Vista\Registro\assets\less\vitality.less" />
+    <Content Include="Vista\Empleados\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Vista\Empleados\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Vista\Empleados\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Vista\Empleados\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Vista\Empleados\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Vista\Empleados\font-awesome\less\core.less" />
+    <Content Include="Vista\Empleados\font-awesome\less\fixed-width.less" />
+    <Content Include="Vista\Empleados\font-awesome\less\font-awesome.less" />
+    <Content Include="Vista\Empleados\font-awesome\less\icons.less" />
+    <Content Include="Vista\Empleados\font-awesome\less\larger.less" />
+    <Content Include="Vista\Empleados\font-awesome\less\list.less" />
+    <Content Include="Vista\Empleados\font-awesome\less\mixins.less" />
+    <Content Include="Vista\Empleados\font-awesome\less\path.less" />
+    <Content Include="Vista\Empleados\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Vista\Empleados\font-awesome\less\spinning.less" />
+    <Content Include="Vista\Empleados\font-awesome\less\stacked.less" />
+    <Content Include="Vista\Empleados\font-awesome\less\variables.less" />
+    <Content Include="Vista\Empleados\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Vista\Empleados\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Vista\Empleados\font-awesome\scss\_core.scss" />
+    <Content Include="Vista\Empleados\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Vista\Empleados\font-awesome\scss\_icons.scss" />
+    <Content Include="Vista\Empleados\font-awesome\scss\_larger.scss" />
+    <Content Include="Vista\Empleados\font-awesome\scss\_list.scss" />
+    <Content Include="Vista\Empleados\font-awesome\scss\_mixins.scss" />
+    <Content Include="Vista\Empleados\font-awesome\scss\_path.scss" />
+    <Content Include="Vista\Empleados\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Vista\Empleados\font-awesome\scss\_spinning.scss" />
+    <Content Include="Vista\Empleados\font-awesome\scss\_stacked.scss" />
+    <Content Include="Vista\Empleados\font-awesome\scss\_variables.scss" />
+    <Content Include="Vista\Empleados\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Vista\Empleados\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Vista\Empleados\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Vista\Empleados\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Vista\Empleados\LICENSE" />
+    <Content Include="Vista\Empleados\README.md" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColReorder\Readme.md" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\ColVis\Readme.md" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\FixedColumns\Readme.md" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\css\dataTables.responsive.scss" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Responsive\Readme.md" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\Scroller\examples\data\ssp.php" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\psd\collection.psd" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\psd\copy document.psd" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\psd\file_types.psd" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\images\psd\printer.psd" />
+    <Content Include="Vista\Common\plugins\datatables\extensions\TableTools\Readme.md" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controlador\ModuloEmpleados\RecursosModuloClientes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursosModuloClientes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controlador\ModuloUsuarios\RecursosModuloUsuarios.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursosModuloUsuarios.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelo\Acceso a datos\ModuloClientes\RecursoDAO_Cliente.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursoDAO_Cliente.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelo\Acceso a datos\ModuloUsuarios\RecursoDAO_Usuario.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursoDAO_Usuario.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelo\Comun\RecursoMail.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursoMail.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Vista\Registro\assets\img\client-logos\" />
+    <Folder Include="Vista\Registro\assets\img\creative\portfolio\" />
+    <Folder Include="Vista\Registro\assets\img\culinary\menu\" />
+    <Folder Include="Vista\Registro\assets\img\culinary\people\" />
+    <Folder Include="Vista\Registro\assets\img\demo\" />
+    <Folder Include="Vista\Registro\assets\img\fashion\gallery\" />
+    <Folder Include="Vista\Registro\assets\img\legal\people\" />
+    <Folder Include="Vista\Registro\assets\img\people\" />
+    <Folder Include="Vista\Registro\assets\img\testimonials\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8407</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8407/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
