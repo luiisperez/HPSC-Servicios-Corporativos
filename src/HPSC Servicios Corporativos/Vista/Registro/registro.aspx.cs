@@ -24,21 +24,18 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
         {
             if (tipousuario.SelectedValue.Equals("Empleado"))
             {
-                empform.Visible = true;
+                formemp.Visible = true;
                 cliform.Visible = false;
-                aliform.Visible = false;
             }
             if (tipousuario.SelectedValue.Equals("Cliente"))
             {
-                empform.Visible = false;
+                formemp.Visible = false;
                 cliform.Visible = true;
-                aliform.Visible = false;
             }
             if (tipousuario.SelectedValue.Equals("Aliado"))
             {
-                empform.Visible = false;
+                formemp.Visible = false;
                 cliform.Visible = false;
-                aliform.Visible = true;
             }
         }
 
@@ -49,34 +46,29 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
 
         protected void correoemp_TextChanged(object sender, EventArgs e)
         {
-            bool validarcorreo = Regex.IsMatch(correoemp.Text, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
-            if (validarcorreo)
-            {
-
-            }
-            else
-            {
-                string script = "alert(\"El correo ingresado no tiene formato de correo\");";
-                ScriptManager.RegisterStartupScript(this, GetType(),
-                                      "ServerControlScript", script, true);
-                correoemp.Text = "";
-            }
+            
         }
 
         protected void aceptaremp_Click(object sender, EventArgs e)
         {
+            String correoem = Request.Form["correoemp"];
+            String nombreem = Request.Form["nombreemp"];
+            String apellidoem = Request.Form["apellidoemp"];
+            String usuarioem = Request.Form["usuarioemp"];
+            String contrasenaem = Request.Form["contrasenaemp"];
+            String valcontrasenaem = Request.Form["verificarcontrasenaemp"];
             try
             {
-                if ((!correoemp.Text.Equals("")) && (!nombreemp.Text.Equals("")) && (!apellidoemp.Text.Equals("")) && (!usuarioemp.Text.Equals("")) && (!contrasenaemp.Text.Equals("")))
+                if ((!correoem.Equals("")) && (!nombreem.Equals("")) && (!apellidoem.Equals("")) && (!usuarioem.Equals("")) && (!contrasenaem.Equals("")) && (!valcontrasenaem.Equals("")))
                 {
                     ValidacionDatos validar = FabricaComando.ComandoValidacionDeDatos();
-                    bool validaruser = validar.verificarusuarioemp(usuarioemp.Text);
-                    bool validarcorreo = validar.verificarcorreoemp(correoemp.Text);
+                    bool validaruser = validar.verificarusuarioemp(usuarioem);
+                    bool validarcorreo = validar.verificarcorreoemp(correoem);
                     if ((!validaruser) && (!validarcorreo))
                     {
-                        EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correoemp.Text);
+                        EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correoem);
                         env.ejecutar();
-                        Empleado nuevoempleado = FabricaObjetos.CrearEmpleado(correoemp.Text, nombreemp.Text, apellidoemp.Text, usuarioemp.Text, contrasenaemp.Text);
+                        Empleado nuevoempleado = FabricaObjetos.CrearEmpleado(correoem, nombreem, apellidoem, usuarioem, contrasenaem);
                         UsuarioRegistrar nuevouser = new UsuarioRegistrar(nuevoempleado, env.codigohexadecimal);
                         Session["Usuario"] = nuevouser;
                         Response.Redirect("~/Vista/Registro/validarregistro.aspx?tipo=" + tipousuario.SelectedValue);
@@ -86,22 +78,22 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
                         string script = "alert(\"Ese usuario ya esta registrado\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
-                        usuarioemp.Text = String.Empty;
+                        usuarioemp.Value = String.Empty;
                     }
                     else if ((!validaruser) && (validarcorreo))
                     {
                         string script = "alert(\"Ese correo ya esta registrado\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
-                        correoemp.Text = String.Empty;
+                        correoemp.Value = String.Empty;
                     }
                     else
                     {
                         string script = "alert(\"Ese usuario y ese correo ya estan registrados\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
-                        usuarioemp.Text = String.Empty;
-                        correoemp.Text = String.Empty;
+                        usuarioemp.Value = String.Empty;
+                        correoemp.Value = String.Empty;
                     }
                 }
                 else
@@ -128,16 +120,16 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
         {
             try
             {
-                if ((!correocli.Text.Equals("")) && (!nombrecli.Text.Equals("")) && (!direccioncli.Text.Equals("")) && (!usuariocli.Text.Equals("")) && (!contrasenacli.Text.Equals("")))
+                if ((!correocli.Value.Equals("")) && (!nombrecli.Value.Equals("")) && (!direccioncli.Value.Equals("")) && (!usuariocli.Value.Equals("")) && (!contrasenacli.Value.Equals("")))
                 {
                     ValidacionDatosCliente validar = FabricaComando.ComandoValidacionDeDatosDeCliente();
-                    bool validaruser = validar.verificarusuariocli(usuariocli.Text);
-                    bool validarcorreo = validar.verificarcorreocli(correocli.Text);
+                    bool validaruser = validar.verificarusuariocli(usuariocli.Value);
+                    bool validarcorreo = validar.verificarcorreocli(correocli.Value);
                     if ((!validaruser) && (!validarcorreo))
                     {
-                        EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correocli.Text);
+                        EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correocli.Value);
                         env.ejecutar();
-                        Cliente nuevocliente = FabricaObjetos.CrearCliente(correocli.Text, nombrecli.Text, direccioncli.Text, usuariocli.Text, contrasenacli.Text);
+                        Cliente nuevocliente = FabricaObjetos.CrearCliente(correocli.Value, nombrecli.Value, direccioncli.Value, usuariocli.Value, contrasenacli.Value);
                         UsuarioRegistrar nuevouser = new UsuarioRegistrar(nuevocliente, env.codigohexadecimal);
                         Session["Usuario"] = nuevouser;
                         Response.Redirect("~/Vista/Registro/validarregistro.aspx?tipo=" + tipousuario.SelectedValue);
@@ -147,22 +139,22 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
                         string script = "alert(\"Ese usuario ya esta registrado\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
-                        usuariocli.Text = String.Empty;
+                        usuariocli.Value = String.Empty;
                     }
                     else if ((!validaruser) && (validarcorreo))
                     {
                         string script = "alert(\"Ese correo ya esta registrado\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
-                        correocli.Text = String.Empty;
+                        correocli.Value = String.Empty;
                     }
                     else
                     {
                         string script = "alert(\"Ese usuario y ese correo ya estan registrados\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
-                        usuariocli.Text = String.Empty;
-                        correocli.Text = String.Empty;
+                        usuariocli.Value = String.Empty;
+                        correocli.Value = String.Empty;
                     }
                 }
                 else

@@ -79,7 +79,7 @@
                         
                     </li>
                     <li id="zonaclientes" runat="server">
-                        <a href="#"><i class="fa fa-briefcase"></i> Clientes</a>
+                        
                     </li>
                     <li id="zonacontratos" runat="server">
                         <a href="#"><i class="fa fa-folder-open"></i> Contratos</a>

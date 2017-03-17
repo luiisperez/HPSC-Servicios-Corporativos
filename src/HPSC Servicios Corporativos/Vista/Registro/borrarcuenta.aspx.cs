@@ -1,4 +1,5 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador;
+using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
 using HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
@@ -13,11 +14,19 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
     public partial class borrarcuenta : System.Web.UI.Page
     {
         Empleado emp = null;
+        Cliente cli = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             var user = Session["Usuario"];
             if ((user!=null)&&(user.GetType().Equals(typeof(Empleado)))){
                 emp = (Empleado)user;
+            }else if ((user != null) && (user.GetType().Equals(typeof(Cliente))))
+            {
+                cli = (Cliente)user;
+            }
+            else
+            {
+                Response.Redirect("~/Vista/Index/index.aspx");
             }
         }
 
@@ -25,12 +34,27 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
         {
             try
             {
-                if ((!contrasena.Text.Equals("")) && (!contrasenarepe.Text.Equals("")))
+                if ((!contrasena.Text.Equals("")) && (!contrasenarepe.Text.Equals("")) && (emp != null))
                 {
                     ValidacionDatos validar = FabricaComando.ComandoValidacionDeDatos();
-                    if (validar.validarcontrasenahash(contrasena.Text, emp.contrasena))
+                    if ((validar.validarcontrasenahash(contrasena.Text, emp.contrasena)))
                     {
                         EliminarEmpleado cmd = FabricaComando.ComandoEliminarEmpleado(emp);
+                        cmd.ejecutar();
+                        string script = "alert(\"Se ha eliminado su cuenta exitosamente y será redirigido al inicio\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                                "ServerControlScript", script, true);
+                        Session.Abandon();
+                        ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                                                    "setTimeout(function() {window.location.replace('/Vista/Index/index.aspx') }, 500);", true);
+                    }
+                }
+                else if ((!contrasena.Text.Equals("")) && (!contrasenarepe.Text.Equals("")) && (cli != null))
+                {
+                    ValidacionDatos validar = FabricaComando.ComandoValidacionDeDatos();
+                    if ((validar.validarcontrasenahash(contrasena.Text, cli.contrasena)))
+                    {
+                        EliminarCliente cmd = FabricaComando.ComandoEliminarCliente(cli);
                         cmd.ejecutar();
                         string script = "alert(\"Se ha eliminado su cuenta exitosamente y será redirigido al inicio\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),

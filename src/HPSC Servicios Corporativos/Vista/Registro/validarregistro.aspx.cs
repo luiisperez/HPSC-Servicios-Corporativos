@@ -25,7 +25,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
             user = (UsuarioRegistrar)Session["Usuario"];
         }
 
-        
+
+        protected void cancelaremp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Vista/Index/index.aspx");
+        }
 
         protected void aceptaremp_Click(object sender, EventArgs e)
         {
@@ -37,7 +41,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                 {
                     if (tipo.Equals("Empleado"))
                     {
-                        if ((user.codigohexadecimal.Equals(codigohexa.Text.ToUpper())))
+                        if ((user.codigohexadecimal.Equals(codigohexa.Value.ToUpper())))
                         {
                             AgregarEmpleado add = FabricaComando.ComandoAgregarEmpleado(user.emp);
                             add.ejecutar();
@@ -58,7 +62,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                             }
                         }
                     }else if (tipo.Equals("Cliente")){
-                        if ((user.codigohexadecimal.Equals(codigohexa.Text.ToUpper())))
+                        if ((user.codigohexadecimal.Equals(codigohexa.Value.ToUpper())))
                         {
                             AgregarCliente add = FabricaComando.ComandoAgregarCliente(user.cli);
                             add.ejecutar();

@@ -1,4 +1,5 @@
-﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos;
+﻿using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
+using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos;
 using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;

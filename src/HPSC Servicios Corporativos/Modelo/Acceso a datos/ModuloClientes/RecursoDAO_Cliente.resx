@@ -150,6 +150,15 @@
     <comment>Procedimiento para consultar un cliente en la BD por el correo</comment>
   </data>
   <data name="ProcedimientoCambiarPwdCliente" xml:space="preserve">
-    <value />
+    <value>CAMBIAR_PWD_CLIENTE</value>
+    <comment>Procedimiento para cambiar el pwd de un cliente en la base de datos</comment>
+  </data>
+  <data name="ProcedimientoModificarCliente" xml:space="preserve">
+    <value>MODIFICAR_CLIENTE</value>
+    <comment>Procedimiento para actualizar los datos de un cliente en la BD</comment>
+  </data>
+  <data name="ProcedimientoEliminarCliente" xml:space="preserve">
+    <value>ELIMINAR_CLIENTE</value>
+    <comment>Procedimiento para eliminar un cliente de la BD</comment>
   </data>
 </root>

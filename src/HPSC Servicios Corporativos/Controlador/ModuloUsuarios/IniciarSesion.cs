@@ -29,22 +29,30 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios
                 if (tipouser.Equals("Empleado"))
                 {
                     DAOEmpleado basedatos = FabricaDAO.CrearDAOEmpleado();
-                    Empleado empConsutado = basedatos.ConsultarEmpleado(user);
-                    if ((!empConsutado.contrasena.Equals(password)) || (!empConsutado.usuario.Equals(user)))
+                    Empleado empConsultado = basedatos.ConsultarEmpleado(user);
+                    if ((!empConsultado.contrasena.Equals(password)) || (!empConsultado.usuario.Equals(user)))
                     {
                         throw new NullReferenceException(); //CREAR EXCEPCIONES PROPIAS LUEGO
                     }
-                    emp = empConsutado;
+                    else if (empConsultado.rol.Equals("-100"))
+                    {
+                        throw new NullReferenceException(); //CREAR EXCEPCIONES PROPIAS LUEGO
+                    }
+                    emp = empConsultado;
                 }
                 else if (tipouser.Equals("Cliente"))
                 {
                     DAOCliente basedatos = FabricaDAO.CrearDAOCliente();
-                    Cliente cliConsutado = basedatos.ConsultarCliente(user);
-                    if ((!cliConsutado.contrasena.Equals(password)) || (!cliConsutado.usuario.Equals(user)))
+                    Cliente cliConsultado = basedatos.ConsultarCliente(user);
+                    if ((!cliConsultado.contrasena.Equals(password)) || (!cliConsultado.usuario.Equals(user)))
                     {
                         throw new NullReferenceException(); //CREAR EXCEPCIONES PROPIAS LUEGO
                     }
-                    cli = cliConsutado;
+                    else if (cliConsultado.rol.Equals("-100"))
+                    {
+                        throw new NullReferenceException(); //CREAR EXCEPCIONES PROPIAS LUEGO
+                    }
+                    cli = cliConsultado;
                 }
             }
             catch (Exception e)

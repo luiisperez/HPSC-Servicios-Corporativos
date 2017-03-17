@@ -78,7 +78,7 @@
                         
                         </li>
                         <li id="zonaclientes" runat="server">
-                            <a href="#"><i class="fa fa-briefcase"></i> Clientes</a>
+                           
                         </li>
                         <li id="zonacontratos" runat="server">
                             <a href="#"><i class="fa fa-folder-open"></i> Contratos</a>
@@ -91,9 +91,9 @@
                 <!-- /.navbar-collapse -->
             </nav>
 
-            <div id="page-wrapper" style="width:1250px">
+            <div id="page-wrapper" style="width:98%">
 
-                <div id="contenedor" class="container-fluid" style="height:670px; width:1170px">
+                <div id="contenedor" class="container-fluid" style="height:100%; width:95%">
 
                     <!-- Page Heading -->
                     <div class="row">

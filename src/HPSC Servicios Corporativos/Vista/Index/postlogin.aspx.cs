@@ -33,6 +33,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
                     {
                         zonaempleados.InnerHtml = "<a href=\"#\" style=\"color:white\" onclick=\"privilegiosinsuficientes()\">• Zona de empleados <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
                     }
+                    actdatos.InnerHtml = "<a href=\"/Vista/Registro/modificardatosempleado.aspx\" style=\"color:white\">• Actualizar mis datos</a>";
                 }
                 if ((user != null) && (user.GetType().Equals(typeof(Cliente))))
                 {
@@ -42,6 +43,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
                         Response.Redirect("~/Vista/Index/index.aspx");
                     }
                     zonaempleados.InnerHtml = "<a href=\"#\" style=\"color:white\">• Zona de clientes</a>";
+                    actdatos.InnerHtml = "<a href=\"/Vista/Registro/modificardatoscliente.aspx\" style=\"color:white\">• Actualizar mis datos</a>";
                 }
                 
             }

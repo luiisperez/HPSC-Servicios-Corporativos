@@ -13,13 +13,13 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
     public partial class registro {
         
         /// <summary>
-        /// formregistro control.
+        /// formulario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formregistro;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formulario;
         
         /// <summary>
         /// tipousuario control.
@@ -31,13 +31,13 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         protected global::System.Web.UI.WebControls.RadioButtonList tipousuario;
         
         /// <summary>
-        /// empform control.
+        /// formemp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel empform;
+        protected global::System.Web.UI.WebControls.Panel formemp;
         
         /// <summary>
         /// correoemp control.
@@ -46,16 +46,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox correoemp;
-        
-        /// <summary>
-        /// validarcorreoemp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validarcorreoemp;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText correoemp;
         
         /// <summary>
         /// nombreemp control.
@@ -64,16 +55,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nombreemp;
-        
-        /// <summary>
-        /// validarnombreemp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validarnombreemp;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nombreemp;
         
         /// <summary>
         /// apellidoemp control.
@@ -82,16 +64,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox apellidoemp;
-        
-        /// <summary>
-        /// valapellido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator valapellido;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText apellidoemp;
         
         /// <summary>
         /// usuarioemp control.
@@ -100,16 +73,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usuarioemp;
-        
-        /// <summary>
-        /// valusuario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator valusuario;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText usuarioemp;
         
         /// <summary>
         /// contrasenaemp control.
@@ -118,16 +82,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox contrasenaemp;
-        
-        /// <summary>
-        /// valcontrasena control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator valcontrasena;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword contrasenaemp;
         
         /// <summary>
         /// verificarcontrasenaemp control.
@@ -136,16 +91,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox verificarcontrasenaemp;
-        
-        /// <summary>
-        /// valvacontrasena control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator valvacontrasena;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword verificarcontrasenaemp;
         
         /// <summary>
         /// aceptaremp control.
@@ -181,16 +127,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox correocli;
-        
-        /// <summary>
-        /// correoval control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator correoval;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText correocli;
         
         /// <summary>
         /// nombrecli control.
@@ -199,16 +136,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nombrecli;
-        
-        /// <summary>
-        /// nombreval control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator nombreval;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nombrecli;
         
         /// <summary>
         /// direccioncli control.
@@ -217,16 +145,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox direccioncli;
-        
-        /// <summary>
-        /// direccionval control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator direccionval;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText direccioncli;
         
         /// <summary>
         /// usuariocli control.
@@ -235,16 +154,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usuariocli;
-        
-        /// <summary>
-        /// usuarioval control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator usuarioval;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText usuariocli;
         
         /// <summary>
         /// contrasenacli control.
@@ -253,16 +163,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox contrasenacli;
-        
-        /// <summary>
-        /// contrasenaval control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator contrasenaval;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword contrasenacli;
         
         /// <summary>
         /// contrasenavalcli control.
@@ -271,16 +172,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox contrasenavalcli;
-        
-        /// <summary>
-        /// contrasenavalval control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator contrasenavalval;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword contrasenavalcli;
         
         /// <summary>
         /// aceptarcli control.
@@ -299,23 +191,5 @@ namespace HPSC_Servicios_Corporativos.Vista.Index {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button cancelarcli;
-        
-        /// <summary>
-        /// aliform control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel aliform;
-        
-        /// <summary>
-        /// TextBox3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
     }
 }

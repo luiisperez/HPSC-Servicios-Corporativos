@@ -116,7 +116,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to CAMBIAR_PWD_CLIENTE.
         /// </summary>
         internal static string ProcedimientoCambiarPwdCliente {
             get {
@@ -139,6 +139,24 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes {
         internal static string ProcedimientoConsultarClienteCorreo {
             get {
                 return ResourceManager.GetString("ProcedimientoConsultarClienteCorreo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ELIMINAR_CLIENTE.
+        /// </summary>
+        internal static string ProcedimientoEliminarCliente {
+            get {
+                return ResourceManager.GetString("ProcedimientoEliminarCliente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MODIFICAR_CLIENTE.
+        /// </summary>
+        internal static string ProcedimientoModificarCliente {
+            get {
+                return ResourceManager.GetString("ProcedimientoModificarCliente", resourceCulture);
             }
         }
     }

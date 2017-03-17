@@ -19,10 +19,6 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
             click = (String)ViewState["click"];
         }
 
-        protected void correoemp_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         protected void aceptaremp_Click(object sender, EventArgs e)
         {
@@ -43,6 +39,12 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                             ViewState["codigohexadecimal"] = env.codigohexadecimal;
                             ViewState["click"] = "243edewc"; //String al azar
                         }
+                        else
+                        {
+                            var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("El correo ingresado no existe en el sistema");
+                            var script = string.Format("alert({0});window.location ='/Vista/Registro/recuperacionpassword.aspx';", message);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                        }
                     }
                     else if (tipousuario.SelectedValue.Equals("Cliente"))
                     {
@@ -55,6 +57,12 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                             codigohexa.Enabled = true;
                             ViewState["codigohexadecimal"] = env.codigohexadecimal;
                             ViewState["click"] = "243edewc"; //String al azar
+                        }
+                        else
+                        {
+                            var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("El correo ingresado no existe en el sistema");
+                            var script = string.Format("alert({0});window.location ='/Vista/Registro/recuperacionpassword.aspx';", message);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
                         }
                     }
                 }

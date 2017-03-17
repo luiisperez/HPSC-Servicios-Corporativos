@@ -17,4 +17,4 @@ C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporati
 C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios.RecursosModuloUsuarios.resources
 C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC_Servicios_Corporativos.Modelo.Comun.RecursoMail.resources
 C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes.RecursoDAO_Cliente.resources
-C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC_Servicios_Corporativos.Controlador.ModuloEmpleados.RecursosModuloClientes.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC_Servicios_Corporativos.Controlador.ModuloClientes.RecursosModuloClientes.resources

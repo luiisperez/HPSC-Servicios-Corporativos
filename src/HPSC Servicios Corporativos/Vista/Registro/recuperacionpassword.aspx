@@ -80,7 +80,7 @@
         <div class="container text-center wow fadeIn">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 style="color:white">Registro</h2>
+                    <h2 style="color:white">Recuperación de contraseña</h2>
                 </div>
             </div>
             <div class="row content-row" style="margin-left:320px">

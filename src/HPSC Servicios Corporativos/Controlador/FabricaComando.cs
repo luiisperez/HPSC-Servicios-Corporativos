@@ -1,4 +1,5 @@
-﻿using HPSC_Servicios_Corporativos.Controlador.ModuloEmpleados;
+﻿using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
+using HPSC_Servicios_Corporativos.Controlador.ModuloEmpleados;
 using HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
@@ -68,9 +69,20 @@ namespace HPSC_Servicios_Corporativos.Controlador
             {
                 return new AgregarCliente(nuevocliente);
             }
+
             public static ValidacionDatosCliente ComandoValidacionDeDatosDeCliente()
             {
                 return new ValidacionDatosCliente();
+            }
+
+            public static ModificarCliente ComandoModificarCliente(Cliente nuevocliente)
+            {
+                return new ModificarCliente(nuevocliente);
+            }
+
+            public static EliminarCliente ComandoEliminarCliente(Cliente eliminarcliente)
+            {
+                return new EliminarCliente(eliminarcliente);
             }
         #endregion
     }

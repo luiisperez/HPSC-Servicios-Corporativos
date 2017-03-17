@@ -13,13 +13,22 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro {
     public partial class validarregistro {
         
         /// <summary>
-        /// formregistro control.
+        /// formulario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formregistro;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formulario;
+        
+        /// <summary>
+        /// formemp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel formemp;
         
         /// <summary>
         /// codigohexa control.
@@ -28,16 +37,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox codigohexa;
-        
-        /// <summary>
-        /// validarcodigo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validarcodigo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText codigohexa;
         
         /// <summary>
         /// aceptaremp control.
@@ -47,5 +47,14 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button aceptaremp;
+        
+        /// <summary>
+        /// cancelaremp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelaremp;
     }
 }

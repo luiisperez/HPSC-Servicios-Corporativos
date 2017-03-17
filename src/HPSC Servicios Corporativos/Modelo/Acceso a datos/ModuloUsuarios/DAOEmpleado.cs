@@ -53,6 +53,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos
             }
 
         }
+
         public void Modificar(Empleado e)
         {
             List<Parametro> listaParametro = FabricaDAO.asignarListaDeParametro();

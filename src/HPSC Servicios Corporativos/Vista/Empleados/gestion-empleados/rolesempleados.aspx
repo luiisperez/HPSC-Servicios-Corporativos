@@ -77,7 +77,7 @@
                         
                         </li>
                         <li id="zonaclientes" runat="server">
-                            <a href="#"><i class="fa fa-briefcase"></i> Clientes</a>
+                            
                         </li>
                         <li id="zonacontratos" runat="server">
                             <a href="#"><i class="fa fa-folder-open"></i> Contratos</a>
@@ -90,9 +90,9 @@
                 <!-- /.navbar-collapse -->
             </nav>
 
-            <div id="page-wrapper" style="width:1250px">
+            <div id="page-wrapper" style="width:98%">
 
-                <div id="contenedor" class="container-fluid" style="height:300px; width:1170px">
+                <div id="contenedor" class="container-fluid" style="height:100%; width:95%">
 
                     <!-- Page Heading -->
                     <div class="row">
@@ -111,11 +111,11 @@
                                     <div class="col-md-12" style="margin-top:10px;text-align:center">
                                         <div class="col-xs-6">
                                             <label>Nombre del empleado:  </label>
-                                            <asp:DropDownList ID="listadoempleados" runat="server" Height="30px" Width="300px"></asp:DropDownList>
+                                            <asp:DropDownList ID="listadoempleados" runat="server" Height="30px" Width="52%"></asp:DropDownList>
                                         </div>
                                         <div class="col-xs-6">
                                             <label>Rol:  </label>
-                                            <asp:DropDownList ID="listadoroles" runat="server" Height="30px" Width="300px"></asp:DropDownList>
+                                            <asp:DropDownList ID="listadoroles" runat="server" Height="30px" Width="52%"></asp:DropDownList>
                                         </div>
                                     </div>
                                     <div style="margin-top:10px;text-align:center">
