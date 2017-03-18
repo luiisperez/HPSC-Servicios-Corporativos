@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="prueba.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Registro.prueba" %>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +8,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bootstrap Login &amp; Register Templates</title>
+        <link rel="icon" href="/Vista/Common/img/hpsc-logo.ico" type="image/x-icon">
+        <title>HPSC Servicios Corporativos</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -17,9 +17,6 @@
         <link rel="stylesheet" href="assetos/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="assetos/css/form-elements.css">
         <link rel="stylesheet" href="assetos/css/style.css">
-
-        
-        <script src='https://www.google.com/recaptcha/api.js'></script>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,28 +45,24 @@
                 	
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1 style="color:white; font-family: 'Raleway Black'; font-size: 50px;">REGISTRO</h1>
+                            <h1 style="color:white; font-family: 'Raleway Black'; font-size: 50px;">CAMBIO DE CONTRASEÑA</h1>
                         </div>
                     </div>
                     <div style="width:40%;margin:0 auto">
-                        <asp:Panel id="formemp" runat="server" style="margin-bottom:-50px;margin-top:25px">
-                            <div class="form-box">
-	                            <div class="form-bottom" >
+                        <asp:Panel id="cliform" runat="server" style="margin-bottom:-50px;margin-top:25px">
+                             <div class="form-box">
+	                             <div class="form-bottom" >
 				                    <div class="form-group">
-				                        <label class="sr-only" for="form-email">Email</label>
-				                        <input type="text" name="form-email" placeholder="Código recibido..." class="form-email form-control" id="codigohexa" runat="server" onblur="validarcodigo()" maxlength="50">
+				                        <label class="sr-only" for="form-password">Contrasena</label>
+				                        <input type="password" name="form-password" placeholder="Contraseña..." class="form-password form-control" id="contrasena" runat="server" onblur="validarcontrasenacli()" maxlength="50">
 				                    </div>
-                                     <style>
-                                        #capatcha {
-                                            margin: 0 auto;
-                                            width: 75%;
-                                            margin-bottom:15px;
-                                        }
-                                    </style>
-                                    <div class="g-recaptcha" data-sitekey="6LflJRgUAAAAAOG7E_zK0ofxaZgtXvUZawm8w3hP" id="capatcha"></div>
+				                    <div class="form-group">
+				                        <label class="sr-only" for="form-val-password">VerificarContrasena</label>
+				                        <input type="password" name="form-val-password" placeholder="Verificar contraseña..." class="form-val-password form-control" id="contrasenarepe" runat="server" onblur="validarvalcontrasenacli()" maxlength="50">
+				                    </div>
                                     <%--=========================Estilo del boton aceptar=========================--%>
                                     <style>
-                                        #aceptaremp {
+                                        #aceptarcli {
 	                                        height: 50px;
                                             margin: 0;
                                             padding: 0 20px;
@@ -87,17 +80,17 @@
                                             -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
                                         }
 
-                                        #aceptaremp:hover { opacity: 0.6; color: #fff; }
+                                        #aceptarcli:hover { opacity: 0.6; color: #fff; }
 
-                                        #aceptaremp:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
+                                        #aceptarcli:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
 
-                                        #aceptaremp:focus { outline: 0; opacity: 0.6; background: #4CAF50; color: #fff; }
+                                        #aceptarcli:focus { outline: 0; opacity: 0.6; background: #4CAF50; color: #fff; }
 
-                                        #aceptaremp:active:focus, #aceptaremp.active:focus { outline: 0; opacity: 0.6; background: #4CAF50; color: #fff; }
+                                        #aceptarcli:active:focus, #aceptarcli.active:focus { outline: 0; opacity: 0.6; background: #4CAF50; color: #fff; }
                                     </style>
                                     <%--=========================Estilo del boton cancelar=========================--%>
                                     <style>
-                                        #cancelaremp {
+                                        #cancelarcli {
 	                                        height: 50px;
                                             margin: 0;
                                             padding: 0 20px;
@@ -115,35 +108,66 @@
                                             -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
                                         }
 
-                                        #cancelaremp:hover { opacity: 0.6; color: #fff; }
+                                        #cancelarcli:hover { opacity: 0.6; color: #fff; }
 
-                                        #cancelaremp:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
+                                        #cancelarcli:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
 
-                                        #cancelaremp:focus { outline: 0; opacity: 0.6; background: red; color: #fff; }
+                                        #cancelarcli:focus { outline: 0; opacity: 0.6; background: red; color: #fff; }
 
-                                        #cancelaremp:active:focus, #cancelaremp.active:focus { outline: 0; opacity: 0.6; background: red; color: #fff; }
+                                        #cancelarcli:active:focus, #cancelarcli.active:focus { outline: 0; opacity: 0.6; background: red; color: #fff; }
                                     </style>
-                                    <asp:Button ID="aceptaremp" runat="server" Text="Registrar" OnClick="aceptaremp_Click"/>
+                                    <asp:Button ID="aceptaremp" runat="server" Text="Aceptar" OnClick="aceptaremp_Click"/>
                                     <asp:Button ID="cancelaremp" runat="server" Text="Cancelar" OnClick="cancelaremp_Click"/>
-                                    
 			                    </div>
                             </div>
                         </asp:Panel>
-                          
+                       
                     </div>
                 </div>
             </div>
-            <div style="text-align:center"><label style="font-family: 'Raleway Medium'; font-style: italic; font-weight: bold; color: #FFFFFF;">*Este código puede tardar un poco en ser enviado a su correo</label></div>
             
         </div>
         
+
         <script>
-            function validarcodigo(sender, args){
-               var nombre = document.getElementById('<%=codigohexa.ClientID%>').value;
-               if (/[^a-z0-9]/gi.test(nombre)) {
-                  alert("No puede contener caracteres especiales");
-                  document.getElementById('nombreemp').value = '';
-               }
+            function validarcontrasena(sender, args) {
+                var nombre = document.getElementById('<%=contrasena.ClientID%>').value;
+                if (nombre.length >= 8) {
+                    if (nombre.match(new RegExp("[a-z]"))) {
+                        if (nombre.match(new RegExp("[A-Z]"))) {
+                            if (/\d/.test(nombre)) {
+                                if (nombre.match(new RegExp(/[~`!#$%\^&*+=\-\[\]\\';,./{}|\\":<>\?]/))) {
+
+                                } else {
+                                    alert("La contraseña no posee caracteres especiales");
+                                    document.getElementById('contrasenaemp').value = '';
+                                }
+                            } else {
+                                alert("La contraseña no posee números");
+                                document.getElementById('contrasenaemp').value = '';
+                            }
+                        } else {
+                            alert("La contraseña no posee mayúsculas");
+                            document.getElementById('contrasenaemp').value = '';
+                        }
+                    } else {
+                        alert("La contraseña no posee minúsculas");
+                        document.getElementById('contrasenaemp').value = '';
+                    }
+                } else {
+                    alert("La contraseña no posee como mínimo 8 caracteres");
+                    document.getElementById('contrasenaemp').value = '';
+                }
+            }
+
+            function validarvalcontrasena(sender, args) {
+                var nombre = document.getElementById('<%=contrasenarepe.ClientID%>').value;
+                if (nombre === document.getElementById('<%=contrasena.ClientID%>').value) {
+
+                } else {
+                    alert("Las contraseñas no coinciden");
+                    document.getElementById('verificarcontrasenaemp').value = '';
+                }
             }
         </script>
 
@@ -159,6 +183,7 @@
             <script src="assetos/js/placeholder.js"></script>
         <![endif]-->
         </form>
+
     </body>
 
 </html>

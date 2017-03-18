@@ -28,10 +28,10 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
         {
             try
             {
-                if ((!contrasena.Text.Equals("")) && (!contrasenarepe.Text.Equals("")))
+                if ((!contrasena.Value.Equals("")) && (!contrasenarepe.Value.Equals("")))
                 {
                     ValidacionDatos validar = FabricaComando.ComandoValidacionDeDatos();
-                    String hash = validar.calcularhash(contrasena.Text);
+                    String hash = validar.calcularhash(contrasena.Value);
                     CambiarPassword cmd = FabricaComando.ComandoCambiarPassword(correo, hash, tipo);
                     cmd.ejecutar();
                     string script = "alert(\"Ha cambiado su contraseña exitosamente y será redirigido al inicio\");";

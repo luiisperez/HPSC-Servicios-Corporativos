@@ -161,4 +161,8 @@
     <value>ELIMINAR_CLIENTE</value>
     <comment>Procedimiento para eliminar un cliente de la BD</comment>
   </data>
+  <data name="ProcedimientoConsultarClientes" xml:space="preserve">
+    <value>CONSULTAR_CLIENTES</value>
+    <comment>Procedimiento para consultar los clientes de la BD</comment>
+  </data>
 </root>

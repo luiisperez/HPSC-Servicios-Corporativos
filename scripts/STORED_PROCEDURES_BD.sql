@@ -1,0 +1,437 @@
+/********************************************************* CRUD DE EMPLEADOS *********************************************************/ 
+
+
+
+/****** 
+		PROCEDIMIENTO PARA AGREGAR EMPLEADOS A LA BASE DE DATOS (NO POSEEN NINGUN ROL) 
+		FECHA: 3/3/2017 3:29 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[AGREGAR_EMPLEADO]
+  @emp_nombre AS varchar (250),
+  @emp_apellido AS varchar (250),
+  @emp_correo AS varchar (350),
+  @emp_usuario AS varchar (200),
+  @emp_password AS varchar (200)
+AS
+BEGIN
+		BEGIN
+			INSERT INTO EMPLEADO VALUES(@emp_correo, @emp_nombre, @emp_apellido, @emp_usuario, @emp_password, 2);
+		END
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA MODIFICAR UN EMPLEADO DE LA BASE DE DATOS
+		FECHA: 3/3/2017 4:10 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[MODIFICAR_EMPLEADO]
+  @emp_nombre AS varchar (250),
+  @emp_apellido AS varchar (250),
+  @emp_correo AS varchar (350),
+  @emp_usuario AS varchar (200),
+  @emp_password AS varchar (200) 
+AS
+BEGIN
+	UPDATE [dbo].[EMPLEADO] SET [E_NOMBRE1] = @emp_nombre, [E_APELLIDO1] = @emp_apellido, [E_USUARIO] = @emp_usuario, [E_PASSWORD] = @emp_password WHERE [E_CORREO] = @emp_correo
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA ELIMINAR UN EMPLEADO DE LA BASE DE DATOS
+		FECHA: 3/3/2017 4:15 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[ELIMINAR_EMPLEADO]
+  @emp_correo AS varchar(350)
+AS
+BEGIN
+	UPDATE [dbo].[EMPLEADO] SET [E_FK_ROL] = 4 WHERE [E_CORREO] = @emp_correo
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA CONSULTAR LOS EMPLEADOS DE LA BASE DE DATOS
+		FECHA: 3/3/2017 4:17 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CONSULTAR_EMPLEADOS]
+AS
+BEGIN
+	SELECT E.E_CORREO, E.E_NOMBRE1, E.E_APELLIDO1, E.E_USUARIO, E.E_PASSWORD, R.R_NOMBRE FROM EMPLEADO E, ROL R WHERE R.R_ID=E.E_FK_ROL;
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA CONSULTAR LOS EMPLEADOS DE LA BASE DE DATOS
+		FECHA: 3/3/2017 4:19 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CONSULTAR_EMPLEADO]
+  @emp_usuario AS varchar(350)
+AS
+BEGIN
+	SELECT E.E_CORREO, E.E_NOMBRE1, E.E_APELLIDO1, E.E_USUARIO, E.E_PASSWORD, R.R_NIVELPRIVILEGIO FROM EMPLEADO E, ROL R WHERE [E_USUARIO] = @emp_usuario AND R.R_ID=E.E_FK_ROL;
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA CONSULTAR LOS EMPLEADOS DE LA BASE DE DATOS POR CORREO
+		FECHA: 3/3/2017 5:12 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CONSULTAR_EMPLEADO_CORREO]
+  @emp_correo AS varchar(350)
+AS
+BEGIN
+	SELECT * FROM EMPLEADO WHERE [E_CORREO] = @emp_correo
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA CAMBIAR EL PWD DE UN EMPLEADO DE LA BASE DE DATOS POR CORREO
+		FECHA: 3/3/2017 6:12 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CAMBIAR_PWD_EMPLEADO]
+  @emp_correo AS varchar(350),
+  @emp_password AS varchar(350)
+AS
+BEGIN
+	UPDATE [dbo].[EMPLEADO] SET [E_PASSWORD] = @emp_password WHERE [E_CORREO] = @emp_correo
+END
+
+
+
+/********************************************************* FIN CRUD DE EMPLEADOS *********************************************************/ 
+
+
+
+
+
+/********************************************************* CRUD DE ROLES *********************************************************/ 
+
+
+
+/****** 
+		PROCEDIMIENTO PARA AGREGAR ROLES A LOS EMPLEADOS DE LA BASE DE DATOS
+		FECHA: 3/3/2017 3:41 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[AGREGAR_ROL_EMPLEADO]
+  @emp_correo AS varchar(350),
+  @emp_rol AS int
+AS
+BEGIN
+	UPDATE [dbo].[EMPLEADO] SET [E_FK_ROL] = @emp_rol WHERE [e_correo] = @emp_correo
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA AGREGAR ROLES A LA BASE DE DATOS 
+		FECHA: 3/3/2017 3:11 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[AGREGAR_ROL]
+  @rol_nombre AS varchar (100),
+  @rol_nivelprivilegio AS int  
+AS
+BEGIN
+	IF ((SELECT COUNT(R_ID) FROM ROL) = 0)
+		BEGIN
+			INSERT INTO ROL VALUES(1, @rol_nombre, @rol_nivelprivilegio);
+		END
+  ELSE
+		BEGIN
+			INSERT INTO ROL VALUES((SELECT MAX(R_ID) from ROL)+1, @rol_nombre, @rol_nivelprivilegio);
+		END
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA MODIFICAR UN ROL DE LA BASE DE DATOS
+		FECHA: 3/3/2017 3:53 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[MODIFICAR_ROL]
+  @rol_id AS int,
+  @rol_nombre AS varchar (100),
+  @rol_nivelprivilegio AS int  
+AS
+BEGIN
+	UPDATE [dbo].[ROL] SET [R_NOMBRE] = @rol_nombre, [R_NIVELPRIVILEGIO] = @rol_nivelprivilegio WHERE [R_ID] = @rol_id
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA ELIMINAR UN ROL DE LA BASE DE DATOS
+		FECHA: 3/3/2017 3:57 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[ELIMINAR_ROL]
+  @rol_id AS int,
+  @rol_nombre AS varchar (100),
+  @rol_nivelprivilegio AS int  
+AS
+BEGIN
+	DELETE FROM [dbo].[ROL] WHERE [R_ID] = @rol_id
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA CONSULTAR TODOS LOS ROLES
+		FECHA: 3/3/2017 3:59 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CONSULTAR_ROLES]
+AS
+BEGIN
+	SELECT * FROM ROL
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA CONSULTAR UN ROL
+		FECHA: 3/3/2017 4:02 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CONSULTAR_ROL]
+  @rol_id AS int
+AS
+BEGIN
+	SELECT * FROM ROL WHERE [R_ID] = @rol_id
+END
+
+
+
+/********************************************************* FIN CRUD ROLES *********************************************************/
+
+
+
+
+
+/********************************************************* CRUD DE CLIENTES *********************************************************/ 
+
+
+
+/****** 
+		PROCEDIMIENTO PARA AGREGAR CLIENTES A LA BASE DE DATOS 
+		FECHA: 14/3/2017 5:40 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[AGREGAR_CLIENTE]
+  @cli_nombre AS varchar (250),
+  @cli_direccion AS varchar (1500),
+  @cli_correo AS varchar (350),
+  @cli_usuario AS varchar (200),
+  @cli_password AS varchar (200)
+AS
+BEGIN
+		BEGIN
+			INSERT INTO CLIENTE VALUES(@cli_correo, @cli_nombre, @cli_usuario, @cli_password, @cli_direccion, 3);
+		END
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA CONSULTAR LOS CLIENTES DE LA BASE DE DATOS
+		FECHA: 14/3/2017 5:19 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CONSULTAR_CLIENTE]
+  @cli_usuario AS varchar(350)
+AS
+BEGIN
+	SELECT C.C_CORREO, C.C_NOMBRE_EMPRESA, C.C_USUARIO, C.C_PASSWORD, C.C_UBICACION, R.R_NIVELPRIVILEGIO FROM CLIENTE C, ROL R WHERE [C_USUARIO] = @cli_usuario AND R.R_ID=C.C_FK_ROL;
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA CONSULTAR LOS CLIENTES DE LA BASE DE DATOS POR CORREO
+		FECHA: 14/3/2017 5:12 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CONSULTAR_CLIENTE_CORREO]
+  @cli_correo AS varchar(350)
+AS
+BEGIN
+	SELECT * FROM CLIENTE WHERE [C_CORREO] = @cli_correo
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA CAMBIAR EL PWD DE UN CLIENTE DE LA BASE DE DATOS POR CORREO
+		FECHA: 16/3/2017 1:12 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CAMBIAR_PWD_CLIENTE]
+  @cli_correo AS varchar(350),
+  @cli_password AS varchar(350)
+AS
+BEGIN
+	UPDATE [dbo].[CLIENTE] SET [C_PASSWORD] = @cli_password WHERE [C_CORREO] = @cli_correo
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA MODIFICAR UN CLIENTE DE LA BASE DE DATOS
+		FECHA: 16/3/2017 1:18 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[MODIFICAR_CLIENTE]
+  @cli_nombre AS varchar (250),
+  @cli_direccion AS varchar (250),
+  @cli_correo AS varchar (350),
+  @cli_usuario AS varchar (200),
+  @cli_password AS varchar (200) 
+AS
+BEGIN
+	UPDATE [dbo].[CLIENTE] SET [C_NOMBRE_EMPRESA] = @cli_nombre, [C_UBICACION] = @cli_direccion, [C_USUARIO] = @cli_usuario, [C_PASSWORD] = @cli_password WHERE [C_CORREO] = @cli_correo
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA ELIMINAR UN CLIENTE DE LA BASE DE DATOS
+		FECHA: 16/3/2017 1:20 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[ELIMINAR_CLIENTE]
+  @cli_correo AS varchar(350)
+AS
+BEGIN
+	UPDATE [dbo].[CLIENTE] SET [C_FK_ROL] = 4 WHERE [C_CORREO] = @cli_correo
+END
+
+
+
+/****** 
+		PROCEDIMIENTO PARA ELIMINAR UN CLIENTE DE LA BASE DE DATOS
+		FECHA: 17/3/2017 3:22 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CONSULTAR_CLIENTES]
+AS
+BEGIN
+	SELECT * FROM CLIENTE WHERE C_FK_ROL<>4
+END
+
+
+
+/********************************************************* FIN CRUD CLIENTES *********************************************************/

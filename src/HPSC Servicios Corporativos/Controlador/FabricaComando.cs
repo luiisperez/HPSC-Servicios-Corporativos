@@ -84,6 +84,11 @@ namespace HPSC_Servicios_Corporativos.Controlador
             {
                 return new EliminarCliente(eliminarcliente);
             }
+
+            public static ConsultarClientes ComandoConsultarClientes()
+            {
+                return new ConsultarClientes();
+            }
         #endregion
     }
 }

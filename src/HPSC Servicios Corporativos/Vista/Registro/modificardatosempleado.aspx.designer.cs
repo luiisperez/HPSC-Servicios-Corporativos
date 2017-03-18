@@ -13,22 +13,22 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro_Modificacion {
     public partial class modificardatosempleado {
         
         /// <summary>
-        /// formregistro control.
+        /// formulario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formregistro;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formulario;
         
         /// <summary>
-        /// empform control.
+        /// formemp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel empform;
+        protected global::System.Web.UI.WebControls.Panel formemp;
         
         /// <summary>
         /// correoemp control.
@@ -37,16 +37,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro_Modificacion {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox correoemp;
-        
-        /// <summary>
-        /// validarcorreoemp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validarcorreoemp;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText correoemp;
         
         /// <summary>
         /// nombreemp control.
@@ -55,16 +46,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro_Modificacion {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nombreemp;
-        
-        /// <summary>
-        /// validarnombreemp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validarnombreemp;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nombreemp;
         
         /// <summary>
         /// apellidoemp control.
@@ -73,16 +55,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro_Modificacion {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox apellidoemp;
-        
-        /// <summary>
-        /// valapellido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator valapellido;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText apellidoemp;
         
         /// <summary>
         /// usuarioemp control.
@@ -91,16 +64,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro_Modificacion {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usuarioemp;
-        
-        /// <summary>
-        /// valusuario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator valusuario;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText usuarioemp;
         
         /// <summary>
         /// contrasenaemp control.
@@ -109,16 +73,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro_Modificacion {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox contrasenaemp;
-        
-        /// <summary>
-        /// valcontrasena control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator valcontrasena;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword contrasenaemp;
         
         /// <summary>
         /// verificarcontrasenaemp control.
@@ -127,16 +82,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro_Modificacion {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox verificarcontrasenaemp;
-        
-        /// <summary>
-        /// valvacontrasena control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator valvacontrasena;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword verificarcontrasenaemp;
         
         /// <summary>
         /// aceptaremp control.

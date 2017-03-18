@@ -99,7 +99,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Lista de empleados 
+                                Lista de clientes
                             </h1>
                         </div>
                     </div>
@@ -112,10 +112,10 @@
                                     <table id="tabla" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Nombre y apellido</th>
+                                                <th>Nombre de empresa</th>
                                                 <th>Usuario</th>
                                                 <th>Correo</th>
-                                                <th>Rol</th>
+                                                <th>Ubicación</th>
                                                 <th>Opciones</th>
                                             </tr>
                                         </thead>
@@ -123,12 +123,12 @@
                                                  <asp:Repeater ID="repPeople" runat="server" OnItemCommand="repPeople_ItemCommand">
                                                     <ItemTemplate>
                                                             <tr id="<%# Eval("correo") %>">
-                                                                <td><%# Eval("nombre") %> <%# Eval("apellido") %></td>
+                                                                <td><%# Eval("nombre") %></td>
                                                                 <td><%# Eval("usuario") %></td>
-                                                                <td><asp:Label ID="correoemp" runat="server" Text='<%# Eval("correo") %>' ReadOnly="True" BorderStyle="None" /></td>
-                                                                <td><%# Eval("rol") %></td>
+                                                                <td><asp:Label ID="correocli" runat="server" Text='<%# Eval("correo") %>' ReadOnly="True" BorderStyle="None" /></td>
+                                                                <td><%# Eval("direccion") %></td>
                                                                 <td style="text-align:center">
-                                                                    <asp:ImageButton ID="Eliminar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/eliminar.ico" Height="25px" Width="25px" ToolTip="Eliminar empleado" />
+                                                                    <asp:ImageButton ID="Eliminar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/eliminar.ico" Height="25px" Width="25px" ToolTip="Eliminar cliente" />
                                                                 </td>
                                                             </tr>              
                                                     </ItemTemplate>
@@ -136,10 +136,10 @@
                                             </tbody>  
                                         <tfoot>
                                             <tr>
-                                                <th>Nombre y apellido</th>
+                                                <th>Nombre de empresa</th>
                                                 <th>Usuario</th>
                                                 <th>Correo</th>
-                                                <th>Rol</th>
+                                                <th>Ubicación</th>
                                                 <th>Opciones</th>
                                             </tr>
                                         </tfoot>

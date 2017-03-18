@@ -34,8 +34,44 @@
 
     </head>
 
+
+
     <body style="background-image:url('assets/img/registro-bg.jpg')">
          
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover:not(.active) {
+                background-color: #111;
+            }
+
+            .active {
+                background-color: #507389;
+            }
+        </style>
+
+        <ul>
+          <li><a class="active" href="/Vista/Index/index.aspx">Inicio</a></li>
+        </ul>
+
         <form id="formulario" runat="server">
         <!-- Top content -->
         <div class="top-content">
@@ -169,7 +205,7 @@
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-val-password">VerificarContrasena</label>
-				                        <input type="password" name="form-val-password" placeholder="Verificar contraseña..." class="form-val-password form-control" id="contrasenavalcli" runat="server" onblur="validarvalcontrasena()" maxlength="50">
+				                        <input type="password" name="form-val-password" placeholder="Verificar contraseña..." class="form-val-password form-control" id="contrasenavalcli" runat="server" onblur="validarvalcontrasenacli()" maxlength="50">
 				                    </div>
                                     <%--=========================Estilo del boton aceptar=========================--%>
                                     <style>
@@ -555,7 +591,7 @@
                 }
             }
 
-            function validarvalcontrasena(sender, args) {
+            function validarvalcontrasenacli(sender, args) {
                 var nombre = document.getElementById('<%=contrasenavalcli.ClientID%>').value;
                 if (nombre === document.getElementById('<%=contrasenacli.ClientID%>').value) {
 

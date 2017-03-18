@@ -38,7 +38,39 @@
     </head>
 
     <body style="background-image:url('assets/img/registro-bg.jpg')">
-         
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover:not(.active) {
+                background-color: #111;
+            }
+
+            .active {
+                background-color: #507389;
+            }
+        </style>
+
+        <ul>
+          <li><a class="active" href="/Vista/Index/index.aspx">Inicio</a></li>
+        </ul>
         <form id="formulario" runat="server">
         <!-- Top content -->
         <div class="top-content">
@@ -57,7 +89,7 @@
 	                            <div class="form-bottom" >
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-email">Email</label>
-				                        <input type="text" name="form-email" placeholder="Código recibido..." class="form-email form-control" id="codigohexa" runat="server" onblur="validarcodigo()" maxlength="50">
+				                        <input type="text" name="form-email" placeholder="Código de verificación..." class="form-email form-control" id="codigohexa" runat="server" onblur="validarcodigo()" maxlength="50">
 				                    </div>
                                      <style>
                                         #capatcha {

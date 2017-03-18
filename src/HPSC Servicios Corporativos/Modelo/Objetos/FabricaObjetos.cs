@@ -41,5 +41,10 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
         {
             return new Cliente(_correo, _nombre, _direccion, _usuario, _contrasena, _rol);
         }
+
+        internal static List<Cliente> CrearListaClientes()
+        {
+            return new List<Cliente>();
+        }
     }
 }

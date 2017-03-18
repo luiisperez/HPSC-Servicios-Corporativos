@@ -34,10 +34,10 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
         {
             try
             {
-                if ((!contrasena.Text.Equals("")) && (!contrasenarepe.Text.Equals("")) && (emp != null))
+                if ((!contrasena.Value.Equals("")) && (!contrasenarepe.Value.Equals("")) && (emp != null))
                 {
                     ValidacionDatos validar = FabricaComando.ComandoValidacionDeDatos();
-                    if ((validar.validarcontrasenahash(contrasena.Text, emp.contrasena)))
+                    if ((validar.validarcontrasenahash(contrasena.Value, emp.contrasena)))
                     {
                         EliminarEmpleado cmd = FabricaComando.ComandoEliminarEmpleado(emp);
                         cmd.ejecutar();
@@ -49,10 +49,10 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                                                     "setTimeout(function() {window.location.replace('/Vista/Index/index.aspx') }, 500);", true);
                     }
                 }
-                else if ((!contrasena.Text.Equals("")) && (!contrasenarepe.Text.Equals("")) && (cli != null))
+                else if ((!contrasena.Value.Equals("")) && (!contrasenarepe.Value.Equals("")) && (cli != null))
                 {
                     ValidacionDatos validar = FabricaComando.ComandoValidacionDeDatos();
-                    if ((validar.validarcontrasenahash(contrasena.Text, cli.contrasena)))
+                    if ((validar.validarcontrasenahash(contrasena.Value, cli.contrasena)))
                     {
                         EliminarCliente cmd = FabricaComando.ComandoEliminarCliente(cli);
                         cmd.ejecutar();

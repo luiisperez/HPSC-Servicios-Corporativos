@@ -13,13 +13,13 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro {
     public partial class recuperacionpassword {
         
         /// <summary>
-        /// formregistro control.
+        /// formulario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formregistro;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formulario;
         
         /// <summary>
         /// tipousuario control.
@@ -31,22 +31,40 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro {
         protected global::System.Web.UI.WebControls.RadioButtonList tipousuario;
         
         /// <summary>
+        /// formemp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel formemp;
+        
+        /// <summary>
+        /// mail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel mail;
+        
+        /// <summary>
         /// correo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox correo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText correo;
         
         /// <summary>
-        /// CustomValidator1 control.
+        /// hexacode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        protected global::System.Web.UI.WebControls.Panel hexacode;
         
         /// <summary>
         /// codigohexa control.
@@ -55,16 +73,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox codigohexa;
-        
-        /// <summary>
-        /// validarcodigo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validarcodigo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText codigohexa;
         
         /// <summary>
         /// aceptaremp control.
@@ -74,5 +83,23 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button aceptaremp;
+        
+        /// <summary>
+        /// cancelaremp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelaremp;
+        
+        /// <summary>
+        /// mensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel mensaje;
     }
 }

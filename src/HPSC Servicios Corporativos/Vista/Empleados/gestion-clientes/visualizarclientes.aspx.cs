@@ -1,4 +1,5 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador;
+using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
 using HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
@@ -12,7 +13,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
 {
     public partial class visualizarclientes : System.Web.UI.Page
     {
-        public List<Empleado> listado = FabricaObjetos.CrearListaEmpleados();
+        public List<Cliente> listado = FabricaObjetos.CrearListaClientes();
         protected Empleado emp;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,7 +38,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
                     zonaclientes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#clientes\" id=\"clients\" runat=\"server\"><i class=\"fa fa-briefcase\"></i> Clientes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
                         "<ul id=\"clientes\" class=\"collapse\">" +
                            "<li>" +
-                                "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-empleados/visualizarempleados.aspx\">Visualizar</a>" +
+                                "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/visualizarclientes.aspx\">Visualizar</a>" +
                            "</li>" +
                             "<li>" +
                                  "<a href=\"/Vista/Empleados/gestion-empleados/rolesempleados.aspx\">Equipos</a>" +
@@ -52,18 +53,10 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
                 }
                 try
                 {
-                    ConsultarEmpleados cmd = FabricaComando.ComandoConsultarEmpleados();
+                    ConsultarClientes cmd = FabricaComando.ComandoConsultarClientes();
                     cmd.ejecutar();
-                    listado = cmd.empleados;
-                    List<Empleado> listadosineliminadosniadmin = FabricaObjetos.CrearListaEmpleados();
-                    foreach (Empleado empleado in listado)
-                    {
-                        if ((!empleado.rol.Equals("Eliminado")) && (!empleado.rol.Equals("Administrador")))
-                        {
-                            listadosineliminadosniadmin.Add(empleado);
-                        }
-                    }
-                    repPeople.DataSource = listadosineliminadosniadmin;
+                    listado = cmd.clientes;
+                    repPeople.DataSource = listado;
                     repPeople.DataBind();
                 }
                 catch (Exception ex)
@@ -86,14 +79,14 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
         {
             try
             {
-                Label correo = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("correoemp");
-                Empleado empeliminar = FabricaObjetos.CrearEmpleado(correo.Text, "", "", "", "");
-                EliminarEmpleado cmd = FabricaComando.ComandoEliminarEmpleado(empeliminar);
+                Label correo = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("correocli");
+                Cliente clieliminar = FabricaObjetos.CrearCliente(correo.Text, "", "", "", "");
+                EliminarCliente cmd = FabricaComando.ComandoEliminarCliente(clieliminar);
                 cmd.ejecutar();
-                string script = "alert(\"Se ha eliminado la cuenta exitosamente\");";
+                string script = "alert(\"Se ha eliminado el cliente exitosamente\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                         "ServerControlScript", script, true);
-                Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-empleados/visualizarempleados.aspx");
+                Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-clientes/visualizarclientes.aspx");
             }
             catch (Exception ex)
             {

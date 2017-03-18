@@ -3,191 +3,214 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/Vista/Common/img/hpsc-logo.ico" type="image/x-icon">
-    <title>HPSC Servicios Corporativos</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <!-- Retina.js - Load first for faster HQ mobile images. -->
-    <script src="assets/js/plugins/retina/retina.min.js"></script>
-    <!-- Font Awesome -->
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- Default Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,600,500,700,800,900' rel='stylesheet' type='text/css'>
-    <!-- Modern Style Fonts (Include these is you are using body.modern!) -->
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
-    <!-- Vintage Style Fonts (Include these if you are using body.vintage!) -->
-    <link href='http://fonts.googleapis.com/css?family=Sanchez:400italic,400' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
-    <!-- Plugin CSS -->
-    <link href="assets/css/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/plugins/owl-carousel/owl.theme.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/plugins/owl-carousel/owl.transitions.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/plugins/magnific-popup.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/plugins/background.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/plugins/animate.css" rel="stylesheet" type="text/css">
-    <!-- Vitality Theme CSS -->
-    <!-- Uncomment the color scheme you want to use. -->
-    <link href="assets/css/hpsc.css" rel="stylesheet" type="text/css">
-    <!-- <link href="assets/css/vitality-aqua.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-blue.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-green.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-orange.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-pink.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-purple.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-tan.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-turquoise.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-yellow.css" rel="stylesheet" type="text/css"> -->
-    <!-- IE8 support for HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-</head>
-<!-- Alternate Body Classes: .modern and .vintage -->
+    <head>
 
-<body id="page-top">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/Vista/Common/img/hpsc-logo.ico" type="image/x-icon">
+        <title>HPSC Servicios Corporativos</title>
 
-    <!-- Navigation -->
-    <!-- Note: navbar-default and navbar-inverse are both supported with this theme. -->
-    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded" style="background-color:black; height:100px">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="/Vista/Index/index.aspx">
-                    <img src="assets/img/hpsc.png" width="343" height="100" class="img-responsive" alt="">
-                </a> 
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-    <br />
-    <section class="bg-gray" id="formulario" style="background-image: url('assets/img/registro-bg.jpg');background-size:100% 100vh;background-repeat:no-repeat;height:736px">
-        <div class="container text-center wow fadeIn">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 style="color:white">Recuperación de contraseña</h2>
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assetos/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assetos/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assetos/css/form-elements.css">
+        <link rel="stylesheet" href="assetos/css/style.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assetos/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assetos/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assetos/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assetos/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assetos/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+
+    <body style="background-image:url('assets/img/registro-bg.jpg')">
+        
+         <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover:not(.active) {
+                background-color: #111;
+            }
+
+            .active {
+                background-color: #507389;
+            }
+        </style>
+
+        <ul>
+          <li><a class="active" href="/Vista/Index/index.aspx">Inicio</a></li>
+        </ul>
+         
+        <form id="formulario" runat="server">
+        <!-- Top content -->
+        <div class="top-content">
+        	
+            <div class="inner-bg">
+                <div class="container" >
+                	
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1 style="color:white; font-family: 'Raleway Black'; font-size: 50px;">RECUPERACIÓN DE CONTRASEÑA</h1>
+                        </div>
+                    </div>
+                    <div style="width:40%;margin:0 auto">
+                        <asp:RadioButtonList ID="tipousuario" runat="server" Width="100%" RepeatDirection="Horizontal" TextAlign="Right" Font-Names="Raleway Black"  AutoPostBack="True" style="margin-bottom:-50px;margin-top:25px" ForeColor="White">
+                                <asp:ListItem>Empleado</asp:ListItem>
+                                <asp:ListItem>Cliente</asp:ListItem>
+                                <asp:ListItem>Aliado</asp:ListItem>
+                        </asp:RadioButtonList>
+                        <asp:Panel id="formemp" runat="server">
+                            <div class="form-box">
+	                            <div class="form-bottom" >
+                                    <asp:Panel id="mail" runat="server">
+				                        <div class="form-group">
+				                            <label class="sr-only" for="form-email">Email</label>
+				                            <input type="text" name="form-email" placeholder="Correo electrónico..." class="form-email form-control" id="correo" runat="server" onblur="validarcorreo()" maxlength="50">
+				                        </div>
+                                    </asp:Panel>
+                                    <asp:Panel id="hexacode" runat="server" Visible="False">
+				                        <div class="form-group">
+				                            <label class="sr-only" for="form-user">Usuario</label>
+				                            <input type="text" name="form-user" placeholder="Código de verificación..." class="form-user form-control" id="codigohexa" runat="server" onblur="validarcodigo()" maxlength="15">
+				                        </div>
+                                    </asp:Panel>
+                                    <%--=========================Estilo del boton aceptar=========================--%>
+                                    <style>
+                                        #aceptaremp {
+	                                        height: 50px;
+                                            margin: 0;
+                                            padding: 0 20px;
+                                            vertical-align: middle;
+                                            background: #4CAF50;
+                                            border: 0;
+                                            font-family: 'Roboto', sans-serif;
+                                            font-size: 16px;
+                                            font-weight: 300;
+                                            line-height: 50px;
+                                            color: #fff;
+                                            -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+                                            text-shadow: none;
+                                            -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+                                            -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+                                        }
+
+                                        #aceptaremp:hover { opacity: 0.6; color: #fff; }
+
+                                        #aceptaremp:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
+
+                                        #aceptaremp:focus { outline: 0; opacity: 0.6; background: #4CAF50; color: #fff; }
+
+                                        #aceptaremp:active:focus, #aceptaremp.active:focus { outline: 0; opacity: 0.6; background: #4CAF50; color: #fff; }
+                                    </style>
+                                    <%--=========================Estilo del boton cancelar=========================--%>
+                                    <style>
+                                        #cancelaremp {
+	                                        height: 50px;
+                                            margin: 0;
+                                            padding: 0 20px;
+                                            vertical-align: middle;
+                                            background: red;
+                                            border: 0;
+                                            font-family: 'Roboto', sans-serif;
+                                            font-size: 16px;
+                                            font-weight: 300;
+                                            line-height: 50px;
+                                            color: #fff;
+                                            -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+                                            text-shadow: none;
+                                            -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+                                            -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+                                        }
+
+                                        #cancelaremp:hover { opacity: 0.6; color: #fff; }
+
+                                        #cancelaremp:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
+
+                                        #cancelaremp:focus { outline: 0; opacity: 0.6; background: red; color: #fff; }
+
+                                        #cancelaremp:active:focus, #cancelaremp.active:focus { outline: 0; opacity: 0.6; background: red; color: #fff; }
+                                    </style>
+                                    <asp:Button ID="aceptaremp" runat="server" Text="Aceptar" OnClick="aceptaremp_Click"/>
+                                    <asp:Button ID="cancelaremp" runat="server" Text="Cancelar" OnClick="cancelaremp_Click"/>
+			                    </div>
+                            </div>
+                        </asp:Panel>
+                       
+                    </div>
                 </div>
             </div>
-            <div class="row content-row" style="margin-left:320px">
-                <form style="background-color:lightgray;width:495px;height:250px;border-radius: 15px;" id="formregistro" runat="server">
-                            <br />
-                        <div class="col-md-13" style="background-color:lightgray;margin-top:10px">
-                            <div style="margin-top:10px">
-                                <div class="col-md-13" >
-                                    <asp:RadioButtonList ID="tipousuario" runat="server" Width="463px" RepeatDirection="Horizontal" TextAlign="Right" Font-Names="Raleway Black" AutoPostBack="True">
-                                        <asp:ListItem>Empleado</asp:ListItem>
-                                        <asp:ListItem>Cliente</asp:ListItem>
-                                        <asp:ListItem>Aliado</asp:ListItem>
-                                    </asp:RadioButtonList>
-                                    <br />
-                                </div>
-                                <div style="text-align:right;" class="col-md-5">
-                                    <label style="font-family: 'Raleway Black';">Correo: </label> 
-                                </div>
-                                <div class="col-md-3">
-                                    <asp:TextBox ID="correo" runat="server" TextMode="Email" Width="230px" MaxLength="30" AutoPostBack="True"></asp:TextBox>
-                                    <asp:CustomValidator 
-                                        ID="CustomValidator1" 
-                                        runat="server" 
-                                        ClientValidationFunction="validarcodigo" 
-                                        ControlToValidate="codigohexa"
-                                        ErrorMessage="CustomValidator">
-                                    </asp:CustomValidator>
-                                </div>
-                                <div style="text-align:right;" class="col-md-5">
-                                    <label style="font-family: 'Raleway Black';margin-top:-7px">Código de verificación: </label>
-                                </div>
-                                <div class="col-md-3">
-                                    <asp:TextBox ID="codigohexa" runat="server" Width="230px" Enabled="False"></asp:TextBox>
-                                    <asp:CustomValidator 
-                                        ID="validarcodigo" 
-                                        runat="server" 
-                                        ClientValidationFunction="validarcodigo" 
-                                        ControlToValidate="codigohexa"
-                                        ErrorMessage="CustomValidator">
-                                    </asp:CustomValidator>
-                                </div>
-                            </div>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                        <style>
-                            #aceptaremp {
-                                background-color: #4CAF50;
-                                color: white;
-                                padding: 14px 20px;
-                                margin: 8px 0;
-                                margin-top:-25px;
-                                margin-left:-15px;
-                                border: none;
-                                cursor: pointer;
-                                width: 495px;
-                                border-bottom-left-radius: 15px;
-                                border-bottom-right-radius: 15px;
-                                font-family: 'Raleway SemiBold';
-                            }
-                        </style>
-                        <div class="col-lg-12" style="margin-top:27px; height: 39px;">
-                           <asp:Button ID="aceptaremp" runat="server" Text="Aceptar" OnClick="aceptaremp_Click"  />
-                        </div>
-                </form>
-            </div>
+            <asp:Panel ID="mensaje" runat="server" Visible="false">
+                <div style="text-align:center"><label style="font-family: 'Raleway Medium'; font-style: italic; font-weight: bold; color: #FFFFFF;">*Este código puede tardar un poco en ser enviado a su correo</label></div>            
+            </asp:Panel>
         </div>
         
-        <div style="text-align:center"><label style="font-family: 'Raleway Medium'; font-style: italic; font-weight: bold; color: #FFFFFF;">*Este código puede tardar un poco en ser enviado</label></div>
 
-    </section>
-    <script>
-        function validarcodigo(sender, args) {
-            var nombre = document.getElementById('<%=codigohexa.ClientID%>').value;
-            if (/[^a-z0-9 ]/gi.test(nombre)) {
-                alert("No puede contener caracteres especiales");
-                document.getElementById('nombreemp').value = '';
+        <script>
+            function validateEmail(email) {
+                var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
             }
-        }
-    </script>
+
+            function validarcorreo(sender, args) {
+                var email = document.getElementById('<%=correo.ClientID%>').value;
+                if (email != '') {
+                    if (!validateEmail(email)) {
+                        alert(email + " no es un correo valido");
+                        document.getElementById('correoemp').value = '';
+                    }
+                }
+            }
+
+            function validarcodigo(sender, args) {
+                var nombre = document.getElementById('<%=codigohexa.ClientID%>').value;
+                if (/[^a-z0-9 ]/gi.test(nombre)) {
+                    alert("No puede contener caracteres especiales");
+                    document.getElementById('nombreemp').value = '';
+                }
+            }
+        </script>
 
 
 
-
-    <!-- Core Scripts -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
-    <!-- Plugin Scripts -->
-    <script src="assets/js/plugins/jquery.easing.min.js"></script>
-    <script src="assets/js/plugins/classie.js"></script>
-    <script src="assets/js/plugins/cbpAnimatedHeader.js"></script>
-    <script src="assets/js/plugins/owl-carousel/owl.carousel.js"></script>
-    <script src="assets/js/plugins/jquery.magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/plugins/background/core.js"></script>
-    <script src="assets/js/plugins/background/transition.js"></script>
-    <script src="assets/js/plugins/background/background.js"></script>
-    <script src="assets/js/plugins/jquery.mixitup.js"></script>
-    <script src="assets/js/plugins/wow/wow.min.js"></script>
-    <script src="assets/js/contact_me.js"></script>
-    <script src="assets/js/plugins/jqBootstrapValidation.js"></script>
-    <!-- Vitality Theme Scripts -->
-    <script src="assets/js/vitality.js"></script>
-
-
-
-
-</body>
+        <!-- Javascript -->
+        <script src="assetos/js/jquery-1.11.1.min.js"></script>
+        <script src="assetos/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assetos/js/jquery.backstretch.min.js"></script>
+        <script src="assetos/js/scripts.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="assetos/js/placeholder.js"></script>
+        <![endif]-->
+        </form>
+    </body>
 
 </html>

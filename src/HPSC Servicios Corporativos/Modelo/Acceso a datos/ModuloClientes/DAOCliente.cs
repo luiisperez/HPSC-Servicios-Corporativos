@@ -162,7 +162,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes
                     try
                     {
                         cliconsultado = FabricaObjetos.CrearCliente(
-                        row[0].ToString(),
+                                             row[0].ToString(),
                                              row[1].ToString(),
                                              row[2].ToString(),
                                              row[3].ToString(),
@@ -235,6 +235,58 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes
             {
                 parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Cliente.cli_correo, SqlDbType.VarChar, cli.correo, false));
                 EjecutarStoredProcedure(RecursoDAO_Cliente.ProcedimientoEliminarCliente, parametro);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public List<Cliente> ConsultarEmpleados()
+        {
+            List<Cliente> clientes = FabricaObjetos.CrearListaClientes();
+            DataTable tablaDeDatos;
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Cliente.ProcedimientoConsultarClientes, parametro);
+                Cliente cliconsultado = null;
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        cliconsultado = FabricaObjetos.CrearCliente(
+                                             row[0].ToString(),
+                                             row[1].ToString(),
+                                             row[4].ToString(),
+                                             row[2].ToString(),
+                                             row[3].ToString(),
+                                             row[5].ToString()
+                                         );
+                        clientes.Add(cliconsultado);
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return clientes;
             }
             catch (SqlException ex)
             {

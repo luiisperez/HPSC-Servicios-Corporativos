@@ -31,7 +31,7 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloEmpleados
         {
             DAOCliente basedatos = FabricaDAO.CrearDAOCliente();
             Cliente cliConsultado = basedatos.ConsultarClienteCorreo(correo);
-            if (cliConsultado == null)
+            if ((cliConsultado == null) || (cliConsultado.rol.Equals("4")))
             {
                 return false;
             }

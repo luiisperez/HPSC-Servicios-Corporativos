@@ -570,6 +570,7 @@
     <Compile Include="Controlador\Comando.cs" />
     <Compile Include="Controlador\FabricaComando.cs" />
     <Compile Include="Controlador\ModuloClientes\AgregarCliente.cs" />
+    <Compile Include="Controlador\ModuloClientes\ConsultarClientes.cs" />
     <Compile Include="Controlador\ModuloClientes\EliminarCliente.cs" />
     <Compile Include="Controlador\ModuloClientes\ModificarCliente.cs" />
     <Compile Include="Controlador\ModuloClientes\RecursosModuloClientes.Designer.cs">

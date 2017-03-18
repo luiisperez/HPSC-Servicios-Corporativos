@@ -20,10 +20,10 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                 Cliente viejo = (Cliente)Session["Usuario"];
                 if (viejo != null)
                 {
-                    correocli.Text = viejo.correo;
-                    nombrecli.Text = viejo.nombre;
-                    direccioncli.Text = viejo.direccion;
-                    usuariocli.Text = viejo.usuario;
+                    correocli.Value = viejo.correo;
+                    nombrecli.Value = viejo.nombre;
+                    direccioncli.Value = viejo.direccion;
+                    usuariocli.Value = viejo.usuario;
                 }
                 else
                 {
@@ -42,25 +42,30 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
         {
             try
             {
-                if ((!correocli.Text.Equals("")) && (!nombrecli.Text.Equals("")) && (!direccioncli.Text.Equals("")) && (!usuariocli.Text.Equals("")) && (!contrasenacli.Text.Equals("")))
+                ValidacionDatosCliente validar = FabricaComando.ComandoValidacionDeDatosDeCliente();
+                bool validaruser = validar.verificarusuariocli(usuariocli.Value);
+                if (!validaruser)
                 {
-                    Cliente nuevocliente = FabricaObjetos.CrearCliente(correocli.Text, nombrecli.Text, direccioncli.Text, usuariocli.Text, contrasenacli.Text);
-                    ModificarCliente mod = FabricaComando.ComandoModificarCliente(nuevocliente);
-                    mod.ejecutar();
-                    string script = "alert(\"Ha modificado sus datos exitosamente y será redirigido a la ventana anterior\");";
-                    ScriptManager.RegisterStartupScript(this, GetType(),
-                                            "ServerControlScript", script, true);
-                    ValidacionDatosCliente obtenerhash = FabricaComando.ComandoValidacionDeDatosDeCliente();
-                    nuevocliente.contrasena = obtenerhash.calcularhash(nuevocliente.contrasena);
-                    Session["Usuario"] = nuevocliente;
-                    ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
-                                                            "setTimeout(function() {history.go(-2) }, 500);", true);
-                }
-                else
-                {
-                    string script = "alert(\"Existen campos vacíos, por favor revise todos los campos\");";
-                    ScriptManager.RegisterStartupScript(this, GetType(),
-                                          "ServerControlScript", script, true);
+                    if ((!correocli.Value.Equals("")) && (!nombrecli.Value.Equals("")) && (!direccioncli.Value.Equals("")) && (!usuariocli.Value.Equals("")) && (!contrasenacli.Value.Equals("")))
+                    {
+                        Cliente nuevocliente = FabricaObjetos.CrearCliente(correocli.Value, nombrecli.Value, direccioncli.Value, usuariocli.Value, contrasenacli.Value);
+                        ModificarCliente mod = FabricaComando.ComandoModificarCliente(nuevocliente);
+                        mod.ejecutar();
+                        string script = "alert(\"Ha modificado sus datos exitosamente y será redirigido a la ventana anterior\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                                "ServerControlScript", script, true);
+                        ValidacionDatosCliente obtenerhash = FabricaComando.ComandoValidacionDeDatosDeCliente();
+                        nuevocliente.contrasena = obtenerhash.calcularhash(nuevocliente.contrasena);
+                        Session["Usuario"] = nuevocliente;
+                        ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                                                                "setTimeout(function() {history.go(-2) }, 500);", true);
+                    }
+                    else
+                    {
+                        string script = "alert(\"Existen campos vacíos, por favor revise todos los campos\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
                 }
             }
             catch (Exception ex)

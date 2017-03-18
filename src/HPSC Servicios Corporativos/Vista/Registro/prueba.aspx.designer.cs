@@ -22,22 +22,31 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro {
         protected global::System.Web.UI.HtmlControls.HtmlForm formulario;
         
         /// <summary>
-        /// formemp control.
+        /// cliform control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel formemp;
+        protected global::System.Web.UI.WebControls.Panel cliform;
         
         /// <summary>
-        /// codigohexa control.
+        /// contrasena control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText codigohexa;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword contrasena;
+        
+        /// <summary>
+        /// contrasenarepe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword contrasenarepe;
         
         /// <summary>
         /// aceptaremp control.

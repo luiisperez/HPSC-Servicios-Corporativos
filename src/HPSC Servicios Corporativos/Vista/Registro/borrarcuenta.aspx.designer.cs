@@ -13,13 +13,22 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro {
     public partial class borrarcuenta {
         
         /// <summary>
-        /// formregistro control.
+        /// formulario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formregistro;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formulario;
+        
+        /// <summary>
+        /// cliform control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel cliform;
         
         /// <summary>
         /// contrasena control.
@@ -28,16 +37,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox contrasena;
-        
-        /// <summary>
-        /// CustomValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword contrasena;
         
         /// <summary>
         /// contrasenarepe control.
@@ -46,16 +46,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox contrasenarepe;
-        
-        /// <summary>
-        /// validarcontrasenaigual control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validarcontrasenaigual;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword contrasenarepe;
         
         /// <summary>
         /// aceptaremp control.

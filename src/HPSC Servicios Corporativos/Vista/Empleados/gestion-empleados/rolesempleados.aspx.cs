@@ -36,7 +36,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_empleados
                     zonaclientes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#clientes\" id=\"clients\" runat=\"server\"><i class=\"fa fa-briefcase\"></i> Clientes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
                         "<ul id=\"clientes\" class=\"collapse\">" +
                            "<li>" +
-                                "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-empleados/visualizarempleados.aspx\">Visualizar</a>" +
+                                "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/visualizarclientes.aspx\">Visualizar</a>" +
                            "</li>" +
                             "<li>" +
                                  "<a href=\"/Vista/Empleados/gestion-empleados/rolesempleados.aspx\">Equipos</a>" +

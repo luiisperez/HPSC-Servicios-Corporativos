@@ -19,10 +19,10 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro_Modificacion
                 Empleado viejo = (Empleado)Session["Usuario"];
                 if (viejo != null)
                 {
-                    correoemp.Text = viejo.correo;
-                    nombreemp.Text = viejo.nombre;
-                    apellidoemp.Text = viejo.apellido;
-                    usuarioemp.Text = viejo.usuario;
+                    correoemp.Value = viejo.correo;
+                    nombreemp.Value = viejo.nombre;
+                    apellidoemp.Value = viejo.apellido;
+                    usuarioemp.Value = viejo.usuario;
                 }
                 else
                 {
@@ -34,25 +34,37 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro_Modificacion
         protected void aceptaremp_Click(object sender, EventArgs e)
         {
             try{
-                if ((!correoemp.Text.Equals("")) && (!nombreemp.Text.Equals("")) && (!apellidoemp.Text.Equals("")) && (!usuarioemp.Text.Equals("")) && (!contrasenaemp.Text.Equals("")))
+                ValidacionDatos validar = FabricaComando.ComandoValidacionDeDatos();
+                bool validaruser = validar.verificarusuarioemp(usuarioemp.Value);
+                if (!validaruser)
                 {
-                    Empleado nuevoempleado = FabricaObjetos.CrearEmpleado(correoemp.Text, nombreemp.Text, apellidoemp.Text, usuarioemp.Text, contrasenaemp.Text);
-                    ModificarEmpleado mod = FabricaComando.ComandoModificarEmpleado(nuevoempleado);
-                    mod.ejecutar();
-                    string script = "alert(\"Ha modificado sus datos exitosamente y será redirigido a la ventana anterior\");";
-                    ScriptManager.RegisterStartupScript(this, GetType(),
-                                            "ServerControlScript", script, true);
-                    ValidacionDatos obtenerhash = FabricaComando.ComandoValidacionDeDatos();
-                    nuevoempleado.contrasena = obtenerhash.calcularhash(nuevoempleado.contrasena);
-                    Session["Usuario"] = nuevoempleado;
-                    ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
-                                                            "setTimeout(function() {history.go(-2) }, 500);", true);
+                    if ((!correoemp.Value.Equals("")) && (!nombreemp.Value.Equals("")) && (!apellidoemp.Value.Equals("")) && (!usuarioemp.Value.Equals("")) && (!contrasenaemp.Value.Equals("")))
+                    {
+                        Empleado nuevoempleado = FabricaObjetos.CrearEmpleado(correoemp.Value, nombreemp.Value, apellidoemp.Value, usuarioemp.Value, contrasenaemp.Value);
+                        ModificarEmpleado mod = FabricaComando.ComandoModificarEmpleado(nuevoempleado);
+                        mod.ejecutar();
+                        string script = "alert(\"Ha modificado sus datos exitosamente y será redirigido a la ventana anterior\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                                "ServerControlScript", script, true);
+                        ValidacionDatos obtenerhash = FabricaComando.ComandoValidacionDeDatos();
+                        nuevoempleado.contrasena = obtenerhash.calcularhash(nuevoempleado.contrasena);
+                        Session["Usuario"] = nuevoempleado;
+                        ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                                                                "setTimeout(function() {history.go(-2) }, 500);", true);
+                    }
+                    else
+                    {
+                        string script = "alert(\"Existen campos vacíos, por favor revise todos los campos\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
                 }
                 else
                 {
-                    string script = "alert(\"Existen campos vacíos, por favor revise todos los campos\");";
+                    string script = "alert(\"Ese usuario ya esta registrado\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                           "ServerControlScript", script, true);
+                    usuarioemp.Value = String.Empty;
                 }
             }catch(Exception ex){
                 string script = "alert(\"Ha ocurrido un error por favor intentelo nuevamente\");";

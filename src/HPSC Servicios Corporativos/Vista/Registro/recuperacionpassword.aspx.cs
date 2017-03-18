@@ -19,23 +19,29 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
             click = (String)ViewState["click"];
         }
 
+        protected void cancelaremp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Vista/Index/index.aspx");
+        }
 
         protected void aceptaremp_Click(object sender, EventArgs e)
         {
             if (click == null)
             {
-                bool validarcorreo = Regex.IsMatch(correo.Text, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+                bool validarcorreo = Regex.IsMatch(correo.Value, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
                 if (validarcorreo)
                 {
                     if (tipousuario.SelectedValue.Equals("Empleado"))
                     {
                         ValidacionDatos validarmail = FabricaComando.ComandoValidacionDeDatos();
-                        bool correovalido = validarmail.verificarcorreoemp(correo.Text);
+                        bool correovalido = validarmail.verificarcorreoemp(correo.Value);
                         if (correovalido)
                         {
-                            EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correo.Text);
+                            EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correo.Value);
                             env.ejecutar();
-                            codigohexa.Enabled = true;
+                            hexacode.Visible = true;
+                            mail.Enabled = false;
+                            mensaje.Visible = true;
                             ViewState["codigohexadecimal"] = env.codigohexadecimal;
                             ViewState["click"] = "243edewc"; //String al azar
                         }
@@ -49,12 +55,14 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                     else if (tipousuario.SelectedValue.Equals("Cliente"))
                     {
                         ValidacionDatosCliente validarmail = FabricaComando.ComandoValidacionDeDatosDeCliente();
-                        bool correovalido = validarmail.verificarcorreocli(correo.Text);
+                        bool correovalido = validarmail.verificarcorreocli(correo.Value);
                         if (correovalido)
                         {
-                            EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correo.Text);
+                            EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correo.Value);
                             env.ejecutar();
-                            codigohexa.Enabled = true;
+                            hexacode.Visible = true;
+                            mail.Visible = false;
+                            mensaje.Visible = true;
                             ViewState["codigohexadecimal"] = env.codigohexadecimal;
                             ViewState["click"] = "243edewc"; //String al azar
                         }
@@ -71,20 +79,20 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                     string script = "alert(\"El correo ingresado no tiene formato de correo\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                           "ServerControlScript", script, true);
-                    correo.Text = "";
+                    correo.Value = "";
                 }
             }
             else
             {
-                if (codigohexa.Text.ToUpper().Equals((String)ViewState["codigohexadecimal"]))
+                if (codigohexa.Value.ToUpper().Equals((String)ViewState["codigohexadecimal"]))
                 {
                     if (tipousuario.SelectedValue.Equals("Empleado"))
                     {
-                        Response.Redirect("~/Vista/Registro/cambiopassword.aspx?correo=" + correo.Text + "&tipo=" + tipousuario.SelectedValue);
+                        Response.Redirect("~/Vista/Registro/cambiopassword.aspx?correo=" + correo.Value + "&tipo=" + tipousuario.SelectedValue);
                     }
                     else if (tipousuario.SelectedValue.Equals("Cliente"))
                     {
-                        Response.Redirect("~/Vista/Registro/cambiopassword.aspx?correo=" + correo.Text + "&tipo=" + tipousuario.SelectedValue);
+                        Response.Redirect("~/Vista/Registro/cambiopassword.aspx?correo=" + correo.Value + "&tipo=" + tipousuario.SelectedValue);
                     }
                 }
             }

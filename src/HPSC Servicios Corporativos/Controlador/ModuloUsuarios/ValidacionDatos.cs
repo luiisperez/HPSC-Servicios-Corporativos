@@ -29,7 +29,7 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios
         {
             DAOEmpleado basedatos = FabricaDAO.CrearDAOEmpleado();
             Empleado empConsultado = basedatos.ConsultarEmpleadoCorreo(correo);
-            if (empConsultado == null)
+            if ((empConsultado == null) || (empConsultado.rol.Equals("4")))
             {
                 return false;
             }
