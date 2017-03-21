@@ -306,5 +306,56 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes
             }
 
         }
+
+        public List<Equipo> ConsultarEquiposCliente(string correocliente)
+        {
+            List<Equipo> equipos = FabricaObjetos.CrearListaEquipos();
+            DataTable tablaDeDatos;
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Cliente.cli_correo, SqlDbType.VarChar, correocliente, false));
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Cliente.ProcedimientoConsultarEquipos, parametro);
+                Equipo eqconsultado = null;
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        eqconsultado = FabricaObjetos.CrearEquipo(
+                                             row[0].ToString(),
+                                             row[1].ToString(),
+                                             row[2].ToString(),
+                                             row[3].ToString(),
+                                             row[4].ToString()
+                                         );
+                        equipos.Add(eqconsultado);
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return equipos;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

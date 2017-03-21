@@ -165,4 +165,8 @@
     <value>CONSULTAR_CLIENTES</value>
     <comment>Procedimiento para consultar los clientes de la BD</comment>
   </data>
+  <data name="ProcedimientoConsultarEquipos" xml:space="preserve">
+    <value>CONSULTAR_EQUIPOS_CLIENTE</value>
+    <comment>Procedimiento para consultar los equipos que posee cada cliente en la BD</comment>
+  </data>
 </root>

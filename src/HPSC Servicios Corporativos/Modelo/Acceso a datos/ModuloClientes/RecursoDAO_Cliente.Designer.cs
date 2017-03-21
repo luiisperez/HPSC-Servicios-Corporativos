@@ -152,6 +152,15 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CONSULTAR_EQUIPOS_CLIENTE.
+        /// </summary>
+        internal static string ProcedimientoConsultarEquipos {
+            get {
+                return ResourceManager.GetString("ProcedimientoConsultarEquipos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ELIMINAR_CLIENTE.
         /// </summary>
         internal static string ProcedimientoEliminarCliente {

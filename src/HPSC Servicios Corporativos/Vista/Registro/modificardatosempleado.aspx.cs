@@ -12,22 +12,31 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro_Modificacion
 {
     public partial class modificardatosempleado : System.Web.UI.Page
     {
+        private Empleado viejo;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                Empleado viejo = (Empleado)Session["Usuario"];
-                if (viejo != null)
+                try
                 {
-                    correoemp.Value = viejo.correo;
-                    nombreemp.Value = viejo.nombre;
-                    apellidoemp.Value = viejo.apellido;
-                    usuarioemp.Value = viejo.usuario;
+                    viejo = (Empleado)Session["Usuario"];
+                    if (viejo != null)
+                    {
+                        correoemp.Value = viejo.correo;
+                        nombreemp.Value = viejo.nombre;
+                        apellidoemp.Value = viejo.apellido;
+                        usuarioemp.Value = viejo.usuario;
+                    }
+                    else
+                    {
+                        Response.Redirect("~/Vista/Index/index.aspx");
+                    }
                 }
-                else
+                catch
                 {
                     Response.Redirect("~/Vista/Index/index.aspx");
                 }
+                
             }
         }
 
@@ -36,7 +45,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro_Modificacion
             try{
                 ValidacionDatos validar = FabricaComando.ComandoValidacionDeDatos();
                 bool validaruser = validar.verificarusuarioemp(usuarioemp.Value);
-                if (!validaruser)
+                if (!validaruser || (nombreemp.Value.Equals(viejo.usuario)))
                 {
                     if ((!correoemp.Value.Equals("")) && (!nombreemp.Value.Equals("")) && (!apellidoemp.Value.Equals("")) && (!usuarioemp.Value.Equals("")) && (!contrasenaemp.Value.Equals("")))
                     {

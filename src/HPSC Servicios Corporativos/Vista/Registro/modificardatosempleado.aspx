@@ -89,7 +89,7 @@
 	                            <div class="form-bottom" >
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-email">Email</label>
-				                        <input type="text" name="form-email" placeholder="Correo electrónico..." class="form-email form-control" id="correoemp" runat="server" onblur="validarcorreo()" maxlength="50" disabled="disabled">
+				                        <input type="text" name="form-email" placeholder="Correo electrónico..." class="form-email form-control" id="correoemp" runat="server" maxlength="50" disabled="disabled">
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-first-name">First name</label>
@@ -101,7 +101,7 @@
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-user">Usuario</label>
-				                        <input type="text" name="form-user" placeholder="Usuario..." class="form-user form-control" id="usuarioemp" runat="server" onblur="validarusuario()" maxlength="15">
+				                        <input type="text" name="form-user" placeholder="Usuario..." class="form-user form-control" id="usuarioemp" runat="server" disabled="disabled" maxlength="15">
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-password">Contrasena</label>

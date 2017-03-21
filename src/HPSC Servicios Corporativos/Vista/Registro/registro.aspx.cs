@@ -131,7 +131,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
                         env.ejecutar();
                         Cliente nuevocliente = FabricaObjetos.CrearCliente(correocli.Value, nombrecli.Value, direccioncli.Value, usuariocli.Value, contrasenacli.Value);
                         UsuarioRegistrar nuevouser = new UsuarioRegistrar(nuevocliente, env.codigohexadecimal);
-                        Session["Usuario"] = nuevouser;
+                        Session["Registro"] = nuevouser;
                         Response.Redirect("~/Vista/Registro/validarregistro.aspx?tipo=" + tipousuario.SelectedValue);
                     }
                     else if ((validaruser) && (!validarcorreo))

@@ -135,7 +135,7 @@
                        <a href="#">Mi cuenta</a>
                        <ul class="sub-menu" style="background-color:#222222">
                          <li id="actdatos" runat ="server" style="margin-left:-20px;margin-top:10px"></li>
-                         <li id="zonaempleados" runat="server" style="margin-left:-20px;margin-top:10px"></li>
+                         <li id="zonaadministrativa" runat="server" style="margin-left:-20px;margin-top:10px"></li>
                          <li id="borrarcta" style="margin-left:-20px;margin-top:10px"><a href="/Vista/Registro/borrarcuenta.aspx" style="color:white">• Eliminar cuenta</a></li>
                          <li id="cerrarsesion" style="margin-left:-20px;margin-top:10px;margin-bottom:10px"><form id="cerrar" runat="server" ><asp:LinkButton ID="Cerrarsesion" runat="server" OnClick="Cerrarsesion_Click">• Cerrar sesión</asp:LinkButton></form></li>
                        </ul>

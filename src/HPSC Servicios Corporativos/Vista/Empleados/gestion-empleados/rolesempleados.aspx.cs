@@ -17,67 +17,75 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_empleados
         {
             if (!Page.IsPostBack)
             {
-                emp = (Empleado)Session["Usuario"];
-                if (emp == null)
-                {
-                    Response.Redirect("~/Vista/Index/index.aspx");
-                }
-                if (Int32.Parse(emp.rol) >= 20)
-                {
-                    zonausuarios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#usuarios\" id=\"users\" runat=\"server\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
-                        "<ul id=\"usuarios\" class=\"collapse\">" +
-                           "<li>" +
-                                "<a id=\"visualizarempleados\" href=\"/Vista/Empleados/gestion-empleados/visualizarempleados.aspx\">Visualizar</a>" +
-                           "</li>" +
-                            "<li>" +
-                                 "<a href=\"/Vista/Empleados/gestion-empleados/rolesempleados.aspx\">Asignación de roles</a>" +
-                            "</li>" +
-                        "</ul>";
-                    zonaclientes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#clientes\" id=\"clients\" runat=\"server\"><i class=\"fa fa-briefcase\"></i> Clientes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
-                        "<ul id=\"clientes\" class=\"collapse\">" +
-                           "<li>" +
-                                "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/visualizarclientes.aspx\">Visualizar</a>" +
-                           "</li>" +
-                            "<li>" +
-                                 "<a href=\"/Vista/Empleados/gestion-empleados/rolesempleados.aspx\">Equipos</a>" +
-                            "</li>" +
-                        "</ul>";
-                }
-                else
-                {
-                    zonausuarios.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
-                    zonaclientes.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-briefcase\"></i> Clientes  <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
-                    Response.Redirect("~/Vista/Empleados/administracionHPSC.aspx");
-                }
                 try
                 {
-                    List<Empleado> empleados = FabricaObjetos.CrearListaEmpleados();
-                    ConsultarEmpleados cmd = FabricaComando.ComandoConsultarEmpleados();
-                    cmd.ejecutar();
-                    empleados = cmd.empleados;
-                    foreach (Empleado item in empleados)
+                    emp = (Empleado)Session["Usuario"];
+                    if (emp == null)
                     {
-                        if (!item.rol.Equals("Administrador")){
-                            listadoempleados.Items.Add(new ListItem(item.nombre + " " + item.apellido, item.correo));
+                        Response.Redirect("~/Vista/Index/index.aspx");
+                    }
+                    if (Int32.Parse(emp.rol) >= 20)
+                    {
+                        zonausuarios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#usuarios\" id=\"users\" runat=\"server\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"usuarios\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a id=\"visualizarempleados\" href=\"/Vista/Empleados/gestion-empleados/visualizarempleados.aspx\">Visualizar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-empleados/rolesempleados.aspx\">Asignación de roles</a>" +
+                                "</li>" +
+                            "</ul>";
+                        zonaclientes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#clientes\" id=\"clients\" runat=\"server\"><i class=\"fa fa-briefcase\"></i> Clientes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"clientes\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/visualizarclientes.aspx\">Visualizar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-empleados/rolesempleados.aspx\">Equipos</a>" +
+                                "</li>" +
+                            "</ul>";
+                    }
+                    else
+                    {
+                        zonausuarios.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
+                        zonaclientes.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-briefcase\"></i> Clientes  <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
+                        Response.Redirect("~/Vista/Empleados/administracionHPSC.aspx");
+                    }
+                    try
+                    {
+                        List<Empleado> empleados = FabricaObjetos.CrearListaEmpleados();
+                        ConsultarEmpleados cmd = FabricaComando.ComandoConsultarEmpleados();
+                        cmd.ejecutar();
+                        empleados = cmd.empleados;
+                        foreach (Empleado item in empleados)
+                        {
+                            if (!item.rol.Equals("Administrador"))
+                            {
+                                listadoempleados.Items.Add(new ListItem(item.nombre + " " + item.apellido, item.correo));
+                            }
+                        }
+                        List<Rol> roles = FabricaObjetos.CrearListaRoles();
+                        ConsultarRoles _cmd = FabricaComando.ComandoConsultarRoles();
+                        _cmd.ejecutar();
+                        roles = _cmd.roles;
+                        foreach (Rol item in roles)
+                        {
+                            if (!item.nombre.Equals("Administrador"))
+                            {
+                                listadoroles.Items.Add(new ListItem(item.nombre, item.id));
+                            }
                         }
                     }
-                    List<Rol> roles = FabricaObjetos.CrearListaRoles();
-                    ConsultarRoles _cmd = FabricaComando.ComandoConsultarRoles();
-                    _cmd.ejecutar();
-                    roles = _cmd.roles;
-                    foreach (Rol item in roles)
+                    catch (Exception ex)
                     {
-                        if (!item.nombre.Equals("Administrador"))
-                        {
-                            listadoroles.Items.Add(new ListItem(item.nombre, item.id));
-                        }
+                        string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                                "ServerControlScript", script, true);
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
-                    string script = "alert(\"Ha ocurido un error intente nuevamente\");";
-                    ScriptManager.RegisterStartupScript(this, GetType(),
-                                            "ServerControlScript", script, true);
+                    Response.Redirect("~/Vista/Index/index.aspx");
                 }
             }
         }

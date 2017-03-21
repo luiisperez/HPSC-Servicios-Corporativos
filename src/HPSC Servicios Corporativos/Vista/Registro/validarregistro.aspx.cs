@@ -21,8 +21,19 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
         static int Intentos = 3;
         protected void Page_Load(object sender, EventArgs e)
         {
-            tipo = Request.QueryString["tipo"];
-            user = (UsuarioRegistrar)Session["Usuario"];
+            try
+            {
+                tipo = Request.QueryString["tipo"];
+                user = (UsuarioRegistrar)Session["Registro"];
+                if (user == null)
+                {
+                    Response.Redirect("~/Vista/Index/index.aspx");
+                }
+            }
+            catch 
+            {
+                Response.Redirect("~/Vista/Index/index.aspx");
+            }
         }
 
 

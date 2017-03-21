@@ -45,7 +45,7 @@ CREATE PROCEDURE [dbo].[MODIFICAR_EMPLEADO]
   @emp_password AS varchar (200) 
 AS
 BEGIN
-	UPDATE [dbo].[EMPLEADO] SET [E_NOMBRE1] = @emp_nombre, [E_APELLIDO1] = @emp_apellido, [E_USUARIO] = @emp_usuario, [E_PASSWORD] = @emp_password WHERE [E_CORREO] = @emp_correo
+	UPDATE [dbo].[EMPLEADO] SET [E_NOMBRE1] = @emp_nombre, [E_APELLIDO1] = @emp_apellido, [E_PASSWORD] = @emp_password WHERE [E_CORREO] = @emp_correo
 END
 
 
@@ -392,7 +392,7 @@ CREATE PROCEDURE [dbo].[MODIFICAR_CLIENTE]
   @cli_password AS varchar (200) 
 AS
 BEGIN
-	UPDATE [dbo].[CLIENTE] SET [C_NOMBRE_EMPRESA] = @cli_nombre, [C_UBICACION] = @cli_direccion, [C_USUARIO] = @cli_usuario, [C_PASSWORD] = @cli_password WHERE [C_CORREO] = @cli_correo
+	UPDATE [dbo].[CLIENTE] SET [C_NOMBRE_EMPRESA] = @cli_nombre, [C_UBICACION] = @cli_direccion, [C_PASSWORD] = @cli_password WHERE [C_CORREO] = @cli_correo
 END
 
 
@@ -435,3 +435,28 @@ END
 
 
 /********************************************************* FIN CRUD CLIENTES *********************************************************/
+
+
+
+
+
+/********************************************************* CRUD DE EQUIPOS *********************************************************/ 
+
+
+
+/****** 
+		PROCEDIMIENTO PARA CONSULTAR LOS EQUIPOS POR CLIENTE DE LA BASE DE DATOS
+		FECHA: 20/3/2017 1:03 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CONSULTAR_EQUIPOS_CLIENTE]
+  @cli_correo AS varchar(350)
+AS
+BEGIN
+	SELECT * FROM EQUIPO WHERE [EQ_FK_CLIENTE] = @cli_correo;
+END

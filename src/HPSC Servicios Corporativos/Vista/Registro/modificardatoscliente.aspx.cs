@@ -13,19 +13,27 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
 {
     public partial class modificardatoslcliente : System.Web.UI.Page
     {
+        private Cliente viejo;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                Cliente viejo = (Cliente)Session["Usuario"];
-                if (viejo != null)
+                try
                 {
-                    correocli.Value = viejo.correo;
-                    nombrecli.Value = viejo.nombre;
-                    direccioncli.Value = viejo.direccion;
-                    usuariocli.Value = viejo.usuario;
+                    viejo = (Cliente)Session["Usuario"];
+                    if (viejo != null)
+                    {
+                        correocli.Value = viejo.correo;
+                        nombrecli.Value = viejo.nombre;
+                        direccioncli.Value = viejo.direccion;
+                        usuariocli.Value = viejo.usuario;
+                    }
+                    else
+                    {
+                        Response.Redirect("~/Vista/Index/index.aspx");
+                    }
                 }
-                else
+                catch
                 {
                     Response.Redirect("~/Vista/Index/index.aspx");
                 }
@@ -42,30 +50,25 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
         {
             try
             {
-                ValidacionDatosCliente validar = FabricaComando.ComandoValidacionDeDatosDeCliente();
-                bool validaruser = validar.verificarusuariocli(usuariocli.Value);
-                if (!validaruser)
+                if ((!correocli.Value.Equals("")) && (!nombrecli.Value.Equals("")) && (!direccioncli.Value.Equals("")) && (!usuariocli.Value.Equals("")) && (!contrasenacli.Value.Equals("")))
                 {
-                    if ((!correocli.Value.Equals("")) && (!nombrecli.Value.Equals("")) && (!direccioncli.Value.Equals("")) && (!usuariocli.Value.Equals("")) && (!contrasenacli.Value.Equals("")))
-                    {
-                        Cliente nuevocliente = FabricaObjetos.CrearCliente(correocli.Value, nombrecli.Value, direccioncli.Value, usuariocli.Value, contrasenacli.Value);
-                        ModificarCliente mod = FabricaComando.ComandoModificarCliente(nuevocliente);
-                        mod.ejecutar();
-                        string script = "alert(\"Ha modificado sus datos exitosamente y será redirigido a la ventana anterior\");";
-                        ScriptManager.RegisterStartupScript(this, GetType(),
-                                                "ServerControlScript", script, true);
-                        ValidacionDatosCliente obtenerhash = FabricaComando.ComandoValidacionDeDatosDeCliente();
-                        nuevocliente.contrasena = obtenerhash.calcularhash(nuevocliente.contrasena);
-                        Session["Usuario"] = nuevocliente;
-                        ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
-                                                                "setTimeout(function() {history.go(-2) }, 500);", true);
-                    }
-                    else
-                    {
-                        string script = "alert(\"Existen campos vacíos, por favor revise todos los campos\");";
-                        ScriptManager.RegisterStartupScript(this, GetType(),
-                                              "ServerControlScript", script, true);
-                    }
+                    Cliente nuevocliente = FabricaObjetos.CrearCliente(correocli.Value, nombrecli.Value, direccioncli.Value, usuariocli.Value, contrasenacli.Value);
+                    ModificarCliente mod = FabricaComando.ComandoModificarCliente(nuevocliente);
+                    mod.ejecutar();
+                    string script = "alert(\"Ha modificado sus datos exitosamente y será redirigido a la ventana anterior\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                    ValidacionDatosCliente obtenerhash = FabricaComando.ComandoValidacionDeDatosDeCliente();
+                    nuevocliente.contrasena = obtenerhash.calcularhash(nuevocliente.contrasena);
+                    Session["Usuario"] = nuevocliente;
+                    ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                                                            "setTimeout(function() {history.go(-2) }, 500);", true);
+                }
+                else
+                {
+                    string script = "alert(\"Existen campos vacíos, por favor revise todos los campos\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
                 }
             }
             catch (Exception ex)

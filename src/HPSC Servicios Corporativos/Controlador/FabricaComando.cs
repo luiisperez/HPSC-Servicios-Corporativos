@@ -89,6 +89,11 @@ namespace HPSC_Servicios_Corporativos.Controlador
             {
                 return new ConsultarClientes();
             }
+
+            public static ConsultarEquiposCliente ComandoConsultarEquiposPorCliente(String correocliente)
+            {
+                return new ConsultarEquiposCliente(correocliente);
+            }
         #endregion
     }
 }

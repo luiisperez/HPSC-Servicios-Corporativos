@@ -182,7 +182,7 @@
                     <div id="portfoliolist">
                         <div class="portfolio clientes" data-cat="clientes" data-toggle="modal">
                             <div class="portfolio-wrapper">
-                                <img src="assets/img/logos-clientes/aguilar.jpg" alt="">
+                                <img src="assets/img/logos-clientes/aguilarlawyer.jpg" alt="">
                                 <div class="caption">
                                     <div class="caption-text">
                                         <a class="text-title">Aguilar, Machado, Sosa & Asociados</a>
