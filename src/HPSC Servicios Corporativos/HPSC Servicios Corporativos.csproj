@@ -636,7 +636,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RecursoDAO_Cliente.resx</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Acceso a datos\ModuloEquipos\DAOEquipo.cs" />
     <Compile Include="Modelo\Acceso a datos\ModuloUsuarios\DAOEmpleado.cs" />
+    <Compile Include="Modelo\Acceso a datos\ModuloEquipos\RecursoDAO_Equipo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursoDAO_Equipo.resx</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Acceso a datos\ModuloUsuarios\RecursoDAO_Usuario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1048,6 +1054,10 @@
     <EmbeddedResource Include="Modelo\Acceso a datos\ModuloClientes\RecursoDAO_Cliente.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>RecursoDAO_Cliente.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelo\Acceso a datos\ModuloEquipos\RecursoDAO_Equipo.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursoDAO_Equipo.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Modelo\Acceso a datos\ModuloUsuarios\RecursoDAO_Usuario.resx">
       <Generator>ResXFileCodeGenerator</Generator>

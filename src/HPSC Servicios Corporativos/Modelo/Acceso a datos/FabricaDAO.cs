@@ -1,4 +1,5 @@
 ﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes;
+using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos;
 using HPSC_Servicios_Corporativos.Modelo.Comun;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
@@ -34,6 +35,11 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos
         public static DAOCliente CrearDAOCliente()
         {
             return new DAOCliente();
+        }
+
+        public static ModuloEquipos.DAOEquipo CrearDAOEquipo()
+        {
+            return new DAOEquipo();
         }
     }
 }

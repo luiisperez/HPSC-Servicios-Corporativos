@@ -18,24 +18,37 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloEmpleados
     {
         public bool verificarusuariocli(String usuario)
         {
-            DAOCliente basedatos = FabricaDAO.CrearDAOCliente();
-            Cliente cliConsultado = basedatos.ConsultarCliente(usuario);
-            if (cliConsultado == null)
+            try
             {
-                return false;
+                DAOCliente basedatos = FabricaDAO.CrearDAOCliente();
+                Cliente cliConsultado = basedatos.ConsultarCliente(usuario);
+                if (cliConsultado == null)
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool verificarcorreocli(String correo)
         {
-            DAOCliente basedatos = FabricaDAO.CrearDAOCliente();
-            Cliente cliConsultado = basedatos.ConsultarClienteCorreo(correo);
-            if ((cliConsultado == null) || (cliConsultado.rol.Equals("4")))
-            {
-                return false;
+            try { 
+                DAOCliente basedatos = FabricaDAO.CrearDAOCliente();
+                Cliente cliConsultado = basedatos.ConsultarClienteCorreo(correo);
+                if ((cliConsultado == null) || (cliConsultado.rol.Equals("4")))
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool validarrecaptcha(String _response)

@@ -41,7 +41,7 @@ CREATE TABLE dbo.EQUIPO(
 	EQ_CATEGORIA				varchar(500) NOT NULL,
 	EQ_MARCA					varchar(500) NOT NULL,
 	EQ_MODELO					varchar(500) NOT NULL,
-	EQ_FK_CLIENTE				varchar(350) NOT NULL,
+	EQ_FK_CLIENTE				varchar(350),
 	CONSTRAINT PK_SERIAL_EQUIPO PRIMARY KEY (EQ_SERIAL),
 	CONSTRAINT CH_CATEGORIA CHECK(EQ_CATEGORIA in('Impresoras','Computadoras','Laptops', 'Servidores', 'Almacenamiento', 'Comunicaciones'))
 );

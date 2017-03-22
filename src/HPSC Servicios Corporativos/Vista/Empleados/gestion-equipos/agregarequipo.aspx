@@ -101,7 +101,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Asignación de roles
+                                Agregar equipos
                             </h1>
                         </div>
                     </div>
@@ -111,41 +111,68 @@
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-body">
-                                    <div class="col-md-12" style="margin-top:10px;text-align:center">
-                                        <div class="col-xs-6">
-                                            <label>Nombre del empleado:  </label>
-                                            <asp:DropDownList ID="listadoempleados" runat="server" Height="30px" Width="52%"></asp:DropDownList>
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-12" style="margin-top:10px;margin-left:50px">
+                                            <div class="col-xs-6">
+                                                <label style="text-align:right">N° de serial: </label>
+				                                <input type="text" class="form-control" id="serial" runat="server" onblur="validarserial()" maxlength="50" style="width:70%;height:30px">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label style="text-align:right">N° de equipo: </label>
+				                                <input type="text" class="form-control" id="numequipo" runat="server" onblur="validarnumequipo()" maxlength="50" style="width:70%;height:30px">
+                                            </div>
                                         </div>
-                                        <div class="col-xs-6">
-                                            <label>Rol:  </label>
-                                            <asp:DropDownList ID="listadoroles" runat="server" Height="30px" Width="52%"></asp:DropDownList>
+                                        <div class="col-md-12" style="margin-top:30px;margin-left:50px">
+                                            <div class="col-xs-6">
+                                                <label style="text-align:right">Categoría: </label>
+                                                <asp:DropDownList ID="listadocategoria" class="form-control" runat="server" Height="30px" Width="70%">
+                                                    <asp:ListItem>Impresoras</asp:ListItem>
+                                                    <asp:ListItem>Computadoras</asp:ListItem>
+                                                    <asp:ListItem>Laptops</asp:ListItem>
+                                                    <asp:ListItem>Servidores</asp:ListItem>
+                                                    <asp:ListItem>Almacenamiento</asp:ListItem>
+                                                    <asp:ListItem>Comunicaciones</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label style="text-align:right">Marca: </label>
+				                                <input type="text" class="form-control" id="marca" runat="server" onblur="validarmarca()" maxlength="18" style="width:70%;height:30px">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12" style="margin-top:30px;margin-left:50px">
+                                            <div class="col-xs-6">
+                                                <label style="text-align:right">Modelo: </label>
+				                                <input type="text" class="form-control" id="modelo" runat="server" onblur="validarmodelo()" maxlength="18" style="width:70%;height:30px">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div style="margin-top:10px;text-align:center">
-                                        <style>
-                                            #aceptar {
-                                                background-color: #4CAF50;
-                                                color: white;
-                                                padding: 14px 20px;
-                                                margin: 8px 0;
-                                                margin-top:60px;
-                                                margin-left:-30px;
-                                                border: none;
-                                                cursor: pointer;
-                                                width: 125px;
-                                                border-radius: 15px;
-                                                font-family: 'Raleway SemiBold';
-                                            }
-                                        </style>
-                                         <asp:ScriptManager runat="server" ID="sm">
-                                         </asp:ScriptManager>
-                                         <asp:updatepanel runat="server">
-                                             <ContentTemplate>
-                                                 <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
-                                             </ContentTemplate>
-                                         </asp:updatepanel>
+                                </div>
+                                <div style="margin-top:10px;text-align:center">
+                                    <style>
+                                        #aceptar {
+                                            background-color: #4CAF50;
+                                            color: white;
+                                            padding: 14px 20px;
+                                            margin: 8px 0;
+                                            margin-top:60px;
+                                            margin-left:-30px;
+                                            border: none;
+                                            cursor: pointer;
+                                            width: 125px;
+                                            border-radius: 15px;
+                                            font-family: 'Raleway SemiBold';
+                                        }
+                                    </style>
+                                        <asp:ScriptManager runat="server" ID="sm">
+                                        </asp:ScriptManager>
+                                        <asp:updatepanel runat="server">
+                                            <ContentTemplate>
+                                                <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
+                                            </ContentTemplate>
+                                        </asp:updatepanel>
                                     
-                                    </div>
+                                </div>
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -164,7 +191,75 @@
         <!-- /#wrapper -->
     </form>
 
-   
+   <script>
+
+        function validarserial(sender, args) {
+            var nombre = document.getElementById('<%=serial.ClientID%>').value;
+            if (/[^a-z0-9]/gi.test(nombre)) {
+                alert("No puede contener caracteres especiales");
+                document.getElementById('<%=serial.ClientID%>').value = '';
+            }
+        }
+
+        function validarnumequipo(sender, args) {
+            var nombre = document.getElementById('<%=numequipo.ClientID%>').value;
+            if (/[^a-z0-9]/gi.test(nombre)) {
+                alert("No puede contener caracteres especiales");
+                document.getElementById('<%=numequipo.ClientID%>').value = '';
+            }
+        }
+
+        function CheckForRepeat(originalString, charToCheck) {
+            var repeatCount = 0;
+            for (var i = 0; i < originalString.length; i++) {
+                if (originalString.charAt(i) == charToCheck) {
+                    repeatCount++;
+                } else {
+                    repeatCount = 0;
+                }
+                if (repeatCount == 2) {
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
+        function validarmarca(sender, args) {
+            var nombre = document.getElementById('<%=marca.ClientID%>').value;
+            if (/[^a-z0-9 áéíóúñÁÉÍÓÚ '&.,-]/gi.test(nombre)) {
+                alert("Existen caracteres especiales no permitidos");
+                document.getElementById('<%=marca.ClientID%>').value = '';
+            } else {
+                var pruebapuntos = CheckForRepeat(nombre, ".");
+                var pruebacoma = CheckForRepeat(nombre, ",");
+                var pruebaguion = CheckForRepeat(nombre, "-");
+                var pruebacomilla = CheckForRepeat(nombre, "'");
+                var pruebaand = CheckForRepeat(nombre, "&");
+                if ((pruebacoma == 1) || (pruebapuntos == 1) || (pruebaand == 1) || (pruebaguion == 1) || (pruebacomilla == 1)) {
+                    alert("Existen caracteres especiales consecutivos");
+                    document.getElementById('<%=marca.ClientID%>').value = '';
+                }
+            }
+        }
+
+        function validarmodelo(sender, args) {
+            var nombre = document.getElementById('<%=modelo.ClientID%>').value;
+            if (/[^a-z0-9 áéíóúñÁÉÍÓÚ '&.,-]/gi.test(nombre)) {
+                alert("Existen caracteres especiales no permitidos");
+                document.getElementById('<%=modelo.ClientID%>').value = '';
+            } else {
+                var pruebapuntos = CheckForRepeat(nombre, ".");
+                var pruebacoma = CheckForRepeat(nombre, ",");
+                var pruebaguion = CheckForRepeat(nombre, "-");
+                var pruebacomilla = CheckForRepeat(nombre, "'");
+                var pruebaand = CheckForRepeat(nombre, "&");
+                if ((pruebacoma == 1) || (pruebapuntos == 1) || (pruebaand == 1) || (pruebaguion == 1) || (pruebacomilla == 1)) {
+                    alert("Existen caracteres especiales consecutivos");
+                    document.getElementById('<%=modelo.ClientID%>').value = '';
+                }
+            }
+        }
+    </script>
 
     <!-- jQuery -->
     <script src="/Vista/Empleados/js/jquery.js"></script>

@@ -1,4 +1,5 @@
 ﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos;
+using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
@@ -16,24 +17,37 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios
     {
         public bool verificarusuarioemp(String usuario)
         {
-            DAOEmpleado basedatos = FabricaDAO.CrearDAOEmpleado();
-            Empleado empConsultado = basedatos.ConsultarEmpleado(usuario);
-            if (empConsultado == null)
+            try
             {
-                return false;
+                DAOEmpleado basedatos = FabricaDAO.CrearDAOEmpleado();
+                Empleado empConsultado = basedatos.ConsultarEmpleado(usuario);
+                if (empConsultado == null)
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            catch (Exception ex){
+                throw ex;
+            }
         }
 
         public bool verificarcorreoemp(String correo)
         {
-            DAOEmpleado basedatos = FabricaDAO.CrearDAOEmpleado();
-            Empleado empConsultado = basedatos.ConsultarEmpleadoCorreo(correo);
-            if ((empConsultado == null) || (empConsultado.rol.Equals("4")))
+            try
             {
-                return false;
+                DAOEmpleado basedatos = FabricaDAO.CrearDAOEmpleado();
+                Empleado empConsultado = basedatos.ConsultarEmpleadoCorreo(correo);
+                if ((empConsultado == null) || (empConsultado.rol.Equals("4")))
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool validarrecaptcha(String _response)
@@ -100,6 +114,42 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios
                 sb.Append(hashing[i].ToString("X2"));
             }
             return sb.ToString();
+        }
+
+        public bool verificarserial(String serial)
+        {
+            try
+            {
+                DAOEquipo basedatos = FabricaDAO.CrearDAOEquipo();
+                Equipo equipoConsultado = basedatos.ConsultarEquipoSerial(serial);
+                if ((equipoConsultado == null))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool verificarnumequipo(String numequipo)
+        {
+            try
+            {
+                DAOEquipo basedatos = FabricaDAO.CrearDAOEquipo();
+                Equipo equipoConsultado = basedatos.ConsultarEquipoNumero(numequipo);
+                if ((equipoConsultado == null))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

@@ -76,22 +76,49 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl zonaincidentes;
         
         /// <summary>
-        /// listadoempleados control.
+        /// serial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listadoempleados;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText serial;
         
         /// <summary>
-        /// listadoroles control.
+        /// numequipo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listadoroles;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText numequipo;
+        
+        /// <summary>
+        /// listadocategoria control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList listadocategoria;
+        
+        /// <summary>
+        /// marca control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText marca;
+        
+        /// <summary>
+        /// modelo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText modelo;
         
         /// <summary>
         /// sm control.
