@@ -586,10 +586,10 @@
           <br />
             <br />
           <label style="font-family: 'Raleway Black'"><b>Usuario</b></label>
-          <input type="text" id="usuario" placeholder="Nombre de usuario" name="User" required oninvalid="this.setCustomValidity('Este campo no puede estar vacío')">
+          <input type="text" id="usuario" placeholder="Nombre de usuario" name="User" required oninvalid="alert('El campo de usuario no puede estar vacío')">
 
           <label style="font-family: 'Raleway Black'"><b>Contraseña</b></label>
-          <input type="password" id="password" placeholder="Contraseña" name="Password" required oninvalid="this.setCustomValidity('Este campo no puede estar vacío')">
+          <input type="password" id="password" placeholder="Contraseña" name="Password" required oninvalid="alert('El campo de contraseña no puede estar vacío')">
           <%--<button type="submit" style="font-family: 'Raleway ExtraBold'">Ingresar</button>--%>
           <asp:Button ID="aceptaremp" runat="server" Text="Ingresar" class="acceptbtn" style="font-family: 'Raleway ExtraBold'" OnClick="aceptaremp_Click" />
         </div>

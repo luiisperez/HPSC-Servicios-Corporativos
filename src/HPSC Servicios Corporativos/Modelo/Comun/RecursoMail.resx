@@ -121,6 +121,10 @@
     <value>Código de confirmación</value>
     <comment>Cabecera del correo</comment>
   </data>
+  <data name="CabeceraSolicitud" xml:space="preserve">
+    <value>Solicitud de Equipo. </value>
+    <comment>Cabecera de la solicitud</comment>
+  </data>
   <data name="Correo" xml:space="preserve">
     <value>soporte@hp-sc.net</value>
     <comment>Correo de soporte</comment>
@@ -128,6 +132,14 @@
   <data name="Cuerpo" xml:space="preserve">
     <value>Su código de confirmación es:  </value>
     <comment>Cuerpo del correo</comment>
+  </data>
+  <data name="CuerpoSolicitudP1" xml:space="preserve">
+    <value>ha solicitado el siguiente equipo:</value>
+    <comment>Parte 1 del cuerpo de la solicitud</comment>
+  </data>
+  <data name="CuerpoSolicitudP2" xml:space="preserve">
+    <value>La persona de contacto que ofrece el cliente es el siguiente</value>
+    <comment>Parte 2 del cuerpo de la solicitud</comment>
   </data>
   <data name="PWD" xml:space="preserve">
     <value>Th34v3ng3r$</value>

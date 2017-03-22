@@ -277,6 +277,7 @@
     <Content Include="Vista\Common\plugins\datatables\jquery.dataTables.min.js" />
     <Content Include="Vista\Common\plugins\datatables\jquery.dataTables_themeroller.css" />
     <Content Include="Vista\Empleados\administracionHPSC.aspx" />
+    <Content Include="Vista\Empleados\gestion-clientes\asignarequipo.aspx" />
     <Content Include="Vista\Empleados\gestion-clientes\visualizarclientes.aspx" />
     <Content Include="Vista\Empleados\gestion-empleados\rolesempleados.aspx" />
     <Content Include="Vista\Empleados\gestion-empleados\visualizarempleados.aspx" />
@@ -296,6 +297,9 @@
     <Content Include="Vista\Empleados\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Vista\Empleados\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Vista\Empleados\forms.html" />
+    <Content Include="Vista\Empleados\gestion-equipos\agregarequipo.aspx" />
+    <Content Include="Vista\Empleados\gestion-equipos\modificarequipo.aspx" />
+    <Content Include="Vista\Empleados\gestion-equipos\visualizarequipos.aspx" />
     <Content Include="Vista\Empleados\index-rtl.html" />
     <Content Include="Vista\Empleados\index.html" />
     <Content Include="Vista\Empleados\js\bootstrap.js" />
@@ -601,6 +605,7 @@
     <Compile Include="Controlador\ModuloClientes\ConsultarClientes.cs" />
     <Compile Include="Controlador\ModuloClientes\ConsultarEquiposCliente.cs" />
     <Compile Include="Controlador\ModuloClientes\EliminarCliente.cs" />
+    <Compile Include="Controlador\ModuloClientes\EnviarSolicitudDeEquipo.cs" />
     <Compile Include="Controlador\ModuloClientes\ModificarCliente.cs" />
     <Compile Include="Controlador\ModuloClientes\RecursosModuloClientes.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -651,6 +656,7 @@
     <Compile Include="Modelo\Objetos\FabricaObjetos.cs" />
     <Compile Include="Modelo\Objetos\reCaptchaV2.cs" />
     <Compile Include="Modelo\Objetos\Rol.cs" />
+    <Compile Include="Modelo\Objetos\SolicitudEquipo.cs" />
     <Compile Include="Modelo\Objetos\UsuarioRegistrar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\Clientes\administracionCliente.aspx.cs">
@@ -681,6 +687,13 @@
     <Compile Include="Vista\Empleados\administracionHPSC.aspx.designer.cs">
       <DependentUpon>administracionHPSC.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Empleados\gestion-clientes\asignarequipo.aspx.cs">
+      <DependentUpon>asignarequipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-clientes\asignarequipo.aspx.designer.cs">
+      <DependentUpon>asignarequipo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Empleados\gestion-clientes\visualizarclientes.aspx.cs">
       <DependentUpon>visualizarclientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -701,6 +714,27 @@
     </Compile>
     <Compile Include="Vista\Empleados\gestion-empleados\visualizarempleados.aspx.designer.cs">
       <DependentUpon>visualizarempleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-equipos\agregarequipo.aspx.cs">
+      <DependentUpon>agregarequipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-equipos\agregarequipo.aspx.designer.cs">
+      <DependentUpon>agregarequipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-equipos\modificarequipo.aspx.cs">
+      <DependentUpon>modificarequipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-equipos\modificarequipo.aspx.designer.cs">
+      <DependentUpon>modificarequipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-equipos\visualizarequipos.aspx.cs">
+      <DependentUpon>visualizarequipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-equipos\visualizarequipos.aspx.designer.cs">
+      <DependentUpon>visualizarequipos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Index\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

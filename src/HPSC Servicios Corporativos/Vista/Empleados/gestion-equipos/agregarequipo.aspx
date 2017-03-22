@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="visualizarempleados.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Empleados.gestion_empleados.visualizarempleados" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="agregarequipo.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos.agregarequipo" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    
     <link rel="icon" href="/Vista/Common/img/hpsc-logo.ico" type="image/x-icon">
     <title>HPSC Servicios Corporativos</title>
 
@@ -36,7 +35,7 @@
 </head>
 
 <body>
-    <form id ="form" runat="server">
+    <form id="formulario" runat="server">
         <div id="wrapper">
 
             <!-- Navigation -->
@@ -61,7 +60,7 @@
                             </li>
                             <li class="divider"></li>
                             <li id="cerrarsesion" style="">
-                                <asp:LinkButton ID="sesioncerrar" runat="server" ForeColor="Black" Font-Underline="false" OnClick="sesioncerrar_Click"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</asp:LinkButton>
+                                    <asp:LinkButton ID="sesioncerrar" runat="server" ForeColor="Black" Font-Underline="false" OnClick="sesioncerrar_Click"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</asp:LinkButton>
                             </li>
                         </ul>
                     </li>
@@ -78,7 +77,7 @@
                         
                         </li>
                         <li id="zonaclientes" runat="server">
-                           
+                            
                         </li>
                         <li id="zonaequipos" runat="server">
                             
@@ -102,7 +101,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Lista de empleados 
+                                Asignación de roles
                             </h1>
                         </div>
                     </div>
@@ -112,41 +111,41 @@
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-body">
-                                    <table id="tabla" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre y apellido</th>
-                                                <th>Usuario</th>
-                                                <th>Correo</th>
-                                                <th>Rol</th>
-                                                <th>Opciones</th>
-                                            </tr>
-                                        </thead>
-                                            <tbody id="contenidotabla">
-                                                 <asp:Repeater ID="repPeople" runat="server" OnItemCommand="repPeople_ItemCommand">
-                                                    <ItemTemplate>
-                                                            <tr id="<%# Eval("correo") %>">
-                                                                <td><%# Eval("nombre") %> <%# Eval("apellido") %></td>
-                                                                <td><%# Eval("usuario") %></td>
-                                                                <td><asp:Label ID="correoemp" runat="server" Text='<%# Eval("correo") %>' ReadOnly="True" BorderStyle="None" /></td>
-                                                                <td><%# Eval("rol") %></td>
-                                                                <td style="text-align:center">
-                                                                    <asp:ImageButton ID="Eliminar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/eliminar.ico" Height="25px" Width="25px" ToolTip="Eliminar empleado" />
-                                                                </td>
-                                                            </tr>              
-                                                    </ItemTemplate>
-                                                 </asp:Repeater>
-                                            </tbody>  
-                                        <tfoot>
-                                            <tr>
-                                                <th>Nombre y apellido</th>
-                                                <th>Usuario</th>
-                                                <th>Correo</th>
-                                                <th>Rol</th>
-                                                <th>Opciones</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                                    <div class="col-md-12" style="margin-top:10px;text-align:center">
+                                        <div class="col-xs-6">
+                                            <label>Nombre del empleado:  </label>
+                                            <asp:DropDownList ID="listadoempleados" runat="server" Height="30px" Width="52%"></asp:DropDownList>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <label>Rol:  </label>
+                                            <asp:DropDownList ID="listadoroles" runat="server" Height="30px" Width="52%"></asp:DropDownList>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top:10px;text-align:center">
+                                        <style>
+                                            #aceptar {
+                                                background-color: #4CAF50;
+                                                color: white;
+                                                padding: 14px 20px;
+                                                margin: 8px 0;
+                                                margin-top:60px;
+                                                margin-left:-30px;
+                                                border: none;
+                                                cursor: pointer;
+                                                width: 125px;
+                                                border-radius: 15px;
+                                                font-family: 'Raleway SemiBold';
+                                            }
+                                        </style>
+                                         <asp:ScriptManager runat="server" ID="sm">
+                                         </asp:ScriptManager>
+                                         <asp:updatepanel runat="server">
+                                             <ContentTemplate>
+                                                 <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
+                                             </ContentTemplate>
+                                         </asp:updatepanel>
+                                    
+                                    </div>
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -163,11 +162,10 @@
 
         </div>
         <!-- /#wrapper -->
-
+    </form>
 
    
 
-    </form>
     <!-- jQuery -->
     <script src="/Vista/Empleados/js/jquery.js"></script>
 
@@ -182,8 +180,10 @@
     <!-- DataTables -->
     <script src="/Vista/Common/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/Vista/Common/plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <script>table = $('#tabla').DataTable();</script>'
+    <script>table = $('#tabla').DataTable();</script>
 </body>
 
 </html>
+
+
 

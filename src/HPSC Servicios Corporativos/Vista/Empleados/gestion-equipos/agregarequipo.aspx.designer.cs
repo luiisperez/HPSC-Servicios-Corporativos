@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_empleados {
+namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos {
     
     
-    public partial class rolesempleados {
+    public partial class agregarequipo {
         
         /// <summary>
         /// formulario control.

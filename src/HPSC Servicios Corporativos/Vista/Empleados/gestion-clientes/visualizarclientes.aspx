@@ -80,6 +80,9 @@
                         <li id="zonaclientes" runat="server">
                             
                         </li>
+                        <li id="zonaequipos" runat="server">
+                            
+                        </li>
                         <li id="zonacontratos" runat="server">
                             <a href="#"><i class="fa fa-folder-open"></i> Contratos</a>
                         </li>

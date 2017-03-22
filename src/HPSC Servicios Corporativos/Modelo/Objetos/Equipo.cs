@@ -32,5 +32,12 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
             this.marca = _marca;
             this.modelo = _modelo;
         }
+
+        public Equipo(String _categoria, String _marca, String _modelo)
+        {
+            this.categoria = _categoria;
+            this.marca = _marca;
+            this.modelo = _modelo;
+        }
     }
 }

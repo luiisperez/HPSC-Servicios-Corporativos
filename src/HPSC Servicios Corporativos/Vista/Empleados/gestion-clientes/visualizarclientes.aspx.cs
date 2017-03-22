@@ -42,8 +42,17 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
                                "<li>" +
                                     "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/visualizarclientes.aspx\">Visualizar</a>" +
                                "</li>" +
+                               "<li>" +
+                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/visualizarclientes.aspx\">Asignar equipos</a>" +
+                               "</li>" +
+                            "</ul>";
+                        zonaequipos.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#equipos\" id=\"equipment\" runat=\"server\"><i class=\"fa fa-laptop\"></i> Equipos <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"equipos\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-equipos/agregarequipo.aspx\">Agregar</a>" +
+                               "</li>" +
                                 "<li>" +
-                                     "<a href=\"/Vista/Empleados/gestion-empleados/rolesempleados.aspx\">Equipos</a>" +
+                                     "<a href=\"/Vista/Empleados/gestion-equipos/visualizarquipos.aspx\">Visualizar</a>" +
                                 "</li>" +
                             "</ul>";
                     }

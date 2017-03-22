@@ -57,9 +57,19 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
             return new Equipo(_serial, _numeroequipo, _categoria, _marca, _modelo);
         }
 
+        public static Equipo CrearEquipo(String _categoria, String _marca, String _modelo)
+        {
+            return new Equipo(_categoria, _marca, _modelo);
+        }
+
         public static List<Equipo> CrearListaEquipos()
         {
             return new List<Equipo>();
+        }
+
+        public static SolicitudEquipo CrearSolicitudDeEquipo(Equipo _equipo, String _correo, String _nombre, String _apellido, String _telflocal, String _telfmovil)
+        {
+            return new SolicitudEquipo(_equipo, _correo, _nombre, _apellido, _telflocal, _telfmovil);
         }
     }
 }

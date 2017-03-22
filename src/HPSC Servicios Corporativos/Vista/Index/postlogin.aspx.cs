@@ -23,17 +23,17 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
                     emp = (Empleado)user;
                     if (Int32.Parse(emp.rol) != -1)
                     {
-                        zonaadministrativa.InnerHtml = "<a href=\"/Vista/Empleados/administracionHPSC.aspx\" style=\"color:white\">• Zona de empleados</a>";
+                        zonaadministrativa.InnerHtml = "<a id=\"zonaempleado\" href=\"/Vista/Empleados/administracionHPSC.aspx\" style=\"color:white\">• Zona de empleados</a>";
                     }
                     else
                     {
-                        zonaadministrativa.InnerHtml = "<a href=\"#\" style=\"color:white\" onclick=\"privilegiosinsuficientes()\">• Zona de empleados <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
+                        zonaadministrativa.InnerHtml = "<a id=\"zonaempleado\" href=\"#\" style=\"color:white\" onclick=\"privilegiosinsuficientes()\">• Zona de empleados <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
                     }
                     actdatos.InnerHtml = "<a href=\"/Vista/Registro/modificardatosempleado.aspx\" style=\"color:white\">• Actualizar mis datos</a>";
                 }
                 else if ((user != null) && (user.GetType().Equals(typeof(Cliente))))
                 {
-                    zonaadministrativa.InnerHtml = "<a href=\"/Vista/Clientes/administracionCliente.aspx\" style=\"color:white\">• Zona de clientes</a>";
+                    zonaadministrativa.InnerHtml = "<a id=\"zonacliente\" href=\"/Vista/Clientes/administracionCliente.aspx\" style=\"color:white\">• Zona de clientes</a>";
                     actdatos.InnerHtml = "<a href=\"/Vista/Registro/modificardatoscliente.aspx\" style=\"color:white\">• Actualizar mis datos</a>";
                 }
                 else

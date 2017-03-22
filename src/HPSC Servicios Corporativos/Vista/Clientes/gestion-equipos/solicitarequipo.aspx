@@ -192,14 +192,7 @@
                                     font-family: 'Raleway SemiBold';
                                 }
                             </style>
-                                <asp:ScriptManager runat="server" ID="sm">
-                                </asp:ScriptManager>
-                                <asp:updatepanel runat="server">
-                                    <ContentTemplate>
-                                        <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success"/>
-                                    </ContentTemplate>
-                                </asp:updatepanel>
-                                    
+                            <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click"/>
                         </div>
                         <!-- /.box -->
                     </div>

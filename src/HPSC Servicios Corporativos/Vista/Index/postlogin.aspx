@@ -520,10 +520,16 @@
         $('#actdatos').stop(true).animate({ opacity: 1 }, 200);
     });
 
-    $('#zonaempleados').hover(function () {
-        $('#zonaempleados').stop(true).animate({ opacity: 0.5 }, 200);
+    $('#zonaempleado').hover(function () {
+        $('#zonaempleado').stop(true).animate({ opacity: 0.5 }, 5);
     }, function () {
-        $('#zonaempleados').stop(true).animate({ opacity: 1 }, 200);
+        $('#zonaempleado').stop(true).animate({ opacity: 1 }, 5);
+    });
+
+    $('#zonacliente').hover(function () {
+        $('#zonacliente').stop(true).animate({ opacity: 0.5 }, 5);
+    }, function () {
+        $('#zonacliente').stop(true).animate({ opacity: 1 }, 5);
     });
 
     $('#borrarcta').hover(function () {

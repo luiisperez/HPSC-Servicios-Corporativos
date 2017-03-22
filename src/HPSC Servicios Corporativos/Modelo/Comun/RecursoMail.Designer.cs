@@ -70,6 +70,15 @@ namespace HPSC_Servicios_Corporativos.Modelo.Comun {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Solicitud de Equipo. .
+        /// </summary>
+        internal static string CabeceraSolicitud {
+            get {
+                return ResourceManager.GetString("CabeceraSolicitud", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to soporte@hp-sc.net.
         /// </summary>
         internal static string Correo {
@@ -84,6 +93,24 @@ namespace HPSC_Servicios_Corporativos.Modelo.Comun {
         internal static string Cuerpo {
             get {
                 return ResourceManager.GetString("Cuerpo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ha solicitado el siguiente equipo:.
+        /// </summary>
+        internal static string CuerpoSolicitudP1 {
+            get {
+                return ResourceManager.GetString("CuerpoSolicitudP1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La persona de contacto que ofrece el cliente es el siguiente.
+        /// </summary>
+        internal static string CuerpoSolicitudP2 {
+            get {
+                return ResourceManager.GetString("CuerpoSolicitudP2", resourceCulture);
             }
         }
         
