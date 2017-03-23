@@ -14,4 +14,7 @@ INSERT INTO EMPLEADO VALUES ('jjuanito120895@gmail.com', 'Sanson', 'Perez', 'LAP
 INSERT INTO EMPLEADO VALUES ('jjuanitoffff120895@gmail.com', 'Gepeto', 'Perez', 'LAPGrock55fff454', 'F9F299C9FE7AE645AE722D2B2E1965AE', 2);
 
 -----------------------EQUIPO---------------------------
-INSERT INTO EQUIPO VALUES ('FGDFS3432S', 'GGBBAADF25', 'Impresoras', 'HP', 'Deskjet 1101', 'luis.alejandro120895@gmail.com');
+INSERT INTO EQUIPO VALUES ('FGDFS3432S', 'GGBBDFGDAADF25', 'Impresoras', 'HP', 'Deskjet 1101', 'Operativo', 'luis.alejandro120895@gmail.com');
+INSERT INTO EQUIPO VALUES ('FGDFS343DFGDFGS', 'GGBBFGFDAADF25', 'Impresoras', 'HP', 'Deskjet 1101', 'Operativo', 'luis.alejandro120895@gmail.com');
+INSERT INTO EQUIPO VALUES ('FGDFS343DFGD2S', 'GGBBAADGGGFFF25', 'Impresoras', 'HP', 'Deskjet 1101', 'Operativo', 'luis.alejandro120895@gmail.com');
+INSERT INTO EQUIPO VALUES ('FGDFS343DFGFDGD2S', 'GGBBAADFDDDFGF25', 'Impresoras', 'HP', 'Deskjet 1101', 'Operativo', 'luis.alejandro120895@gmail.com');

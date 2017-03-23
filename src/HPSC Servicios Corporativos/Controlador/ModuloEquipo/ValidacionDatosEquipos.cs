@@ -45,5 +45,17 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloEquipo
                 throw ex;
             }
         }
+
+        internal bool verificarserialenlista(List<Equipo> equipos, String serial)
+        {
+            foreach (Equipo item in equipos)
+            {
+                if (item.serial.Equals(serial))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

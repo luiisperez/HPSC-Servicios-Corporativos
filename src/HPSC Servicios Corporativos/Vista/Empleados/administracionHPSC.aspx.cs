@@ -48,7 +48,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados
                                     "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-equipos/agregarequipo.aspx\">Agregar</a>" +
                                "</li>" +
                                 "<li>" +
-                                     "<a href=\"/Vista/Empleados/gestion-equipos/visualizarquipos.aspx\">Visualizar</a>" +
+                                     "<a href=\"/Vista/Empleados/gestion-equipos/visualizarequipos.aspx\">Visualizar</a>" +
                                 "</li>" +
                             "</ul>";
                     }

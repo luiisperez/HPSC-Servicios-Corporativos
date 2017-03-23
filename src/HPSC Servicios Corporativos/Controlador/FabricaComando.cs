@@ -123,6 +123,11 @@ namespace HPSC_Servicios_Corporativos.Controlador
             {
                 return new ConsultarEquiposTodos();
             }
+
+            public static AsignarEquipo ComandoAsignarEquipo(String cliente, String serial)
+            {
+                return new AsignarEquipo(cliente, serial);
+            }
         #endregion
     }
 }

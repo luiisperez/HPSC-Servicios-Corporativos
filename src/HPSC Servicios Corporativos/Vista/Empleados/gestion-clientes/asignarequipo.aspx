@@ -113,8 +113,11 @@
                             <div class="box-body">
                                     <div class="col-md-12" style="margin-top:10px;text-align:left">
                                         <div class="col-xs-12">
-                                            <label>Equipos:  </label>
-                                            <asp:DropDownList ID="listadoequipos" runat="server" Height="30px" Width="60%"></asp:DropDownList>
+                                            <label>Serial:  </label>
+                                            <input list="listado_equipos" name="listado" runat="server" id="equipoinput" style="height:30px; width:60%" autocomplete="off">
+                                            <datalist id="listado_equipos" runat="server">
+                                                
+                                            </datalist>
                                         </div>
                                     </div>
                                     <div class="col-md-12" style="margin-top:20px;text-align:left">
@@ -143,7 +146,7 @@
                                          </asp:ScriptManager>
                                          <asp:updatepanel runat="server">
                                              <ContentTemplate>
-                                                 <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" />
+                                                 <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
                                              </ContentTemplate>
                                          </asp:updatepanel>
                                     
@@ -183,6 +186,10 @@
     <script src="/Vista/Common/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/Vista/Common/plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script>table = $('#tabla').DataTable();</script>
+
+
+
+
 </body>
 
 </html>

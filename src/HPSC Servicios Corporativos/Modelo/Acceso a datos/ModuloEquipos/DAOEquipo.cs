@@ -1,4 +1,5 @@
-﻿using HPSC_Servicios_Corporativos.Modelo.Comun;
+﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes;
+using HPSC_Servicios_Corporativos.Modelo.Comun;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos
                                             row[2].ToString(),
                                             row[3].ToString(),
                                             row[4].ToString(),
+                                            row[6].ToString(),
                                             row[5].ToString()
                                         );
                     }
@@ -85,6 +87,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos
                                             row[2].ToString(),
                                             row[3].ToString(),
                                             row[4].ToString(),
+                                            row[6].ToString(),
                                             row[5].ToString()
                                         );
                     }
@@ -167,6 +170,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos
                                             row[2].ToString(),
                                             row[3].ToString(),
                                             row[4].ToString(),
+                                            row[6].ToString(),
                                             row[5].ToString()
                                         );
                         equipos.Add(equipoconsultado);
@@ -219,6 +223,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos
                                             row[2].ToString(),
                                             row[3].ToString(),
                                             row[4].ToString(),
+                                            row[6].ToString(),
                                             row[5].ToString()
                                         );
                         equipos.Add(equipoconsultado);
@@ -231,6 +236,34 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos
 
                 }
                 return equipos;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void AsignarEquipo(String cliente, String serial)
+        {
+            List<Parametro> listaParametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.eq_serial, SqlDbType.VarChar, serial, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Cliente.cli_correo, SqlDbType.VarChar, cliente, false));
+                EjecutarStoredProcedure(RecursoDAO_Equipo.ProcedimientoAsignarEquipo, listaParametro);
             }
             catch (SqlException ex)
             {

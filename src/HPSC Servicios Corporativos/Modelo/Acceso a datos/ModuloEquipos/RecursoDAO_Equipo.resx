@@ -161,4 +161,8 @@
     <value>CONSULTAR_EQUIPOS_TODOS</value>
     <comment>Procedimiento para consultar los equipos registrados en la BD</comment>
   </data>
+  <data name="ProcedimientoAsignarEquipo" xml:space="preserve">
+    <value>ASIGNAR_EQUIPO</value>
+    <comment>Procedimiento para asignar equipos a los clientes</comment>
+  </data>
 </root>

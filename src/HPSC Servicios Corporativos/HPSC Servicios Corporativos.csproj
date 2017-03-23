@@ -95,6 +95,7 @@
     <Content Include="Vista\Clientes\js\plugins\morris\raphael.min.js" />
     <Content Include="Vista\Common\img\eliminar.ico" />
     <Content Include="Vista\Common\img\hpsc-logo.ico" />
+    <Content Include="Vista\Common\img\modificar.ico" />
     <Content Include="Vista\Common\plugins\datatables\dataTables.bootstrap.css" />
     <Content Include="Vista\Common\plugins\datatables\dataTables.bootstrap.js" />
     <Content Include="Vista\Common\plugins\datatables\dataTables.bootstrap.min.js" />
@@ -618,6 +619,7 @@
     </Compile>
     <Compile Include="Controlador\ModuloClientes\ValidacionDatosCliente.cs" />
     <Compile Include="Controlador\ModuloEquipo\AgregarEquipo.cs" />
+    <Compile Include="Controlador\ModuloEquipo\AsignarEquipo.cs" />
     <Compile Include="Controlador\ModuloEquipo\ConsultarEquiposLibres.cs" />
     <Compile Include="Controlador\ModuloEquipo\ConsultarEquiposTodos.cs" />
     <Compile Include="Controlador\ModuloEquipo\ValidacionDatosEquipos.cs" />

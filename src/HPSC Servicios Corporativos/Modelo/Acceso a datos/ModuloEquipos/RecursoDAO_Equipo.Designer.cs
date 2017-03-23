@@ -125,6 +125,15 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ASIGNAR_EQUIPO.
+        /// </summary>
+        internal static string ProcedimientoAsignarEquipo {
+            get {
+                return ResourceManager.GetString("ProcedimientoAsignarEquipo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CONSULTAR_EQUIPO_NUM.
         /// </summary>
         internal static string ProcedimientoConsultarEquipoNumero {

@@ -14,6 +14,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
     public partial class asignarequipo : System.Web.UI.Page
     {
         protected Empleado emp;
+        protected List<Equipo> equipos = FabricaObjetos.CrearListaEquipos();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -51,7 +52,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
                                     "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-equipos/agregarequipo.aspx\">Agregar</a>" +
                                "</li>" +
                                 "<li>" +
-                                     "<a href=\"/Vista/Empleados/gestion-equipos/visualizarquipos.aspx\">Visualizar</a>" +
+                                     "<a href=\"/Vista/Empleados/gestion-equipos/visualizarequipos.aspx\">Visualizar</a>" +
                                 "</li>" +
                             "</ul>";
                     }
@@ -69,14 +70,28 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
             }
             try
             {
-                List<Equipo> equipos = FabricaObjetos.CrearListaEquipos();
+                equipos = FabricaObjetos.CrearListaEquipos();
                 ConsultarEquiposTodos cmd = FabricaComando.ComandoConsultarEquiposTodos();
                 cmd.ejecutar();
                 equipos = cmd.equipos;
+                String opciones = "";
                 foreach (Equipo item in equipos)
                 {
-                    listadoequipos.Items.Add(new ListItem("Categoría: "+item.categoria+". Serial: "+ item.serial + ". Equipo: "+item.marca+" "+item.modelo, item.serial));
+                    if (!item.estatus.Equals("Eliminado"))
+                    {
+                        String itemvalue = "Categoría: " + item.categoria + ". Equipo: " + item.marca + " " + item.modelo;
+                        if (item.cliente.Equals(""))
+                        {
+                            itemvalue = itemvalue + ". Estatus: Sin asignar";
+                        }
+                        else
+                        {
+                            itemvalue = itemvalue + ". Estatus: Asignado";
+                        }
+                        opciones = opciones + "<option value=\"" + item.serial + "\" label=\"" + itemvalue + "\" >";
+                    }
                 }
+                listado_equipos.InnerHtml = opciones;
                 List<Cliente> clientes = FabricaObjetos.CrearListaClientes();
                 ConsultarClientes _cmd = FabricaComando.ComandoConsultarClientes();
                 _cmd.ejecutar();
@@ -99,6 +114,42 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
         {
             Session.Abandon();
             Response.Redirect("~/Vista/Index/index.aspx");
+        }
+
+        protected void aceptar_Click(object sender, EventArgs e)
+        {
+            ValidacionDatosEquipos valdatos = FabricaComando.ComandoValidacionDeDatosEquipo();
+            bool serialexistente = valdatos.verificarserialenlista(equipos, equipoinput.Value);
+            if (serialexistente)
+            {
+                try
+                {
+                    AsignarEquipo cmd = FabricaComando.ComandoAsignarEquipo(listadoclientes.SelectedValue, equipoinput.Value);
+                    cmd.ejecutar();
+                    var message = "";
+                    if (!listadoclientes.SelectedValue.Equals("NULL")){
+                        message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se asignó correctamente el equipo a " + listadoclientes.SelectedItem.Text);
+                    }
+                    else
+                    {
+                        message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha desasignado correctamente el equipo");
+                    }
+                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-clientes/asignarequipo.aspx';", message);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                }
+                catch (Exception ex)
+                {
+                    string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                }
+            }
+            else
+            {
+                string script = "alert(\"El serial colocado no existe o el campo se encuentra vacío\");";
+                ScriptManager.RegisterStartupScript(this, GetType(),
+                                        "ServerControlScript", script, true);
+            }
         }
     }
 }
