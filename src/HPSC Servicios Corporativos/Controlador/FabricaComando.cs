@@ -1,5 +1,6 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEmpleados;
+using HPSC_Servicios_Corporativos.Controlador.ModuloEquipo;
 using HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
@@ -98,6 +99,29 @@ namespace HPSC_Servicios_Corporativos.Controlador
             public static EnviarSolicitudDeEquipo ComandoEnviarSolicitudDeEquipo(SolicitudEquipo nuevasolicitud, String cliente)
             {
                 return new EnviarSolicitudDeEquipo(nuevasolicitud, cliente);
+            }
+        #endregion
+
+
+        #region Equipos
+            public static ValidacionDatosEquipos ComandoValidacionDeDatosEquipo()
+            {
+                return new ValidacionDatosEquipos();
+            }
+
+            public static AgregarEquipo ComandoAgregarEquipo(Equipo nuevoequipo)
+            {
+                return new AgregarEquipo(nuevoequipo);
+            }
+
+            public static ConsultarEquiposLibres ComandoConsultarEquiposLibres()
+            {
+                return new ConsultarEquiposLibres();
+            }
+
+            public static ConsultarEquiposTodos ComandoConsultarEquiposTodos()
+            {
+                return new ConsultarEquiposTodos();
             }
         #endregion
     }

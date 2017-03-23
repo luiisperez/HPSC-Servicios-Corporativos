@@ -1,4 +1,5 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador;
+using HPSC_Servicios_Corporativos.Controlador.ModuloEquipo;
 using HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
@@ -41,7 +42,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
                                     "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/visualizarclientes.aspx\">Visualizar</a>" +
                                "</li>" +
                                "<li>" +
-                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/visualizarclientes.aspx\">Asignar equipos</a>" +
+                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/asignarequipo.aspx\">Asignar equipos</a>" +
                                "</li>" +
                             "</ul>";
                         zonaequipos.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#equipos\" id=\"equipment\" runat=\"server\"><i class=\"fa fa-laptop\"></i> Equipos <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
@@ -78,12 +79,26 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
         {
             if ((!serial.Value.Equals("")) && (!numequipo.Value.Equals("")) && (!modelo.Value.Equals("")) && (!marca.Value.Equals("")))
             {
-                ValidacionDatos val = FabricaComando.ComandoValidacionDeDatos();
+                ValidacionDatosEquipos val = FabricaComando.ComandoValidacionDeDatosEquipo();
                 bool serialrepe = val.verificarserial(serial.Value);
                 bool numrepe = val.verificarnumequipo(numequipo.Value);
                 if ((!serialrepe) && (!numrepe))
                 {
-
+                    try
+                    {
+                        Equipo nuevoequipo = FabricaObjetos.CrearEquipo(serial.Value, numequipo.Value, listadocategoria.SelectedValue, marca.Value, modelo.Value);
+                        AgregarEquipo cmd = FabricaComando.ComandoAgregarEquipo(nuevoequipo);
+                        cmd.ejecutar();
+                        var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha registrado el equipo en el sistema exitosamente");
+                        var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-equipos/agregarequipo.aspx';", message);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                                "ServerControlScript", script, true);
+                    }
                 }
                 else if ((serialrepe) && (numrepe))
                 {
@@ -93,7 +108,6 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
                 }
                 else if ((!serialrepe) && (numrepe))
                 {
-                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("El número de equipo proporcionado ya se encuentra registrado");
                     string script = "alert(\"El número de equipo proporcionado ya se encuentra registrado\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);

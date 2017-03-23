@@ -62,6 +62,42 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to @eq_categoria.
+        /// </summary>
+        internal static string eq_categoria {
+            get {
+                return ResourceManager.GetString("eq_categoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @eq_cliente.
+        /// </summary>
+        internal static string eq_cliente {
+            get {
+                return ResourceManager.GetString("eq_cliente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @eq_marca.
+        /// </summary>
+        internal static string eq_marca {
+            get {
+                return ResourceManager.GetString("eq_marca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @eq_modelo.
+        /// </summary>
+        internal static string eq_modelo {
+            get {
+                return ResourceManager.GetString("eq_modelo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @eq_numequipo.
         /// </summary>
         internal static string eq_numequipo {
@@ -80,6 +116,15 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AGREGAR_EQUIPO.
+        /// </summary>
+        internal static string ProcedimientoAgregarEquipo {
+            get {
+                return ResourceManager.GetString("ProcedimientoAgregarEquipo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CONSULTAR_EQUIPO_NUM.
         /// </summary>
         internal static string ProcedimientoConsultarEquipoNumero {
@@ -94,6 +139,24 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos {
         internal static string ProcedimientoConsultarEquipoSerial {
             get {
                 return ResourceManager.GetString("ProcedimientoConsultarEquipoSerial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CONSULTAR_EQUIPOS_LIBRES.
+        /// </summary>
+        internal static string ProcedimientoConsultarEquiposLibres {
+            get {
+                return ResourceManager.GetString("ProcedimientoConsultarEquiposLibres", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CONSULTAR_EQUIPOS_TODOS.
+        /// </summary>
+        internal static string ProcedimientoConsultarTodosEquipos {
+            get {
+                return ResourceManager.GetString("ProcedimientoConsultarTodosEquipos", resourceCulture);
             }
         }
     }

@@ -1,4 +1,8 @@
-﻿using System;
+﻿using HPSC_Servicios_Corporativos.Controlador;
+using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
+using HPSC_Servicios_Corporativos.Controlador.ModuloEquipo;
+using HPSC_Servicios_Corporativos.Modelo.Objetos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +13,92 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
 {
     public partial class asignarequipo : System.Web.UI.Page
     {
+        protected Empleado emp;
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                emp = (Empleado)Session["Usuario"];
+                if (emp == null)
+                {
+                    Response.Redirect("~/Vista/Index/index.aspx");
+                }
+                if (!Page.IsPostBack)
+                {
+                    if (Int32.Parse(emp.rol) >= 20)
+                    {
+                        zonausuarios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#usuarios\" id=\"users\" runat=\"server\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"usuarios\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a id=\"visualizarempleados\" href=\"/Vista/Empleados/gestion-empleados/visualizarempleados.aspx\">Visualizar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-empleados/rolesempleados.aspx\">Asignación de roles</a>" +
+                                "</li>" +
+                            "</ul>";
+                        zonaclientes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#clientes\" id=\"clients\" runat=\"server\"><i class=\"fa fa-briefcase\"></i> Clientes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"clientes\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/visualizarclientes.aspx\">Visualizar</a>" +
+                               "</li>" +
+                               "<li>" +
+                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/asignarequipo.aspx\">Asignar equipos</a>" +
+                               "</li>" +
+                            "</ul>";
+                        zonaequipos.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#equipos\" id=\"equipment\" runat=\"server\"><i class=\"fa fa-laptop\"></i> Equipos <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"equipos\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-equipos/agregarequipo.aspx\">Agregar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-equipos/visualizarquipos.aspx\">Visualizar</a>" +
+                                "</li>" +
+                            "</ul>";
+                    }
+                    else
+                    {
+                        zonausuarios.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
+                        zonaclientes.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-briefcase\"></i> Clientes  <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
+                        Response.Redirect("~/Vista/Empleados/administracionHPSC.aspx");
+                    }
+                }
+            }
+            catch
+            {
+                Response.Redirect("~/Vista/Index/index.aspx");
+            }
+            try
+            {
+                List<Equipo> equipos = FabricaObjetos.CrearListaEquipos();
+                ConsultarEquiposTodos cmd = FabricaComando.ComandoConsultarEquiposTodos();
+                cmd.ejecutar();
+                equipos = cmd.equipos;
+                foreach (Equipo item in equipos)
+                {
+                    listadoequipos.Items.Add(new ListItem("Categoría: "+item.categoria+". Serial: "+ item.serial + ". Equipo: "+item.marca+" "+item.modelo, item.serial));
+                }
+                List<Cliente> clientes = FabricaObjetos.CrearListaClientes();
+                ConsultarClientes _cmd = FabricaComando.ComandoConsultarClientes();
+                _cmd.ejecutar();
+                clientes = _cmd.clientes;
+                listadoclientes.Items.Add(new ListItem("Sin asignar", "NULL"));
+                foreach (Cliente item in clientes)
+                {
+                    listadoclientes.Items.Add(new ListItem(item.nombre, item.correo));
+                }
+            }
+            catch (Exception ex)
+            {
+                string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                ScriptManager.RegisterStartupScript(this, GetType(),
+                                        "ServerControlScript", script, true);
+            }
+        }
 
+        protected void sesioncerrar_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("~/Vista/Index/index.aspx");
         }
     }
 }

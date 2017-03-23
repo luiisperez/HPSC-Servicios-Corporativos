@@ -133,4 +133,32 @@
     <value>CONSULTAR_EQUIPO_SERIAL</value>
     <comment>Procedimiento para consultar los equipos registrados en la BD por el serial</comment>
   </data>
+  <data name="eq_categoria" xml:space="preserve">
+    <value>@eq_categoria</value>
+    <comment>Tipo de equipo</comment>
+  </data>
+  <data name="eq_cliente" xml:space="preserve">
+    <value>@eq_cliente</value>
+    <comment>Cliente que posee el equipo</comment>
+  </data>
+  <data name="eq_marca" xml:space="preserve">
+    <value>@eq_marca</value>
+    <comment>Marca del equipo</comment>
+  </data>
+  <data name="eq_modelo" xml:space="preserve">
+    <value>@eq_modelo</value>
+    <comment>Modelo del equipo</comment>
+  </data>
+  <data name="ProcedimientoAgregarEquipo" xml:space="preserve">
+    <value>AGREGAR_EQUIPO</value>
+    <comment>Procedimiento para registrar un equipo en la BD</comment>
+  </data>
+  <data name="ProcedimientoConsultarEquiposLibres" xml:space="preserve">
+    <value>CONSULTAR_EQUIPOS_LIBRES</value>
+    <comment>Procedimiento para consultar los equipos registrados en la BD libres</comment>
+  </data>
+  <data name="ProcedimientoConsultarTodosEquipos" xml:space="preserve">
+    <value>CONSULTAR_EQUIPOS_TODOS</value>
+    <comment>Procedimiento para consultar los equipos registrados en la BD</comment>
+  </data>
 </root>

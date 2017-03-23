@@ -115,41 +115,5 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios
             }
             return sb.ToString();
         }
-
-        public bool verificarserial(String serial)
-        {
-            try
-            {
-                DAOEquipo basedatos = FabricaDAO.CrearDAOEquipo();
-                Equipo equipoConsultado = basedatos.ConsultarEquipoSerial(serial);
-                if ((equipoConsultado == null))
-                {
-                    return false;
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public bool verificarnumequipo(String numequipo)
-        {
-            try
-            {
-                DAOEquipo basedatos = FabricaDAO.CrearDAOEquipo();
-                Equipo equipoConsultado = basedatos.ConsultarEquipoNumero(numequipo);
-                if ((equipoConsultado == null))
-                {
-                    return false;
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
     }
 }
