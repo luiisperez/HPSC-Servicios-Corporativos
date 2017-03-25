@@ -622,6 +622,7 @@
     <Compile Include="Controlador\ModuloEquipo\AsignarEquipo.cs" />
     <Compile Include="Controlador\ModuloEquipo\ConsultarEquiposLibres.cs" />
     <Compile Include="Controlador\ModuloEquipo\ConsultarEquiposTodos.cs" />
+    <Compile Include="Controlador\ModuloEquipo\EliminarEquipo.cs" />
     <Compile Include="Controlador\ModuloEquipo\ValidacionDatosEquipos.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AgregarEmpleado.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AsignarRol.cs" />

@@ -165,4 +165,16 @@
     <value>ASIGNAR_EQUIPO</value>
     <comment>Procedimiento para asignar equipos a los clientes</comment>
   </data>
+  <data name="ProcedimientoEliminarEquipo" xml:space="preserve">
+    <value>ELIMINAR_EQUIPO</value>
+    <comment>Procedimineto para eliminar un equipo en la BD</comment>
+  </data>
+  <data name="eq_estatus" xml:space="preserve">
+    <value>@eq_estatus</value>
+    <comment>Estatus del equipo</comment>
+  </data>
+  <data name="ProcedimientoModificarEquipo" xml:space="preserve">
+    <value>MODIFICAR_EQUIPO</value>
+    <comment>Procedimiento para modificar los datos de un equipo de la BD</comment>
+  </data>
 </root>

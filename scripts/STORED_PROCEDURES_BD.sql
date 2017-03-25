@@ -593,4 +593,44 @@ BEGIN
 END
 
 
+/****** 
+		PROCEDIMIENTO PARA ELIMINAR EQUIPOS
+		FECHA: 22/3/2017 4:58 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[ELIMINAR_EQUIPO]
+@eq_serial AS varchar(250)
+AS
+BEGIN
+	UPDATE EQUIPO SET [EQ_FK_CLIENTE] = NULL, [EQ_ESTATUS] = 'Eliminado' WHERE [EQ_SERIAl] = @eq_serial;	
+END
+
+
+/****** 
+		PROCEDIMIENTO PARA MODIFICAR EQUIPOS
+		FECHA: 22/3/2017 5:20 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[MODIFICAR_EQUIPO]
+  @eq_categoria AS varchar(500),
+  @eq_marca AS varchar(500),
+  @eq_modelo AS varchar(500),
+  @eq_estatus AS varchar(500),
+  @eq_serial AS varchar(250)
+AS
+BEGIN
+	UPDATE EQUIPO SET [EQ_CATEGORIA] = @eq_categoria, [EQ_ESTATUS] = @eq_estatus, [EQ_MARCA] = @eq_marca, [EQ_MODELO] = @eq_modelo WHERE [EQ_SERIAl] = @eq_serial;	
+END
+
+
 

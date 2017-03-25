@@ -92,23 +92,31 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
 
         protected void repPeople_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-           /* try
+            ImageButton botonpresionado = (ImageButton)e.CommandSource;
+            if (botonpresionado.ID.Equals("Eliminar"))
             {
-                Label correo = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("correoemp");
-                Empleado empeliminar = FabricaObjetos.CrearEmpleado(correo.Text, "", "", "", "");
-                EliminarEmpleado cmd = FabricaComando.ComandoEliminarEmpleado(empeliminar);
-                cmd.ejecutar();
-                string script = "alert(\"Se ha eliminado la cuenta exitosamente\");";
-                ScriptManager.RegisterStartupScript(this, GetType(),
-                                        "ServerControlScript", script, true);
-                Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-empleados/visualizarempleados.aspx");
+                try
+                {
+                    Label serial = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("serialeq");
+                    Equipo eqeliminar = FabricaObjetos.CrearEquipo(serial.Text, "", "", "", "");
+                    EliminarEquipo cmd = FabricaComando.ComandoEliminarEquipo(eqeliminar);
+                    cmd.ejecutar();
+                    string script = "alert(\"Se ha eliminado el equipo exitosamente\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                    Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-equipos/visualizarequipos.aspx");
+                }
+                catch (Exception ex)
+                {
+                    string script = "alert(\"Se generó un error al eliminar intente nuevamente\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                }
             }
-            catch (Exception ex)
+            else if (botonpresionado.ID.Equals("Modificar"))
             {
-                string script = "alert(\"Se generó un error al eliminar intente nuevamente\");";
-                ScriptManager.RegisterStartupScript(this, GetType(),
-                                        "ServerControlScript", script, true);
-            }*/
+
+            }
         }
 
         protected void sesioncerrar_Click(object sender, EventArgs e)

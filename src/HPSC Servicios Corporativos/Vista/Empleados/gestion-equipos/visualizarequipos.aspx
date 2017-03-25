@@ -127,7 +127,7 @@
                                                  <asp:Repeater ID="repPeople" runat="server" OnItemCommand="repPeople_ItemCommand">
                                                     <ItemTemplate>
                                                             <tr id="<%# Eval("serial") %>">
-                                                                <td><asp:Label ID="seriaeq" runat="server" Text='<%# Eval("serial") %>' ReadOnly="True" BorderStyle="None" /></td>
+                                                                <td><asp:Label ID="serialeq" runat="server" Text='<%# Eval("serial") %>' ReadOnly="True" BorderStyle="None" /></td>
                                                                 <td><%# Eval("numeroequipo") %></td>
                                                                 <td><%# Eval("estatus") %></td>
                                                                 <td><%# Eval("categoria") %></td>

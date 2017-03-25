@@ -128,6 +128,11 @@ namespace HPSC_Servicios_Corporativos.Controlador
             {
                 return new AsignarEquipo(cliente, serial);
             }
+
+            public static EliminarEquipo ComandoEliminarEquipo(Equipo eqeliminar)
+            {
+                return new EliminarEquipo(eqeliminar);
+            }
         #endregion
     }
 }

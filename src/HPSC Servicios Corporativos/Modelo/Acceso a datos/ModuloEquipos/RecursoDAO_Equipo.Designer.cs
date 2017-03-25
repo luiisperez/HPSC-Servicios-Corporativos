@@ -80,6 +80,15 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to @eq_estatus.
+        /// </summary>
+        internal static string eq_estatus {
+            get {
+                return ResourceManager.GetString("eq_estatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @eq_marca.
         /// </summary>
         internal static string eq_marca {
@@ -166,6 +175,24 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos {
         internal static string ProcedimientoConsultarTodosEquipos {
             get {
                 return ResourceManager.GetString("ProcedimientoConsultarTodosEquipos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ELIMINAR_EQUIPO.
+        /// </summary>
+        internal static string ProcedimientoEliminarEquipo {
+            get {
+                return ResourceManager.GetString("ProcedimientoEliminarEquipo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MODIFICAR_EQUIPO.
+        /// </summary>
+        internal static string ProcedimientoModificarEquipo {
+            get {
+                return ResourceManager.GetString("ProcedimientoModificarEquipo", resourceCulture);
             }
         }
     }

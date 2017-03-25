@@ -282,5 +282,63 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos
                 throw ex;
             }
         }
+
+        public void Eliminar(Equipo eqeliminar)
+        {
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.eq_serial, SqlDbType.VarChar, eqeliminar.serial, false));
+                EjecutarStoredProcedure(RecursoDAO_Equipo.ProcedimientoEliminarEquipo, parametro);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void Modificar(Equipo newequipo)
+        {
+            List<Parametro> listaParametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.eq_categoria, SqlDbType.VarChar, newequipo.categoria, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.eq_marca, SqlDbType.VarChar, newequipo.marca, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.eq_modelo, SqlDbType.VarChar, newequipo.modelo, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.eq_estatus, SqlDbType.VarChar, newequipo.estatus, false));
+                EjecutarStoredProcedure(RecursoDAO_Equipo.ProcedimientoModificarEquipo, listaParametro);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }
