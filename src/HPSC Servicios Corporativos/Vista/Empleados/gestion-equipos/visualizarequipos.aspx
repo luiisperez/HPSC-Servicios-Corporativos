@@ -115,12 +115,13 @@
                                     <table id="tabla" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Serial</th>
-                                                <th>N° de equipo</th>
+                                                <th style="width:200px">Serial</th>
+                                                <th style="width:200px">N° de equipo</th>
                                                 <th>Estatus</th>
-                                                <th>Categoría</th>
-                                                <th style="width:300px">Equipo</th>
-                                                <th>Opciones</th>
+                                                <th>Propietario</th>
+                                                <th style="width:100px">Categoría</th>
+                                                <th style="width:200px">Equipo</th>
+                                                <th style="width:30px">Opciones</th>
                                             </tr>
                                         </thead>
                                             <tbody id="contenidotabla">
@@ -128,8 +129,9 @@
                                                     <ItemTemplate>
                                                             <tr id="<%# Eval("serial") %>">
                                                                 <td><asp:Label ID="serialeq" runat="server" Text='<%# Eval("serial") %>' ReadOnly="True" BorderStyle="None" /></td>
-                                                                <td><%# Eval("numeroequipo") %></td>
+                                                                <td><asp:Label ID="numeq" runat="server" Text='<%# Eval("numeroequipo") %>' ReadOnly="True" BorderStyle="None" /></td>
                                                                 <td><%# Eval("estatus") %></td>
+                                                                <td><%# Eval("cliente") %></td>
                                                                 <td><%# Eval("categoria") %></td>
                                                                 <td><%# Eval("marca") %> <%# Eval("modelo") %></td>
                                                                 <td style="text-align:center">
@@ -145,6 +147,7 @@
                                                 <th>Serial</th>
                                                 <th>N° de equipo</th>
                                                 <th>Estatus</th>
+                                                <th>Propietario</th>
                                                 <th>Categoría</th>
                                                 <th>Equipo</th>
                                                 <th>Opciones</th>

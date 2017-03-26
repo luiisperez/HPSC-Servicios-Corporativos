@@ -153,10 +153,6 @@
     <value>AGREGAR_EQUIPO</value>
     <comment>Procedimiento para registrar un equipo en la BD</comment>
   </data>
-  <data name="ProcedimientoConsultarEquiposLibres" xml:space="preserve">
-    <value>CONSULTAR_EQUIPOS_LIBRES</value>
-    <comment>Procedimiento para consultar los equipos registrados en la BD libres</comment>
-  </data>
   <data name="ProcedimientoConsultarTodosEquipos" xml:space="preserve">
     <value>CONSULTAR_EQUIPOS_TODOS</value>
     <comment>Procedimiento para consultar los equipos registrados en la BD</comment>

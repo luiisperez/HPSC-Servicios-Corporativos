@@ -80,7 +80,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
                     if (!item.estatus.Equals("Eliminado"))
                     {
                         String itemvalue = "Categoría: " + item.categoria + ". Equipo: " + item.marca + " " + item.modelo;
-                        if (item.cliente.Equals(""))
+                        if (item.cliente.Equals("Sin asignar"))
                         {
                             itemvalue = itemvalue + ". Estatus: Sin asignar";
                         }

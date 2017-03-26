@@ -70,7 +70,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
                         env.ejecutar();
                         Empleado nuevoempleado = FabricaObjetos.CrearEmpleado(correoem, nombreem, apellidoem, usuarioem, contrasenaem);
                         UsuarioRegistrar nuevouser = new UsuarioRegistrar(nuevoempleado, env.codigohexadecimal);
-                        Session["Usuario"] = nuevouser;
+                        Session["Registro"] = nuevouser;
                         Response.Redirect("~/Vista/Registro/validarregistro.aspx?tipo=" + tipousuario.SelectedValue);
                     }
                     else if ((validaruser) && (!validarcorreo))

@@ -161,15 +161,6 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CONSULTAR_EQUIPOS_LIBRES.
-        /// </summary>
-        internal static string ProcedimientoConsultarEquiposLibres {
-            get {
-                return ResourceManager.GetString("ProcedimientoConsultarEquiposLibres", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to CONSULTAR_EQUIPOS_TODOS.
         /// </summary>
         internal static string ProcedimientoConsultarTodosEquipos {

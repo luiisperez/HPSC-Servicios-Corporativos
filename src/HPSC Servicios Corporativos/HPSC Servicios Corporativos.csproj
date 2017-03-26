@@ -39,10 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EditableDropDownList, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\EditableDropDownList\bin\Debug\EditableDropDownList.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Recaptcha">
       <HintPath>..\..\lib\reCaptcha\Recaptcha.dll</HintPath>
@@ -620,9 +616,10 @@
     <Compile Include="Controlador\ModuloClientes\ValidacionDatosCliente.cs" />
     <Compile Include="Controlador\ModuloEquipo\AgregarEquipo.cs" />
     <Compile Include="Controlador\ModuloEquipo\AsignarEquipo.cs" />
-    <Compile Include="Controlador\ModuloEquipo\ConsultarEquiposLibres.cs" />
+    <Compile Include="Controlador\ModuloEquipo\ConsultarEquipo.cs" />
     <Compile Include="Controlador\ModuloEquipo\ConsultarEquiposTodos.cs" />
     <Compile Include="Controlador\ModuloEquipo\EliminarEquipo.cs" />
+    <Compile Include="Controlador\ModuloEquipo\ModificarEquipo.cs" />
     <Compile Include="Controlador\ModuloEquipo\ValidacionDatosEquipos.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AgregarEmpleado.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AsignarRol.cs" />

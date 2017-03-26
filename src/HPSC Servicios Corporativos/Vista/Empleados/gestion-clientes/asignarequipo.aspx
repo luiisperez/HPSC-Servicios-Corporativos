@@ -113,7 +113,7 @@
                             <div class="box-body">
                                     <div class="col-md-12" style="margin-top:10px;text-align:left">
                                         <div class="col-xs-12">
-                                            <label>Serial:  </label>
+                                            <label>Seriales:  </label>
                                             <input list="listado_equipos" name="listado" runat="server" id="equipoinput" style="height:30px; width:60%" autocomplete="off">
                                             <datalist id="listado_equipos" runat="server">
                                                 

@@ -14,6 +14,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
     {
         public List<Equipo> listado = FabricaObjetos.CrearListaEquipos();
         protected Empleado emp;
+        public String asignacion = "Sin asignar";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -115,7 +116,9 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
             }
             else if (botonpresionado.ID.Equals("Modificar"))
             {
-
+                Label serial = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("serialeq");
+                Label numequipo = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("numeq");
+                Response.Redirect("/Vista/Empleados/gestion-equipos/modificarequipo.aspx?serial="+serial.Text+"&numequipo="+numequipo.Text);
             }
         }
 

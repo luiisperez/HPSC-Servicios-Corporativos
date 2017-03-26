@@ -8,15 +8,20 @@ using System.Web;
 
 namespace HPSC_Servicios_Corporativos.Controlador.ModuloEquipo
 {
-    public class ConsultarEquiposLibres:Comando
+    public class ConsultarEquipo:Comando
     {
-        public List<Equipo> equipos = FabricaObjetos.CrearListaEquipos();
+        public Equipo equipoConsultado;
+        String serial;
+        public ConsultarEquipo(String _serial)
+        {
+            this.serial = _serial;
+        }
         public override void ejecutar()
         {
             try
             {
                 DAOEquipo basedatos = FabricaDAO.CrearDAOEquipo();
-                equipos = basedatos.ConsultarEquiposLibres();
+                equipoConsultado = basedatos.ConsultarEquipoSerial(serial);
             }
             catch (Exception ex)
             {

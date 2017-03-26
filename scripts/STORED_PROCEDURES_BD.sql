@@ -626,10 +626,11 @@ CREATE PROCEDURE [dbo].[MODIFICAR_EQUIPO]
   @eq_marca AS varchar(500),
   @eq_modelo AS varchar(500),
   @eq_estatus AS varchar(500),
+  @eq_numequipo AS varchar(500),
   @eq_serial AS varchar(250)
 AS
 BEGIN
-	UPDATE EQUIPO SET [EQ_CATEGORIA] = @eq_categoria, [EQ_ESTATUS] = @eq_estatus, [EQ_MARCA] = @eq_marca, [EQ_MODELO] = @eq_modelo WHERE [EQ_SERIAl] = @eq_serial;	
+	UPDATE EQUIPO SET [EQ_CATEGORIA] = @eq_categoria, [EQ_NUMEROEQUIPO] = @eq_numequipo, [EQ_ESTATUS] = @eq_estatus, [EQ_MARCA] = @eq_marca, [EQ_MODELO] = @eq_modelo WHERE [EQ_SERIAl] = @eq_serial;	
 END
 
 

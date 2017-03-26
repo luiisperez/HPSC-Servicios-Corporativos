@@ -114,11 +114,6 @@ namespace HPSC_Servicios_Corporativos.Controlador
                 return new AgregarEquipo(nuevoequipo);
             }
 
-            public static ConsultarEquiposLibres ComandoConsultarEquiposLibres()
-            {
-                return new ConsultarEquiposLibres();
-            }
-
             public static ConsultarEquiposTodos ComandoConsultarEquiposTodos()
             {
                 return new ConsultarEquiposTodos();
@@ -133,6 +128,15 @@ namespace HPSC_Servicios_Corporativos.Controlador
             {
                 return new EliminarEquipo(eqeliminar);
             }
+            public static ConsultarEquipo ComandoConsultarEquipo(String serial)
+            {
+                return new ConsultarEquipo(serial);
+            }
+            public static ModificarEquipo ComandoModificarEquipo(Equipo equipo)
+            {
+                return new ModificarEquipo(equipo);
+            }
         #endregion
+
     }
 }
