@@ -81,6 +81,9 @@
                     <li id="zonaclientes" runat="server">
                         
                     </li>
+                    <li id="zonaproductos" runat="server">
+                            
+                    </li>
                     <li id="zonaequipos" runat="server">
                             
                     </li>

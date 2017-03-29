@@ -79,6 +79,9 @@
                         <li id="zonaclientes" runat="server">
                             
                         </li>
+                        <li id="zonaproductos" runat="server">
+                            
+                        </li>
                         <li id="zonaequipos" runat="server">
                             
                         </li>
@@ -119,31 +122,27 @@
 				                                <input type="text" class="form-control" id="serial" runat="server" onblur="validarserial()" maxlength="50" style="width:70%;height:30px">
                                             </div>
                                             <div class="col-xs-6">
-                                                <label style="text-align:right">N° de equipo: </label>
-				                                <input type="text" class="form-control" id="numequipo" runat="server" onblur="validarnumequipo()" maxlength="50" style="width:70%;height:30px">
+                                                <label style="text-align:right">N° de producto: </label>
+                                                <input list="listado_numeros" name="listado" class="form-control" runat="server" id="numequipo" onblur="validarnumequipo()" style="height:30px; width:70%" autocomplete="off">
+                                                <datalist id="listado_numeros" runat="server">
+                                                
+                                                </datalist>
                                             </div>
                                         </div>
                                         <div class="col-md-12" style="margin-top:30px;margin-left:50px">
                                             <div class="col-xs-6">
                                                 <label style="text-align:right">Categoría: </label>
-                                                <asp:DropDownList ID="listadocategoria" class="form-control" runat="server" Height="30px" Width="70%">
-                                                    <asp:ListItem>Impresoras</asp:ListItem>
-                                                    <asp:ListItem>Computadoras</asp:ListItem>
-                                                    <asp:ListItem>Laptops</asp:ListItem>
-                                                    <asp:ListItem>Servidores</asp:ListItem>
-                                                    <asp:ListItem>Almacenamiento</asp:ListItem>
-                                                    <asp:ListItem>Comunicaciones</asp:ListItem>
-                                                </asp:DropDownList>
+				                                <input type="text" class="form-control" id="categoria" runat="server" maxlength="18" style="width:70%;height:30px " readonly="readonly">
                                             </div>
                                             <div class="col-xs-6">
                                                 <label style="text-align:right">Marca: </label>
-				                                <input type="text" class="form-control" id="marca" runat="server" onblur="validarmarca()" maxlength="18" style="width:70%;height:30px">
+				                                <input type="text" class="form-control" id="marca" runat="server" onblur="validarmarca()" maxlength="18" style="width:70%;height:30px" readonly="readonly">
                                             </div>
                                         </div>
                                         <div class="col-md-12" style="margin-top:30px;margin-left:50px">
                                             <div class="col-xs-6">
                                                 <label style="text-align:right">Modelo: </label>
-				                                <input type="text" class="form-control" id="modelo" runat="server" onblur="validarmodelo()" maxlength="18" style="width:70%;height:30px">
+				                                <input type="text" class="form-control" id="modelo" runat="server" onblur="validarmodelo()" maxlength="18" style="width:70%;height:30px" readonly="readonly">
                                             </div>
                                             <div class="col-xs-6">
                                                 <label style="text-align:right">Estatus: </label>
@@ -170,12 +169,30 @@
                                             border-radius: 15px;
                                             font-family: 'Raleway SemiBold';
                                         }
+                                        #cancelar {
+                                            background-color: red;
+                                            color: white;
+                                            padding: 14px 20px;
+                                            margin: 8px 0;
+                                            margin-top:60px;
+                                            margin-left:-30px;
+                                            border: none;
+                                            cursor: pointer;
+                                            width: 125px;
+                                            border-radius: 15px;
+                                            font-family: 'Raleway SemiBold';
+                                        }
                                     </style>
-                                        <asp:ScriptManager runat="server" ID="sm">
+                                        <asp:ScriptManager runat="server" ID="sm" EnablePageMethods="true">
                                         </asp:ScriptManager>
                                         <asp:updatepanel runat="server">
                                             <ContentTemplate>
-                                                <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
+                                                <div class="col-xs-6">
+                                                    <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <asp:Button ID="cancelar" runat="server" Text="Cancelar" CssClass="btn-success" OnClick="cancelar_Click"/>
+                                                </div>
                                             </ContentTemplate>
                                         </asp:updatepanel>
                                     
@@ -197,22 +214,41 @@
         </div>
         <!-- /#wrapper -->
     </form>
+    <script type="text/javascript">
 
-   <script>
+        function validarnumequipo(sender, args) {
+            if (document.getElementById('<%=numequipo.ClientID %>').value != "") {
+
+                var num = document.getElementById('<%=numequipo.ClientID %>').value;
+                PageMethods.FillFields(num, onSucess, onError);
+
+                function onSucess(result) {
+                    if (result === "No existe el número de producto colocado, por favor verifique") {
+                        alert(result);
+                        document.getElementById('<%=numequipo.ClientID %>').value = "";
+                    } else {
+                        var separar = result.split(";");
+                        document.getElementById('<%=categoria.ClientID%>').value = separar[1];
+                        document.getElementById('<%=marca.ClientID%>').value = separar[2];
+                        document.getElementById('<%=modelo.ClientID%>').value = separar[3];
+
+                    }
+                }
+
+                function onError(result) {
+                    alert('Ha ocurrido un error, intente nuevamente');
+                    document.getElementById('<%=numequipo.ClientID %>').value = "";
+                }
+            }
+        }
+    </script>
+    <script>
 
        function validarserial(sender, args) {
            var nombre = document.getElementById('<%=serial.ClientID%>').value;
             if (/[^a-z0-9]/gi.test(nombre)) {
                 alert("No puede contener caracteres especiales");
                 document.getElementById('<%=serial.ClientID%>').value = '';
-            }
-        }
-
-        function validarnumequipo(sender, args) {
-            var nombre = document.getElementById('<%=numequipo.ClientID%>').value;
-            if (/[^a-z0-9]/gi.test(nombre)) {
-                alert("No puede contener caracteres especiales");
-                document.getElementById('<%=numequipo.ClientID%>').value = '';
             }
         }
 

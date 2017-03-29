@@ -80,6 +80,9 @@
                         <li id="zonaclientes" runat="server">
                            
                         </li>
+                        <li id="zonaproductos" runat="server">
+                            
+                        </li>
                         <li id="zonaequipos" runat="server">
                             
                         </li>
@@ -102,7 +105,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Lista de equipos 
+                                Lista de equipos
                             </h1>
                         </div>
                     </div>
@@ -116,11 +119,11 @@
                                         <thead>
                                             <tr>
                                                 <th style="width:200px">Serial</th>
-                                                <th style="width:200px">N° de equipo</th>
-                                                <th>Estatus</th>
-                                                <th>Propietario</th>
-                                                <th style="width:100px">Categoría</th>
-                                                <th style="width:200px">Equipo</th>
+                                                <th style="width:130px">N° de producto</th>
+                                                <th style="width:100px">Estatus</th>
+                                                <th style="width:170px">Propietario</th>
+                                                <th style="width:120px">Categoría</th>
+                                                <th style="width:300px">Marca/Modelo</th>
                                                 <th style="width:30px">Opciones</th>
                                             </tr>
                                         </thead>
@@ -133,7 +136,7 @@
                                                                 <td><%# Eval("estatus") %></td>
                                                                 <td><%# Eval("cliente") %></td>
                                                                 <td><%# Eval("categoria") %></td>
-                                                                <td><%# Eval("marca") %> <%# Eval("modelo") %></td>
+                                                                <td><%# Eval("marca") %>/<%# Eval("modelo") %></td>
                                                                 <td style="text-align:center">
                                                                     <asp:ImageButton ID="Eliminar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/eliminar.ico" Height="25px" Width="25px" ToolTip="Eliminar equipo" />
                                                                     <asp:ImageButton ID="Modificar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/modificar.ico" Height="25px" Width="25px" ToolTip="Modificar equipo" />
@@ -145,11 +148,11 @@
                                         <tfoot>
                                             <tr>
                                                 <th>Serial</th>
-                                                <th>N° de equipo</th>
+                                                <th>N° de producto</th>
                                                 <th>Estatus</th>
                                                 <th>Propietario</th>
                                                 <th>Categoría</th>
-                                                <th>Equipo</th>
+                                                <th>Marca/Modelo</th>
                                                 <th>Opciones</th>
                                             </tr>
                                         </tfoot>

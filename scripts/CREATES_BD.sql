@@ -37,14 +37,13 @@ CREATE TABLE dbo.ROL(
 
 CREATE TABLE dbo.EQUIPO(
 	EQ_SERIAL					varchar(250) NOT NULL,
-	EQ_NUMEROEQUIPO				varchar(500) NOT NULL UNIQUE,
 	EQ_CATEGORIA				varchar(500) NOT NULL,
 	EQ_MARCA					varchar(500) NOT NULL,
 	EQ_MODELO					varchar(500) NOT NULL,
 	EQ_ESTATUS					varchar(500) NOT NULL,
+	EQ_FK_NUMEROPRODUCTO		varchar(500) NOT NULL,
 	EQ_FK_CLIENTE				varchar(350),
 	CONSTRAINT PK_SERIAL_EQUIPO PRIMARY KEY (EQ_SERIAL),
-	CONSTRAINT CH_CATEGORIA CHECK(EQ_CATEGORIA in('Impresoras','Computadoras','Laptops', 'Servidores', 'Almacenamiento', 'Comunicaciones')),
 	CONSTRAINT CH_ESTATUS_EQ CHECK(EQ_ESTATUS in('Operativo', 'Eliminado'))
 );
 
@@ -116,4 +115,18 @@ CREATE TABLE dbo.INCIDENTE(
 	CONSTRAINT CH_ESTATUS CHECK(I_ESTATUS in('Abierto','Asignado','En sitio','Espera de partes','Monitoreo','Atendido','Cancelado')),
 	CONSTRAINT CH_IMPACTO CHECK(I_IMPACTO in('Significativo','Moderado','Crítico','Menor')),
 	CONSTRAINT CH_URGENCIA CHECK(I_URGENCIA in('Crítica','Alta','Media','Baja'))
+);
+
+CREATE TABLE dbo.PRODUCTO(
+	P_NUMEROPRODUCTO			varchar(500) NOT NULL,
+	P_CATEGORIA					varchar(500) NOT NULL,
+	P_MODELO					varchar(500) NOT NULL,
+	P_FK_MARCA					varchar(500) NOT NULL,
+	CONSTRAINT PK_NUM_EQUIPO PRIMARY KEY (P_NUMEROPRODUCTO),
+	CONSTRAINT CH_CATEGORIA CHECK(P_CATEGORIA in('Impresoras','Computadoras','Laptops', 'Servidores', 'Almacenamiento', 'Comunicaciones'))
+);
+
+CREATE TABLE dbo.MARCA(
+	M_MARCA						varchar(500) NOT NULL,
+	CONSTRAINT PK_MARCA PRIMARY KEY (M_MARCA)
 );

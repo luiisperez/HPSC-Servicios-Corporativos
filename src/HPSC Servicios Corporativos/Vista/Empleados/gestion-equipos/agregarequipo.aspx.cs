@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -54,12 +55,40 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
                                      "<a href=\"/Vista/Empleados/gestion-equipos/visualizarequipos.aspx\">Visualizar</a>" +
                                 "</li>" +
                             "</ul>";
+                        zonaproductos.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#productos\" id=\"products\" runat=\"server\"><i class=\"fa fa-barcode\"></i> Productos <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"productos\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-productos/agregarproducto.aspx\">Agregar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-productos/visualizarproductos.aspx\">Visualizar</a>" +
+                                "</li>" +
+                            "</ul>";
                     }
                     else
                     {
                         zonausuarios.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
                         zonaclientes.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-briefcase\"></i> Clientes  <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
                         Response.Redirect("~/Vista/Empleados/administracionHPSC.aspx");
+                    }
+                    try
+                    {
+                        List<Equipo> equipos = FabricaObjetos.CrearListaEquipos();
+                        ValidacionDatosEquipos cmd = FabricaComando.ComandoValidacionDeDatosEquipo();
+                        equipos = cmd.listadonumequipos();
+                        String opciones = "";
+                        foreach (Equipo item in equipos)
+                        {
+                            String itemvalue = "Categoría: " + item.categoria + ". Equipo: " + item.modelo;
+                            opciones = opciones + "<option value=\"" + item.numeroequipo + "\" label=\"" + itemvalue + "\" >";
+                        }
+                        listado_numeros.InnerHtml = opciones;
+                    }
+                    catch (Exception ex)
+                    {
+                        string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                                "ServerControlScript", script, true);
                     }
                 }
                 catch
@@ -75,18 +104,22 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
             Response.Redirect("~/Vista/Index/index.aspx");
         }
 
+
         protected void aceptar_Click(object sender, EventArgs e)
         {
             if ((!serial.Value.Equals("")) && (!numequipo.Value.Equals("")) && (!modelo.Value.Equals("")) && (!marca.Value.Equals("")))
             {
                 ValidacionDatosEquipos val = FabricaComando.ComandoValidacionDeDatosEquipo();
                 bool serialrepe = val.verificarserial(serial.Value);
-                bool numrepe = val.verificarnumequipo(numequipo.Value);
-                if ((!serialrepe) && (!numrepe))
+                if (serial.Value.Equals(Request.QueryString["serial"]))
+                {
+                    serialrepe = false;
+                }
+                if ((!serialrepe))
                 {
                     try
                     {
-                        Equipo nuevoequipo = FabricaObjetos.CrearEquipo(serial.Value, numequipo.Value, listadocategoria.SelectedValue, marca.Value, modelo.Value);
+                        Equipo nuevoequipo = FabricaObjetos.CrearEquipo(serial.Value, numequipo.Value, categoria.Value, marca.Value, modelo.Value);
                         AgregarEquipo cmd = FabricaComando.ComandoAgregarEquipo(nuevoequipo);
                         cmd.ejecutar();
                         var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha registrado el equipo en el sistema exitosamente");
@@ -100,19 +133,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
                                                 "ServerControlScript", script, true);
                     }
                 }
-                else if ((serialrepe) && (numrepe))
-                {
-                    string script = "alert(\"El serial y número de equipo proporcionados ya se encuentran registrados\");";
-                    ScriptManager.RegisterStartupScript(this, GetType(),
-                                            "ServerControlScript", script, true);
-                }
-                else if ((!serialrepe) && (numrepe))
-                {
-                    string script = "alert(\"El número de equipo proporcionado ya se encuentra registrado\");";
-                    ScriptManager.RegisterStartupScript(this, GetType(),
-                                            "ServerControlScript", script, true);
-                }
-                else if ((serialrepe) && (!numrepe))
+                else if ((serialrepe))
                 {
                     string script = "alert(\"El serial proporcionado ya se encuentra registrado\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
@@ -124,6 +145,21 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
                 string script = "alert(\"Existen campos vacíos, por favor revise todos los campos\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                         "ServerControlScript", script, true);
+            }
+        }
+
+        [WebMethod]                                 
+        public static String FillFields(String numproducto)
+        {
+            ValidacionDatosEquipos cmd = FabricaComando.ComandoValidacionDeDatosEquipo();
+            Equipo buscado = cmd.buscarproducto(numproducto);
+            if (buscado!=null)
+            {
+                return "Exito;" + buscado.categoria + ";" + buscado.marca + ";" + buscado.modelo;
+            }
+            else
+            {
+                return "No existe el número de producto colocado, por favor verifique";
             }
         }
     }

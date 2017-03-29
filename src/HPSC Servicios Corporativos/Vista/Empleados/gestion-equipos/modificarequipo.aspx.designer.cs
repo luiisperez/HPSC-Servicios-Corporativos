@@ -49,6 +49,15 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl zonaclientes;
         
         /// <summary>
+        /// zonaproductos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl zonaproductos;
+        
+        /// <summary>
         /// zonaequipos control.
         /// </summary>
         /// <remarks>
@@ -94,13 +103,22 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos {
         protected global::System.Web.UI.HtmlControls.HtmlInputText numequipo;
         
         /// <summary>
-        /// listadocategoria control.
+        /// listado_numeros control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listadocategoria;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl listado_numeros;
+        
+        /// <summary>
+        /// categoria control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText categoria;
         
         /// <summary>
         /// marca control.
@@ -146,5 +164,14 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button aceptar;
+        
+        /// <summary>
+        /// cancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelar;
     }
 }

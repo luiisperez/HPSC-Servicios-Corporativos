@@ -79,6 +79,9 @@
                         <li id="zonaclientes" runat="server">
                             
                         </li>
+                        <li id="zonaproductos" runat="server">
+                            
+                        </li>
                         <li id="zonaequipos" runat="server">
                             
                         </li>
@@ -114,7 +117,7 @@
                                     <div class="col-md-12" style="margin-top:10px;text-align:left">
                                         <div class="col-xs-12">
                                             <label>Seriales:  </label>
-                                            <input list="listado_equipos" name="listado" runat="server" id="equipoinput" style="height:30px; width:60%" autocomplete="off">
+                                            <input list="listado_equipos" name="listado" runat="server" id="equipoinput" style="height:30px; width:70%" autocomplete="off">
                                             <datalist id="listado_equipos" runat="server">
                                                 
                                             </datalist>

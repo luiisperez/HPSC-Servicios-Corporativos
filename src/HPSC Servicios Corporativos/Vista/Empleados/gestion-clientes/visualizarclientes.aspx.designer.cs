@@ -49,6 +49,15 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl zonaclientes;
         
         /// <summary>
+        /// zonaproductos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl zonaproductos;
+        
+        /// <summary>
         /// zonaequipos control.
         /// </summary>
         /// <remarks>

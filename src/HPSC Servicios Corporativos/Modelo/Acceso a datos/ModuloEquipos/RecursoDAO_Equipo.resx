@@ -173,4 +173,12 @@
     <value>MODIFICAR_EQUIPO</value>
     <comment>Procedimiento para modificar los datos de un equipo de la BD</comment>
   </data>
+  <data name="pr_numequipo" xml:space="preserve">
+    <value>@pr_numequipo</value>
+    <comment>Numero del equipo</comment>
+  </data>
+  <data name="ProcedimientoConsultarNumeros" xml:space="preserve">
+    <value>CONSULTAR_NUMEQUIPOS</value>
+    <comment>Procedimiento para consultar los números de equipos registrados en la BD</comment>
+  </data>
 </root>

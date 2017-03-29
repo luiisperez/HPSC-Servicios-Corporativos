@@ -57,5 +57,32 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloEquipo
             }
             return false;
         }
+        public Equipo buscarproducto(String numequipo)
+        {
+            try
+            {
+                DAOEquipo basedatos = FabricaDAO.CrearDAOEquipo();
+                Equipo equipoConsultado = basedatos.ConsultarEquipoNumero(numequipo);
+                return equipoConsultado;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Equipo> listadonumequipos()
+        {
+            try
+            {
+                DAOEquipo basedatos = FabricaDAO.CrearDAOEquipo();
+                List<Equipo> equiposConsultados = basedatos.ConsultarNumeros();
+                return equiposConsultados;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

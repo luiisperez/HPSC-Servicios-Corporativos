@@ -299,8 +299,11 @@
     <Content Include="Vista\Empleados\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Vista\Empleados\forms.html" />
     <Content Include="Vista\Empleados\gestion-equipos\agregarequipo.aspx" />
+    <Content Include="Vista\Empleados\gestion-productos\agregarproducto.aspx" />
     <Content Include="Vista\Empleados\gestion-equipos\modificarequipo.aspx" />
     <Content Include="Vista\Empleados\gestion-equipos\visualizarequipos.aspx" />
+    <Content Include="Vista\Empleados\gestion-productos\modificarproducto.aspx" />
+    <Content Include="Vista\Empleados\gestion-productos\visualizarproductos.aspx" />
     <Content Include="Vista\Empleados\index-rtl.html" />
     <Content Include="Vista\Empleados\index.html" />
     <Content Include="Vista\Empleados\js\bootstrap.js" />
@@ -621,6 +624,10 @@
     <Compile Include="Controlador\ModuloEquipo\EliminarEquipo.cs" />
     <Compile Include="Controlador\ModuloEquipo\ModificarEquipo.cs" />
     <Compile Include="Controlador\ModuloEquipo\ValidacionDatosEquipos.cs" />
+    <Compile Include="Controlador\ModuloProductos\AgregarProducto.cs" />
+    <Compile Include="Controlador\ModuloProductos\ConsultarProductos.cs" />
+    <Compile Include="Controlador\ModuloProductos\ModificarProducto.cs" />
+    <Compile Include="Controlador\ModuloProductos\ValidacionDatosProductos.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AgregarEmpleado.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AsignarRol.cs" />
     <Compile Include="Controlador\ModuloUsuarios\CambiarPassword.cs" />
@@ -645,6 +652,12 @@
       <DependentUpon>RecursoDAO_Cliente.resx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Acceso a datos\ModuloEquipos\DAOEquipo.cs" />
+    <Compile Include="Modelo\Acceso a datos\ModuloProductos\DAOProducto.cs" />
+    <Compile Include="Modelo\Acceso a datos\ModuloProductos\RecursoDAO_Producto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursoDAO_Producto.resx</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Acceso a datos\ModuloUsuarios\DAOEmpleado.cs" />
     <Compile Include="Modelo\Acceso a datos\ModuloEquipos\RecursoDAO_Equipo.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -736,6 +749,13 @@
     <Compile Include="Vista\Empleados\gestion-equipos\agregarequipo.aspx.designer.cs">
       <DependentUpon>agregarequipo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Empleados\gestion-productos\agregarproducto.aspx.cs">
+      <DependentUpon>agregarproducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-productos\agregarproducto.aspx.designer.cs">
+      <DependentUpon>agregarproducto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Empleados\gestion-equipos\modificarequipo.aspx.cs">
       <DependentUpon>modificarequipo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -749,6 +769,20 @@
     </Compile>
     <Compile Include="Vista\Empleados\gestion-equipos\visualizarequipos.aspx.designer.cs">
       <DependentUpon>visualizarequipos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-productos\modificarproducto.aspx.cs">
+      <DependentUpon>modificarproducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-productos\modificarproducto.aspx.designer.cs">
+      <DependentUpon>modificarproducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-productos\visualizarproductos.aspx.cs">
+      <DependentUpon>visualizarproductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-productos\visualizarproductos.aspx.designer.cs">
+      <DependentUpon>visualizarproductos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Index\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -1066,6 +1100,10 @@
     <EmbeddedResource Include="Modelo\Acceso a datos\ModuloEquipos\RecursoDAO_Equipo.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>RecursoDAO_Equipo.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelo\Acceso a datos\ModuloProductos\RecursoDAO_Producto.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursoDAO_Producto.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Modelo\Acceso a datos\ModuloUsuarios\RecursoDAO_Usuario.resx">
       <Generator>ResXFileCodeGenerator</Generator>

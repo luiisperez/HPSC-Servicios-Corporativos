@@ -30,12 +30,12 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos
                     {
                         equipoconsultado = FabricaObjetos.CrearEquipo(
                                             row[0].ToString(),
+                                            row[5].ToString(),
                                             row[1].ToString(),
                                             row[2].ToString(),
                                             row[3].ToString(),
-                                            row[4].ToString(),
                                             row[6].ToString(),
-                                            row[5].ToString()
+                                            row[4].ToString()
                                         );
                     }
                     catch (Exception ex)
@@ -73,7 +73,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos
             try
             {
 
-                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.eq_numequipo, SqlDbType.VarChar, numequipo, false));
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.pr_numequipo, SqlDbType.VarChar, numequipo, false));
 
                 tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Equipo.ProcedimientoConsultarEquipoNumero, parametro);
                 Equipo equipoconsultado = null;
@@ -82,13 +82,9 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos
                     try
                     {
                         equipoconsultado = FabricaObjetos.CrearEquipo(
-                                            row[0].ToString(),
                                             row[1].ToString(),
-                                            row[2].ToString(),
                                             row[3].ToString(),
-                                            row[4].ToString(),
-                                            row[6].ToString(),
-                                            row[5].ToString()
+                                            row[2].ToString()
                                         );
                     }
                     catch (Exception ex)
@@ -297,6 +293,56 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos
                 throw ex;
             }
 
+        }
+
+        public List<Equipo> ConsultarNumeros()
+        {
+            DataTable tablaDeDatos;
+            List<Equipo> equipos = FabricaObjetos.CrearListaEquipos();
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Equipo.ProcedimientoConsultarNumeros, parametro);
+                Equipo equipoconsultado = null;
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        equipoconsultado = FabricaObjetos.CrearEquipo(
+                                            row[0].ToString(),
+                                            row[1].ToString(),
+                                            row[2].ToString(),
+                                            row[3].ToString()
+                                        );
+                        equipos.Add(equipoconsultado);
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return equipos;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

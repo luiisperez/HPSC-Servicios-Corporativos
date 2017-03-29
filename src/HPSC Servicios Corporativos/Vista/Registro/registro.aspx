@@ -175,7 +175,7 @@
                                     </style>
                                     <asp:Button ID="aceptaremp" runat="server" Text="Registrar" OnClick="aceptaremp_Click"/>
                                     <asp:Button ID="cancelaremp" runat="server" Text="Cancelar" OnClick="cancelaremp_Click"/>
-                                    <a href="#" onclick="document.getElementById('indicacion').style.display='block'" id="normas" style="margin-left:60px;color:white">Instrucciones</a>
+                                    <a href="#" onclick="document.getElementById('indicacion').style.display='block'" id="normas" style="margin-left:60px;color:white">Indicaciones</a>
 			                    </div>
                             </div>
                         </asp:Panel>
@@ -265,7 +265,7 @@
                                     </style>
                                     <asp:Button ID="aceptarcli" runat="server" Text="Registrar" OnClick="aceptarcli_Click"/>
                                     <asp:Button ID="cancelarcli" runat="server" Text="Cancelar" OnClick="cancelarcli_Click"/>
-                                    <a href="#" onclick="document.getElementById('indicacion').style.display='block'" id="normas" style="margin-left:60px;color:white">Instrucciones</a>
+                                    <a href="#" onclick="document.getElementById('indicacion').style.display='block'" id="normas" style="margin-left:60px;color:white">Indicaciones</a>
 			                    </div>
                             </div>
                         </asp:Panel>
