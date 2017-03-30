@@ -47,6 +47,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
                 {
                     Session["Usuario"] = cmd.cli;
                 }
+                Session.Timeout = 1200;    //DURACION DE LA SESION ANTES DE EXPIRAR EN MINUTOS
                 Response.Redirect("~/Vista/Index/postlogin.aspx");
 
             }

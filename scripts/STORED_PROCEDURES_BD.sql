@@ -739,3 +739,39 @@ END
 
 
 
+/********************************************************* FIN CRUD EQUIPOS *********************************************************/
+
+
+
+
+
+/********************************************************* CRUD DE SERVICIOS *********************************************************/ 
+
+
+
+/****** 
+		PROCEDIMIENTO PARA CONSULTAR LOS SERVICIOS DE LA BASE DE DATOS
+		FECHA: 30/3/2017 1:03 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[AGREGAR_SERVICIO]
+  @sv_cantdias AS int,
+  @sv_canthoras AS int,
+  @sv_disponibilidad AS varchar(500),
+  @sv_feriados AS int,
+  @sv_id AS varchar(500),
+  @sv_nivelserv AS varchar(500),
+  @sv_tiemporesp AS int,
+  @sv_tiposerv AS varchar(500)
+AS
+BEGIN
+	INSERT INTO SERVICIO VALUES (@sv_id, @sv_nivelserv, @sv_tiposerv, @sv_tiemporesp, @sv_feriados, @sv_cantdias, @sv_canthoras, @sv_disponibilidad);
+END
+
+
+

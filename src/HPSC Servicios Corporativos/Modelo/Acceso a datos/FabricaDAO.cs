@@ -1,6 +1,7 @@
 ﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes;
 using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos;
 using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloProductos;
+using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios;
 using HPSC_Servicios_Corporativos.Modelo.Comun;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
@@ -46,6 +47,11 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos
         public static DAOProducto CrearDAOProducto()
         {
             return new DAOProducto();
+        }
+
+        public static DAOServicio CrearDAOServicio()
+        {
+            return new DAOServicio();
         }
     }
 }

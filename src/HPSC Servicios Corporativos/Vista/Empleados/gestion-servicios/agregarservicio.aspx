@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="agregarequipo.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos.agregarequipo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="agregarservicio.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios.agregarservicio" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -104,7 +104,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Agregar equipo
+                                Agregar servicio
                             </h1>
                         </div>
                     </div>
@@ -118,31 +118,39 @@
                                     <div class="row">
                                         <div class="col-md-12" style="margin-top:10px;margin-left:50px">
                                             <div class="col-xs-6">
-                                                <label style="text-align:right">N° de serial: </label>
-				                                <input type="text" class="form-control" id="serial" runat="server" onblur="validarserial()" maxlength="50" style="width:70%;height:30px">
+                                                <label style="text-align:right">Nivel de servicio: </label>
+				                                <input type="text" class="form-control" id="nivelservicio" runat="server" onblur="validarservicio()" maxlength="50" style="width:70%;height:30px">
                                             </div>
                                             <div class="col-xs-6">
-                                                <label style="text-align:right">N° de producto: </label>
-                                                <input list="listado_numeros" name="listado" class="form-control" runat="server" id="numequipo" onblur="validarnumequipo()" style="height:30px; width:70%" autocomplete="off">
-                                                <datalist id="listado_numeros" runat="server">
-                                                
-                                                </datalist>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12" style="margin-top:30px;margin-left:50px">
-                                            <div class="col-xs-6">
-                                                <label style="text-align:right">Categoría: </label>
-				                                <input type="text" class="form-control" id="categoria" runat="server" maxlength="18" style="width:70%;height:30px " readonly="readonly">
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <label style="text-align:right">Marca: </label>
-				                                <input type="text" class="form-control" id="marca" runat="server" onblur="validarmarca()" maxlength="18" style="width:70%;height:30px" readonly="readonly">
+                                                <label style="text-align:right">Tipo de servicio: </label>
+                                                <asp:DropDownList ID="listadotiposerv" runat="server" class="form-control" Height="30px" Width="70%">
+                                                    <asp:ListItem>Soporte reactivo</asp:ListItem>
+                                                    <asp:ListItem>Soporte preventivo</asp:ListItem>
+                                                    <asp:ListItem>Implementación</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="col-md-12" style="margin-top:30px;margin-left:50px">
                                             <div class="col-xs-6">
-                                                <label style="text-align:right">Modelo: </label>
-				                                <input type="text" class="form-control" id="modelo" runat="server" onblur="validarmodelo()" maxlength="18" style="width:70%;height:30px" readonly="readonly">
+                                                <label style="text-align:right">Tiempo de respuesta (horas): </label>
+				                                <input type="number" class="form-control" id="tiemporespuesta" runat="server" maxlength="18" min="1" style="width:70%;height:30px" onblur="validartiemporesp()" value="1">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label style="text-align:right">¿Incluye días feriados?: </label>
+                                                <asp:RadioButtonList ID="feriados_si_no" runat="server" Width="25%" RepeatDirection="Horizontal" TextAlign="Right" style="margin-top:3px">
+                                                    <asp:ListItem Value="Si" Selected="True">Sí</asp:ListItem>
+                                                    <asp:ListItem Value="No">No</asp:ListItem>
+                                                </asp:RadioButtonList>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12" style="margin-top:30px;margin-left:50px">
+                                            <div class="col-xs-6">
+                                                <label style="text-align:right">Cantidad de días a la semana: </label>
+				                                <input type="number" class="form-control" id="diassemana" runat="server" onblur="validarcantidaddias()" min="1" maxlength="18" style="width:70%;height:30px" value="1">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label style="text-align:right">Cantidad de horas por día: </label>
+				                                <input type="number" class="form-control" id="horasdia" runat="server" onblur="validarcantidadhoras()" min="1" maxlength="18" style="width:70%;height:30px" value="1">
                                             </div>
                                         </div>
                                     </div>
@@ -191,7 +199,7 @@
     </form>
     <script type="text/javascript">
 
-        function validarnumequipo(sender, args) {
+        <%--function validarnumequipo(sender, args) {
             if (document.getElementById('<%=numequipo.ClientID %>').value != "") {
 
                 var num = document.getElementById('<%=numequipo.ClientID %>').value;
@@ -208,75 +216,81 @@
                         document.getElementById('<%=modelo.ClientID%>').value = separar[3];
 
                     }
-                }   
+                }
 
                 function onError(result) {
                     alert('Ha ocurrido un error, intente nuevamente');
                     document.getElementById('<%=numequipo.ClientID %>').value = "";
                 }
             }
-        }
+        }--%>
     </script>
    <script>
+       function CheckForRepeat(originalString, charToCheck) {
+           var repeatCount = 0;
+           for (var i = 0; i < originalString.length; i++) {
+               if (originalString.charAt(i) == charToCheck) {
+                   repeatCount++;
+               } else {
+                   repeatCount = 0;
+               }
+               if (repeatCount == 2) {
+                   return 1;
+               }
+           }
+           return 0;
+       }
 
-        function validarserial(sender, args) {
-            var nombre = document.getElementById('<%=serial.ClientID%>').value;
-            if (/[^a-z0-9]/gi.test(nombre)) {
-                alert("No puede contener caracteres especiales");
-                document.getElementById('<%=serial.ClientID%>').value = '';
-            }
-        }
-
-        function CheckForRepeat(originalString, charToCheck) {
-            var repeatCount = 0;
-            for (var i = 0; i < originalString.length; i++) {
-                if (originalString.charAt(i) == charToCheck) {
-                    repeatCount++;
-                } else {
-                    repeatCount = 0;
-                }
-                if (repeatCount == 2) {
-                    return 1;
-                }
-            }
-            return 0;
-        }
-
-        function validarmarca(sender, args) {
-            var nombre = document.getElementById('<%=marca.ClientID%>').value;
-            if (/[^a-z0-9 áéíóúñÁÉÍÓÚ '&.,-]/gi.test(nombre)) {
+       function validarservicio(sender, args) {
+           var nombre = document.getElementById('<%=nivelservicio.ClientID%>').value;
+            if (/[^a-z0-9 áéíóúñÁÉÍÓÚ]/gi.test(nombre)) {
                 alert("Existen caracteres especiales no permitidos");
-                document.getElementById('<%=marca.ClientID%>').value = '';
+                document.getElementById('<%=nivelservicio.ClientID%>').value = '';
             } else {
-                var pruebapuntos = CheckForRepeat(nombre, ".");
-                var pruebacoma = CheckForRepeat(nombre, ",");
-                var pruebaguion = CheckForRepeat(nombre, "-");
-                var pruebacomilla = CheckForRepeat(nombre, "'");
-                var pruebaand = CheckForRepeat(nombre, "&");
-                if ((pruebacoma == 1) || (pruebapuntos == 1) || (pruebaand == 1) || (pruebaguion == 1) || (pruebacomilla == 1)) {
-                    alert("Existen caracteres especiales consecutivos");
-                    document.getElementById('<%=marca.ClientID%>').value = '';
+                var pruebaespacio = CheckForRepeat(nombre, " ");
+                if ((pruebaespacio == 1)) {
+                    alert("Existen espacios consecutivos");
+                    document.getElementById('<%=nivelservicio.ClientID%>').value = '';
                 }
             }
-        }
+       }
 
-        function validarmodelo(sender, args) {
-            var nombre = document.getElementById('<%=modelo.ClientID%>').value;
-            if (/[^a-z0-9 áéíóúñÁÉÍÓÚ '&.,-]/gi.test(nombre)) {
-                alert("Existen caracteres especiales no permitidos");
-                document.getElementById('<%=modelo.ClientID%>').value = '';
-            } else {
-                var pruebapuntos = CheckForRepeat(nombre, ".");
-                var pruebacoma = CheckForRepeat(nombre, ",");
-                var pruebaguion = CheckForRepeat(nombre, "-");
-                var pruebacomilla = CheckForRepeat(nombre, "'");
-                var pruebaand = CheckForRepeat(nombre, "&");
-                if ((pruebacoma == 1) || (pruebapuntos == 1) || (pruebaand == 1) || (pruebaguion == 1) || (pruebacomilla == 1)) {
-                    alert("Existen caracteres especiales consecutivos");
-                    document.getElementById('<%=modelo.ClientID%>').value = '';
-                }
-            }
-        }
+       function validartiemporesp() {
+           var variable = document.getElementById('<%=tiemporespuesta.ClientID%>').value;
+           if (variable != '') {
+               if (variable <= 0) {
+                   alert("No puedes colocar numeros negativos o cero");
+                   document.getElementById('<%=tiemporespuesta.ClientID%>').value = "1";
+               }
+           } else {
+               document.getElementById('<%=tiemporespuesta.ClientID%>').value = "1";
+           }
+       }
+
+       function validarcantidaddias() {
+           var variable = document.getElementById('<%=diassemana.ClientID%>').value;
+           if (variable != '') {
+               if (variable <= 0) {
+                   alert("No puedes colocar numeros negativos o cero");
+                   document.getElementById('<%=diassemana.ClientID%>').value = "1";
+               }
+           } else {
+               document.getElementById('<%=tiemporespuesta.ClientID%>').value = "1";
+           }
+       }
+
+       function validarcantidadhoras() {
+           var variable = document.getElementById('<%=horasdia.ClientID%>').value;
+           if (variable != '') {
+               if (variable <= 0) {
+                   alert("No puedes colocar numeros negativos o cero");
+                   document.getElementById('<%=horasdia.ClientID%>').value = "1";
+               }
+           } else {
+               document.getElementById('<%=tiemporespuesta.ClientID%>').value = "1";
+           }
+       }
+       
     </script>
 
     <!-- jQuery -->
@@ -297,6 +311,3 @@
 </body>
 
 </html>
-
-
-

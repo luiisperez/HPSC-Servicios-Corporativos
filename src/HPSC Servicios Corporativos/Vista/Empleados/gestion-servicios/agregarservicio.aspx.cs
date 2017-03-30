@@ -1,17 +1,18 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEquipo;
-using HPSC_Servicios_Corporativos.Controlador.ModuloProductos;
+using HPSC_Servicios_Corporativos.Controlador.ModuloServicios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
+namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
 {
-    public partial class agregarproducto : System.Web.UI.Page
+    public partial class agregarservicio : System.Web.UI.Page
     {
         protected Empleado emp;
         protected void Page_Load(object sender, EventArgs e)
@@ -79,22 +80,6 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
                         zonaclientes.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-briefcase\"></i> Clientes  <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
                         Response.Redirect("~/Vista/Empleados/administracionHPSC.aspx");
                     }
-                    try
-                    {
-                        List<String> marcas = new List<String>();
-                        ValidacionDatosProductos cmd = FabricaComando.ComandoValidacionDeDatosProductos();
-                        marcas = cmd.listadomarcas();
-                        foreach (String item in marcas)
-                        {
-                            listadomarcas.Items.Add(new ListItem(item, item));
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
-                        ScriptManager.RegisterStartupScript(this, GetType(),
-                                                "ServerControlScript", script, true);
-                    }
                 }
                 catch
                 {
@@ -109,36 +94,36 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
             Response.Redirect("~/Vista/Index/index.aspx");
         }
 
+
         protected void aceptar_Click(object sender, EventArgs e)
         {
-            if ((!numequipo.Value.Equals("")) && (!modelo.Value.Equals("")) && (!listadomarcas.SelectedValue.Equals("")))
+            if ((!nivelservicio.Value.Equals("")) && (!listadotiposerv.SelectedValue.Equals("")) && (!tiemporespuesta.Value.Equals("")) && (!diassemana.Value.Equals("")) && (!horasdia.Value.Equals("")) && (!feriados_si_no.SelectedValue.Equals("")))
             {
-                ValidacionDatosEquipos val = FabricaComando.ComandoValidacionDeDatosEquipo();
-                bool numrepe = val.verificarnumequipo(numequipo.Value);
-                if ((!numrepe))
+                try
                 {
-                    try
+                    int feriado = 0;
+                    if (feriados_si_no.SelectedValue.Equals("No"))
                     {
-                        Equipo nuevoequipo = FabricaObjetos.CrearEquipo(numequipo.Value, listadocategoria.SelectedValue, modelo.Value,  listadomarcas.SelectedValue);
-                        AgregarProducto cmd = FabricaComando.ComandoAgregarProducto(nuevoequipo);
-                        cmd.ejecutar();
-                        var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha registrado el producto en el sistema exitosamente");
-                        var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-productos/agregarproducto.aspx';", message);
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                        feriado = 0;
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
-                        ScriptManager.RegisterStartupScript(this, GetType(),
-                                                "ServerControlScript", script, true);
+                        feriado = 1;
                     }
+                    Servicio nuevoserv = FabricaObjetos.CrearServicio(nivelservicio.Value, listadotiposerv.SelectedValue, Int32.Parse(tiemporespuesta.Value), feriado, Int32.Parse(diassemana.Value), Int32.Parse(horasdia.Value));
+                    AgregarServicio cmd = FabricaComando.ComandoAgregarServicio(nuevoserv);
+                    cmd.ejecutar();
+                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha registrado el servicio en el sistema exitosamente");
+                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-servicios/agregarservicio.aspx';", message);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
                 }
-                else if ((numrepe))
+                catch (Exception ex)
                 {
-                    string script = "alert(\"El número de equipo proporcionado ya se encuentra registrado\");";
+                    string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                 }
+
             }
             else
             {
@@ -147,6 +132,5 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
                                         "ServerControlScript", script, true);
             }
         }
-
     }
 }

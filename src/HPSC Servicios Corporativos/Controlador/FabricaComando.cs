@@ -2,6 +2,7 @@
 using HPSC_Servicios_Corporativos.Controlador.ModuloEmpleados;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEquipo;
 using HPSC_Servicios_Corporativos.Controlador.ModuloProductos;
+using HPSC_Servicios_Corporativos.Controlador.ModuloServicios;
 using HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
@@ -158,6 +159,13 @@ namespace HPSC_Servicios_Corporativos.Controlador
             public static ModificarProducto ComandoModificarProducto(Equipo equipo, String viejonumero)
             {
                 return new ModificarProducto(equipo, viejonumero);
+            }
+        #endregion
+
+        #region Servicio
+            public static AgregarServicio ComandoAgregarServicio(Servicio nuevoserv)
+            {
+                return new AgregarServicio(nuevoserv);
             }
         #endregion
     }
