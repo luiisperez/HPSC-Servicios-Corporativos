@@ -71,6 +71,42 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CONSULTAR_SERVICIO.
+        /// </summary>
+        internal static string ProcedimientoConsultarServicio {
+            get {
+                return ResourceManager.GetString("ProcedimientoConsultarServicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CONSULTAR_SERVICIOS.
+        /// </summary>
+        internal static string ProcedimientoConsultarServicios {
+            get {
+                return ResourceManager.GetString("ProcedimientoConsultarServicios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ELIMINAR_SERVICIO.
+        /// </summary>
+        internal static string ProcedimientoEliminarServicio {
+            get {
+                return ResourceManager.GetString("ProcedimientoEliminarServicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MODIFICAR_SERVICIO.
+        /// </summary>
+        internal static string ProcedimientoModificarServicio {
+            get {
+                return ResourceManager.GetString("ProcedimientoModificarServicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @sv_cantdias.
         /// </summary>
         internal static string sv_cantdias {

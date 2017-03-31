@@ -632,6 +632,10 @@
     <Compile Include="Controlador\ModuloProductos\ModificarProducto.cs" />
     <Compile Include="Controlador\ModuloProductos\ValidacionDatosProductos.cs" />
     <Compile Include="Controlador\ModuloServicios\AgregarServicio.cs" />
+    <Compile Include="Controlador\ModuloServicios\ConsultarServicio.cs" />
+    <Compile Include="Controlador\ModuloServicios\ConsultarServicios.cs" />
+    <Compile Include="Controlador\ModuloServicios\EliminarServicio.cs" />
+    <Compile Include="Controlador\ModuloServicios\ModificarServicio.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AgregarEmpleado.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AsignarRol.cs" />
     <Compile Include="Controlador\ModuloUsuarios\CambiarPassword.cs" />

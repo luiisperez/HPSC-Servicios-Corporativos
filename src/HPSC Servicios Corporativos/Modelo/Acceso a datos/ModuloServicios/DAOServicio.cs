@@ -45,5 +45,192 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
                 throw ex;
             }
         }
+
+        public List<Servicio> ConsultarServicios()
+        {
+            DataTable tablaDeDatos;
+            List<Servicio> servicios = FabricaObjetos.CrearListaServicios();
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoConsultarServicios, parametro);
+                Servicio servconsultado = null;
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        String feriado = "";
+                        if (row[4].ToString().Equals("1"))
+                        {
+                            feriado = "Sí";
+                        }else
+                        {
+                            feriado = "No";
+                        }
+                        servconsultado = FabricaObjetos.CrearServicio(
+                                            row[0].ToString(),
+                                            row[1].ToString(),
+                                            row[2].ToString(),
+                                            Int32.Parse(row[3].ToString()),
+                                            feriado,
+                                            Int32.Parse(row[5].ToString()),
+                                            Int32.Parse(row[6].ToString()),
+                                            row[7].ToString()
+                                        );
+                        servicios.Add(servconsultado);
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return servicios;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void Modificar(Servicio newserv)
+        {
+            List<Parametro> listaParametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_cantdias, SqlDbType.Int, Convert.ToString(newserv.cantdias), false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_canthoras, SqlDbType.Int, Convert.ToString(newserv.canthoras), false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_disponibilidad, SqlDbType.VarChar, newserv.disponibilidad, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_feriados, SqlDbType.Int, Convert.ToString(newserv.feriado_si_no), false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_id, SqlDbType.VarChar, Convert.ToString(newserv.identificador), false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_nivelserv, SqlDbType.VarChar, newserv.nivelservicio, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_tiemporesp, SqlDbType.Int, Convert.ToString(newserv.tiemporespuesta), false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_tiposerv, SqlDbType.VarChar, newserv.tiposervicio, false));
+                EjecutarStoredProcedure(RecursoDAO_Servicio.ProcedimientoModificarServicio, listaParametro);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public Servicio ConsultarServicio(String id)
+        {
+            DataTable tablaDeDatos;
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_id, SqlDbType.VarChar, id, false));
+
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoConsultarServicio, parametro);
+                Servicio servconsultado = null;
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        String feriado = "";
+                        if (row[4].ToString().Equals("1"))
+                        {
+                            feriado = "Sí";
+                        }
+                        else
+                        {
+                            feriado = "No";
+                        }
+                        servconsultado = FabricaObjetos.CrearServicio(
+                                            row[0].ToString(),
+                                            row[1].ToString(),
+                                            row[2].ToString(),
+                                            Int32.Parse(row[3].ToString()),
+                                            feriado,
+                                            Int32.Parse(row[5].ToString()),
+                                            Int32.Parse(row[6].ToString()),
+                                            row[7].ToString()
+                                        );
+                        return servconsultado;
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return servconsultado;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EliminarServicio(String id)
+        {
+            DataTable tablaDeDatos;
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_id, SqlDbType.VarChar, id, false));
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoEliminarServicio, parametro);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

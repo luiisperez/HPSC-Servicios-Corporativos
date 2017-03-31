@@ -121,6 +121,22 @@
     <value>AGREGAR_SERVICIO</value>
     <comment>Procedimiento para añadir un servicio a la BD</comment>
   </data>
+  <data name="ProcedimientoConsultarServicio" xml:space="preserve">
+    <value>CONSULTAR_SERVICIO</value>
+    <comment>Procedimiento para consultar un servicio en la BD</comment>
+  </data>
+  <data name="ProcedimientoConsultarServicios" xml:space="preserve">
+    <value>CONSULTAR_SERVICIOS</value>
+    <comment>Procedimiento para consultar los servicios registrados en la BD</comment>
+  </data>
+  <data name="ProcedimientoEliminarServicio" xml:space="preserve">
+    <value>ELIMINAR_SERVICIO</value>
+    <comment>Procedimiento para eliminar un servicio de la BD</comment>
+  </data>
+  <data name="ProcedimientoModificarServicio" xml:space="preserve">
+    <value>MODIFICAR_SERVICIO</value>
+    <comment>Procedimiento para modificar la información de un servicio de la BD</comment>
+  </data>
   <data name="sv_cantdias" xml:space="preserve">
     <value>@sv_cantdias</value>
     <comment>Cantidad de días a la semana</comment>

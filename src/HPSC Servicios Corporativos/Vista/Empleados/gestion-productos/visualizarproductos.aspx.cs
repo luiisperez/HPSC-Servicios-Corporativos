@@ -102,13 +102,6 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_productos
             }
         }
 
-        protected void visualizaremp_Click(object sender, EventArgs e)
-        {
-            string script = "alert(\"Se ha eliminado su cuenta exitosamente y será redirigido al inicio\");";
-            ScriptManager.RegisterStartupScript(this, GetType(),
-                                    "ServerControlScript", script, true);
-        }
-
         protected void repPeople_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             ImageButton botonpresionado = (ImageButton)e.CommandSource;

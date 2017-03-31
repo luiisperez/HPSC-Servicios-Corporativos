@@ -82,7 +82,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
             return new Equipo(_numequipo, _categoria, _modelo, _marca);
         }
 
-        public static Servicio CrearServicio(int _identificador, String _nivelservicio, String _tiposervicio, int _tiemporesp, int _feriado, int _cantdias, int _canthoras, String _disponibilidad)
+        public static Servicio CrearServicio(String _identificador, String _nivelservicio, String _tiposervicio, int _tiemporesp, String _feriado, int _cantdias, int _canthoras, String _disponibilidad)
         {
             return new Servicio(_identificador, _nivelservicio, _tiposervicio, _tiemporesp, _feriado, _cantdias, _canthoras, _disponibilidad);
         }

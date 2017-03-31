@@ -167,6 +167,26 @@ namespace HPSC_Servicios_Corporativos.Controlador
             {
                 return new AgregarServicio(nuevoserv);
             }
+
+            public static ModificarServicio ComandoModificarServicio(Servicio nuevoserv)
+            {
+                return new ModificarServicio(nuevoserv);
+            }
+
+            public static ConsultarServicios ComandoConsultarServicios()
+            {
+                return new ConsultarServicios();
+            }
+
+            public static ConsultarServicio ComandoConsultarServicio(String id)
+            {
+                return new ConsultarServicio(id);
+            }
+
+            public static EliminarServicio ComandoEliminarServicio(String id)
+            {
+                return new EliminarServicio(id);
+            }
         #endregion
     }
 }
