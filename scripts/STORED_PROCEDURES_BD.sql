@@ -858,3 +858,26 @@ END
 
 
 
+/****** 
+		PROCEDIMIENTO PARA ASIGNAR UN SERVICIO A UN EQUIPO
+		FECHA: 31/3/2017 12:03 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[ASIGNAR_SERVICIO]
+  @sv_id AS varchar(500),
+  @eq_serial AS varchar(250),
+  @eqsv_id AS varchar(500),
+  @eqsv_fechaini as date,
+  @eqsv_fechafin as date
+AS
+BEGIN
+	INSERT INTO EQUIPO_SERVICIO VALUES (@eqsv_id, @eqsv_fechaini, @eqsv_fechafin, 'Vigente', @eq_serial, @sv_id);
+END
+
+
+

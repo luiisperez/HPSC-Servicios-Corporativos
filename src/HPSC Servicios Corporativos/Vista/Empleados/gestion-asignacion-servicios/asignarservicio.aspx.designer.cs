@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos {
+namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servicios {
     
     
-    public partial class agregarproducto {
+    public partial class asignarservicio {
         
         /// <summary>
         /// formulario control.
@@ -94,40 +94,49 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl zonaincidentes;
         
         /// <summary>
-        /// numequipo control.
+        /// equipoinput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText numequipo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText equipoinput;
         
         /// <summary>
-        /// listadocategoria control.
+        /// listado_equipos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listadocategoria;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl listado_equipos;
         
         /// <summary>
-        /// listadomarcas control.
+        /// listadoservicios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listadomarcas;
+        protected global::System.Web.UI.WebControls.DropDownList listadoservicios;
         
         /// <summary>
-        /// modelo control.
+        /// inifecha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText modelo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inifecha;
+        
+        /// <summary>
+        /// finfecha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl finfecha;
         
         /// <summary>
         /// sm control.

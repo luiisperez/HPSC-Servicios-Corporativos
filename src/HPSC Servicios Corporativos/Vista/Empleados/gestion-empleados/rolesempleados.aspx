@@ -88,6 +88,9 @@
                         <li id="zonacontratos" runat="server">
                             
                         </li>
+                        <li id="zonaasignacionservicios" runat="server">
+                            
+                        </li>
                         <li id="zonaincidentes" runat="server">
                             <a href="#"><i class="fa fa fa-warning"></i> Incidentes</a>
                         </li>
@@ -114,14 +117,14 @@
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-body">
-                                    <div class="col-md-12" style="margin-top:10px;text-align:center">
+                                    <div class="col-md-12" style="margin-top:10px;margin-left:50px">
                                         <div class="col-xs-6">
                                             <label>Nombre del empleado:  </label>
-                                            <asp:DropDownList ID="listadoempleados" runat="server" Height="30px" Width="52%"></asp:DropDownList>
+                                            <asp:DropDownList ID="listadoempleados" runat="server" Height="30px" Width="52%" class="form-control"></asp:DropDownList>
                                         </div>
                                         <div class="col-xs-6">
                                             <label>Rol:  </label>
-                                            <asp:DropDownList ID="listadoroles" runat="server" Height="30px" Width="52%"></asp:DropDownList>
+                                            <asp:DropDownList ID="listadoroles" runat="server" Height="30px" Width="52%" class="form-control"></asp:DropDownList>
                                         </div>
                                     </div>
                                     <div style="margin-top:10px;text-align:center">

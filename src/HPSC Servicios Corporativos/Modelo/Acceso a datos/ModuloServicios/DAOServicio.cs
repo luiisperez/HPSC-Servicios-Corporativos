@@ -1,4 +1,5 @@
-﻿using HPSC_Servicios_Corporativos.Modelo.Comun;
+﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos;
+using HPSC_Servicios_Corporativos.Modelo.Comun;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
@@ -114,6 +115,14 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
 
             try
             {
+                if (newserv.feriado.Equals("Sí"))
+                {
+                    newserv.feriado_si_no = 1;
+                }
+                else
+                {
+                    newserv.feriado_si_no = 0;
+                }
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_cantdias, SqlDbType.Int, Convert.ToString(newserv.cantdias), false));
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_canthoras, SqlDbType.Int, Convert.ToString(newserv.canthoras), false));
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_disponibilidad, SqlDbType.VarChar, newserv.disponibilidad, false));
@@ -214,6 +223,39 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
             {
                 parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_id, SqlDbType.VarChar, id, false));
                 tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoEliminarServicio, parametro);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void AsignarServicio(String servicio, String serial, String fechaini, String fechafin)
+        {
+            DataTable tablaDeDatos;
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                String identificador = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_id, SqlDbType.VarChar, identificador, false));
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_id, SqlDbType.VarChar, servicio, false));
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.eq_serial, SqlDbType.VarChar, serial, false));
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_fechaini, SqlDbType.Date, fechaini,  false));
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_fechafin, SqlDbType.Date, fechafin, false));
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoAsignarServicio, parametro);
             }
             catch (SqlException ex)
             {

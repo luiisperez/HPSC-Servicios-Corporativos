@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="visualizarempleados.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Empleados.gestion_empleados.visualizarempleados" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="asignarservicio.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servicios.asignarservicio" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    
     <link rel="icon" href="/Vista/Common/img/hpsc-logo.ico" type="image/x-icon">
     <title>HPSC Servicios Corporativos</title>
 
@@ -36,7 +35,7 @@
 </head>
 
 <body>
-    <form id ="form" runat="server">
+    <form id="formulario" runat="server">
         <div id="wrapper">
 
             <!-- Navigation -->
@@ -61,7 +60,7 @@
                             </li>
                             <li class="divider"></li>
                             <li id="cerrarsesion" style="">
-                                <asp:LinkButton ID="sesioncerrar" runat="server" ForeColor="Black" Font-Underline="false" OnClick="sesioncerrar_Click"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</asp:LinkButton>
+                                    <asp:LinkButton ID="sesioncerrar" runat="server" ForeColor="Black" Font-Underline="false" OnClick="sesioncerrar_Click"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</asp:LinkButton>
                             </li>
                         </ul>
                     </li>
@@ -78,7 +77,7 @@
                         
                         </li>
                         <li id="zonaclientes" runat="server">
-                           
+                            
                         </li>
                         <li id="zonaproductos" runat="server">
                             
@@ -108,7 +107,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Lista de empleados 
+                                Asignación de servicios a equipos
                             </h1>
                         </div>
                     </div>
@@ -118,41 +117,58 @@
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-body">
-                                    <table id="tabla" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre y apellido</th>
-                                                <th>Usuario</th>
-                                                <th>Correo</th>
-                                                <th>Rol</th>
-                                                <th>Opciones</th>
-                                            </tr>
-                                        </thead>
-                                            <tbody id="contenidotabla">
-                                                 <asp:Repeater ID="repPeople" runat="server" OnItemCommand="repPeople_ItemCommand">
-                                                    <ItemTemplate>
-                                                            <tr id="<%# Eval("correo") %>">
-                                                                <td><%# Eval("nombre") %> <%# Eval("apellido") %></td>
-                                                                <td><%# Eval("usuario") %></td>
-                                                                <td><asp:Label ID="correoemp" runat="server" Text='<%# Eval("correo") %>' ReadOnly="True" BorderStyle="None" /></td>
-                                                                <td><%# Eval("rol") %></td>
-                                                                <td style="text-align:center">
-                                                                    <asp:ImageButton ID="Eliminar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/eliminar.ico" Height="25px" Width="25px" ToolTip="Eliminar empleado" />
-                                                                </td>
-                                                            </tr>              
-                                                    </ItemTemplate>
-                                                 </asp:Repeater>
-                                            </tbody>  
-                                        <tfoot>
-                                            <tr>
-                                                <th>Nombre y apellido</th>
-                                                <th>Usuario</th>
-                                                <th>Correo</th>
-                                                <th>Rol</th>
-                                                <th>Opciones</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                                    <div class="col-md-12" style="margin-top:10px;text-align:left;margin-left:15px">
+                                        <div class="col-xs-12">
+                                            <label>Seriales:  </label>
+                                            <input list="listado_equipos" name="listado" runat="server" id="equipoinput" style="height:30px; width:70%" autocomplete="off" class="form-control">
+                                            <datalist id="listado_equipos" runat="server">
+                                                
+                                            </datalist>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" style="margin-top:20px;text-align:left;margin-left:15px">
+                                        <div class="col-xs-12">
+                                            <label>Servicios:  </label>
+                                            <asp:DropDownList ID="listadoservicios" runat="server" Height="30px" Width="70%" class="form-control"></asp:DropDownList>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" style="margin-top:20px;text-align:left">
+                                        <div class="col-xs-12">
+                                            <div class="col-xs-6">
+                                                <label>Fecha de inicio:  </label>
+                                                <input id="inifecha" runat="server" type='date' max="2100-12-31" class="form-control" oninvalid="alert('Debe colocar una fecha de inicio válida');setCustomValidity(' ')">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label>Fecha de fin:  </label>
+                                                <input id="finfecha" runat="server" type='date' max="2100-12-31" class="form-control" oninvalid="alert('Debe colocar una fecha de finalización válida');setCustomValidity(' ')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top:10px;text-align:center">
+                                        <style>
+                                            #aceptar {
+                                                background-color: #4CAF50;
+                                                color: white;
+                                                padding: 14px 20px;
+                                                margin: 8px 0;
+                                                margin-top:60px;
+                                                margin-left:-30px;
+                                                border: none;
+                                                cursor: pointer;
+                                                width: 125px;
+                                                border-radius: 15px;
+                                                font-family: 'Raleway SemiBold';
+                                            }
+                                        </style>
+                                         <asp:ScriptManager runat="server" ID="sm">
+                                         </asp:ScriptManager>
+                                         <asp:updatepanel runat="server">
+                                             <ContentTemplate>
+                                                 <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
+                                             </ContentTemplate>
+                                         </asp:updatepanel>
+                                    
+                                    </div>
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -169,11 +185,10 @@
 
         </div>
         <!-- /#wrapper -->
-
+    </form>
 
    
 
-    </form>
     <!-- jQuery -->
     <script src="/Vista/Empleados/js/jquery.js"></script>
 
@@ -188,8 +203,28 @@
     <!-- DataTables -->
     <script src="/Vista/Common/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/Vista/Common/plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <script>table = $('#tabla').DataTable();</script>'
+    <script>table = $('#tabla').DataTable();</script>
+
+
+    <script>
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("inifecha").setAttribute("min", today);
+        document.getElementById("finfecha").setAttribute("min", today);
+        document.getElementById("inifecha").value = today;
+        document.getElementById("finfecha").value = today;
+    </script>
+
 </body>
 
 </html>
-

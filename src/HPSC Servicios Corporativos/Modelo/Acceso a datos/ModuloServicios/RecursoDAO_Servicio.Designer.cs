@@ -62,11 +62,47 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to @eqsv_fechafin.
+        /// </summary>
+        internal static string eqsv_fechafin {
+            get {
+                return ResourceManager.GetString("eqsv_fechafin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @eqsv_fechaini.
+        /// </summary>
+        internal static string eqsv_fechaini {
+            get {
+                return ResourceManager.GetString("eqsv_fechaini", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @eqsv_id.
+        /// </summary>
+        internal static string eqsv_id {
+            get {
+                return ResourceManager.GetString("eqsv_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AGREGAR_SERVICIO.
         /// </summary>
         internal static string ProcedimientoAgregarServicio {
             get {
                 return ResourceManager.GetString("ProcedimientoAgregarServicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ASIGNAR_SERVICIO.
+        /// </summary>
+        internal static string ProcedimientoAsignarServicio {
+            get {
+                return ResourceManager.GetString("ProcedimientoAsignarServicio", resourceCulture);
             }
         }
         

@@ -73,6 +73,15 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_productos
                                      "<a href=\"/Vista/Empleados/gestion-servicios/visualizarservicios.aspx\">Visualizar</a>" +
                                 "</li>" +
                             "</ul>";
+                        zonaasignacionservicios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#asignarservicios\" id=\"servicesequipment\" runat=\"server\"><i class=\"fa fa-plus\"></i> Asignación de servicios <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"asignarservicios\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/asignarservicio.aspx\">Agregar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/visualizarservicios.aspx\">Visualizar</a>" +
+                                "</li>" +
+                            "</ul>";
                     }
                     else
                     {

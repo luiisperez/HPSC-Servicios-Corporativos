@@ -187,6 +187,11 @@ namespace HPSC_Servicios_Corporativos.Controlador
             {
                 return new EliminarServicio(id);
             }
+
+            public static AsignarServicio ComandoAsignarServicio(String servicio, String serial, String fechaini, String fechafin)
+            {
+                return new AsignarServicio(servicio, serial, fechaini, fechafin);
+            }
         #endregion
     }
 }

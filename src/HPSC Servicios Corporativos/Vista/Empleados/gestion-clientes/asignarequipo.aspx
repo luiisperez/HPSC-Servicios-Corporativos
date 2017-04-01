@@ -88,6 +88,9 @@
                         <li id="zonacontratos" runat="server">
                             
                         </li>
+                        <li id="zonaasignacionservicios" runat="server">
+                            
+                        </li>
                         <li id="zonaincidentes" runat="server">
                             <a href="#"><i class="fa fa fa-warning"></i> Incidentes</a>
                         </li>
@@ -117,7 +120,7 @@
                                     <div class="col-md-12" style="margin-top:10px;text-align:left">
                                         <div class="col-xs-12">
                                             <label>Seriales:  </label>
-                                            <input list="listado_equipos" name="listado" runat="server" id="equipoinput" style="height:30px; width:70%" autocomplete="off">
+                                            <input list="listado_equipos" name="listado" runat="server" id="equipoinput" style="height:30px; width:70%" autocomplete="off" class="form-control">
                                             <datalist id="listado_equipos" runat="server">
                                                 
                                             </datalist>
@@ -126,7 +129,7 @@
                                     <div class="col-md-12" style="margin-top:20px;text-align:left">
                                         <div class="col-xs-12">
                                             <label>Clientes:  </label>
-                                            <asp:DropDownList ID="listadoclientes" runat="server" Height="30px" Width="30%"></asp:DropDownList>
+                                            <asp:DropDownList ID="listadoclientes" runat="server" Height="30px" Width="30%" class="form-control"></asp:DropDownList>
                                         </div>
                                     </div>
                                     <div style="margin-top:10px;text-align:center">

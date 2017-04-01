@@ -278,6 +278,7 @@
     <Content Include="Vista\Common\plugins\datatables\jquery.dataTables.min.js" />
     <Content Include="Vista\Common\plugins\datatables\jquery.dataTables_themeroller.css" />
     <Content Include="Vista\Empleados\administracionHPSC.aspx" />
+    <Content Include="Vista\Empleados\gestion-asignacion-servicios\asignarservicio.aspx" />
     <Content Include="Vista\Empleados\gestion-clientes\asignarequipo.aspx" />
     <Content Include="Vista\Empleados\gestion-clientes\visualizarclientes.aspx" />
     <Content Include="Vista\Empleados\gestion-empleados\rolesempleados.aspx" />
@@ -632,6 +633,7 @@
     <Compile Include="Controlador\ModuloProductos\ModificarProducto.cs" />
     <Compile Include="Controlador\ModuloProductos\ValidacionDatosProductos.cs" />
     <Compile Include="Controlador\ModuloServicios\AgregarServicio.cs" />
+    <Compile Include="Controlador\ModuloServicios\AsignarServicio.cs" />
     <Compile Include="Controlador\ModuloServicios\ConsultarServicio.cs" />
     <Compile Include="Controlador\ModuloServicios\ConsultarServicios.cs" />
     <Compile Include="Controlador\ModuloServicios\EliminarServicio.cs" />
@@ -728,6 +730,13 @@
     </Compile>
     <Compile Include="Vista\Empleados\administracionHPSC.aspx.designer.cs">
       <DependentUpon>administracionHPSC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-asignacion-servicios\asignarservicio.aspx.cs">
+      <DependentUpon>asignarservicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-asignacion-servicios\asignarservicio.aspx.designer.cs">
+      <DependentUpon>asignarservicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Empleados\gestion-clientes\asignarequipo.aspx.cs">
       <DependentUpon>asignarequipo.aspx</DependentUpon>

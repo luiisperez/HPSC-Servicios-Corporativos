@@ -117,9 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="eqsv_fechafin" xml:space="preserve">
+    <value>@eqsv_fechafin</value>
+    <comment>Fecha de finalizacion del servicio</comment>
+  </data>
+  <data name="eqsv_fechaini" xml:space="preserve">
+    <value>@eqsv_fechaini</value>
+    <comment>Fecha de inicio del servicio</comment>
+  </data>
+  <data name="eqsv_id" xml:space="preserve">
+    <value>@eqsv_id</value>
+    <comment>Identificador del servicio con el equipo </comment>
+  </data>
   <data name="ProcedimientoAgregarServicio" xml:space="preserve">
     <value>AGREGAR_SERVICIO</value>
     <comment>Procedimiento para añadir un servicio a la BD</comment>
+  </data>
+  <data name="ProcedimientoAsignarServicio" xml:space="preserve">
+    <value>ASIGNAR_SERVICIO</value>
+    <comment>Procedimiento para asignar un servicio a un equipo</comment>
   </data>
   <data name="ProcedimientoConsultarServicio" xml:space="preserve">
     <value>CONSULTAR_SERVICIO</value>
