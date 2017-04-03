@@ -192,6 +192,16 @@ namespace HPSC_Servicios_Corporativos.Controlador
             {
                 return new AsignarServicio(servicio, serial, fechaini, fechafin);
             }
+
+            public static ConsultarServiciosPorEquipo ComandoConsultarServiciosPorEquipo(String id)
+            {
+                return new ConsultarServiciosPorEquipo(id);
+            }
+
+            public static EliminarServicioAsignado ComandoEliminarServicioAsignado(String id)
+            {
+                return new EliminarServicioAsignado(id);
+            }
         #endregion
     }
 }

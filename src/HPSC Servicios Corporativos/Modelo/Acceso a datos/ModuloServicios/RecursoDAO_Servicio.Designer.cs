@@ -134,11 +134,29 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ELIMINAR_SERVICIO_ASIGNADO.
+        /// </summary>
+        internal static string ProcedimientoEliminarServicioAsignado {
+            get {
+                return ResourceManager.GetString("ProcedimientoEliminarServicioAsignado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MODIFICAR_SERVICIO.
         /// </summary>
         internal static string ProcedimientoModificarServicio {
             get {
                 return ResourceManager.GetString("ProcedimientoModificarServicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CONSULTAR_SERVICIOS_POR_EQUIPO.
+        /// </summary>
+        internal static string ProcediminetoConsultarEquiposServicio {
+            get {
+                return ResourceManager.GetString("ProcediminetoConsultarEquiposServicio", resourceCulture);
             }
         }
         

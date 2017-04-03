@@ -274,5 +274,109 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
                 throw ex;
             }
         }
+
+        public List<Servicio> ConsultarServiciosPorEquipo(String serial)
+        {
+            DataTable tablaDeDatos;
+            List<Servicio> servicios = FabricaObjetos.CrearListaServicios();
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.eq_serial, SqlDbType.VarChar, serial, false));
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcediminetoConsultarEquiposServicio, parametro);
+                Servicio servconsultado = null;
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        String feriado = "";
+                        String estatus = "";
+                        if (row["FERIADO"].ToString().Equals("1"))
+                        {
+                            feriado = "Sí";
+                        }
+                        else
+                        {
+                            feriado = "No";
+                        }
+                        if (Convert.ToDateTime(row["FECHAFIN"].ToString()) < Convert.ToDateTime(DateTime.Now.ToShortDateString()))
+                        {
+                            estatus = "Caducado";
+                        }
+                        else
+                        {
+                            estatus = "Vigente";
+                        }
+                        servconsultado = FabricaObjetos.CrearServicio(
+                                            row["IDSERVICIO"].ToString(),
+                                            row["NIVELSERV"].ToString(),
+                                            row["TIPOSERV"].ToString(),
+                                            Int32.Parse(row["TIEMPORESP"].ToString()),
+                                            feriado,
+                                            Int32.Parse(row["DIAS"].ToString()),
+                                            Int32.Parse(row["HORAS"].ToString()),
+                                            Convert.ToDateTime(row["INICIO"].ToString()),
+                                            Convert.ToDateTime(row["FECHAFIN"].ToString()),
+                                            estatus,
+                                            row["ID"].ToString()
+                                            
+                                        );
+                        servicios.Add(servconsultado);
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return servicios;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EliminarServicioAsignado(String id)
+        {
+            DataTable tablaDeDatos;
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_id, SqlDbType.VarChar, id, false));
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoEliminarServicioAsignado, parametro);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

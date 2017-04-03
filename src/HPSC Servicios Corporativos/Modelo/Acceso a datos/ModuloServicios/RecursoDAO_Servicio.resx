@@ -185,4 +185,12 @@
     <value>@sv_tiposerv</value>
     <comment>Tipo de servicio</comment>
   </data>
+  <data name="ProcediminetoConsultarEquiposServicio" xml:space="preserve">
+    <value>CONSULTAR_SERVICIOS_POR_EQUIPO</value>
+    <comment>Procedimiento para consultar los servicios que tiene asignado un equipo</comment>
+  </data>
+  <data name="ProcedimientoEliminarServicioAsignado" xml:space="preserve">
+    <value>ELIMINAR_SERVICIO_ASIGNADO</value>
+    <comment>Procedimiento para eliminar un servicio asignado a un equipo</comment>
+  </data>
 </root>

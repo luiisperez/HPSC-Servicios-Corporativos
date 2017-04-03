@@ -77,7 +77,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_empleados
                                     "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/asignarservicio.aspx\">Agregar</a>" +
                                "</li>" +
                                 "<li>" +
-                                     "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/visualizarservicios.aspx\">Visualizar</a>" +
+                                     "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/visualizarserviciosequipo.aspx\">Visualizar</a>" +
                                 "</li>" +
                             "</ul>";
                     }

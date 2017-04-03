@@ -16,6 +16,10 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
         public int canthoras { get; set; }
         public String disponibilidad { get; set; }
         public String feriado { get; set; }
+        public DateTime fechaini { get; set; }
+        public DateTime fechafin { get; set; }
+        public String estatus { get; set; }
+        public String identificadorservicioequipo { get; set; } 
 
         public Servicio(String _identificador, String _nivelservicio, String _tiposervicio, int _tiemporesp, String _feriado, int _cantdias, int _canthoras, String _disponibilidad)
         {
@@ -37,6 +41,21 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
             this.feriado_si_no = _feriado;
             this.cantdias = _cantdias;
             this.canthoras = _canthoras;
+        }
+
+        public Servicio(String _identificador, String _nivelservicio, String _tiposervicio, int _tiemporesp, String _feriado, int _cantdias, int _canthoras, DateTime _fechaini, DateTime _fechafin, String _estatus, String _identificadorservicioequipo)
+        {
+            this.identificador = _identificador;
+            this.nivelservicio = _nivelservicio;
+            this.tiposervicio = _tiposervicio;
+            this.tiemporespuesta = _tiemporesp;
+            this.feriado = _feriado;
+            this.cantdias = _cantdias;
+            this.canthoras = _canthoras;
+            this.identificadorservicioequipo = _identificadorservicioequipo;
+            this.estatus = _estatus;
+            this.fechafin = _fechafin;
+            this.fechaini = _fechaini;
         }
     }
 }

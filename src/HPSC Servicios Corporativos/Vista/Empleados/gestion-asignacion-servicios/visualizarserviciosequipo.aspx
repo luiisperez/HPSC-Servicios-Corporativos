@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="visualizarservicios.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios.visualizarservicios" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="visualizarserviciosequipo.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servicios.visualizarserviciosequipo" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -108,8 +108,40 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Lista de servicios
+                                Lista de servicios por equipo
                             </h1>
+                        </div>
+                        <div class="col-md-12" style="margin-top:10px;margin-bottom:50px">
+                            <div class="col-xs-6">
+                                <label style="text-align:right">Serial: </label>
+                                <input list="listado_seriales" name="listado" runat="server" id="equipoinput" style="height:30px; width:70%" autocomplete="off" class="form-control">
+                                <datalist id="listado_seriales" runat="server">
+                                                
+                                </datalist>
+                            </div>
+                            <div class="col-xs-6">
+                                <style>
+                                        #aceptar {
+                                            background-color: #4CAF50;
+                                            color: white;
+                                            margin: 8px 0;
+                                            margin-left:-30%;
+                                            border: none;
+                                            cursor: pointer;
+                                            margin-top:22px;
+                                            width: 125px;
+                                            height: 35px;
+                                            border-radius: 10px;
+                                            font-family: 'Raleway SemiBold';
+                                        }
+                                    </style>
+                                    <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            
                         </div>
                     </div>
                     <div class="row">
@@ -121,25 +153,28 @@
                                     <table id="tabla" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th style="width:120px">Identificador</th>
-                                                <th style="width:200px">Nivel de servicio</th>
-                                                <th style="width:150px">Tipo de servicio</th>
-                                                <th style="width:130px">Tiempo de respuesta</th>
-                                                <th style="width:120px">¿Incluye feriados?</th>
-                                                <th style="width:120px">Disponibilidad</th>
+                                                <th style="width:120px">Identificador </th>
+                                                <th style="width:200px">Identificador del servicio</th>
+                                                <th style="width:150px">Estatus</th>
+                                                <th style="width:130px">Fecha de inicio</th>
+                                                <th style="width:120px">Fecha de finalización</th>
                                                 <th style="width:30px">Opciones</th>
                                             </tr>
                                         </thead>
                                             <tbody id="contenidotabla">
                                                  <asp:Repeater ID="repPeople" runat="server" OnItemCommand="repPeople_ItemCommand">
                                                     <ItemTemplate>
-                                                            <tr id="<%# Eval("identificador") %>">
-                                                                <td><asp:Label ID="identificador" runat="server" Text='<%# Eval("identificador") %>' ReadOnly="True" BorderStyle="None" /></td>
-                                                                <td><%# Eval("nivelservicio") %> <%# Eval("canthoras") %> hora(s) X <%# Eval("cantdias") %> día(s)</td>
-                                                                <td><%# Eval("tiposervicio") %></td>
-                                                                <td><%# Eval("tiemporespuesta") %> hora(s)</td>
-                                                                <td><%# Eval("feriado") %></td>
-                                                                <td><%# Eval("disponibilidad") %></td>
+                                                            <tr id="<%# Eval("identificadorservicioequipo") %>">
+                                                                <td><asp:Label ID="identificador" runat="server" Text='<%# Eval("identificadorservicioequipo") %>' ReadOnly="True" BorderStyle="None" /></td>
+                                                                <td><asp:Label ID="id" runat="server" Text='<%# Eval("identificador") %>' ReadOnly="True" BorderStyle="None" /> <i class="fa fa-info-circle" title="Datos del servicio:
+- Nivel de servicio: <%# Eval("nivelservicio") %> <%# Eval("canthoras") %> hora(s) X <%# Eval("cantdias") %> día(s)
+- Tipo de servicio: <%# Eval("tiposervicio") %>
+- Tiempo de respuesta: <%# Eval("tiemporespuesta") %> hora(s)
+- ¿Incluye feriados?: <%# Eval("feriado") %>"></i>
+                                                                </td>
+                                                                <td><%# Eval("estatus") %></td>
+                                                                <td><%# Convert.ToDateTime(Eval("fechaini")).ToString("dd/MM/yyyy") %></td>
+                                                                <td><%# Convert.ToDateTime(Eval("fechafin")).ToString("dd/MM/yyyy") %></td>
                                                                 <td style="text-align:center">
                                                                     <asp:ImageButton ID="Eliminar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/eliminar.ico" Height="25px" Width="25px" ToolTip="Eliminar servicio" />
                                                                     <asp:ImageButton ID="Modificar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/modificar.ico" Height="25px" Width="25px" ToolTip="Modificar servicio" />
@@ -150,12 +185,11 @@
                                             </tbody>  
                                         <tfoot>
                                             <tr>
-                                                <th>Identificador</th>
-                                                <th>Nivel de servicio</th>
-                                                <th>Tipo de servicio</th>
-                                                <th>Tiempo de respuesta</th>
-                                                <th>¿Incluye feriados?</th>
-                                                <th>Disponibilidad</th>
+                                                <th>Identificador </th>
+                                                <th>Identificador del servicio</th>
+                                                <th>Estatus</th>
+                                                <th>Fecha de inicio</th>
+                                                <th>Fecha de finalización</th>
                                                 <th>Opciones</th>
                                             </tr>
                                         </tfoot>

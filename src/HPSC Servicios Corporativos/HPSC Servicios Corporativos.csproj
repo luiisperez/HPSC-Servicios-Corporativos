@@ -279,6 +279,8 @@
     <Content Include="Vista\Common\plugins\datatables\jquery.dataTables_themeroller.css" />
     <Content Include="Vista\Empleados\administracionHPSC.aspx" />
     <Content Include="Vista\Empleados\gestion-asignacion-servicios\asignarservicio.aspx" />
+    <Content Include="Vista\Empleados\gestion-asignacion-servicios\visualizarserviciosequipo.aspx" />
+    <Content Include="Vista\Empleados\gestion-servicios\visualizarservicios.aspx" />
     <Content Include="Vista\Empleados\gestion-clientes\asignarequipo.aspx" />
     <Content Include="Vista\Empleados\gestion-clientes\visualizarclientes.aspx" />
     <Content Include="Vista\Empleados\gestion-empleados\rolesempleados.aspx" />
@@ -307,7 +309,6 @@
     <Content Include="Vista\Empleados\gestion-productos\visualizarproductos.aspx" />
     <Content Include="Vista\Empleados\gestion-servicios\agregarservicio.aspx" />
     <Content Include="Vista\Empleados\gestion-servicios\modificarservicio.aspx" />
-    <Content Include="Vista\Empleados\gestion-servicios\visualizarservicios.aspx" />
     <Content Include="Vista\Empleados\index-rtl.html" />
     <Content Include="Vista\Empleados\index.html" />
     <Content Include="Vista\Empleados\js\bootstrap.js" />
@@ -636,7 +637,9 @@
     <Compile Include="Controlador\ModuloServicios\AsignarServicio.cs" />
     <Compile Include="Controlador\ModuloServicios\ConsultarServicio.cs" />
     <Compile Include="Controlador\ModuloServicios\ConsultarServicios.cs" />
+    <Compile Include="Controlador\ModuloServicios\ConsultarServiciosPorEquipo.cs" />
     <Compile Include="Controlador\ModuloServicios\EliminarServicio.cs" />
+    <Compile Include="Controlador\ModuloServicios\EliminarServicioAsignado.cs" />
     <Compile Include="Controlador\ModuloServicios\ModificarServicio.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AgregarEmpleado.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AsignarRol.cs" />
@@ -738,6 +741,20 @@
     <Compile Include="Vista\Empleados\gestion-asignacion-servicios\asignarservicio.aspx.designer.cs">
       <DependentUpon>asignarservicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Empleados\gestion-asignacion-servicios\visualizarserviciosequipo.aspx.cs">
+      <DependentUpon>visualizarserviciosequipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-asignacion-servicios\visualizarserviciosequipo.aspx.designer.cs">
+      <DependentUpon>visualizarserviciosequipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-servicios\visualizarservicios.aspx.cs">
+      <DependentUpon>visualizarservicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-servicios\visualizarservicios.aspx.designer.cs">
+      <DependentUpon>visualizarservicios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Empleados\gestion-clientes\asignarequipo.aspx.cs">
       <DependentUpon>asignarequipo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -821,13 +838,6 @@
     </Compile>
     <Compile Include="Vista\Empleados\gestion-servicios\modificarservicio.aspx.designer.cs">
       <DependentUpon>modificarservicio.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\Empleados\gestion-servicios\visualizarservicios.aspx.cs">
-      <DependentUpon>visualizarservicios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\Empleados\gestion-servicios\visualizarservicios.aspx.designer.cs">
-      <DependentUpon>visualizarservicios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Index\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

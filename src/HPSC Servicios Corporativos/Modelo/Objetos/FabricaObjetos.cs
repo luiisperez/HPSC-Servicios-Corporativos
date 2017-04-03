@@ -92,6 +92,11 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
             return new Servicio(_nivelservicio, _tiposervicio, _tiemporesp, _feriado, _cantdias, _canthoras);
         }
 
+        public static Servicio CrearServicio(String _identificador, String _nivelservicio, String _tiposervicio, int _tiemporesp, String _feriado, int _cantdias, int _canthoras, DateTime _fechaini, DateTime _fechafin, String _estatus, String _identificadorservicioequipo)
+        {
+            return new Servicio(_identificador, _nivelservicio, _tiposervicio, _tiemporesp, _feriado, _cantdias, _canthoras, _fechaini, _fechafin, _estatus, _identificadorservicioequipo);
+        }
+
         public static List<Servicio> CrearListaServicios()
         {
             return new List<Servicio>();

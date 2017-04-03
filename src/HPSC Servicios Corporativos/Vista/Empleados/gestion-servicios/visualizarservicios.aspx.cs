@@ -14,7 +14,6 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
     {
         public List<Servicio> listado = FabricaObjetos.CrearListaServicios();
         protected Empleado emp;
-        public String asignacion = "Sin asignar";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -79,7 +78,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
                                     "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/asignarservicio.aspx\">Agregar</a>" +
                                "</li>" +
                                 "<li>" +
-                                     "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/visualizarservicios.aspx\">Visualizar</a>" +
+                                     "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/visualizarserviciosequipo.aspx\">Visualizar</a>" +
                                 "</li>" +
                             "</ul>";
                     }

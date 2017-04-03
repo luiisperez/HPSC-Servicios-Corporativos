@@ -1,6 +1,6 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEquipo;
-using HPSC_Servicios_Corporativos.Controlador.ModuloProductos;
+using HPSC_Servicios_Corporativos.Controlador.ModuloServicios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
@@ -9,22 +9,24 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_productos
+namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servicios
 {
-    public partial class modificarproducto : System.Web.UI.Page
+    public partial class visualizarserviciosequipo : System.Web.UI.Page
     {
+        public List<Servicio> listado = FabricaObjetos.CrearListaServicios();
+        protected List<Equipo> equipos = FabricaObjetos.CrearListaEquipos();
         protected Empleado emp;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                try
+                emp = (Empleado)Session["Usuario"];
+                if (emp == null)
                 {
-                    emp = (Empleado)Session["Usuario"];
-                    if (emp == null)
-                    {
-                        Response.Redirect("~/Vista/Index/index.aspx");
-                    }
+                    Response.Redirect("~/Vista/Index/index.aspx");
+                }
+                if (!Page.IsPostBack)
+                {
                     if (Int32.Parse(emp.rol) >= 20)
                     {
                         zonausuarios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#usuarios\" id=\"users\" runat=\"server\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
@@ -90,30 +92,82 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_productos
                     }
                     try
                     {
-                        List<String> marcas = new List<String>();
-                        ValidacionDatosProductos cmd = FabricaComando.ComandoValidacionDeDatosProductos();
-                        marcas = cmd.listadomarcas();
-                        foreach (String item in marcas)
+                        equipos = FabricaObjetos.CrearListaEquipos();
+                        ConsultarEquiposTodos cmd = FabricaComando.ComandoConsultarEquiposTodos();
+                        cmd.ejecutar();
+                        equipos = cmd.equipos;
+                        String opciones = "";
+                        foreach (Equipo item in equipos)
                         {
-                            listadomarcas.Items.Add(new ListItem(item, item));
+                            if (!item.estatus.Equals("Eliminado"))
+                            {
+
+                                if (!item.cliente.Equals("Sin asignar"))
+                                {
+                                    String itemvalue = "Categoría: " + item.categoria + ". Equipo: " + item.modelo + ". Cliente: " + item.cliente;
+                                    opciones = opciones + "<option value=\"" + item.serial + "\" label=\"" + itemvalue + "\" >";
+                                }
+                            }
                         }
-                        numequipo.Value = Request.QueryString["numequipo"];
-                        ValidacionDatosEquipos val = FabricaComando.ComandoValidacionDeDatosEquipo();
-                        Equipo mod = val.buscarproducto(Request.QueryString["numequipo"]);
-                        listadocategoria.Text = mod.categoria;
-                        listadomarcas.Text = mod.marca;
-                        modelo.Value = mod.modelo;
+                        listado_seriales.InnerHtml = opciones;
                     }
                     catch (Exception ex)
                     {
-                        string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
+                        string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                                "ServerControlScript", script, true);
+                    }
+                    try
+                    {
+                        String serial = Request.QueryString["serial"];
+                        if (serial != null)
+                        {
+                            equipoinput.Value = serial;
+                            ConsultarServiciosPorEquipo cmd = FabricaComando.ComandoConsultarServiciosPorEquipo(serial);
+                            cmd.ejecutar();
+                            listado = cmd.servicios;
+                            repPeople.DataSource = listado;
+                            repPeople.DataBind();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        string script = "alert(\"Ha ocurido un error intente nuevamente\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
                     }
                 }
-                catch
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/Vista/Index/index.aspx");
+            }
+        }
+
+        protected void repPeople_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            ImageButton botonpresionado = (ImageButton)e.CommandSource;
+            if (botonpresionado.ID.Equals("Modificar"))
+            {
+                Label id = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("identificador");
+                Response.Redirect("/Vista/Empleados/gestion-servicios/modificarservicio.aspx?id=" + id.Text);
+            }
+            if (botonpresionado.ID.Equals("Eliminar"))
+            {
+                Label id = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("identificador");
+                try
                 {
-                    Response.Redirect("~/Vista/Index/index.aspx");
+                    EliminarServicioAsignado cmd = FabricaComando.ComandoEliminarServicioAsignado(id.Text);
+                    cmd.ejecutar();
+                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha eliminado el servicio exitosamente");
+                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-asignacion-servicios/visualizarserviciosequipo.aspx?serial=" + Request.QueryString["serial"] + "';", message);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                }
+                catch (Exception ex)
+                {
+                    string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
                 }
             }
         }
@@ -126,51 +180,16 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_productos
 
         protected void aceptar_Click(object sender, EventArgs e)
         {
-            if ((!numequipo.Value.Equals("")) && (!modelo.Value.Equals("")) && (!listadomarcas.SelectedValue.Equals("")))
+            if (!equipoinput.Value.Equals(""))
             {
-                ValidacionDatosEquipos val = FabricaComando.ComandoValidacionDeDatosEquipo();
-                bool numrepe = val.verificarnumequipo(numequipo.Value);
-                if (numequipo.Value.Equals(Request.QueryString["numequipo"]))
-                {
-                    numrepe = false;
-                }
-                if ((!numrepe))
-                {
-                    try
-                    {
-                        Equipo nuevoequipo = FabricaObjetos.CrearEquipo(numequipo.Value, listadocategoria.SelectedValue, modelo.Value, listadomarcas.SelectedValue);
-                        ModificarProducto cmd = FabricaComando.ComandoModificarProducto(nuevoequipo, Request.QueryString["numequipo"]);
-                        cmd.ejecutar();
-                        var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha modificado exitosamente el producto y será redirigido al listado de productos");
-                        var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-productos/visualizarproductos.aspx';", message);
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
-                    }
-                    catch (Exception ex)
-                    {
-                        string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
-                        ScriptManager.RegisterStartupScript(this, GetType(),
-                                                "ServerControlScript", script, true);
-                    }
-                }
-                else if ((numrepe))
-                {
-                    string script = "alert(\"El número de equipo proporcionado ya se encuentra registrado\");";
-                    ScriptManager.RegisterStartupScript(this, GetType(),
-                                            "ServerControlScript", script, true);
-                }
+                Response.Redirect("~/Vista/Empleados/gestion-asignacion-servicios/visualizarserviciosequipo.aspx?serial="+equipoinput.Value);
             }
             else
             {
-                string script = "alert(\"Existen campos vacíos, por favor revise todos los campos\");";
+                string script = "alert(\"Por favor seleccione un serial\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                         "ServerControlScript", script, true);
             }
         }
-
-        protected void cancelar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Vista/Empleados/gestion-productos/visualizarproductos.aspx");
-        }
-
     }
 }
