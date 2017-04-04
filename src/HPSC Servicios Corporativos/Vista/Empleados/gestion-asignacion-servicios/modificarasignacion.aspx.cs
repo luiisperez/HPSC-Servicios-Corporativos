@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servicios
 {
-    public partial class asignarservicio : System.Web.UI.Page
+    public partial class modificarasignacion : System.Web.UI.Page
     {
         protected Empleado emp;
         protected List<Equipo> equipos = FabricaObjetos.CrearListaEquipos();
@@ -89,27 +89,8 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                         zonaclientes.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-briefcase\"></i> Clientes  <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
                         Response.Redirect("~/Vista/Empleados/administracionHPSC.aspx");
                     }
-
                     try
                     {
-                        equipos = FabricaObjetos.CrearListaEquipos();
-                        ConsultarEquiposTodos cmd = FabricaComando.ComandoConsultarEquiposTodos();
-                        cmd.ejecutar();
-                        equipos = cmd.equipos;
-                        String opciones = "";
-                        foreach (Equipo item in equipos)
-                        {
-                            if (!item.estatus.Equals("Eliminado"))
-                            {
-
-                                if (!item.cliente.Equals("Sin asignar"))
-                                {
-                                    String itemvalue = "Categoría: " + item.categoria + ". Equipo: " + item.modelo + ". Cliente: " + item.cliente;
-                                    opciones = opciones + "<option value=\"" + item.serial + "\" label=\"" + itemvalue + "\" >";
-                                }
-                            }
-                        }
-                        listado_equipos.InnerHtml = opciones;
                         List<Servicio> servicios = FabricaObjetos.CrearListaServicios();
                         ConsultarServicios _cmd = FabricaComando.ComandoConsultarServicios();
                         _cmd.ejecutar();
@@ -121,6 +102,13 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                                 listadoservicios.Items.Add(new ListItem(item.nivelservicio + " " + item.canthoras + "x" + item.cantdias + ", Tipo de servicio: " + item.tiposervicio + ", Feriado: " + item.feriado + ", Tiempo de respuesta: " + item.tiemporespuesta + " hora(s)", item.identificador));
                             }
                         }
+                        ConsultarServicioAsignado cmd = FabricaComando.ComandoConsultarServicioAsignado(Request.QueryString["id"]);
+                        cmd.ejecutar();
+                        Servicio consultado = cmd.servicio;
+                        equipoinput.Value = Request.QueryString["equipo"];
+                        inifecha.Attributes.Add("value", Convert.ToDateTime(consultado.fechaini).ToString("yyyy-MM-dd"));
+                        finfecha.Attributes.Add("value", Convert.ToDateTime(consultado.fechafin).ToString("yyyy-MM-dd"));
+                        listadoservicios.SelectedValue = consultado.identificador;
                     }
                     catch (Exception ex)
                     {
@@ -130,7 +118,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 Response.Redirect("~/Vista/Index/index.aspx");
             }
@@ -144,47 +132,36 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
 
         protected void aceptar_Click(object sender, EventArgs e)
         {
-            ValidacionDatosEquipos valdatos = FabricaComando.ComandoValidacionDeDatosEquipo();
-            bool serialexistente = valdatos.verificarserialenlista(equipos, equipoinput.Value);
-            if (serialexistente)
+            if ((!inifecha.Value.Equals("")) && (!finfecha.Value.Equals("")))
             {
-                if ((!inifecha.Value.Equals("")) && (!finfecha.Value.Equals("")))
+                if (!(Convert.ToDateTime(inifecha.Value) > Convert.ToDateTime(finfecha.Value)))
                 {
-
-                    if (!(Convert.ToDateTime(inifecha.Value) > Convert.ToDateTime(finfecha.Value)))
+                    try
                     {
-                        try
-                        {
-                            AsignarServicio cmd = FabricaComando.ComandoAsignarServicio(listadoservicios.SelectedValue, equipoinput.Value, inifecha.Value, finfecha.Value);
-                            cmd.ejecutar();
-                            var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha asignado el contrato al equipo de serial " + equipoinput.Value);
-                            var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-asignacion-servicios/asignarservicio.aspx';", message);
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
-                        }
-                        catch (Exception ex)
-                        {
-                            string script = "alert(\"Ha ocurido un error intente nuevamente\");";
-                            ScriptManager.RegisterStartupScript(this, GetType(),
-                                                    "ServerControlScript", script, true);
-                        }
+                        ModificarServicioAsignado cmd = FabricaComando.ComandoModificarServicioAsignado(listadoservicios.SelectedValue, Request.QueryString["id"], inifecha.Value, finfecha.Value);
+                        cmd.ejecutar();
+                        var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha modificado los datos exitosamente y será redirigido al listado de servicios por equipo");
+                        var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-asignacion-servicios/visualizarserviciosequipo.aspx?serial=" + Request.QueryString["equipo"] + "';", message);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        string script = "alert(\"La fecha inicio no puede ser posterior a la fecha de finalización\");";
+                        string script = "alert(\"Ha ocurido un error intente nuevamente\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
                     }
                 }
                 else
                 {
-                    string script = "alert(\"Existen campos vacíos, por favor revise todos los campos\");";
+                    string script = "alert(\"La fecha inicio no puede ser posterior a la fecha de finalización\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                 }
             }
             else
             {
-                string script = "alert(\"El serial colocado no existe o el campo se encuentra vacío\");";
+                string script = "alert(\"Existen campos vacíos, por favor revise todos los campos\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                         "ServerControlScript", script, true);
             }

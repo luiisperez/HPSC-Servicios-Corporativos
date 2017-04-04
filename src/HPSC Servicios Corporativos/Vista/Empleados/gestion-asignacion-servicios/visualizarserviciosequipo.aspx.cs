@@ -150,7 +150,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
             if (botonpresionado.ID.Equals("Modificar"))
             {
                 Label id = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("identificador");
-                Response.Redirect("/Vista/Empleados/gestion-servicios/modificarservicio.aspx?id=" + id.Text);
+                Response.Redirect("/Vista/Empleados/gestion-asignacion-servicios/modificarasignacion.aspx?id=" + id.Text + "&equipo=" + equipoinput.Value);
             }
             if (botonpresionado.ID.Equals("Eliminar"))
             {

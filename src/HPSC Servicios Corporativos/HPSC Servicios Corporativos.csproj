@@ -279,6 +279,7 @@
     <Content Include="Vista\Common\plugins\datatables\jquery.dataTables_themeroller.css" />
     <Content Include="Vista\Empleados\administracionHPSC.aspx" />
     <Content Include="Vista\Empleados\gestion-asignacion-servicios\asignarservicio.aspx" />
+    <Content Include="Vista\Empleados\gestion-asignacion-servicios\modificarasignacion.aspx" />
     <Content Include="Vista\Empleados\gestion-asignacion-servicios\visualizarserviciosequipo.aspx" />
     <Content Include="Vista\Empleados\gestion-servicios\visualizarservicios.aspx" />
     <Content Include="Vista\Empleados\gestion-clientes\asignarequipo.aspx" />
@@ -636,11 +637,13 @@
     <Compile Include="Controlador\ModuloServicios\AgregarServicio.cs" />
     <Compile Include="Controlador\ModuloServicios\AsignarServicio.cs" />
     <Compile Include="Controlador\ModuloServicios\ConsultarServicio.cs" />
+    <Compile Include="Controlador\ModuloServicios\ConsultarServicioAsignado.cs" />
     <Compile Include="Controlador\ModuloServicios\ConsultarServicios.cs" />
     <Compile Include="Controlador\ModuloServicios\ConsultarServiciosPorEquipo.cs" />
     <Compile Include="Controlador\ModuloServicios\EliminarServicio.cs" />
     <Compile Include="Controlador\ModuloServicios\EliminarServicioAsignado.cs" />
     <Compile Include="Controlador\ModuloServicios\ModificarServicio.cs" />
+    <Compile Include="Controlador\ModuloServicios\ModificarServicioAsignado.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AgregarEmpleado.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AsignarRol.cs" />
     <Compile Include="Controlador\ModuloUsuarios\CambiarPassword.cs" />
@@ -740,6 +743,13 @@
     </Compile>
     <Compile Include="Vista\Empleados\gestion-asignacion-servicios\asignarservicio.aspx.designer.cs">
       <DependentUpon>asignarservicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-asignacion-servicios\modificarasignacion.aspx.cs">
+      <DependentUpon>modificarasignacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-asignacion-servicios\modificarasignacion.aspx.designer.cs">
+      <DependentUpon>modificarasignacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Empleados\gestion-asignacion-servicios\visualizarserviciosequipo.aspx.cs">
       <DependentUpon>visualizarserviciosequipo.aspx</DependentUpon>

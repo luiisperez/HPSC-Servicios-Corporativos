@@ -193,4 +193,12 @@
     <value>ELIMINAR_SERVICIO_ASIGNADO</value>
     <comment>Procedimiento para eliminar un servicio asignado a un equipo</comment>
   </data>
+  <data name="ProcedimientoConsultarServicioAsignado" xml:space="preserve">
+    <value>CONSULTAR_SERVICIO_ASIGNADO</value>
+    <comment>Procedimiento para consultar un servicio asignado a un equipo en la BD</comment>
+  </data>
+  <data name="ProcedimientoModificarServicioAsignado" xml:space="preserve">
+    <value>MODIFICAR_SERVICIO_ASIGNADO</value>
+    <comment>Procedimiento para modificar un servicio asignado de la BD</comment>
+  </data>
 </root>
