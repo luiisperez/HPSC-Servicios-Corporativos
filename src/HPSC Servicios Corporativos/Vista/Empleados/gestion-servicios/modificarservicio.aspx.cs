@@ -15,15 +15,18 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
         protected Empleado emp;
         protected void Page_Load(object sender, EventArgs e)
         {
+            HttpContext.Current.Response.AddHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            HttpContext.Current.Response.AddHeader("Pragma", "no-cache");
+            HttpContext.Current.Response.AddHeader("Expires", "0");
+            emp = (Empleado)Session["Usuario"];
+            if (emp == null)
+            {
+                Response.Redirect("~/Vista/Index/index.aspx");
+            }
             if (!Page.IsPostBack)
             {
                 try
                 {
-                    emp = (Empleado)Session["Usuario"];
-                    if (emp == null)
-                    {
-                        Response.Redirect("~/Vista/Index/index.aspx");
-                    }
                     if (Int32.Parse(emp.rol) >= 20)
                     {
                         zonausuarios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#usuarios\" id=\"users\" runat=\"server\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-fw fa-caret-down\"></i></a>" +

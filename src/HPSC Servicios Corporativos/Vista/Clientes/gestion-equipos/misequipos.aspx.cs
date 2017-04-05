@@ -16,6 +16,9 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_equipos
         public List<Equipo> listado = FabricaObjetos.CrearListaEquipos();
         protected void Page_Load(object sender, EventArgs e)
         {
+            HttpContext.Current.Response.AddHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            HttpContext.Current.Response.AddHeader("Pragma", "no-cache");
+            HttpContext.Current.Response.AddHeader("Expires", "0");
             try
             {
                 cliente = (Cliente)Session["Usuario"];

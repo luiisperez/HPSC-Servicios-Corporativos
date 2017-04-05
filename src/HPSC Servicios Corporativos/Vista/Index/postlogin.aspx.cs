@@ -15,9 +15,16 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
         protected Cliente cli = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            HttpContext.Current.Response.AddHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            HttpContext.Current.Response.AddHeader("Pragma", "no-cache");
+            HttpContext.Current.Response.AddHeader("Expires", "0");
+            var user = Session["Usuario"];
+            if (user == null)
+            {
+                Response.Redirect("~/Vista/Index/index.aspx");
+            }
             if (!Page.IsPostBack)
             {
-                var user = Session["Usuario"];
                 if ((user != null) && (user.GetType().Equals(typeof(Empleado))))
                 {
                     emp = (Empleado)user;
