@@ -188,9 +188,9 @@ namespace HPSC_Servicios_Corporativos.Controlador
                 return new EliminarServicio(id);
             }
 
-            public static AsignarServicio ComandoAsignarServicio(String servicio, String serial, String fechaini, String fechafin)
+            public static AsignarServicio ComandoAsignarServicio(List<String> servicios, List<String> seriales, String fechaini, String fechafin, String contrato)
             {
-                return new AsignarServicio(servicio, serial, fechaini, fechafin);
+                return new AsignarServicio(servicios, seriales, fechaini, fechafin, contrato);
             }
 
             public static ConsultarServiciosPorEquipo ComandoConsultarServiciosPorEquipo(String id)

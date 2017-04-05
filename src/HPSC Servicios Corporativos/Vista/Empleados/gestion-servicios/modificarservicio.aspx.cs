@@ -71,13 +71,16 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
                                      "<a href=\"/Vista/Empleados/gestion-servicios/visualizarservicios.aspx\">Visualizar</a>" +
                                 "</li>" +
                             "</ul>";
-                        zonaasignacionservicios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#asignarservicios\" id=\"servicesequipment\" runat=\"server\"><i class=\"fa fa-plus\"></i> Asignación de servicios <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                        zonaasignacionservicios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#asignarservicios\" id=\"servicesequipment\" runat=\"server\"><i class=\"fa fa-book\"></i> Contratos <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
                             "<ul id=\"asignarservicios\" class=\"collapse\">" +
                                "<li>" +
-                                    "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/asignarservicio.aspx\">Agregar</a>" +
+                                    "<a href=\"/Vista/Empleados/gestion-contratos/agregarcontrato.aspx\">Agregar</a>" +
                                "</li>" +
                                 "<li>" +
-                                     "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/visualizarserviciosequipo.aspx\">Visualizar</a>" +
+                                     "<a href=\"/Vista/Empleados/gestion-contratos/visualizarcontratos.aspx\">Contratos registrados</a>" +
+                                "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-contratos/visualizarserviciosequipo.aspx\">Servicios por equipo</a>" +
                                 "</li>" +
                             "</ul>";
                     }

@@ -153,12 +153,11 @@
                                     <table id="tabla" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th style="width:120px">Identificador </th>
+                                                <th style="width:120px">Identificador del contrato</th>
                                                 <th style="width:200px">Identificador del servicio</th>
                                                 <th style="width:150px">Estatus</th>
                                                 <th style="width:130px">Fecha de inicio</th>
                                                 <th style="width:120px">Fecha de finalización</th>
-                                                <th style="width:30px">Opciones</th>
                                             </tr>
                                         </thead>
                                             <tbody id="contenidotabla">
@@ -175,10 +174,6 @@
                                                                 <td><%# Eval("estatus") %></td>
                                                                 <td><%# Convert.ToDateTime(Eval("fechaini")).ToString("dd/MM/yyyy") %></td>
                                                                 <td><%# Convert.ToDateTime(Eval("fechafin")).ToString("dd/MM/yyyy") %></td>
-                                                                <td style="text-align:center">
-                                                                    <asp:ImageButton ID="Eliminar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/eliminar.ico" Height="25px" Width="25px" ToolTip="Eliminar servicio" />
-                                                                    <asp:ImageButton ID="Modificar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/modificar.ico" Height="25px" Width="25px" ToolTip="Modificar servicio" />
-                                                                </td>
                                                             </tr>              
                                                     </ItemTemplate>
                                                  </asp:Repeater>
@@ -190,7 +185,6 @@
                                                 <th>Estatus</th>
                                                 <th>Fecha de inicio</th>
                                                 <th>Fecha de finalización</th>
-                                                <th>Opciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>

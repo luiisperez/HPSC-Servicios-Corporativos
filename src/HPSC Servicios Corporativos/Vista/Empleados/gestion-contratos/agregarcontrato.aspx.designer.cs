@@ -94,31 +94,40 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl zonaincidentes;
         
         /// <summary>
-        /// equipoinput control.
+        /// listadoclientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText equipoinput;
+        protected global::System.Web.UI.WebControls.DropDownList listadoclientes;
         
         /// <summary>
-        /// listado_equipos control.
+        /// checkservicios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl listado_equipos;
+        protected global::System.Web.UI.WebControls.CheckBoxList checkservicios;
         
         /// <summary>
-        /// listadoservicios control.
+        /// inputSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listadoservicios;
+        protected global::System.Web.UI.WebControls.TextBox inputSearch;
+        
+        /// <summary>
+        /// cblItem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList cblItem;
         
         /// <summary>
         /// inifecha control.

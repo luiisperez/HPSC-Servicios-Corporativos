@@ -62,6 +62,15 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to @eqsv_contrato.
+        /// </summary>
+        internal static string eqsv_contrato {
+            get {
+                return ResourceManager.GetString("eqsv_contrato", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @eqsv_fechafin.
         /// </summary>
         internal static string eqsv_fechafin {

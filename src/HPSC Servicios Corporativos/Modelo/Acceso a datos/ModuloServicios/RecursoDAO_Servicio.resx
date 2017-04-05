@@ -201,4 +201,8 @@
     <value>MODIFICAR_SERVICIO_ASIGNADO</value>
     <comment>Procedimiento para modificar un servicio asignado de la BD</comment>
   </data>
+  <data name="eqsv_contrato" xml:space="preserve">
+    <value>@eqsv_contrato</value>
+    <comment>Contrato al que pertenece el equipo</comment>
+  </data>
 </root>

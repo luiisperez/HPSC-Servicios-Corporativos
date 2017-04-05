@@ -242,20 +242,27 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
             }
         }
 
-        public void AsignarServicio(String servicio, String serial, String fechaini, String fechafin)
+        public void AsignarServicio(List<String> servicios, List<String> seriales, String fechaini, String fechafin, String contrato)
         {
             DataTable tablaDeDatos;
             List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
-
             try
             {
-                String identificador = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_id, SqlDbType.VarChar, identificador, false));
-                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_id, SqlDbType.VarChar, servicio, false));
-                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.eq_serial, SqlDbType.VarChar, serial, false));
-                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_fechaini, SqlDbType.Date, fechaini,  false));
-                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_fechafin, SqlDbType.Date, fechafin, false));
-                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoAsignarServicio, parametro);
+                foreach (String servicio in servicios)
+                {
+                    foreach (String serial in seriales)
+                    {
+                        String identificador = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond;
+                        parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_id, SqlDbType.VarChar, identificador, false));
+                        parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_id, SqlDbType.VarChar, servicio, false));
+                        parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.eq_serial, SqlDbType.VarChar, serial, false));
+                        parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_fechaini, SqlDbType.Date, fechaini, false));
+                        parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_fechafin, SqlDbType.Date, fechafin, false));
+                        parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_contrato, SqlDbType.VarChar, "CID-"+contrato, false));
+                        tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoAsignarServicio, parametro);
+                        parametro.Clear();
+                    }
+                }
             }
             catch (SqlException ex)
             {

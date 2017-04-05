@@ -9,23 +9,25 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloServicios
 {
     public class AsignarServicio:Comando
     {
-        String serial;
-        String servicio;
+        List<String> seriales;
+        List<String> servicios;
         String fechaini;
         String fechafin;
-        public AsignarServicio(String _servicio, String _serial, String _fechaini, String _fechafin)
+        String contrato;
+        public AsignarServicio(List<String> _servicios, List<String> _seriales, String _fechaini, String _fechafin, String _contrato)
         {
-            this.serial = _serial;
-            this.servicio = _servicio;
+            this.seriales = _seriales;
+            this.servicios = _servicios;
             this.fechafin = _fechafin;
             this.fechaini = _fechaini;
+            this.contrato = _contrato;
         }
         public override void ejecutar()
         {
             try
             {
                 DAOServicio basedatos = FabricaDAO.CrearDAOServicio();
-                basedatos.AsignarServicio(servicio, serial, fechaini, fechafin);
+                basedatos.AsignarServicio(servicios, seriales, fechaini, fechafin, contrato);
             }
             catch (Exception ex)
             {

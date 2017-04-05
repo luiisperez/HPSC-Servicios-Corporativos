@@ -278,9 +278,9 @@
     <Content Include="Vista\Common\plugins\datatables\jquery.dataTables.min.js" />
     <Content Include="Vista\Common\plugins\datatables\jquery.dataTables_themeroller.css" />
     <Content Include="Vista\Empleados\administracionHPSC.aspx" />
-    <Content Include="Vista\Empleados\gestion-asignacion-servicios\asignarservicio.aspx" />
-    <Content Include="Vista\Empleados\gestion-asignacion-servicios\modificarasignacion.aspx" />
-    <Content Include="Vista\Empleados\gestion-asignacion-servicios\visualizarserviciosequipo.aspx" />
+    <Content Include="Vista\Empleados\gestion-contratos\agregarcontrato.aspx" />
+    <Content Include="Vista\Empleados\gestion-contratos\modificarasignacion.aspx" />
+    <Content Include="Vista\Empleados\gestion-contratos\visualizarserviciosequipo.aspx" />
     <Content Include="Vista\Empleados\gestion-servicios\visualizarservicios.aspx" />
     <Content Include="Vista\Empleados\gestion-clientes\asignarequipo.aspx" />
     <Content Include="Vista\Empleados\gestion-clientes\visualizarclientes.aspx" />
@@ -737,25 +737,25 @@
     <Compile Include="Vista\Empleados\administracionHPSC.aspx.designer.cs">
       <DependentUpon>administracionHPSC.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Empleados\gestion-asignacion-servicios\asignarservicio.aspx.cs">
-      <DependentUpon>asignarservicio.aspx</DependentUpon>
+    <Compile Include="Vista\Empleados\gestion-contratos\agregarcontrato.aspx.cs">
+      <DependentUpon>agregarcontrato.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\Empleados\gestion-asignacion-servicios\asignarservicio.aspx.designer.cs">
-      <DependentUpon>asignarservicio.aspx</DependentUpon>
+    <Compile Include="Vista\Empleados\gestion-contratos\agregarcontrato.aspx.designer.cs">
+      <DependentUpon>agregarcontrato.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Empleados\gestion-asignacion-servicios\modificarasignacion.aspx.cs">
+    <Compile Include="Vista\Empleados\gestion-contratos\modificarasignacion.aspx.cs">
       <DependentUpon>modificarasignacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\Empleados\gestion-asignacion-servicios\modificarasignacion.aspx.designer.cs">
+    <Compile Include="Vista\Empleados\gestion-contratos\modificarasignacion.aspx.designer.cs">
       <DependentUpon>modificarasignacion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Empleados\gestion-asignacion-servicios\visualizarserviciosequipo.aspx.cs">
+    <Compile Include="Vista\Empleados\gestion-contratos\visualizarserviciosequipo.aspx.cs">
       <DependentUpon>visualizarserviciosequipo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\Empleados\gestion-asignacion-servicios\visualizarserviciosequipo.aspx.designer.cs">
+    <Compile Include="Vista\Empleados\gestion-contratos\visualizarserviciosequipo.aspx.designer.cs">
       <DependentUpon>visualizarserviciosequipo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Empleados\gestion-servicios\visualizarservicios.aspx.cs">
