@@ -1,5 +1,6 @@
 ﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos;
 using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios;
+using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,25 +8,20 @@ using System.Web;
 
 namespace HPSC_Servicios_Corporativos.Controlador.ModuloServicios
 {
-    public class ModificarServicioAsignado:Comando
+    public class ConsultarEquipoContrato:Comando
     {
-        String serial;
-        String servicio;
-        String fechaini;
-        String fechafin;
-        public ModificarServicioAsignado(String _servicio, String _serial, String _fechaini, String _fechafin)
+        String id;
+        public List<Equipo> lista = FabricaObjetos.CrearListaEquipos();
+        public ConsultarEquipoContrato(String _id)
         {
-            this.serial = _serial;
-            this.servicio = _servicio;
-            this.fechafin = _fechafin;
-            this.fechaini = _fechaini;
+            this.id = _id;
         }
         public override void ejecutar()
         {
             try
             {
                 DAOServicio basedatos = FabricaDAO.CrearDAOServicio();
-                basedatos.ModificarServicioAsignado(servicio, serial, fechaini, fechafin);
+                lista = basedatos.ConsultarEquiposContrato(id);
             }
             catch (Exception ex)
             {

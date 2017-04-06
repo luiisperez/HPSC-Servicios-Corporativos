@@ -152,30 +152,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
 
         protected void repPeople_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            ImageButton botonpresionado = (ImageButton)e.CommandSource;
-            if (botonpresionado.ID.Equals("Modificar"))
-            {
-                Label id = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("identificador");
-                Response.Redirect("/Vista/Empleados/gestion-asignacion-servicios/modificarasignacion.aspx?id=" + id.Text + "&equipo=" + equipoinput.Value);
-            }
-            if (botonpresionado.ID.Equals("Eliminar"))
-            {
-                Label id = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("identificador");
-                try
-                {
-                    EliminarServicioAsignado cmd = FabricaComando.ComandoEliminarServicioAsignado(id.Text);
-                    cmd.ejecutar();
-                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha eliminado el servicio exitosamente");
-                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-asignacion-servicios/visualizarserviciosequipo.aspx?serial=" + Request.QueryString["serial"] + "';", message);
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
-                }
-                catch (Exception ex)
-                {
-                    string script = "alert(\"Ha ocurido un error intente nuevamente\");";
-                    ScriptManager.RegisterStartupScript(this, GetType(),
-                                            "ServerControlScript", script, true);
-                }
-            }
+            
         }
 
         protected void sesioncerrar_Click(object sender, EventArgs e)

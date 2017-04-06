@@ -79,13 +79,13 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
                         zonaasignacionservicios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#asignarservicios\" id=\"servicesequipment\" runat=\"server\"><i class=\"fa fa-book\"></i> Contratos <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
                             "<ul id=\"asignarservicios\" class=\"collapse\">" +
                                "<li>" +
-                                    "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/agregarcontrato.aspx\">Agregar</a>" +
+                                    "<a href=\"/Vista/Empleados/gestion-contratos/agregarcontrato.aspx\">Agregar</a>" +
                                "</li>" +
                                 "<li>" +
-                                     "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/visualizarcontratos.aspx\">Contratos registrados</a>" +
+                                     "<a href=\"/Vista/Empleados/gestion-contratos/visualizarcontratos.aspx\">Contratos registrados</a>" +
                                 "</li>" +
                                 "<li>" +
-                                     "<a href=\"/Vista/Empleados/gestion-asignacion-servicios/visualizarserviciosequipo.aspx\">Servicios por equipo</a>" +
+                                     "<a href=\"/Vista/Empleados/gestion-contratos/visualizarserviciosequipo.aspx\">Servicios por equipo</a>" +
                                 "</li>" +
                             "</ul>";
                     }
@@ -112,7 +112,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
                 {
                     if (!item.estatus.Equals("Eliminado"))
                     {
-                        String itemvalue = "Categoría: " + item.categoria + ". Equipo: " + item.modelo;
+                        String itemvalue = "Categoría: " + item.categoria + ". Equipo: " + item.marca + "/" + item.modelo;
                         if (item.cliente.Equals("Sin asignar"))
                         {
                             itemvalue = itemvalue + ". Estatus: Sin asignar";

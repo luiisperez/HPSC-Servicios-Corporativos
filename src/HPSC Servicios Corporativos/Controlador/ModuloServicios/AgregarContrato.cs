@@ -7,14 +7,14 @@ using System.Web;
 
 namespace HPSC_Servicios_Corporativos.Controlador.ModuloServicios
 {
-    public class AsignarServicio:Comando
+    public class AgregarContrato:Comando
     {
         List<String> seriales;
         List<String> servicios;
         String fechaini;
         String fechafin;
         String contrato;
-        public AsignarServicio(List<String> _servicios, List<String> _seriales, String _fechaini, String _fechafin, String _contrato)
+        public AgregarContrato(List<String> _servicios, List<String> _seriales, String _fechaini, String _fechafin, String _contrato)
         {
             this.seriales = _seriales;
             this.servicios = _servicios;
@@ -27,7 +27,7 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloServicios
             try
             {
                 DAOServicio basedatos = FabricaDAO.CrearDAOServicio();
-                basedatos.AsignarServicio(servicios, seriales, fechaini, fechafin, contrato);
+                basedatos.AgregarContrato(servicios, seriales, fechaini, fechafin, contrato);
             }
             catch (Exception ex)
             {

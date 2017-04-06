@@ -101,5 +101,15 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
         {
             return new List<Servicio>();
         }
+
+        public static Contrato CrearContrato(String _id, String _cliente, DateTime _fechaini, DateTime _fechafin)
+        {
+            return new Contrato(_id, _cliente, _fechaini, _fechafin);
+        }
+
+        public static List<Contrato> CrearListaContratos()
+        {
+            return new List<Contrato>();
+        }
     }
 }

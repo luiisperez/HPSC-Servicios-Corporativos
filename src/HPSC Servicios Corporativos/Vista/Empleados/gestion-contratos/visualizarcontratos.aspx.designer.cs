@@ -13,13 +13,13 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
     public partial class modificarasignacion {
         
         /// <summary>
-        /// formulario control.
+        /// form control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formulario;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
         /// sesioncerrar control.
@@ -94,57 +94,12 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl zonaincidentes;
         
         /// <summary>
-        /// equipoinput control.
+        /// repPeople control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText equipoinput;
-        
-        /// <summary>
-        /// listadoservicios control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listadoservicios;
-        
-        /// <summary>
-        /// inifecha control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inifecha;
-        
-        /// <summary>
-        /// finfecha control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl finfecha;
-        
-        /// <summary>
-        /// sm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager sm;
-        
-        /// <summary>
-        /// aceptar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button aceptar;
+        protected global::System.Web.UI.WebControls.Repeater repPeople;
     }
 }

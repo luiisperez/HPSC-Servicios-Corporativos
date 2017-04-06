@@ -242,7 +242,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
             }
         }
 
-        public void AsignarServicio(List<String> servicios, List<String> seriales, String fechaini, String fechafin, String contrato)
+        public void AgregarContrato(List<String> servicios, List<String> seriales, String fechaini, String fechafin, String contrato)
         {
             DataTable tablaDeDatos;
             List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
@@ -358,15 +358,15 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
             }
         }
 
-        public void EliminarServicioAsignado(String id)
+        public void EliminarContrato(String id)
         {
             DataTable tablaDeDatos;
             List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
 
             try
             {
-                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_id, SqlDbType.VarChar, id, false));
-                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoEliminarServicioAsignado, parametro); 
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_contrato, SqlDbType.VarChar, id, false));
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoEliminarContrato, parametro); 
             }
             catch (SqlException ex)
             {
@@ -386,51 +386,27 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
             }
         }
 
-        public Servicio ConsultarServicioAsignado(String id)
+        public List<Contrato> ConsultarContratos()
         {
-            DataTable tablaDeDatos; 
-            Servicio servconsultado = null;
+            DataTable tablaDeDatos;
+            List<Contrato> contratos = FabricaObjetos.CrearListaContratos();
             List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
 
             try
             {
-                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_id, SqlDbType.VarChar, id, false));
-                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoConsultarServicioAsignado, parametro);
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoConsultarContratos, parametro);
                 foreach (DataRow row in tablaDeDatos.Rows)
                 {
                     try
                     {
-                        String feriado = "";
-                        String estatus = "";
-                        if (row["FERIADO"].ToString().Equals("1"))
-                        {
-                            feriado = "Sí";
-                        }
-                        else
-                        {
-                            feriado = "No";
-                        }
-                        if (Convert.ToDateTime(row["FECHAFIN"].ToString()) < Convert.ToDateTime(DateTime.Now.ToShortDateString()))
-                        {
-                            estatus = "Caducado";
-                        }
-                        else
-                        {
-                            estatus = "Vigente";
-                        }
-                        servconsultado = FabricaObjetos.CrearServicio(
-                                            row["IDSERVICIO"].ToString(),
-                                            row["NIVELSERV"].ToString(),
-                                            row["TIPOSERV"].ToString(),
-                                            Int32.Parse(row["TIEMPORESP"].ToString()),
-                                            feriado,
-                                            Int32.Parse(row["DIAS"].ToString()),
-                                            Int32.Parse(row["HORAS"].ToString()),
-                                            Convert.ToDateTime(row["INICIO"].ToString()),
-                                            Convert.ToDateTime(row["FECHAFIN"].ToString()),
-                                            estatus,
-                                            row["ID"].ToString()
+                        Contrato contconsultado;
+                        contconsultado = FabricaObjetos.CrearContrato(
+                                            row[0].ToString(),
+                                            row[3].ToString(),
+                                            Convert.ToDateTime(row[1].ToString()),
+                                            Convert.ToDateTime(row[2].ToString())
                                         );
+                        contratos.Add(contconsultado);
                     }
                     catch (Exception ex)
                     {
@@ -439,7 +415,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
 
 
                 }
-                return servconsultado;
+                return contratos;
             }
             catch (SqlException ex)
             {
@@ -459,18 +435,99 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
             }
         }
 
-        public void ModificarServicioAsignado(String servicio, String serial, String fechaini, String fechafin)
+        public List<Equipo> ConsultarEquiposContrato(String id)
         {
             DataTable tablaDeDatos;
             List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
-
+            List<Equipo> lista = FabricaObjetos.CrearListaEquipos();
             try
             {
-                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_id, SqlDbType.VarChar, serial, false));
-                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_id, SqlDbType.VarChar, servicio, false));
-                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_fechaini, SqlDbType.Date, fechaini, false));
-                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_fechafin, SqlDbType.Date, fechafin, false));
-                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoModificarServicioAsignado, parametro);
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_contrato, SqlDbType.VarChar, id, false));
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoConsultaEquiposContrato, parametro);
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        Equipo eqconsultado;
+                        eqconsultado = FabricaObjetos.CrearEquipo(
+                                            row[0].ToString(),
+                                            "",
+                                            row[1].ToString(),
+                                            row[2].ToString(),
+                                            row[3].ToString()
+                                        );
+                        lista.Add(eqconsultado);
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return lista;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Servicio> ConsultarServiciosContrato(String id)
+        {
+            DataTable tablaDeDatos;
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+            List<Servicio> lista = FabricaObjetos.CrearListaServicios();
+            try
+            {
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.eqsv_contrato, SqlDbType.VarChar, id, false));
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Servicio.ProcedimientoConsultaServiciosContrato, parametro);
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        String feriado = "";
+                        if (row[4].ToString().Equals("1"))
+                        {
+                            feriado = "Sí";
+                        }
+                        else
+                        {
+                            feriado = "No";
+                        }
+                        Servicio servconsultado;
+                        servconsultado = FabricaObjetos.CrearServicio(
+                                            row[0].ToString(),
+                                            row[1].ToString(),
+                                            row[2].ToString(),
+                                            Int32.Parse(row[3].ToString()),
+                                            feriado,
+                                            Int32.Parse(row[5].ToString()),
+                                            Int32.Parse(row[6].ToString()),
+                                            row[7].ToString()
+                                        );
+                        lista.Add(servconsultado);
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return lista;
             }
             catch (SqlException ex)
             {

@@ -189,20 +189,24 @@
     <value>CONSULTAR_SERVICIOS_POR_EQUIPO</value>
     <comment>Procedimiento para consultar los servicios que tiene asignado un equipo</comment>
   </data>
-  <data name="ProcedimientoEliminarServicioAsignado" xml:space="preserve">
-    <value>ELIMINAR_SERVICIO_ASIGNADO</value>
-    <comment>Procedimiento para eliminar un servicio asignado a un equipo</comment>
+  <data name="ProcedimientoEliminarContrato" xml:space="preserve">
+    <value>ELIMINAR_CONTRATO</value>
+    <comment>Procedimiento para eliminar un contrato de la BD</comment>
   </data>
-  <data name="ProcedimientoConsultarServicioAsignado" xml:space="preserve">
-    <value>CONSULTAR_SERVICIO_ASIGNADO</value>
-    <comment>Procedimiento para consultar un servicio asignado a un equipo en la BD</comment>
-  </data>
-  <data name="ProcedimientoModificarServicioAsignado" xml:space="preserve">
-    <value>MODIFICAR_SERVICIO_ASIGNADO</value>
-    <comment>Procedimiento para modificar un servicio asignado de la BD</comment>
+  <data name="ProcedimientoConsultarContratos" xml:space="preserve">
+    <value>CONSULTAR_CONTRATOS</value>
+    <comment>Procedimiento para consultar los contratos registrados en la BD</comment>
   </data>
   <data name="eqsv_contrato" xml:space="preserve">
     <value>@eqsv_contrato</value>
     <comment>Contrato al que pertenece el equipo</comment>
+  </data>
+  <data name="ProcedimientoConsultaEquiposContrato" xml:space="preserve">
+    <value>CONSULTAR_EQUIPO_CONTRATO</value>
+    <comment>Procedimiento para consultar los equipos de un contrato</comment>
+  </data>
+  <data name="ProcedimientoConsultaServiciosContrato" xml:space="preserve">
+    <value>CONSULTAR_SERVICIO_CONTRATO</value>
+    <comment>Procedimiento para consultar los servicios de un contrato</comment>
   </data>
 </root>

@@ -279,7 +279,8 @@
     <Content Include="Vista\Common\plugins\datatables\jquery.dataTables_themeroller.css" />
     <Content Include="Vista\Empleados\administracionHPSC.aspx" />
     <Content Include="Vista\Empleados\gestion-contratos\agregarcontrato.aspx" />
-    <Content Include="Vista\Empleados\gestion-contratos\modificarasignacion.aspx" />
+    <Content Include="Vista\Empleados\gestion-contratos\detallescontrato.aspx" />
+    <Content Include="Vista\Empleados\gestion-contratos\visualizarcontratos.aspx" />
     <Content Include="Vista\Empleados\gestion-contratos\visualizarserviciosequipo.aspx" />
     <Content Include="Vista\Empleados\gestion-servicios\visualizarservicios.aspx" />
     <Content Include="Vista\Empleados\gestion-clientes\asignarequipo.aspx" />
@@ -635,15 +636,16 @@
     <Compile Include="Controlador\ModuloProductos\ModificarProducto.cs" />
     <Compile Include="Controlador\ModuloProductos\ValidacionDatosProductos.cs" />
     <Compile Include="Controlador\ModuloServicios\AgregarServicio.cs" />
-    <Compile Include="Controlador\ModuloServicios\AsignarServicio.cs" />
+    <Compile Include="Controlador\ModuloServicios\AgregarContrato.cs" />
+    <Compile Include="Controlador\ModuloServicios\ConsultarEquipoContrato.cs" />
     <Compile Include="Controlador\ModuloServicios\ConsultarServicio.cs" />
-    <Compile Include="Controlador\ModuloServicios\ConsultarServicioAsignado.cs" />
+    <Compile Include="Controlador\ModuloServicios\ConsultarContratos.cs" />
+    <Compile Include="Controlador\ModuloServicios\ConsultarServicioContrato.cs" />
     <Compile Include="Controlador\ModuloServicios\ConsultarServicios.cs" />
     <Compile Include="Controlador\ModuloServicios\ConsultarServiciosPorEquipo.cs" />
+    <Compile Include="Controlador\ModuloServicios\EliminarContrato.cs" />
     <Compile Include="Controlador\ModuloServicios\EliminarServicio.cs" />
-    <Compile Include="Controlador\ModuloServicios\EliminarServicioAsignado.cs" />
     <Compile Include="Controlador\ModuloServicios\ModificarServicio.cs" />
-    <Compile Include="Controlador\ModuloServicios\ModificarServicioAsignado.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AgregarEmpleado.cs" />
     <Compile Include="Controlador\ModuloUsuarios\AsignarRol.cs" />
     <Compile Include="Controlador\ModuloUsuarios\CambiarPassword.cs" />
@@ -700,6 +702,7 @@
     </Compile>
     <Compile Include="Modelo\Comun\ResultadoBD.cs" />
     <Compile Include="Modelo\Objetos\Cliente.cs" />
+    <Compile Include="Modelo\Objetos\Contrato.cs" />
     <Compile Include="Modelo\Objetos\Empleado.cs" />
     <Compile Include="Modelo\Objetos\Equipo.cs" />
     <Compile Include="Modelo\Objetos\FabricaObjetos.cs" />
@@ -744,12 +747,19 @@
     <Compile Include="Vista\Empleados\gestion-contratos\agregarcontrato.aspx.designer.cs">
       <DependentUpon>agregarcontrato.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Empleados\gestion-contratos\modificarasignacion.aspx.cs">
-      <DependentUpon>modificarasignacion.aspx</DependentUpon>
+    <Compile Include="Vista\Empleados\gestion-contratos\detallescontrato.aspx.cs">
+      <DependentUpon>detallescontrato.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\Empleados\gestion-contratos\modificarasignacion.aspx.designer.cs">
-      <DependentUpon>modificarasignacion.aspx</DependentUpon>
+    <Compile Include="Vista\Empleados\gestion-contratos\detallescontrato.aspx.designer.cs">
+      <DependentUpon>detallescontrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-contratos\visualizarcontratos.aspx.cs">
+      <DependentUpon>visualizarcontratos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-contratos\visualizarcontratos.aspx.designer.cs">
+      <DependentUpon>visualizarcontratos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Empleados\gestion-contratos\visualizarserviciosequipo.aspx.cs">
       <DependentUpon>visualizarserviciosequipo.aspx</DependentUpon>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="visualizarserviciosequipo.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servicios.visualizarserviciosequipo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="detallescontrato.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Empleados.gestion_contratos.detallescontrato" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -108,40 +108,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Lista de servicios por equipo
+                                Detalles del contrato <%= contrato %>
                             </h1>
-                        </div>
-                        <div class="col-md-12" style="margin-top:10px;margin-bottom:50px">
-                            <div class="col-xs-6">
-                                <label style="text-align:right">Serial: </label>
-                                <input list="listado_seriales" name="listado" runat="server" id="equipoinput" style="height:30px; width:70%" autocomplete="off" class="form-control">
-                                <datalist id="listado_seriales" runat="server">
-                                                
-                                </datalist>
-                            </div>
-                            <div class="col-xs-6">
-                                <style>
-                                        #aceptar {
-                                            background-color: #4CAF50;
-                                            color: white;
-                                            margin: 8px 0;
-                                            margin-left:-30%;
-                                            border: none;
-                                            cursor: pointer;
-                                            margin-top:22px;
-                                            width: 125px;
-                                            height: 35px;
-                                            border-radius: 10px;
-                                            font-family: 'Raleway SemiBold';
-                                        }
-                                    </style>
-                                    <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            
                         </div>
                     </div>
                     <div class="row">
@@ -150,44 +118,53 @@
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-body">
-                                    <table id="tabla" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th style="width:120px">Identificador del contrato</th>
-                                                <th style="width:200px">Identificador del servicio</th>
-                                                <th style="width:150px">Estatus</th>
-                                                <th style="width:130px">Fecha de inicio</th>
-                                                <th style="width:120px">Fecha de finalización</th>
-                                            </tr>
-                                        </thead>
-                                            <tbody id="contenidotabla">
-                                                 <asp:Repeater ID="repPeople" runat="server" OnItemCommand="repPeople_ItemCommand">
-                                                    <ItemTemplate>
-                                                            <tr id="<%# Eval("identificadorservicioequipo") %>">
-                                                                <td><asp:Label ID="identificador" runat="server" Text='<%# Eval("identificadorservicioequipo") %>' ReadOnly="True" BorderStyle="None" /></td>
-                                                                <td><asp:Label ID="id" runat="server" Text='<%# Eval("identificador") %>' ReadOnly="True" BorderStyle="None" /> <i class="fa fa-info-circle" title="Datos del servicio:
-- Nivel de servicio: <%# Eval("nivelservicio") %> <%# Eval("canthoras") %> hora(s) X <%# Eval("cantdias") %> día(s)
-- Tipo de servicio: <%# Eval("tiposervicio") %>
-- Tiempo de respuesta: <%# Eval("tiemporespuesta") %> hora(s)
-- ¿Incluye feriados?: <%# Eval("feriado") %>"></i>
-                                                                </td>
-                                                                <td><%# Eval("estatus") %></td>
-                                                                <td><%# Convert.ToDateTime(Eval("fechaini")).ToString("dd/MM/yyyy") %></td>
-                                                                <td><%# Convert.ToDateTime(Eval("fechafin")).ToString("dd/MM/yyyy") %></td>
-                                                            </tr>              
-                                                    </ItemTemplate>
-                                                 </asp:Repeater>
-                                            </tbody>  
-                                        <tfoot>
-                                            <tr>
-                                                <th>Identificador del contrato</th>
-                                                <th>Identificador del servicio</th>
-                                                <th>Estatus</th>
-                                                <th>Fecha de inicio</th>
-                                                <th>Fecha de finalización</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                                    <div class="row">
+                                        <div class="col-lg-12" style="margin-top:-20px">
+                                            <h2 class="page-header">
+                                                Servicios
+                                            </h2>
+                                        </div>
+                                        <div class="col-md-12" id="servicios" runat="server">
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h2 class="page-header">
+                                                Equipos
+                                            </h2>
+                                        </div>
+                                        <div class="col-md-12" id="equipment" runat="server">
+
+                                        </div>
+                                    </div>
+                            </div>
+                            <div style="margin-top:10px;text-align:center">
+                                <style>
+                                    #cancelar {
+                                        background-color: #4CAF50;
+                                        color: white;
+                                        padding: 14px 20px;
+                                        margin: 8px 0;
+                                        margin-top:60px;
+                                        margin-left: 90%;
+                                        border: none;
+                                        cursor: pointer;
+                                        width: 125px;
+                                        border-radius: 15px;
+                                        font-family: 'Raleway SemiBold';
+                                    }
+                                </style>
+                                    <asp:ScriptManager runat="server" ID="sm" EnablePageMethods="true">
+                                    </asp:ScriptManager>
+                                    <asp:updatepanel runat="server">
+                                        <ContentTemplate>
+                                            <div class="col-xs-6">
+                                                <asp:Button ID="cancelar" runat="server" Text="Regresar" CssClass="btn-success" OnClick="cancelar_Click"/>
+                                            </div>
+                                        </ContentTemplate>
+                                    </asp:updatepanel>
+                                    
                             </div>
                             <!-- /.box-body -->
                         </div>

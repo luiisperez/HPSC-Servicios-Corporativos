@@ -188,9 +188,9 @@ namespace HPSC_Servicios_Corporativos.Controlador
                 return new EliminarServicio(id);
             }
 
-            public static AsignarServicio ComandoAsignarServicio(List<String> servicios, List<String> seriales, String fechaini, String fechafin, String contrato)
+            public static AgregarContrato ComandoAsignarServicio(List<String> servicios, List<String> seriales, String fechaini, String fechafin, String contrato)
             {
-                return new AsignarServicio(servicios, seriales, fechaini, fechafin, contrato);
+                return new AgregarContrato(servicios, seriales, fechaini, fechafin, contrato);
             }
 
             public static ConsultarServiciosPorEquipo ComandoConsultarServiciosPorEquipo(String id)
@@ -198,19 +198,24 @@ namespace HPSC_Servicios_Corporativos.Controlador
                 return new ConsultarServiciosPorEquipo(id);
             }
 
-            public static EliminarServicioAsignado ComandoEliminarServicioAsignado(String id)
+            public static ConsultarContratos ComandoConsultarContratos()
             {
-                return new EliminarServicioAsignado(id);
+                return new ConsultarContratos();
             }
 
-            public static ConsultarServicioAsignado ComandoConsultarServicioAsignado(String id)
+            public static EliminarContrato ComandoEliminarContrato(String id)
             {
-                return new ConsultarServicioAsignado(id);
+                return new EliminarContrato(id);
             }
 
-            public static ModificarServicioAsignado ComandoModificarServicioAsignado(String servicio, String serial, String fechaini, String fechafin)
+            public static ConsultarServicioContrato ComandoConsultarServicioContrato(String id)
             {
-                return new ModificarServicioAsignado(servicio, serial, fechaini, fechafin);
+                return new ConsultarServicioContrato(id);
+            }
+
+            public static ConsultarEquipoContrato ComandoConsultarEquipoContrato(String id)
+            {
+                return new ConsultarEquipoContrato(id);
             }
         #endregion
     }

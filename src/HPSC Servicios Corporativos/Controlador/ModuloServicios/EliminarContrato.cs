@@ -1,6 +1,5 @@
 ﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos;
 using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios;
-using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +7,11 @@ using System.Web;
 
 namespace HPSC_Servicios_Corporativos.Controlador.ModuloServicios
 {
-    public class ConsultarServicioAsignado:Comando
+    public class EliminarContrato:Comando
     {
         String id;
-        public Servicio servicio;
-        public ConsultarServicioAsignado(String _id)
+
+        public EliminarContrato(String _id)
         {
             this.id = _id;
         }
@@ -21,7 +20,7 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloServicios
             try
             {
                 DAOServicio basedatos = FabricaDAO.CrearDAOServicio();
-                servicio = basedatos.ConsultarServicioAsignado(id);
+                basedatos.EliminarContrato(id);
             }
             catch (Exception ex)
             {

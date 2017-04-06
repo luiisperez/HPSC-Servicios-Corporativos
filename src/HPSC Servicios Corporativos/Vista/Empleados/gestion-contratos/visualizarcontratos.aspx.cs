@@ -1,5 +1,4 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador;
-using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEquipo;
 using HPSC_Servicios_Corporativos.Controlador.ModuloServicios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
@@ -12,10 +11,11 @@ using System.Web.UI.WebControls;
 
 namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servicios
 {
-    public partial class asignarservicio : System.Web.UI.Page
+    public partial class modificarasignacion : System.Web.UI.Page
     {
+        public List<Servicio> listado = FabricaObjetos.CrearListaServicios();
+        protected List<Contrato> contratos = FabricaObjetos.CrearListaContratos();
         protected Empleado emp;
-        protected List<Equipo> equipos = FabricaObjetos.CrearListaEquipos();
         protected void Page_Load(object sender, EventArgs e)
         {
             HttpContext.Current.Response.AddHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -24,12 +24,12 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
             try
             {
                 emp = (Empleado)Session["Usuario"];
+                if (emp == null)
+                {
+                    Response.Redirect("~/Vista/Index/index.aspx");
+                }
                 if (!Page.IsPostBack)
                 {
-                    if (emp == null)
-                    {
-                        Response.Redirect("~/Vista/Index/index.aspx");
-                    }
                     if (Int32.Parse(emp.rol) >= 20)
                     {
                         zonausuarios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#usuarios\" id=\"users\" runat=\"server\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
@@ -96,28 +96,13 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                         zonaclientes.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-briefcase\"></i> Clientes  <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
                         Response.Redirect("~/Vista/Empleados/administracionHPSC.aspx");
                     }
-
                     try
                     {
-                        List<Cliente> clientes = FabricaObjetos.CrearListaClientes();
-                        ConsultarClientes cmd = FabricaComando.ComandoConsultarClientes();
+                        ConsultarContratos cmd = FabricaComando.ComandoConsultarContratos();
                         cmd.ejecutar();
-                        clientes = cmd.clientes;
-                        foreach (Cliente item in clientes)
-                        {
-                            listadoclientes.Items.Add(new ListItem(item.nombre, item.correo));
-                        }
-                        List<Servicio> servicios = FabricaObjetos.CrearListaServicios();
-                        ConsultarServicios _cmd = FabricaComando.ComandoConsultarServicios();
-                        _cmd.ejecutar();
-                        servicios = _cmd.servicios;
-                        foreach (Servicio item in servicios)
-                        {
-                            if (item.disponibilidad.Equals("Disponible"))
-                            {
-                                checkservicios.Items.Add(new ListItem(item.nivelservicio + " " + item.canthoras + "x" + item.cantdias + ", Tipo de servicio: " + item.tiposervicio + ", Feriado: " + item.feriado + ", Tiempo de respuesta: " + item.tiemporespuesta + " hora(s)", item.identificador));
-                            }
-                        }
+                        contratos = cmd.contratos;
+                        repPeople.DataSource = contratos;
+                        repPeople.DataBind();
                     }
                     catch (Exception ex)
                     {
@@ -127,9 +112,37 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 Response.Redirect("~/Vista/Index/index.aspx");
+            }
+        }
+
+        protected void repPeople_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            ImageButton botonpresionado = (ImageButton)e.CommandSource;
+            if (botonpresionado.ID.Equals("Eliminar"))
+            {
+                Label id = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("identificador");
+                try
+                {
+                    EliminarContrato _cmd = FabricaComando.ComandoEliminarContrato(id.Text);
+                    _cmd.ejecutar();
+                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha eliminado el contrato exitosamente");
+                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-contratos/visualizarcontratos.aspx;", message);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                }
+                catch (Exception ex)
+                {
+                    string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                }
+            }
+            else if (botonpresionado.ID.Equals("Visualizar"))
+            {
+                Label id = (Label)repPeople.Items[e.Item.ItemIndex].FindControl("identificador");
+                Response.Redirect("~/Vista/Empleados/gestion-contratos/detallescontrato.aspx?contrato=" + id.Text);
             }
         }
 
@@ -137,84 +150,6 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
         {
             Session.Abandon();
             Response.Redirect("~/Vista/Index/index.aspx");
-        }
-
-        protected void listadoclientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listadoclientes.SelectedValue.Equals(""))
-            {
-                cblItem.Items.Clear();
-            }
-            else
-            {
-                List<Equipo> equipos = FabricaObjetos.CrearListaEquipos();
-                ConsultarEquiposCliente cmd = FabricaComando.ComandoConsultarEquiposPorCliente(listadoclientes.SelectedValue);
-                cmd.ejecutar();
-                equipos = cmd.equipos;
-                foreach (Equipo item in equipos)
-                {
-                    if (!item.estatus.Equals("Eliminado"))
-                    {
-                        cblItem.Items.Add(new ListItem(item.serial + ": Categoría: " + item.categoria + ". Marca/Modelo: " + item.marca + "/" + item.modelo, item.serial));
-                    }
-                }
-            }
-        }
-
-        protected void aceptar_Click(object sender, EventArgs e)
-        {
-            if ((!inifecha.Value.Equals("")) && (!finfecha.Value.Equals("")))
-            {
-
-                if (!(Convert.ToDateTime(inifecha.Value) > Convert.ToDateTime(finfecha.Value)))
-                {
-                    try
-                    {
-                        String hola = checkservicios.SelectedValue;
-                        List<String> serviciosseleccionados = checkservicios.Items.Cast<ListItem>()
-                           .Where(li => li.Selected)
-                           .Select(li => li.Value)
-                           .ToList();
-                        List<String> equiposseleccionados = cblItem.Items.Cast<ListItem>()
-                           .Where(li => li.Selected)
-                           .Select(li => li.Value)
-                           .ToList();
-                        if ((equiposseleccionados.Count != 0) && (serviciosseleccionados.Count != 0))
-                        {
-                            String contrato = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
-                            AgregarContrato cmd = FabricaComando.ComandoAsignarServicio(serviciosseleccionados, equiposseleccionados, inifecha.Value, finfecha.Value, contrato);
-                            cmd.ejecutar();
-                            var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha agregado el contrato exitosamente, el identificador del contrato es: CID-" + contrato);
-                            var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-contratos/agregarcontrato.aspx';", message);
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
-                        }
-                        else
-                        {
-                            string script = "alert(\"No se ha seleccionado ningún contrato y/o equipo, por favor revise\");";
-                            ScriptManager.RegisterStartupScript(this, GetType(),
-                                                    "ServerControlScript", script, true);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        string script = "alert(\"Ha ocurido un error intente nuevamente\");";
-                        ScriptManager.RegisterStartupScript(this, GetType(),
-                                                "ServerControlScript", script, true);
-                    }
-                }
-                else
-                {
-                    string script = "alert(\"La fecha inicio no puede ser posterior a la fecha de finalización\");";
-                    ScriptManager.RegisterStartupScript(this, GetType(),
-                                            "ServerControlScript", script, true);
-                }
-            }
-            else
-            {
-                string script = "alert(\"Existen campos vacíos, por favor revise todos los campos\");";
-                ScriptManager.RegisterStartupScript(this, GetType(),
-                                        "ServerControlScript", script, true);
-            }
         }
     }
 }
