@@ -169,4 +169,16 @@
     <value>CONSULTAR_EQUIPOS_CLIENTE</value>
     <comment>Procedimiento para consultar los equipos que posee cada cliente en la BD</comment>
   </data>
+  <data name="ProcedimientoConsultaEquiposContrato" xml:space="preserve">
+    <value>CONSULTAR_EQUIPO_CONTRATO</value>
+    <comment>Procedimiento para consultar los equipos de un contrato</comment>
+  </data>
+  <data name="ProcedimientoConsultarContratos" xml:space="preserve">
+    <value>CONSULTAR_CONTRATOS_CLIENTE</value>
+    <comment>Procedimiento para consultar los contratos registrados en la BD de un cliente</comment>
+  </data>
+  <data name="ProcedimientoConsultaServiciosContrato" xml:space="preserve">
+    <value>CONSULTAR_SERVICIO_CONTRATO</value>
+    <comment>Procedimiento para consultar los servicios de un contrato</comment>
+  </data>
 </root>

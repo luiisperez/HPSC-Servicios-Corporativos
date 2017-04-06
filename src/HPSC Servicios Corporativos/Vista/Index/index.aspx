@@ -591,7 +591,13 @@
           <label style="font-family: 'Raleway Black'"><b>Contraseña</b></label>
           <input type="password" id="password" placeholder="Contraseña" name="Password" required oninvalid="alert('El campo de contraseña no puede estar vacío')">
           <%--<button type="submit" style="font-family: 'Raleway ExtraBold'">Ingresar</button>--%>
-          <asp:Button ID="aceptaremp" runat="server" Text="Ingresar" class="acceptbtn" style="font-family: 'Raleway ExtraBold'" OnClick="aceptaremp_Click" />
+          <asp:ScriptManager runat="server" ID="sm">
+          </asp:ScriptManager>
+          <asp:updatepanel runat="server">
+              <ContentTemplate>
+                   <asp:Button ID="aceptaremp" runat="server" Text="Ingresar" class="acceptbtn" style="font-family: 'Raleway ExtraBold'" OnClick="aceptaremp_Click" />
+              </ContentTemplate>
+          </asp:updatepanel>
         </div>
 
         <div class="containe" style="background-color:#f1f1f1">

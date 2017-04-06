@@ -24,34 +24,44 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
 
         protected void aceptaremp_Click(object sender, EventArgs e)
         {
-            String user = Request.Form["User"];
-            String pwd = Request.Form["Password"];
-            MD5 md5 = System.Security.Cryptography.MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pwd);
-            byte[] hash = md5.ComputeHash(inputBytes);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
+            if (!tipousuario.SelectedValue.Equals(""))
             {
-                sb.Append(hash[i].ToString("X2"));
-            }
-            pwd = sb.ToString();
-            try
-            {
-                IniciarSesion cmd = FabricaComando.ComandoIniciarSesion(user, pwd, tipousuario.SelectedValue);
-                cmd.ejecutar();
-                if (tipousuario.SelectedValue.Equals("Empleado"))
+                String user = Request.Form["User"];
+                String pwd = Request.Form["Password"];
+                MD5 md5 = System.Security.Cryptography.MD5.Create();
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pwd);
+                byte[] hash = md5.ComputeHash(inputBytes);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hash.Length; i++)
                 {
-                    Session["Usuario"] = cmd.emp;
+                    sb.Append(hash[i].ToString("X2"));
                 }
-                else if (tipousuario.SelectedValue.Equals("Cliente"))
+                pwd = sb.ToString();
+                try
                 {
-                    Session["Usuario"] = cmd.cli;
-                }
-                Response.Redirect("~/Vista/Index/postlogin.aspx");
+                    IniciarSesion cmd = FabricaComando.ComandoIniciarSesion(user, pwd, tipousuario.SelectedValue);
+                    cmd.ejecutar();
+                    if (tipousuario.SelectedValue.Equals("Empleado"))
+                    {
+                        Session["Usuario"] = cmd.emp;
+                    }
+                    else if (tipousuario.SelectedValue.Equals("Cliente"))
+                    {
+                        Session["Usuario"] = cmd.cli;
+                    }
+                    Response.Redirect("~/Vista/Index/postlogin.aspx");
 
+                }
+                catch (Exception ex)
+                {
+                    string script = "alert(\"No se pudo iniciar sesión en este momento intente nuevamente\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                          "ServerControlScript", script, true);
+                }
             }
-            catch (Exception ex) {
-                string script = "alert(\"No se pudo iniciar sesión en este momento intente nuevamente\");";
+            else
+            {
+                string script = "alert(\"No has seleccionado un tipo de usuario\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                       "ServerControlScript", script, true);
             }

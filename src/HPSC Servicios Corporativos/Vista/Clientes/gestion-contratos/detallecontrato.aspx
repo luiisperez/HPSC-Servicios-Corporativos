@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="misequipos.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Clientes.gestion_equipos.misequipos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="detallecontrato.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Clientes.gestion_contratos.detallecontrato" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    
     <link rel="icon" href="/Vista/Common/img/hpsc-logo.ico" type="image/x-icon">
     <title>HPSC Servicios Corporativos</title>
 
@@ -49,7 +48,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                <a class="navbar-brand" href="/Vista/Clientes/administracionCliente.aspx">Zona administrativa para clientes</a>
+                    <a class="navbar-brand" href="/Vista/Clientes/administracionCliente.aspx">Zona administrativa para clientes</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -57,7 +56,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%=cliente.nombre%> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="/Vista/Registro/modificardatoscliente.aspx"><i class="fa fa-fw fa-gear"></i> Actualizar datos</a>
+                                <a href="/Vista/Registro/modificardatosempleado.aspx"><i class="fa fa-fw fa-gear"></i> Actualizar datos</a>
                             </li>
                             <li class="divider"></li>
                             <li id="cerrarsesion" style="">
@@ -75,7 +74,7 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li id="zonaequipos" runat="server">
-                            <a href="javascript:;" data-toggle="collapse" data-target="#equipos" id="equipment" runat="server"><i class="fa fa-laptop"></i> Equipos <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#equipos" id="A1" runat="server"><i class="fa fa-laptop"></i> Equipos <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="equipos" class="collapse">
                                <li> 
                                     <a id="visualizarequipos" href="/Vista/Clientes/gestion-equipos/misequipos.aspx">Visualizar</a>
@@ -104,7 +103,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Lista de equipos
+                                Detalles del contrato <%= contrato %>
                             </h1>
                         </div>
                     </div>
@@ -114,39 +113,53 @@
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-body">
-                                    <table id="tabla" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>N° de Serial</th>
-                                                <th>N° de equipo</th>
-                                                <th>Categoría</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
-                                            </tr>
-                                        </thead>
-                                            <tbody id="contenidotabla">
-                                                 <asp:Repeater ID="repPeople" runat="server">
-                                                    <ItemTemplate>
-                                                            <tr id="<%# Eval("serial") %>">
-                                                                <td><asp:Label ID="correocli" runat="server" Text='<%# Eval("serial") %>' ReadOnly="True" BorderStyle="None" /></td>
-                                                                <td><%# Eval("numeroequipo") %></td>
-                                                                <td><%# Eval("categoria") %></td>
-                                                                <td><%# Eval("marca") %></td>
-                                                                <td><%# Eval("modelo") %></td>
-                                                            </tr>              
-                                                    </ItemTemplate>
-                                                 </asp:Repeater>
-                                            </tbody>  
-                                        <tfoot>
-                                            <tr>
-                                                <th>N° de Serial</th>
-                                                <th>N° de equipo</th>
-                                                <th>Categoría</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                                    <div class="row">
+                                        <div class="col-lg-12" style="margin-top:-20px">
+                                            <h2 class="page-header">
+                                                Servicios
+                                            </h2>
+                                        </div>
+                                        <div class="col-md-12" id="servicios" runat="server">
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h2 class="page-header">
+                                                Equipos
+                                            </h2>
+                                        </div>
+                                        <div class="col-md-12" id="equipment" runat="server">
+
+                                        </div>
+                                    </div>
+                            </div>
+                            <div style="margin-top:10px;text-align:center">
+                                <style>
+                                    #cancelar {
+                                        background-color: #4CAF50;
+                                        color: white;
+                                        padding: 14px 20px;
+                                        margin: 8px 0;
+                                        margin-top:60px;
+                                        margin-left: 90%;
+                                        border: none;
+                                        cursor: pointer;
+                                        width: 125px;
+                                        border-radius: 15px;
+                                        font-family: 'Raleway SemiBold';
+                                    }
+                                </style>
+                                    <asp:ScriptManager runat="server" ID="sm" EnablePageMethods="true">
+                                    </asp:ScriptManager>
+                                    <asp:updatepanel runat="server">
+                                        <ContentTemplate>
+                                            <div class="col-xs-6">
+                                                <asp:Button ID="cancelar" runat="server" Text="Regresar" CssClass="btn-success" OnClick="cancelar_Click"/>
+                                            </div>
+                                        </ContentTemplate>
+                                    </asp:updatepanel>
+                                    
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -186,4 +199,3 @@
 </body>
 
 </html>
-

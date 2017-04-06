@@ -1,4 +1,5 @@
-﻿using HPSC_Servicios_Corporativos.Modelo.Comun;
+﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios;
+using HPSC_Servicios_Corporativos.Modelo.Comun;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
@@ -341,6 +342,56 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes
 
                 }
                 return equipos;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Contrato> ConsultarContratos(String correocliente)
+        {
+            DataTable tablaDeDatos;
+            List<Contrato> contratos = FabricaObjetos.CrearListaContratos();
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Cliente.cli_correo, SqlDbType.VarChar, correocliente, false));
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Cliente.ProcedimientoConsultarContratos, parametro);
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        Contrato contconsultado;
+                        contconsultado = FabricaObjetos.CrearContrato(
+                                            row[0].ToString(),
+                                            row[3].ToString(),
+                                            Convert.ToDateTime(row[1].ToString()),
+                                            Convert.ToDateTime(row[2].ToString())
+                                        );
+                        contratos.Add(contconsultado);
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return contratos;
             }
             catch (SqlException ex)
             {

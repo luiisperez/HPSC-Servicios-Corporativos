@@ -125,6 +125,15 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CONSULTAR_EQUIPO_CONTRATO.
+        /// </summary>
+        internal static string ProcedimientoConsultaEquiposContrato {
+            get {
+                return ResourceManager.GetString("ProcedimientoConsultaEquiposContrato", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CONSULTAR_CLIENTE.
         /// </summary>
         internal static string ProcedimientoConsultarCliente {
@@ -152,11 +161,29 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CONSULTAR_CONTRATOS_CLIENTE.
+        /// </summary>
+        internal static string ProcedimientoConsultarContratos {
+            get {
+                return ResourceManager.GetString("ProcedimientoConsultarContratos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CONSULTAR_EQUIPOS_CLIENTE.
         /// </summary>
         internal static string ProcedimientoConsultarEquipos {
             get {
                 return ResourceManager.GetString("ProcedimientoConsultarEquipos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CONSULTAR_SERVICIO_CONTRATO.
+        /// </summary>
+        internal static string ProcedimientoConsultaServiciosContrato {
+            get {
+                return ResourceManager.GetString("ProcedimientoConsultaServiciosContrato", resourceCulture);
             }
         }
         

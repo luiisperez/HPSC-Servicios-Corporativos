@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="misequipos.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Clientes.gestion_equipos.misequipos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="miscontratos.aspx.cs" Inherits="HPSC_Servicios_Corporativos.Vista.Clientes.gestion_contratos.miscontratos" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +49,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                <a class="navbar-brand" href="/Vista/Clientes/administracionCliente.aspx">Zona administrativa para clientes</a>
+                    <a class="navbar-brand" href="/Vista/Clientes/administracionCliente.aspx">Zona administrativa para clientes</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -57,7 +57,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%=cliente.nombre%> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="/Vista/Registro/modificardatoscliente.aspx"><i class="fa fa-fw fa-gear"></i> Actualizar datos</a>
+                                <a href="/Vista/Registro/modificardatosempleado.aspx"><i class="fa fa-fw fa-gear"></i> Actualizar datos</a>
                             </li>
                             <li class="divider"></li>
                             <li id="cerrarsesion" style="">
@@ -75,7 +75,7 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li id="zonaequipos" runat="server">
-                            <a href="javascript:;" data-toggle="collapse" data-target="#equipos" id="equipment" runat="server"><i class="fa fa-laptop"></i> Equipos <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#equipos" id="equipment" runat="server"><i class="fa fa-laptop"></i> Equipos <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="equipos" class="collapse">
                                <li> 
                                     <a id="visualizarequipos" href="/Vista/Clientes/gestion-equipos/misequipos.aspx">Visualizar</a>
@@ -104,8 +104,13 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Lista de equipos
+                                Lista de contratos
                             </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            
                         </div>
                     </div>
                     <div class="row">
@@ -117,33 +122,35 @@
                                     <table id="tabla" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>N° de Serial</th>
-                                                <th>N° de equipo</th>
-                                                <th>Categoría</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
+                                                <th style="width:120px">Identificador del contrato</th>
+                                                <th style="width:200px">Cliente</th>
+                                                <th style="width:130px">Fecha de inicio</th>
+                                                <th style="width:120px">Fecha de finalización</th>
+                                                <th style="width:30px">Opciones</th>
                                             </tr>
                                         </thead>
                                             <tbody id="contenidotabla">
-                                                 <asp:Repeater ID="repPeople" runat="server">
+                                                 <asp:Repeater ID="rep" runat="server" OnItemCommand="rep_ItemCommand">
                                                     <ItemTemplate>
-                                                            <tr id="<%# Eval("serial") %>">
-                                                                <td><asp:Label ID="correocli" runat="server" Text='<%# Eval("serial") %>' ReadOnly="True" BorderStyle="None" /></td>
-                                                                <td><%# Eval("numeroequipo") %></td>
-                                                                <td><%# Eval("categoria") %></td>
-                                                                <td><%# Eval("marca") %></td>
-                                                                <td><%# Eval("modelo") %></td>
+                                                            <tr id="<%# Eval("id") %>">
+                                                                <td><asp:Label ID="identificador" runat="server" Text='<%# Eval("id") %>' ReadOnly="True" BorderStyle="None" /></td>
+                                                                <td><%# Eval("cliente") %></td>
+                                                                <td><%# Convert.ToDateTime(Eval("fechaini")).ToString("dd/MM/yyyy") %></td>
+                                                                <td><%# Convert.ToDateTime(Eval("fechafin")).ToString("dd/MM/yyyy") %></td>
+                                                                <td style="text-align:center">
+                                                                    <asp:ImageButton ID="Visualizar" runat="server" Text="Visualizar" ImageUrl="~/Vista/Common/img/visualizar.ico" Height="25px" Width="25px" ToolTip="Ver detalles" />
+                                                                </td>
                                                             </tr>              
                                                     </ItemTemplate>
                                                  </asp:Repeater>
                                             </tbody>  
                                         <tfoot>
                                             <tr>
-                                                <th>N° de Serial</th>
-                                                <th>N° de equipo</th>
-                                                <th>Categoría</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
+                                                <th>Identificador del contrato</th>
+                                                <th>Cliente</th>
+                                                <th>Fecha de inicio</th>
+                                                <th>Fecha de finalización</th>
+                                                <th>Opciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -186,4 +193,3 @@
 </body>
 
 </html>
-

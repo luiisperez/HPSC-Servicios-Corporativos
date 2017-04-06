@@ -73,6 +73,8 @@
     <Content Include="Vista\Clientes\font-awesome\css\font-awesome.min.css" />
     <Content Include="Vista\Clientes\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Vista\Clientes\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Vista\Clientes\gestion-contratos\detallecontrato.aspx" />
+    <Content Include="Vista\Clientes\gestion-contratos\miscontratos.aspx" />
     <Content Include="Vista\Clientes\gestion-equipos\misequipos.aspx" />
     <Content Include="Vista\Clientes\gestion-equipos\solicitarequipo.aspx" />
     <Content Include="Vista\Clientes\js\bootstrap.js" />
@@ -614,6 +616,7 @@
     <Compile Include="Controlador\FabricaComando.cs" />
     <Compile Include="Controlador\ModuloClientes\AgregarCliente.cs" />
     <Compile Include="Controlador\ModuloClientes\ConsultarClientes.cs" />
+    <Compile Include="Controlador\ModuloClientes\ConsultarContratosCliente.cs" />
     <Compile Include="Controlador\ModuloClientes\ConsultarEquiposCliente.cs" />
     <Compile Include="Controlador\ModuloClientes\EliminarCliente.cs" />
     <Compile Include="Controlador\ModuloClientes\EnviarSolicitudDeEquipo.cs" />
@@ -718,6 +721,20 @@
     </Compile>
     <Compile Include="Vista\Clientes\administracionCliente.aspx.designer.cs">
       <DependentUpon>administracionCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-contratos\detallecontrato.aspx.cs">
+      <DependentUpon>detallecontrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-contratos\detallecontrato.aspx.designer.cs">
+      <DependentUpon>detallecontrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-contratos\miscontratos.aspx.cs">
+      <DependentUpon>miscontratos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-contratos\miscontratos.aspx.designer.cs">
+      <DependentUpon>miscontratos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Clientes\gestion-equipos\misequipos.aspx.cs">
       <DependentUpon>misequipos.aspx</DependentUpon>

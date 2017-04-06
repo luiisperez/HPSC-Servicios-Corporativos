@@ -102,6 +102,11 @@ namespace HPSC_Servicios_Corporativos.Controlador
             {
                 return new EnviarSolicitudDeEquipo(nuevasolicitud, cliente);
             }
+
+            public static ConsultarContratosCliente ComandoConsultarContratosCliente(String id)
+            {
+                return new ConsultarContratosCliente(id);
+            }
         #endregion
 
 

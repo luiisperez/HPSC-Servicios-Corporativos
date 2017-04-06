@@ -87,7 +87,7 @@
                         </ul>  
                     </li>
                     <li id="zonacontratos" runat="server">
-                        <a href="#"><i class="fa fa-folder-open"></i> Contratos</a>
+                        <a href="/Vista/Clientes/gestion-contratos/miscontratos.aspx"><i class="fa fa-folder-open"></i> Contratos</a>
                     </li>
                     <li id="zonaincidentes" runat="server">
                         <a href="#"><i class="fa fa fa-warning"></i> Incidentes</a>
