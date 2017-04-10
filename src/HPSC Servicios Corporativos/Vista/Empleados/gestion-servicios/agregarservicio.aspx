@@ -272,9 +272,6 @@
                if (variable <= 0) {
                    alert("No puedes colocar numeros negativos o cero");
                    document.getElementById('<%=tiemporespuesta.ClientID%>').value = "1";
-               } else if (variable > 24) {
-                   alert("No puedes colorcar mas de 24 horas");
-                   document.getElementById('<%=tiemporespuesta.ClientID%>').value = "1";
                }
            } else {
                document.getElementById('<%=tiemporespuesta.ClientID%>').value = "1";
