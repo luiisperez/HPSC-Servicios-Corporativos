@@ -165,7 +165,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
         {
             if (!equipoinput.Value.Equals(""))
             {
-                Response.Redirect("~/Vista/Empleados/gestion-asignacion-servicios/visualizarserviciosequipo.aspx?serial="+equipoinput.Value);
+                Response.Redirect("~/Vista/Empleados/gestion-contratos/visualizarserviciosequipo.aspx?serial="+equipoinput.Value);
             }
             else
             {

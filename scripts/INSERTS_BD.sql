@@ -50,5 +50,5 @@ INSERT INTO EQUIPO VALUES ('FGDFS343DFGD2S', 'Impresoras', 'Hewlett-Packard', 'H
 INSERT INTO EQUIPO VALUES ('FGDFS343DFGFDGD2S', 'Impresoras', 'Hewlett-Packard', 'HP Laserjet M3035XS Multifunction Printer', 'Operativo', 'CC477A', 'luis.alejandro120895@gmail.com');
 
 ----------------------SERVICIO--------------------------
-INSERT INTO SERVICIO VALUES ('20173301944', 'Garantía Premium', 'Implementación', 72, 0, 5,	15,	'Disponible');
-INSERT INTO SERVICIO VALUES ('20173301945', 'Garantía Estándar', 'Implementación', 72, 0, 5, 15, 'Disponible');
+INSERT INTO SERVICIO VALUES ('20173301944', 'Garantía Premium', 'Implementación', 72, 0, 'Lunes,Martes,Miércoles,Viernes',	15,	'Disponible');
+INSERT INTO SERVICIO VALUES ('20173301945', 'Garantía Estándar', 'Implementación', 72, 0, 'Lunes,Martes,Miércoles,Viernes', 15, 'Disponible');

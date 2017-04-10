@@ -82,19 +82,19 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
             return new Equipo(_numequipo, _categoria, _modelo, _marca);
         }
 
-        public static Servicio CrearServicio(String _identificador, String _nivelservicio, String _tiposervicio, int _tiemporesp, String _feriado, int _cantdias, int _canthoras, String _disponibilidad)
+        public static Servicio CrearServicio(String _identificador, String _nivelservicio, String _tiposervicio, int _tiemporesp, String _feriado, String _dias, int _canthoras, String _disponibilidad)
         {
-            return new Servicio(_identificador, _nivelservicio, _tiposervicio, _tiemporesp, _feriado, _cantdias, _canthoras, _disponibilidad);
+            return new Servicio(_identificador, _nivelservicio, _tiposervicio, _tiemporesp, _feriado, _dias, _canthoras, _disponibilidad);
         }
 
-        public static Servicio CrearServicio(String _nivelservicio, String _tiposervicio, int _tiemporesp, int _feriado, int _cantdias, int _canthoras)
+        public static Servicio CrearServicio(String _nivelservicio, String _tiposervicio, int _tiemporesp, int _feriado, String _dias, int _canthoras)
         {
-            return new Servicio(_nivelservicio, _tiposervicio, _tiemporesp, _feriado, _cantdias, _canthoras);
+            return new Servicio(_nivelservicio, _tiposervicio, _tiemporesp, _feriado, _dias, _canthoras);
         }
 
-        public static Servicio CrearServicio(String _identificador, String _nivelservicio, String _tiposervicio, int _tiemporesp, String _feriado, int _cantdias, int _canthoras, DateTime _fechaini, DateTime _fechafin, String _estatus, String _identificadorservicioequipo)
+        public static Servicio CrearServicio(String _identificador, String _nivelservicio, String _tiposervicio, int _tiemporesp, String _feriado, String _dias, int _canthoras, DateTime _fechaini, DateTime _fechafin, String _estatus, String _identificadorservicioequipo)
         {
-            return new Servicio(_identificador, _nivelservicio, _tiposervicio, _tiemporesp, _feriado, _cantdias, _canthoras, _fechaini, _fechafin, _estatus, _identificadorservicioequipo);
+            return new Servicio(_identificador, _nivelservicio, _tiposervicio, _tiemporesp, _feriado, _dias, _canthoras, _fechaini, _fechafin, _estatus, _identificadorservicioequipo);
         }
 
         public static List<Servicio> CrearListaServicios()

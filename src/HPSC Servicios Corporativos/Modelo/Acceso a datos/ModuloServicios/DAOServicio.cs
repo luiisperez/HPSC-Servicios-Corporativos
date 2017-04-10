@@ -19,7 +19,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
             try
             {
                 String identificador = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_cantdias, SqlDbType.Int, Convert.ToString(newserv.cantdias), false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_dias, SqlDbType.VarChar, Convert.ToString(newserv.dias), false));
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_canthoras, SqlDbType.Int, Convert.ToString(newserv.canthoras), false));
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_disponibilidad, SqlDbType.VarChar, "Disponible", false));
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_feriados, SqlDbType.Int, Convert.ToString(newserv.feriado_si_no), false));
@@ -76,10 +76,11 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
                                             row[2].ToString(),
                                             Int32.Parse(row[3].ToString()),
                                             feriado,
-                                            Int32.Parse(row[5].ToString()),
+                                            row[5].ToString(),
                                             Int32.Parse(row[6].ToString()),
                                             row[7].ToString()
                                         );
+                        servconsultado.cantdias = servconsultado.dias.Split(',').Count();
                         servicios.Add(servconsultado);
                     }
                     catch (Exception ex)
@@ -123,7 +124,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
                 {
                     newserv.feriado_si_no = 0;
                 }
-                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_cantdias, SqlDbType.Int, Convert.ToString(newserv.cantdias), false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_dias, SqlDbType.VarChar, Convert.ToString(newserv.dias), false));
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_canthoras, SqlDbType.Int, Convert.ToString(newserv.canthoras), false));
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_disponibilidad, SqlDbType.VarChar, newserv.disponibilidad, false));
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Servicio.sv_feriados, SqlDbType.Int, Convert.ToString(newserv.feriado_si_no), false));
@@ -181,10 +182,11 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
                                             row[2].ToString(),
                                             Int32.Parse(row[3].ToString()),
                                             feriado,
-                                            Int32.Parse(row[5].ToString()),
+                                            row[5].ToString(),
                                             Int32.Parse(row[6].ToString()),
                                             row[7].ToString()
                                         );
+                        servconsultado.cantdias = servconsultado.dias.Split(',').Count();
                         return servconsultado;
                     }
                     catch (Exception ex)
@@ -321,14 +323,15 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
                                             row["TIPOSERV"].ToString(),
                                             Int32.Parse(row["TIEMPORESP"].ToString()),
                                             feriado,
-                                            Int32.Parse(row["DIAS"].ToString()),
+                                            row["DIAS"].ToString(),
                                             Int32.Parse(row["HORAS"].ToString()),
                                             Convert.ToDateTime(row["INICIO"].ToString()),
                                             Convert.ToDateTime(row["FECHAFIN"].ToString()),
                                             estatus,
                                             row["ID"].ToString()
-                                            
+
                                         );
+                        servconsultado.cantdias = servconsultado.dias.Split(',').Count();
                         servicios.Add(servconsultado);
                     }
                     catch (Exception ex)
@@ -514,10 +517,11 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios
                                             row[2].ToString(),
                                             Int32.Parse(row[3].ToString()),
                                             feriado,
+                                            row[6].ToString(),
                                             Int32.Parse(row[5].ToString()),
-                                            Int32.Parse(row[6].ToString()),
                                             row[7].ToString()
                                         );
+                        servconsultado.cantdias = servconsultado.dias.Split(',').Count();
                         lista.Add(servconsultado);
                     }
                     catch (Exception ex)

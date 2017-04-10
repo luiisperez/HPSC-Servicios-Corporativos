@@ -760,7 +760,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[AGREGAR_SERVICIO]
-  @sv_cantdias AS int,
+  @sv_dias AS varchar(500),
   @sv_canthoras AS int,
   @sv_disponibilidad AS varchar(500),
   @sv_feriados AS int,
@@ -770,7 +770,7 @@ CREATE PROCEDURE [dbo].[AGREGAR_SERVICIO]
   @sv_tiposerv AS varchar(500)
 AS
 BEGIN
-	INSERT INTO SERVICIO VALUES (@sv_id, @sv_nivelserv, @sv_tiposerv, @sv_tiemporesp, @sv_feriados, @sv_cantdias, @sv_canthoras, @sv_disponibilidad);
+	INSERT INTO SERVICIO VALUES (@sv_id, @sv_nivelserv, @sv_tiposerv, @sv_tiemporesp, @sv_feriados, @sv_dias, @sv_canthoras, @sv_disponibilidad);
 END
 
 
@@ -804,7 +804,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[MODIFICAR_SERVICIO]
-  @sv_cantdias AS int,
+  @sv_dias AS int,
   @sv_canthoras AS int,
   @sv_disponibilidad AS varchar(500),
   @sv_feriados AS int,
@@ -815,7 +815,7 @@ CREATE PROCEDURE [dbo].[MODIFICAR_SERVICIO]
 AS
 BEGIN
 	UPDATE SERVICIO SET [SV_NIVELSERVICIO] = @sv_nivelserv, [SV_TIPOSERVICIO] = @sv_tiposerv, [SV_TIEMPORESPUESTA] = @sv_tiemporesp, [SV_FERIADOS_SI_NO] = @sv_feriados,
-					    [SV_CANTDIAS] = @sv_cantdias, [SV_CANTHORAS] = @sv_canthoras, [SV_DISPONIBILIDAD] = @sv_disponibilidad WHERE [SV_ID] = @sv_id;	
+					    [SV_CANTDIAS] = @sv_dias, [SV_CANTHORAS] = @sv_canthoras, [SV_DISPONIBILIDAD] = @sv_disponibilidad WHERE [SV_ID] = @sv_id;	
 END
 
 

@@ -148,8 +148,16 @@
                                         </div>
                                         <div class="col-md-12" style="margin-top:30px;margin-left:50px">
                                             <div class="col-xs-6">
-                                                <label style="text-align:right">Cantidad de días a la semana: </label>
-				                                <input type="number" class="form-control" id="diassemana" runat="server" onblur="validarcantidaddias()" min="1" maxlength="18" style="width:70%;height:30px" value="1">
+                                                <label style="text-align:right">Días a la semana: </label>
+                                                <asp:CheckBoxList ID="checkdias" runat="server" Height="30px" Width="70%" style="margin-left:25px">
+                                                    <asp:ListItem>Lunes</asp:ListItem>
+                                                    <asp:ListItem>Martes</asp:ListItem>
+                                                    <asp:ListItem>Miércoles</asp:ListItem>
+                                                    <asp:ListItem>Jueves</asp:ListItem>
+                                                    <asp:ListItem>Viernes</asp:ListItem>
+                                                    <asp:ListItem>Sábado</asp:ListItem>
+                                                    <asp:ListItem>Domingo</asp:ListItem>
+                                                </asp:CheckBoxList>
                                             </div>
                                             <div class="col-xs-6">
                                                 <label style="text-align:right">Cantidad de horas por día: </label>
@@ -264,13 +272,16 @@
                if (variable <= 0) {
                    alert("No puedes colocar numeros negativos o cero");
                    document.getElementById('<%=tiemporespuesta.ClientID%>').value = "1";
+               } else if (variable > 24) {
+                   alert("No puedes colorcar mas de 24 horas");
+                   document.getElementById('<%=tiemporespuesta.ClientID%>').value = "1";
                }
            } else {
                document.getElementById('<%=tiemporespuesta.ClientID%>').value = "1";
            }
        }
 
-       function validarcantidaddias() {
+       <%--function validarcantidaddias() {
            var variable = document.getElementById('<%=diassemana.ClientID%>').value;
            if (variable != '') {
                if (variable <= 0) {
@@ -280,13 +291,16 @@
            } else {
                document.getElementById('<%=tiemporespuesta.ClientID%>').value = "1";
            }
-       }
+       }--%>
 
        function validarcantidadhoras() {
            var variable = document.getElementById('<%=horasdia.ClientID%>').value;
            if (variable != '') {
                if (variable <= 0) {
                    alert("No puedes colocar numeros negativos o cero");
+                   document.getElementById('<%=horasdia.ClientID%>').value = "1";
+               } else if (variable > 24) {
+                   alert("No puedes colorcar mas de 24 horas");
                    document.getElementById('<%=horasdia.ClientID%>').value = "1";
                }
            } else {

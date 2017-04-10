@@ -148,8 +148,16 @@
                                         </div>
                                         <div class="col-md-12" style="margin-top:30px;margin-left:50px">
                                             <div class="col-xs-6">
-                                                <label style="text-align:right">Cantidad de días a la semana: </label>
-				                                <input type="number" class="form-control" id="diassemana" runat="server" onblur="validarcantidaddias()" min="1" maxlength="18" style="width:70%;height:30px" value="1">
+                                                <label style="text-align:right">Días a la semana: </label>
+                                                <asp:CheckBoxList ID="checkdias" runat="server" Height="30px" Width="70%" style="margin-left:25px">
+                                                    <asp:ListItem>Lunes</asp:ListItem>
+                                                    <asp:ListItem>Martes</asp:ListItem>
+                                                    <asp:ListItem>Miércoles</asp:ListItem>
+                                                    <asp:ListItem>Jueves</asp:ListItem>
+                                                    <asp:ListItem>Viernes</asp:ListItem>
+                                                    <asp:ListItem>Sábado</asp:ListItem>
+                                                    <asp:ListItem>Domingo</asp:ListItem>
+                                                </asp:CheckBoxList>
                                             </div>
                                             <div class="col-xs-6">
                                                 <label style="text-align:right">Cantidad de horas por día: </label>
@@ -182,12 +190,30 @@
                                             border-radius: 15px;
                                             font-family: 'Raleway SemiBold';
                                         }
+                                        #cancelar {
+                                            background-color: red;
+                                            color: white;
+                                            padding: 14px 20px;
+                                            margin: 8px 0;
+                                            margin-top:60px;
+                                            margin-left:-30px;
+                                            border: none;
+                                            cursor: pointer;
+                                            width: 125px;
+                                            border-radius: 15px;
+                                            font-family: 'Raleway SemiBold';
+                                        }
                                     </style>
                                         <asp:ScriptManager runat="server" ID="sm" EnablePageMethods="true">
                                         </asp:ScriptManager>
                                         <asp:updatepanel runat="server">
                                             <ContentTemplate>
-                                                <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
+                                                <div class="col-xs-6">
+                                                    <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <asp:Button ID="cancelar" runat="server" Text="Cancelar" CssClass="btn-success" OnClick="cancelar_Click"/>
+                                                </div>
                                             </ContentTemplate>
                                         </asp:updatepanel>
                                     
@@ -251,7 +277,7 @@
            }
        }
 
-       function validarcantidaddias() {
+       <%--function validarcantidaddias() {
            var variable = document.getElementById('<%=diassemana.ClientID%>').value;
            if (variable != '') {
                if (variable <= 0) {
@@ -261,7 +287,7 @@
            } else {
                document.getElementById('<%=tiemporespuesta.ClientID%>').value = "1";
            }
-       }
+       }--%>
 
        function validarcantidadhoras() {
            var variable = document.getElementById('<%=horasdia.ClientID%>').value;

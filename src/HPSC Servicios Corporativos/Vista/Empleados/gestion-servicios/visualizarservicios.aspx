@@ -135,7 +135,8 @@
                                                     <ItemTemplate>
                                                             <tr id="<%# Eval("identificador") %>">
                                                                 <td><asp:Label ID="identificador" runat="server" Text='<%# Eval("identificador") %>' ReadOnly="True" BorderStyle="None" /></td>
-                                                                <td><%# Eval("nivelservicio") %> <%# Eval("canthoras") %> hora(s) X <%# Eval("cantdias") %> día(s)</td>
+                                                                <td><%# Eval("nivelservicio") %> <%# Eval("canthoras") %> hora(s) X <%# Eval("cantdias") %> día(s) <i class="fa fa-info-circle" title="Días de trabajo: <%# Eval("dias").ToString().Replace(",", ", ") %>"></i>
+                                                                </td>
                                                                 <td><%# Eval("tiposervicio") %></td>
                                                                 <td><%# Eval("tiemporespuesta") %> hora(s)</td>
                                                                 <td><%# Eval("feriado") %></td>

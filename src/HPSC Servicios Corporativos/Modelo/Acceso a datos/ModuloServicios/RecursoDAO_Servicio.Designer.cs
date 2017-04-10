@@ -197,20 +197,20 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to @sv_cantdias.
-        /// </summary>
-        internal static string sv_cantdias {
-            get {
-                return ResourceManager.GetString("sv_cantdias", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to @sv_canthoras.
         /// </summary>
         internal static string sv_canthoras {
             get {
                 return ResourceManager.GetString("sv_canthoras", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @sv_dias.
+        /// </summary>
+        internal static string sv_dias {
+            get {
+                return ResourceManager.GetString("sv_dias", resourceCulture);
             }
         }
         

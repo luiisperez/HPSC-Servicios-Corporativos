@@ -130,13 +130,13 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios {
         protected global::System.Web.UI.WebControls.RadioButtonList feriados_si_no;
         
         /// <summary>
-        /// diassemana control.
+        /// checkdias control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl diassemana;
+        protected global::System.Web.UI.WebControls.CheckBoxList checkdias;
         
         /// <summary>
         /// horasdia control.

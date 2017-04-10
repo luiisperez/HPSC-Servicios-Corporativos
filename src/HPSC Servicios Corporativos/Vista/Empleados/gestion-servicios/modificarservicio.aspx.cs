@@ -109,7 +109,12 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
                     feriados_si_no.Text = consultado.feriado;
                     disponibilidad.Text = consultado.disponibilidad;
                     horasdia.Value = Convert.ToString(consultado.canthoras);
-                    diassemana.Value = Convert.ToString(consultado.cantdias);
+                    foreach (String dia in consultado.dias.Split(','))
+                    {
+                        ListItem listItem = this.checkdias.Items.FindByText(dia);
+
+                        if (listItem != null) listItem.Selected = true;
+                    }
 
                 }
                 catch (Exception ex)
@@ -130,11 +135,27 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
 
         protected void aceptar_Click(object sender, EventArgs e)
         {
-            if ((!nivelservicio.Value.Equals("")) && (!listadotiposerv.SelectedValue.Equals("")) && (!tiemporespuesta.Value.Equals("")) && (!diassemana.Value.Equals("")) && (!horasdia.Value.Equals("")) && (!feriados_si_no.SelectedValue.Equals("")) && (!disponibilidad.SelectedValue.Equals("")))
+            if ((!nivelservicio.Value.Equals("")) && (!listadotiposerv.SelectedValue.Equals("")) && (!tiemporespuesta.Value.Equals("")) && (!checkdias.SelectedValue.Equals("")) && (!horasdia.Value.Equals("")) && (!feriados_si_no.SelectedValue.Equals("")) && (!disponibilidad.SelectedValue.Equals("")))
             {
                 try
                 {
-                    Servicio nuevoserv = FabricaObjetos.CrearServicio(Request.QueryString["id"], nivelservicio.Value, listadotiposerv.SelectedValue, Int32.Parse(tiemporespuesta.Value), feriados_si_no.SelectedValue, Int32.Parse(diassemana.Value), Int32.Parse(horasdia.Value), disponibilidad.SelectedValue);
+                    List<String> dias = checkdias.Items.Cast<ListItem>()
+                           .Where(li => li.Selected)
+                           .Select(li => li.Value)
+                           .ToList();
+                    String diastot = "";
+                    for (int i = 0; i <= dias.Count - 1; i++)
+                    {
+                        if (i < dias.Count - 1)
+                        {
+                            diastot = diastot + dias[i] + ",";
+                        }
+                        else
+                        {
+                            diastot = diastot + dias[i];
+                        }
+                    }
+                    Servicio nuevoserv = FabricaObjetos.CrearServicio(Request.QueryString["id"], nivelservicio.Value, listadotiposerv.SelectedValue, Int32.Parse(tiemporespuesta.Value), feriados_si_no.SelectedValue, diastot, Int32.Parse(horasdia.Value), disponibilidad.SelectedValue);
                     ModificarServicio cmd = FabricaComando.ComandoModificarServicio(nuevoserv);
                     cmd.ejecutar();
                     var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha modificado el servicio exitosamente y será redirigido al listado de servicios");
@@ -155,6 +176,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                         "ServerControlScript", script, true);
             }
+        }
+
+        protected void cancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Vista/Empleados/gestion-servicios/visualizarservicios.aspx");
         }
     }
 }

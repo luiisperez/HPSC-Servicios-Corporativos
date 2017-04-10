@@ -115,7 +115,8 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                         {
                             if (item.disponibilidad.Equals("Disponible"))
                             {
-                                checkservicios.Items.Add(new ListItem(item.nivelservicio + " " + item.canthoras + "x" + item.cantdias + ", Tipo de servicio: " + item.tiposervicio + ", Feriado: " + item.feriado + ", Tiempo de respuesta: " + item.tiemporespuesta + " hora(s)", item.identificador));
+                                String dias = item.dias;
+                                checkservicios.Items.Add(new ListItem(item.nivelservicio + " " + item.canthoras + "x" + item.dias.Split(',').Count() + ", Tipo de servicio: " + item.tiposervicio + ", Feriado: " + item.feriado + ", Tiempo de respuesta: " + item.tiemporespuesta + " hora(s)" + ", Días de trabajo: " + dias.Replace(",", ", "), item.identificador));
                             }
                         }
                     }

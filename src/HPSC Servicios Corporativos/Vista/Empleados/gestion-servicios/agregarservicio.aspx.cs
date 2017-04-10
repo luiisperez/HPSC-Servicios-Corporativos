@@ -112,7 +112,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
 
         protected void aceptar_Click(object sender, EventArgs e)
         {
-            if ((!nivelservicio.Value.Equals("")) && (!listadotiposerv.SelectedValue.Equals("")) && (!tiemporespuesta.Value.Equals("")) && (!diassemana.Value.Equals("")) && (!horasdia.Value.Equals("")) && (!feriados_si_no.SelectedValue.Equals("")))
+            if ((!nivelservicio.Value.Equals("")) && (!listadotiposerv.SelectedValue.Equals("")) && (!tiemporespuesta.Value.Equals("")) && (!checkdias.SelectedValue.Equals("")) && (!horasdia.Value.Equals("")) && (!feriados_si_no.SelectedValue.Equals("")))
             {
                 try
                 {
@@ -125,7 +125,23 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
                     {
                         feriado = 1;
                     }
-                    Servicio nuevoserv = FabricaObjetos.CrearServicio(nivelservicio.Value, listadotiposerv.SelectedValue, Int32.Parse(tiemporespuesta.Value), feriado, Int32.Parse(diassemana.Value), Int32.Parse(horasdia.Value));
+                    List<String> dias = checkdias.Items.Cast<ListItem>()
+                           .Where(li => li.Selected)
+                           .Select(li => li.Value)
+                           .ToList();
+                    String diastot = "";
+                    for (int i = 0; i <= dias.Count - 1; i++)
+                    {
+                        if (i < dias.Count - 1)
+                        {
+                            diastot = diastot + dias[i] + ",";
+                        }
+                        else
+                        {
+                            diastot = diastot + dias[i];
+                        }
+                    }
+                    Servicio nuevoserv = FabricaObjetos.CrearServicio(nivelservicio.Value, listadotiposerv.SelectedValue, Int32.Parse(tiemporespuesta.Value), feriado, diastot, Int32.Parse(horasdia.Value));
                     AgregarServicio cmd = FabricaComando.ComandoAgregarServicio(nuevoserv);
                     cmd.ejecutar();
                     var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha registrado el servicio en el sistema exitosamente");

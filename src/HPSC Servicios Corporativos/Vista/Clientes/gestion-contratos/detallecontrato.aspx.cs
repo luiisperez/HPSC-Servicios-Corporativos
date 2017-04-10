@@ -42,7 +42,8 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_contratos
                         String html = "";
                         foreach (Servicio item in listado)
                         {
-                            html = html + "<p style=\"font-size:15px;margin-left:30px\">• " + item.nivelservicio + " " + item.canthoras + "x" + item.cantdias + ", Tipo de servicio: " + item.tiposervicio + ", Feriado: " + item.feriado + ", Tiempo de respuesta: " + item.tiemporespuesta + " hora(s)" + "</p>";
+                            String dias = item.dias;
+                            html = html + "<p style=\"font-size:15px;margin-left:30px\">• " + item.nivelservicio + " " + item.canthoras + "x" + item.dias.Split(',').Count() + ", Tipo de servicio: " + item.tiposervicio + ", Feriado: " + item.feriado + ", Tiempo de respuesta: " + item.tiemporespuesta + " hora(s)" + ", Días de trabajo: " + dias.Replace(",", ", ") + "</p>";
                         }
                         servicios.InnerHtml = html;
                         html = "";

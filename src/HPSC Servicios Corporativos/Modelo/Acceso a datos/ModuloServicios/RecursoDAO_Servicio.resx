@@ -153,8 +153,8 @@
     <value>MODIFICAR_SERVICIO</value>
     <comment>Procedimiento para modificar la información de un servicio de la BD</comment>
   </data>
-  <data name="sv_cantdias" xml:space="preserve">
-    <value>@sv_cantdias</value>
+  <data name="sv_dias" xml:space="preserve">
+    <value>@sv_dias</value>
     <comment>Cantidad de días a la semana</comment>
   </data>
   <data name="sv_canthoras" xml:space="preserve">
