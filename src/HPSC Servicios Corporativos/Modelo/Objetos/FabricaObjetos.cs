@@ -111,5 +111,20 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
         {
             return new List<Contrato>();
         }
+
+        public static PersonaContacto CrearPersonaContacto(String _correo, String _nombre, String _apellido, String _telflocal, String _telfmovil, String _cliente)
+        {
+            return new PersonaContacto(_correo, _nombre, _apellido, _telflocal, _telfmovil,  _cliente);
+        }
+
+        public static PersonaContacto CrearPersonaContacto(String _correo, String _nombre, String _apellido, String _telflocal, String _telfmovil, String _estatus, String _cliente)
+        {
+            return new PersonaContacto(_correo, _nombre, _apellido, _telflocal, _telfmovil, _estatus, _cliente);
+        }
+
+        public static List<PersonaContacto> CrearListaPersonaContacto()
+        {
+            return new List<PersonaContacto>();
+        }
     }
 }

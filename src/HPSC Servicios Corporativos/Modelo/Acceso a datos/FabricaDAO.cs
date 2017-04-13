@@ -1,5 +1,6 @@
 ﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes;
 using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos;
+using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloPersonaContacto;
 using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloProductos;
 using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios;
 using HPSC_Servicios_Corporativos.Modelo.Comun;
@@ -52,6 +53,11 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos
         public static DAOServicio CrearDAOServicio()
         {
             return new DAOServicio();
+        }
+
+        internal static DAOPersonaContacto CrearDAOPersonaContacto()
+        {
+            return new DAOPersonaContacto();
         }
     }
 }

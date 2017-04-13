@@ -1,6 +1,7 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEmpleados;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEquipo;
+using HPSC_Servicios_Corporativos.Controlador.ModuloPersonaContacto;
 using HPSC_Servicios_Corporativos.Controlador.ModuloProductos;
 using HPSC_Servicios_Corporativos.Controlador.ModuloServicios;
 using HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios;
@@ -66,7 +67,6 @@ namespace HPSC_Servicios_Corporativos.Controlador
             }
         #endregion
 
-
         #region Clientes
             public static AgregarCliente ComandoAgregarCliente(Cliente nuevocliente)
             {
@@ -108,7 +108,6 @@ namespace HPSC_Servicios_Corporativos.Controlador
                 return new ConsultarContratosCliente(id);
             }
         #endregion
-
 
         #region Equipos
             public static ValidacionDatosEquipos ComandoValidacionDeDatosEquipo()
@@ -222,6 +221,38 @@ namespace HPSC_Servicios_Corporativos.Controlador
             {
                 return new ConsultarEquipoContrato(id);
             }
+        #endregion
+
+        #region Servicio
+        public static AgregarPersonaContacto ComandoAgregarPersonaContacto(PersonaContacto nuevapersona)
+        {
+            return new AgregarPersonaContacto(nuevapersona);
+        }
+
+        public static ModificarPersonaContacto ComandoModificarPersonaContacto(PersonaContacto nuevapersona, String _correo)
+        {
+            return new ModificarPersonaContacto(nuevapersona, _correo);
+        }
+
+        public static EliminarPersonaContacto ComandoEliminarPersonaContacto(String _correo)
+        {
+            return new EliminarPersonaContacto(_correo);
+        }
+
+        public static ConsultarPersonasContactoPorCliente ComandoConsultarPersonasContactoPorCliente(String _correo)
+        {
+            return new ConsultarPersonasContactoPorCliente(_correo);
+        }
+
+        public static ConsultarTodasPersonasContacto ComandoConsultarTodasPersonasContacto()
+        {
+            return new ConsultarTodasPersonasContacto();
+        }
+
+        public static ConsultarPersonaContacto ComandoConsultarPersonaContacto(String _correo)
+        {
+            return new ConsultarPersonaContacto(_correo);
+        }
         #endregion
     }
 }

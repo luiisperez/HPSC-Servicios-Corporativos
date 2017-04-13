@@ -73,6 +73,7 @@
     <Content Include="Vista\Clientes\font-awesome\css\font-awesome.min.css" />
     <Content Include="Vista\Clientes\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Vista\Clientes\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Vista\Clientes\gestion-contactos\personalcontacto.aspx" />
     <Content Include="Vista\Clientes\gestion-contratos\detallecontrato.aspx" />
     <Content Include="Vista\Clientes\gestion-contratos\miscontratos.aspx" />
     <Content Include="Vista\Clientes\gestion-equipos\misequipos.aspx" />
@@ -634,6 +635,12 @@
     <Compile Include="Controlador\ModuloEquipo\EliminarEquipo.cs" />
     <Compile Include="Controlador\ModuloEquipo\ModificarEquipo.cs" />
     <Compile Include="Controlador\ModuloEquipo\ValidacionDatosEquipos.cs" />
+    <Compile Include="Controlador\ModuloPersonaContacto\AgregarPersonaContacto.cs" />
+    <Compile Include="Controlador\ModuloPersonaContacto\ConsultarPersonaContacto.cs" />
+    <Compile Include="Controlador\ModuloPersonaContacto\ConsultarPersonasContactoPorCliente.cs" />
+    <Compile Include="Controlador\ModuloPersonaContacto\ConsultarTodasPersonasContacto.cs" />
+    <Compile Include="Controlador\ModuloPersonaContacto\EliminarPersonaContacto.cs" />
+    <Compile Include="Controlador\ModuloPersonaContacto\ModificarPersonaContacto.cs" />
     <Compile Include="Controlador\ModuloProductos\AgregarProducto.cs" />
     <Compile Include="Controlador\ModuloProductos\ConsultarProductos.cs" />
     <Compile Include="Controlador\ModuloProductos\ModificarProducto.cs" />
@@ -673,6 +680,12 @@
       <DependentUpon>RecursoDAO_Cliente.resx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Acceso a datos\ModuloEquipos\DAOEquipo.cs" />
+    <Compile Include="Modelo\Acceso a datos\ModuloPersonaContacto\DAOPersonaContacto.cs" />
+    <Compile Include="Modelo\Acceso a datos\ModuloPersonaContacto\RecursoDAO_PersonaContacto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursoDAO_PersonaContacto.resx</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Acceso a datos\ModuloProductos\DAOProducto.cs" />
     <Compile Include="Modelo\Acceso a datos\ModuloProductos\RecursoDAO_Producto.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -709,6 +722,7 @@
     <Compile Include="Modelo\Objetos\Empleado.cs" />
     <Compile Include="Modelo\Objetos\Equipo.cs" />
     <Compile Include="Modelo\Objetos\FabricaObjetos.cs" />
+    <Compile Include="Modelo\Objetos\PersonaContacto.cs" />
     <Compile Include="Modelo\Objetos\reCaptchaV2.cs" />
     <Compile Include="Modelo\Objetos\Rol.cs" />
     <Compile Include="Modelo\Objetos\Servicio.cs" />
@@ -721,6 +735,13 @@
     </Compile>
     <Compile Include="Vista\Clientes\administracionCliente.aspx.designer.cs">
       <DependentUpon>administracionCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-contactos\personalcontacto.aspx.cs">
+      <DependentUpon>personalcontacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-contactos\personalcontacto.aspx.designer.cs">
+      <DependentUpon>personalcontacto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Clientes\gestion-contratos\detallecontrato.aspx.cs">
       <DependentUpon>detallecontrato.aspx</DependentUpon>
@@ -1192,6 +1213,10 @@
     <EmbeddedResource Include="Modelo\Acceso a datos\ModuloEquipos\RecursoDAO_Equipo.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>RecursoDAO_Equipo.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelo\Acceso a datos\ModuloPersonaContacto\RecursoDAO_PersonaContacto.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursoDAO_PersonaContacto.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Modelo\Acceso a datos\ModuloProductos\RecursoDAO_Producto.resx">
       <Generator>ResXFileCodeGenerator</Generator>
