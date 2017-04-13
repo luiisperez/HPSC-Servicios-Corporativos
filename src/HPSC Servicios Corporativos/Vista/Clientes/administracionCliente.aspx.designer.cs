@@ -58,6 +58,24 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl zonacontratos;
         
         /// <summary>
+        /// zonacontactos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl zonacontactos;
+        
+        /// <summary>
+        /// contact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor contact;
+        
+        /// <summary>
         /// zonaincidentes control.
         /// </summary>
         /// <remarks>

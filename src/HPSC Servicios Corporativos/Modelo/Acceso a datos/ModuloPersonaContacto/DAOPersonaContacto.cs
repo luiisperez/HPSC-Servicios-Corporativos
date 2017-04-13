@@ -58,15 +58,32 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloPersonaContact
                 {
                     try
                     {
-                        personaconsultada = FabricaObjetos.CrearPersonaContacto(
-                                            row[0].ToString(),
-                                            row[1].ToString(),
-                                            row[2].ToString(),
-                                            row[3].ToString(),
-                                            row[4].ToString(),
-                                            row[5].ToString()
-                                        );
-                        listado.Add(personaconsultada);
+                        if (row[4].ToString().Equals(""))
+                        {
+                            personaconsultada = FabricaObjetos.CrearPersonaContacto(
+                                                row[0].ToString(),
+                                                row[1].ToString(),
+                                                row[2].ToString(),
+                                                row[3].ToString(),
+                                                "No aplica",
+                                                row[5].ToString(),
+                                                row[6].ToString()
+                                            );
+                            listado.Add(personaconsultada);
+                        }
+                        else
+                        {
+                            personaconsultada = FabricaObjetos.CrearPersonaContacto(
+                                                row[0].ToString(),
+                                                row[1].ToString(),
+                                                row[2].ToString(),
+                                                row[3].ToString(),
+                                                row[4].ToString(),
+                                                row[5].ToString(),
+                                                row[6].ToString()
+                                            );
+                            listado.Add(personaconsultada);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -115,7 +132,8 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloPersonaContact
                                             row[2].ToString(),
                                             row[3].ToString(),
                                             row[4].ToString(),
-                                            row[5].ToString()
+                                            row[5].ToString(),
+                                            row[6].ToString()
                                         );
                         return personaconsultada;
                     }
@@ -158,15 +176,32 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloPersonaContact
                 {
                     try
                     {
-                        personaconsultada = FabricaObjetos.CrearPersonaContacto(
-                                            row[0].ToString(),
-                                            row[1].ToString(),
-                                            row[2].ToString(),
-                                            row[3].ToString(),
-                                            row[4].ToString(),
-                                            row[5].ToString()
-                                        );
-                        listado.Add(personaconsultada);
+                        if (row[4].ToString().Equals(""))
+                        {
+                            personaconsultada = FabricaObjetos.CrearPersonaContacto(
+                                                row[0].ToString(),
+                                                row[1].ToString(),
+                                                row[2].ToString(),
+                                                row[3].ToString(),
+                                                "No aplica",
+                                                row[5].ToString(),
+                                                row[6].ToString()
+                                            );
+                            listado.Add(personaconsultada);
+                        }
+                        else
+                        {
+                            personaconsultada = FabricaObjetos.CrearPersonaContacto(
+                                                row[0].ToString(),
+                                                row[1].ToString(),
+                                                row[2].ToString(),
+                                                row[3].ToString(),
+                                                row[4].ToString(),
+                                                row[5].ToString(),
+                                                row[6].ToString()
+                                            );
+                            listado.Add(personaconsultada);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -235,8 +270,9 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloPersonaContact
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_PersonaContacto.pc_nombre, SqlDbType.VarChar, newpersona.nombre, false));
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_PersonaContacto.pc_telflocal, SqlDbType.VarChar, newpersona.telflocal, false));
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_PersonaContacto.pc_telfmovil, SqlDbType.VarChar, newpersona.telfmovil, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_PersonaContacto.pc_estatus, SqlDbType.VarChar, newpersona.estatus, false));
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_PersonaContacto.cli_correo, SqlDbType.VarChar, newpersona.cliente, false));
-                EjecutarStoredProcedure(RecursoDAO_PersonaContacto.ProcedimientoAgregarPersonaContacto, listaParametro);
+                EjecutarStoredProcedure(RecursoDAO_PersonaContacto.ProcedimientoModificarPersonaContacto, listaParametro);
             }
             catch (SqlException ex)
             {

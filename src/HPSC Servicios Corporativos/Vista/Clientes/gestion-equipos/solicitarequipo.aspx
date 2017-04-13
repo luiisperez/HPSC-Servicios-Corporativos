@@ -88,6 +88,17 @@
                         <li id="zonacontratos" runat="server">
                             <a href="/Vista/Clientes/gestion-contratos/miscontratos.aspx"><i class="fa fa-folder-open"></i> Contratos</a>
                         </li>
+                        <li id="zonacontactos" runat="server">
+                            <a href="javascript:;" data-toggle="collapse" data-target="#contactos" id="contact" runat="server"><i class="fa fa-user"></i> Personal de contacto <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="contactos" class="collapse">
+                               <li> 
+                                    <a href="/Vista/Clientes/gestion-contactos/personalcontacto.aspx">Agregar</a>
+                               </li> 
+                               <li>
+                                     <a href="/Vista/Clientes/gestion-contactos/visualizarpersonascontacto.aspx">Visualizar</a>
+                               </li>  
+                            </ul>  
+                        </li>
                         <li id="zonaincidentes" runat="server">
                             <a href="#"><i class="fa fa fa-warning"></i> Incidentes</a>
                         </li>

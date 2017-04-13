@@ -89,6 +89,9 @@
                         <li id="zonacontratos" runat="server">
                             
                         </li>
+                        <li id="zonapersonascontacto" runat="server">
+                            
+                        </li>
                         <li id="zonaasignacionservicios" runat="server">
                             
                         </li>

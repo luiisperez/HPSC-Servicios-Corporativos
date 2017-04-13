@@ -88,6 +88,12 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_productos
                                      "<a href=\"/Vista/Empleados/gestion-contratos/visualizarserviciosequipo.aspx\">Servicios por equipo</a>" +
                                 "</li>" +
                             "</ul>";
+                        zonapersonascontacto.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#personas\" id=\"contact\" runat=\"server\"><i class=\"fa fa-phone\"></i> Personal de contacto <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"personas\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a href=\"/Vista/Empleados/gestion-contactos/visualizarpersonascontacto.aspx\">Visualizar</a>" +
+                               "</li>" +
+                            "</ul>";
                     }
                     else
                     {

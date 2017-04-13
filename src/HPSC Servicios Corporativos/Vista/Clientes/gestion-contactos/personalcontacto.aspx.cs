@@ -44,7 +44,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_contactos
             {
                 ConsultarPersonaContacto _cmd = FabricaComando.ComandoConsultarPersonaContacto(correo.Value);
                 _cmd.ejecutar();
-                if (_cmd.consultado == null)
+                if (_cmd.consultado != null)
                 {
                     string script = "alert(\"El correo ingresado ya se encuentra registrado\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),

@@ -73,7 +73,9 @@
     <Content Include="Vista\Clientes\font-awesome\css\font-awesome.min.css" />
     <Content Include="Vista\Clientes\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Vista\Clientes\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Vista\Clientes\gestion-contactos\modificarpersonacontacto.aspx" />
     <Content Include="Vista\Clientes\gestion-contactos\personalcontacto.aspx" />
+    <Content Include="Vista\Clientes\gestion-contactos\visualizarpersonascontacto.aspx" />
     <Content Include="Vista\Clientes\gestion-contratos\detallecontrato.aspx" />
     <Content Include="Vista\Clientes\gestion-contratos\miscontratos.aspx" />
     <Content Include="Vista\Clientes\gestion-equipos\misequipos.aspx" />
@@ -281,6 +283,8 @@
     <Content Include="Vista\Common\plugins\datatables\jquery.dataTables.min.js" />
     <Content Include="Vista\Common\plugins\datatables\jquery.dataTables_themeroller.css" />
     <Content Include="Vista\Empleados\administracionHPSC.aspx" />
+    <Content Include="Vista\Empleados\gestion-contactos\modificarpersonacontacto.aspx" />
+    <Content Include="Vista\Empleados\gestion-contactos\visualizarpersonascontacto.aspx" />
     <Content Include="Vista\Empleados\gestion-contratos\agregarcontrato.aspx" />
     <Content Include="Vista\Empleados\gestion-contratos\detallescontrato.aspx" />
     <Content Include="Vista\Empleados\gestion-contratos\visualizarcontratos.aspx" />
@@ -736,12 +740,26 @@
     <Compile Include="Vista\Clientes\administracionCliente.aspx.designer.cs">
       <DependentUpon>administracionCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Clientes\gestion-contactos\modificarpersonacontacto.aspx.cs">
+      <DependentUpon>modificarpersonacontacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-contactos\modificarpersonacontacto.aspx.designer.cs">
+      <DependentUpon>modificarpersonacontacto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Clientes\gestion-contactos\personalcontacto.aspx.cs">
       <DependentUpon>personalcontacto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Vista\Clientes\gestion-contactos\personalcontacto.aspx.designer.cs">
       <DependentUpon>personalcontacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-contactos\visualizarpersonascontacto.aspx.cs">
+      <DependentUpon>visualizarpersonascontacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-contactos\visualizarpersonascontacto.aspx.designer.cs">
+      <DependentUpon>visualizarpersonascontacto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Clientes\gestion-contratos\detallecontrato.aspx.cs">
       <DependentUpon>detallecontrato.aspx</DependentUpon>
@@ -777,6 +795,20 @@
     </Compile>
     <Compile Include="Vista\Empleados\administracionHPSC.aspx.designer.cs">
       <DependentUpon>administracionHPSC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-contactos\modificarpersonacontacto.aspx.cs">
+      <DependentUpon>modificarpersonacontacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-contactos\modificarpersonacontacto.aspx.designer.cs">
+      <DependentUpon>modificarpersonacontacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-contactos\visualizarpersonascontacto.aspx.cs">
+      <DependentUpon>visualizarpersonascontacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-contactos\visualizarpersonascontacto.aspx.designer.cs">
+      <DependentUpon>visualizarpersonascontacto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Empleados\gestion-contratos\agregarcontrato.aspx.cs">
       <DependentUpon>agregarcontrato.aspx</DependentUpon>

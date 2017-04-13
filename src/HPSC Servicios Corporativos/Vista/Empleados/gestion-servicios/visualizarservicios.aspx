@@ -92,6 +92,9 @@
                         <li id="zonaasignacionservicios" runat="server">
                             
                         </li>
+                        <li id="zonapersonascontacto" runat="server">
+                            
+                        </li>
                         <li id="zonaincidentes" runat="server">
                             <a href="#"><i class="fa fa fa-warning"></i> Incidentes</a>
                         </li>
