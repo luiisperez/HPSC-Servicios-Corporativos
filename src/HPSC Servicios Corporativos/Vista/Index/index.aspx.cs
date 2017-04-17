@@ -1,5 +1,6 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador;
 using HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios;
+using HPSC_Servicios_Corporativos.Modelo.Comun;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
@@ -54,9 +55,21 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
                 }
                 catch (Exception ex)
                 {
-                    string script = "alert(\"No se pudo iniciar sesión en este momento intente nuevamente\");";
-                    ScriptManager.RegisterStartupScript(this, GetType(),
-                                          "ServerControlScript", script, true);
+                    try
+                    {
+                        ExcepcionesHPSC msj = (ExcepcionesHPSC)ex;
+                        string error = msj.Mensaje;
+                        string script = "alert(\""+error+"\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+
+                    }
+                    catch
+                    {
+                        string script = "alert(\"No se pudo iniciar sesión en este momento intente nuevamente\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
                 }
             }
             else

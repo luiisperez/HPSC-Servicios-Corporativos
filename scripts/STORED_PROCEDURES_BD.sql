@@ -522,7 +522,7 @@ CREATE PROCEDURE [dbo].[AGREGAR_EQUIPO]
   @eq_serial AS varchar(250)
 AS
 BEGIN
-	INSERT INTO EQUIPO VALUES(@eq_serial, @eq_categoria, @eq_marca, @eq_modelo, 'Operativo', @eq_numequipo, NULL);
+	INSERT INTO EQUIPO VALUES(@eq_serial, @eq_categoria, @eq_marca, @eq_modelo, 'Operativo', @eq_numequipo, NULL, NULL);
 END
 
 
@@ -589,11 +589,11 @@ AS
 BEGIN
 	IF (@cli_correo = 'NULL')
 		BEGIN 
-			UPDATE EQUIPO SET [EQ_FK_CLIENTE] = NULL WHERE [EQ_SERIAl] = @eq_serial;
+			UPDATE EQUIPO SET [EQ_FK_CLIENTE] = NULL, [EQ_UBICACION] = NULL WHERE [EQ_SERIAl] = @eq_serial;
 		END
 	ELSE
 		BEGIN
-			UPDATE EQUIPO SET [EQ_FK_CLIENTE] = @cli_correo WHERE [EQ_SERIAl] = @eq_serial;
+			UPDATE EQUIPO SET [EQ_FK_CLIENTE] = @cli_correo, [EQ_UBICACION] = (SELECT C_UBICACION FROM CLIENTE WHERE C_CORREO = @cli_correo) WHERE [EQ_SERIAl] = @eq_serial;
 		END
 END
 
@@ -739,6 +739,25 @@ END
 
 
 
+/****** 
+		PROCEDIMIENTO PARA CONSULTAR LA UBICACION DE UN EQUIPO
+		FECHA: 17/4/2017 2:01 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CONSULTAR_EQUIPO_UBICACION]
+  @eq_serial AS varchar(350)
+AS
+BEGIN
+	SELECT EQ_UBICACION FROM EQUIPO WHERE EQ_SERIAL = @eq_serial;
+END
+
+
+
 /********************************************************* FIN CRUD EQUIPOS *********************************************************/
 
 
@@ -804,7 +823,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[MODIFICAR_SERVICIO]
-  @sv_dias AS int,
+  @sv_dias AS varchar(500),
   @sv_canthoras AS int,
   @sv_disponibilidad AS varchar(500),
   @sv_feriados AS int,

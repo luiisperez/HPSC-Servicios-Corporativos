@@ -44,10 +44,10 @@ INSERT INTO PRODUCTO VALUES ('CC494A', 'Impresoras', 'HP Color Laserjet Enterpri
 INSERT INTO PRODUCTO VALUES ('Q3723A', 'Impresoras', 'HP Laserjet 9050DN Printer', 'Hewlett-Packard');
 
 -----------------------EQUIPO---------------------------
-INSERT INTO EQUIPO VALUES ('FGDFS3432S', 'Impresoras', 'Hewlett-Packard', 'HP Laserjet M3035XS Multifunction Printer', 'Operativo', 'CC477A', 'luis.alejandro120895@gmail.com');
-INSERT INTO EQUIPO VALUES ('FGDFS343DFGDFGS', 'Impresoras', 'Hewlett-Packard', 'HP Laserjet M3035XS Multifunction Printer', 'Operativo', 'CC477A','luis.alejandro120895@gmail.com');
-INSERT INTO EQUIPO VALUES ('FGDFS343DFGD2S', 'Impresoras', 'Hewlett-Packard', 'HP Laserjet M3035XS Multifunction Printer', 'Operativo', 'CC477A', 'luis.alejandro120895@gmail.com');
-INSERT INTO EQUIPO VALUES ('FGDFS343DFGFDGD2S', 'Impresoras', 'Hewlett-Packard', 'HP Laserjet M3035XS Multifunction Printer', 'Operativo', 'CC477A', 'luis.alejandro120895@gmail.com');
+INSERT INTO EQUIPO VALUES ('FGDFS3432S', 'Impresoras', 'Hewlett-Packard', 'HP Laserjet M3035XS Multifunction Printer', 'Operativo', 'CC477A', 'Av. Ohiggins, La Paz', 'luis.alejandro120895@gmail.com');
+INSERT INTO EQUIPO VALUES ('FGDFS343DFGDFGS', 'Impresoras', 'Hewlett-Packard', 'HP Laserjet M3035XS Multifunction Printer', 'Operativo', 'CC477A', 'Av. Ohiggins, La Paz', 'luis.alejandro120895@gmail.com');
+INSERT INTO EQUIPO VALUES ('FGDFS343DFGD2S', 'Impresoras', 'Hewlett-Packard', 'HP Laserjet M3035XS Multifunction Printer', 'Operativo', 'CC477A', 'Av. Ohiggins, La Paz', 'luis.alejandro120895@gmail.com');
+INSERT INTO EQUIPO VALUES ('FGDFS343DFGFDGD2S', 'Impresoras', 'Hewlett-Packard', 'HP Laserjet M3035XS Multifunction Printer', 'Operativo', 'CC477A', 'Av. Ohiggins, La Paz', 'luis.alejandro120895@gmail.com');
 
 ----------------------SERVICIO--------------------------
 INSERT INTO SERVICIO VALUES ('20173301944', 'Garantía Premium', 'Implementación', 72, 0, 'Lunes,Martes,Miércoles,Viernes',	15,	'Disponible');

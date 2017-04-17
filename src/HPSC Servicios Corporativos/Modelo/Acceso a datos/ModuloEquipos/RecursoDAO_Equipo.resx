@@ -181,4 +181,12 @@
     <value>CONSULTAR_NUMEQUIPOS</value>
     <comment>Procedimiento para consultar los números de equipos registrados en la BD</comment>
   </data>
+  <data name="eq_ubicacion" xml:space="preserve">
+    <value>@eq_ubicacion</value>
+    <comment>Ubicación del equipo</comment>
+  </data>
+  <data name="ProcedimientoConsultarUbicacion" xml:space="preserve">
+    <value>CONSULTAR_EQUIPO_UBICACION</value>
+    <comment>Procedimiento para consultar la ubicación de un equipo</comment>
+  </data>
 </root>

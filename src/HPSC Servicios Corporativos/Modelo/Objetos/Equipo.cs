@@ -14,6 +14,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
         public String modelo { get; set; }
         public String cliente { get; set; }
         public String estatus { get; set; }
+        public String ubicacion { get; set; }
 
         public Equipo(String _serial, String _numeroequipo, String _categoria, String _marca, String _modelo, String _cliente)
         {

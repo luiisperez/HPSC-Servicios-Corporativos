@@ -1,4 +1,5 @@
-﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios;
+﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos;
+using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios;
 using HPSC_Servicios_Corporativos.Modelo.Comun;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
@@ -360,6 +361,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes
                                              row[6].ToString(),
                                              row[5].ToString()
                                          );
+                        eqconsultado.ubicacion = ConsultarEquiposUbicacion(row[0].ToString());
                         equipos.Add(eqconsultado);
                     }
                     catch (Exception ex)
@@ -370,6 +372,51 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes
 
                 }
                 return equipos;
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
+
+        public String ConsultarEquiposUbicacion(string serial)
+        {
+            List<Equipo> equipos = FabricaObjetos.CrearListaEquipos();
+            DataTable tablaDeDatos;
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Equipo.eq_serial, SqlDbType.VarChar, serial, false));
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Equipo.ProcedimientoConsultarUbicacion, parametro);
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                       return row[0].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+                }
+                return null;
             }
             catch (SqlException ex)
             {

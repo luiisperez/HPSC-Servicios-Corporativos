@@ -45,7 +45,7 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios
                     }
                     else
                     {
-                        throw new ExcepcionesHPSC("La contraseña colocada es incorrecta, por favor intente nuevamente", new Exception());
+                        throw new ExcepcionesHPSC("No existe ninguna cuenta con dicho usuario", new Exception());
                     }
                 }
                 else if (tipouser.Equals("Cliente"))
@@ -66,7 +66,7 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios
                     }
                     else
                     {
-                        throw new ExcepcionesHPSC("La contraseña colocada es incorrecta, por favor intente nuevamente", new Exception());
+                        throw new ExcepcionesHPSC("No existe ninguna cuenta con dicho usuario", new Exception());
                     }
                 }
             }

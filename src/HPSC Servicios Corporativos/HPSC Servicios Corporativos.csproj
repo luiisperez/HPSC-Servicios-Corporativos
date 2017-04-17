@@ -80,6 +80,7 @@
     <Content Include="Vista\Clientes\gestion-contratos\miscontratos.aspx" />
     <Content Include="Vista\Clientes\gestion-equipos\misequipos.aspx" />
     <Content Include="Vista\Clientes\gestion-equipos\solicitarequipo.aspx" />
+    <Content Include="Vista\Clientes\gestion-incidentes\agregarincidente.aspx" />
     <Content Include="Vista\Clientes\js\bootstrap.js" />
     <Content Include="Vista\Clientes\js\bootstrap.min.js" />
     <Content Include="Vista\Clientes\js\cargadorMenu.js" />
@@ -713,6 +714,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RecursoDAO_Usuario.resx</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Comun\ExcepcionesHPSC.cs" />
     <Compile Include="Modelo\Comun\Mail.cs" />
     <Compile Include="Modelo\Comun\Parametro.cs" />
     <Compile Include="Modelo\Comun\RecursoMail.Designer.cs">
@@ -788,6 +790,13 @@
     </Compile>
     <Compile Include="Vista\Clientes\gestion-equipos\solicitarequipo.aspx.designer.cs">
       <DependentUpon>solicitarequipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-incidentes\agregarincidente.aspx.cs">
+      <DependentUpon>agregarincidente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-incidentes\agregarincidente.aspx.designer.cs">
+      <DependentUpon>agregarincidente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Empleados\administracionHPSC.aspx.cs">
       <DependentUpon>administracionHPSC.aspx</DependentUpon>
