@@ -42,7 +42,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
             }
             catch (Exception ex)
             {
-                string script = "alert(\"Ha ocurrido un error intentelo nuevamente\");";
+                string script = "alert(\"No se pudo modificar la contraseña, por favor intente nuevamente\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                         "ServerControlScript", script, true);
             }

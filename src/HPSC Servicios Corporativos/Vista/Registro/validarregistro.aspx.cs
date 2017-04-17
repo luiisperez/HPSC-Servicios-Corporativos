@@ -54,12 +54,21 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                     {
                         if ((user.codigohexadecimal.Equals(codigohexa.Value.ToUpper())))
                         {
-                            AgregarEmpleado add = FabricaComando.ComandoAgregarEmpleado(user.emp);
-                            add.ejecutar();
-                            string script = "alert(\"Se ha registrado exitosamente y será redirigido al inicio\");";
-                            ScriptManager.RegisterStartupScript(this, GetType(),
-                                                    "ServerControlScript", script, true);
-                            Response.AddHeader("REFRESH", "1;URL=/Vista/Index/index.aspx");
+                            try
+                            {
+                                AgregarEmpleado add = FabricaComando.ComandoAgregarEmpleado(user.emp);
+                                add.ejecutar();
+                                string script = "alert(\"Se ha registrado exitosamente y será redirigido al inicio\");";
+                                ScriptManager.RegisterStartupScript(this, GetType(),
+                                                        "ServerControlScript", script, true);
+                                Response.AddHeader("REFRESH", "1;URL=/Vista/Index/index.aspx");
+                            }
+                            catch (Exception ex)
+                            {
+                                string script = "alert(\"No se pudo completar el registro, por favor intente nuevamente\");";
+                                ScriptManager.RegisterStartupScript(this, GetType(),
+                                                        "ServerControlScript", script, true);
+                            }
                         }
                         else
                         {
@@ -72,15 +81,26 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                                 Response.Redirect("~/Vista/Index/index.aspx");
                             }
                         }
-                    }else if (tipo.Equals("Cliente")){
+                    }
+                    else if (tipo.Equals("Cliente"))
+                    {
                         if ((user.codigohexadecimal.Equals(codigohexa.Value.ToUpper())))
                         {
-                            AgregarCliente add = FabricaComando.ComandoAgregarCliente(user.cli);
-                            add.ejecutar();
-                            string script = "alert(\"Se ha registrado exitosamente y será redirigido al inicio\");";
-                            ScriptManager.RegisterStartupScript(this, GetType(),
-                                                    "ServerControlScript", script, true);
-                            Response.AddHeader("REFRESH", "1;URL=/Vista/Index/index.aspx");
+                            try
+                            {
+                                AgregarCliente add = FabricaComando.ComandoAgregarCliente(user.cli);
+                                add.ejecutar();
+                                string script = "alert(\"Se ha registrado exitosamente y será redirigido al inicio\");";
+                                ScriptManager.RegisterStartupScript(this, GetType(),
+                                                        "ServerControlScript", script, true);
+                                Response.AddHeader("REFRESH", "1;URL=/Vista/Index/index.aspx");
+                            }
+                            catch (Exception ex)
+                            {
+                                string script = "alert(\"No se pudo completar el registro, por favor intente nuevamente\");";
+                                ScriptManager.RegisterStartupScript(this, GetType(),
+                                                        "ServerControlScript", script, true);
+                            }
                         }
                         else
                         {
@@ -97,7 +117,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                 }
                 catch (Exception ex)
                 {
-                    string script = "alert(\"Ha ocurrido un error por favor intentelo nuevamente\");";
+                    string script = "alert(\"Ha ocurrido un error, por favor refresque la página\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                 }

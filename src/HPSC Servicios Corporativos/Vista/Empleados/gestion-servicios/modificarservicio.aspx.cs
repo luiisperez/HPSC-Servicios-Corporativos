@@ -125,7 +125,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
                 }
                 catch (Exception ex)
                 {
-                    string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
+                    string script = "alert(\"No se pudo cargar la información en la página, por favor refresque la página\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                 }
@@ -170,7 +170,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
                 }
                 catch (Exception ex)
                 {
-                    string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
+                    string script = "alert(\"No se ha podido modificar, por favor intente nuevamente\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                 }

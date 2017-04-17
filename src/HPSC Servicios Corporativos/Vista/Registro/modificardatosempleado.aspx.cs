@@ -79,7 +79,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro_Modificacion
                     usuarioemp.Value = String.Empty;
                 }
             }catch(Exception ex){
-                string script = "alert(\"Ha ocurrido un error por favor intentelo nuevamente\");";
+                string script = "alert(\"No se pudo modificar, por favor intente nuevamente\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                         "ServerControlScript", script, true);
             }

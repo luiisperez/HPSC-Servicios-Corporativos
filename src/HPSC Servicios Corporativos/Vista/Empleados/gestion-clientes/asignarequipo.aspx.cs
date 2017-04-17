@@ -143,7 +143,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
             }
             catch (Exception ex)
             {
-                string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                string script = "alert(\"No se pudo cargar la información en la página, por favor refresque la página\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                         "ServerControlScript", script, true);
             }
@@ -178,7 +178,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
                 }
                 catch (Exception ex)
                 {
-                    string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                    string script = "alert(\"No se pudo asignar el equipo seleccionado a ese cliente, por favor intente nuevamente\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                 }

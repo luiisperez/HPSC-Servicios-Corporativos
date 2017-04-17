@@ -25,19 +25,23 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloProductos
             }
             catch (SqlException ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
             catch (NullReferenceException ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
             catch (ArgumentNullException ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
             catch (Exception ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
         }
 
@@ -59,19 +63,23 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloProductos
             }
             catch (SqlException ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
             catch (NullReferenceException ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
             catch (ArgumentNullException ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
             catch (Exception ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
         }
 
@@ -109,19 +117,23 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloProductos
             }
             catch (SqlException ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
             catch (NullReferenceException ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
             catch (ArgumentNullException ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
             catch (Exception ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
         }
 
@@ -140,19 +152,23 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloProductos
             }
             catch (SqlException ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
             catch (NullReferenceException ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
             catch (ArgumentNullException ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
             catch (Exception ex)
             {
-                throw ex;
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
             }
         }
     }

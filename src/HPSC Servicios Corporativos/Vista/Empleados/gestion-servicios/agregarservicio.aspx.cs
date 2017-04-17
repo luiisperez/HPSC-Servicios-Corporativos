@@ -156,7 +156,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
                 }
                 catch (Exception ex)
                 {
-                    string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
+                    string script = "alert(\"No se ha podido agregar, por favor intente nuevamente\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                 }

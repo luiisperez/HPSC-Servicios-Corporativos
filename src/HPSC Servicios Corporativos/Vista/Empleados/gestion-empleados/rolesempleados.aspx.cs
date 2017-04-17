@@ -126,7 +126,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_empleados
                     }
                     catch (Exception ex)
                     {
-                        string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                        string script = "alert(\"No se pudo cargar la información en la página, por favor refresque la página\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
                     }
@@ -150,7 +150,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_empleados
             }
             catch (Exception ex)
             {
-                string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                string script = "alert(\"No se pudo asignar el rol seleccionado al empleado, por favor intente nuevamente\");";
                 ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", script, true);
             }
         }

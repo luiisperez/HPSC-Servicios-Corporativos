@@ -66,12 +66,21 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
                     bool validarcorreo = validar.verificarcorreoemp(correoem);
                     if ((!validaruser) && (!validarcorreo))
                     {
-                        EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correoem);
-                        env.ejecutar();
-                        Empleado nuevoempleado = FabricaObjetos.CrearEmpleado(correoem, nombreem, apellidoem, usuarioem, contrasenaem);
-                        UsuarioRegistrar nuevouser = new UsuarioRegistrar(nuevoempleado, env.codigohexadecimal);
-                        Session["Registro"] = nuevouser;
-                        Response.Redirect("~/Vista/Registro/validarregistro.aspx?tipo=" + tipousuario.SelectedValue);
+                        try
+                        {
+                            EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correoem);
+                            env.ejecutar();
+                            Empleado nuevoempleado = FabricaObjetos.CrearEmpleado(correoem, nombreem, apellidoem, usuarioem, contrasenaem);
+                            UsuarioRegistrar nuevouser = new UsuarioRegistrar(nuevoempleado, env.codigohexadecimal);
+                            Session["Registro"] = nuevouser;
+                            Response.Redirect("~/Vista/Registro/validarregistro.aspx?tipo=" + tipousuario.SelectedValue);
+                        }
+                        catch (Exception ex)
+                        {
+                            var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("No se pudo enviar el correo, por favor refresque la página");
+                            var script = string.Format("alert({0});window.location ='/Vista/Registro/registro.aspx';", message);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                        }
                     }
                     else if ((validaruser) && (!validarcorreo))
                     {
@@ -105,7 +114,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
             }
             catch (Exception ex)
             {
-                string script = "alert(\"Ha ocurrido un error por favor intentelo nuevamente\");";
+                string script = "alert(\"Ha ocurrido un error, por favor refresque la página\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                         "ServerControlScript", script, true);
             }
@@ -127,12 +136,21 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
                     bool validarcorreo = validar.verificarcorreocli(correocli.Value);
                     if ((!validaruser) && (!validarcorreo))
                     {
-                        EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correocli.Value);
-                        env.ejecutar();
-                        Cliente nuevocliente = FabricaObjetos.CrearCliente(correocli.Value, nombrecli.Value, direccioncli.Value, usuariocli.Value, contrasenacli.Value);
-                        UsuarioRegistrar nuevouser = new UsuarioRegistrar(nuevocliente, env.codigohexadecimal);
-                        Session["Registro"] = nuevouser;
-                        Response.Redirect("~/Vista/Registro/validarregistro.aspx?tipo=" + tipousuario.SelectedValue);
+                        try
+                        {
+                            EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correocli.Value);
+                            env.ejecutar();
+                            Cliente nuevocliente = FabricaObjetos.CrearCliente(correocli.Value, nombrecli.Value, direccioncli.Value, usuariocli.Value, contrasenacli.Value);
+                            UsuarioRegistrar nuevouser = new UsuarioRegistrar(nuevocliente, env.codigohexadecimal);
+                            Session["Registro"] = nuevouser;
+                            Response.Redirect("~/Vista/Registro/validarregistro.aspx?tipo=" + tipousuario.SelectedValue);
+                        }
+                        catch (Exception ex)
+                        {
+                            var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("No se pudo enviar el correo, por favor refresque la página");
+                            var script = string.Format("alert({0});window.location ='/Vista/Registro/registro.aspx';", message);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                        }
                     }
                     else if ((validaruser) && (!validarcorreo))
                     {
@@ -166,7 +184,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Index
             }
             catch (Exception ex)
             {
-                string script = "alert(\"Ha ocurrido un error por favor intentelo nuevamente\");";
+                string script = "alert(\"Ha ocurrido un error, por favor refresque la página\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                         "ServerControlScript", script, true);
             }

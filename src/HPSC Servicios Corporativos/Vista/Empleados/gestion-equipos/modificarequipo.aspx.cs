@@ -116,7 +116,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
                     }
                     catch (Exception ex)
                     {
-                        string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
+                        string script = "alert(\"No se pudo cargar la información en la página, por favor refresque la página\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
                     }
@@ -140,7 +140,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
                 }
                 catch (Exception ex)
                 {
-                    string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
+                    string script = "alert(\"No se pudo cargar la información en la página, por favor refresque la página\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                 }
@@ -176,7 +176,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
                     }
                     catch (Exception ex)
                     {
-                        string script = "alert(\"Ha ocurrido un error, intentelo de nuevo\");";
+                        string script = "alert(\"No se ha podido modificar, por favor intente nuevamente\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
                     }
@@ -204,15 +204,22 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
         [WebMethod]
         public static String FillFields(String numproducto)
         {
-            ValidacionDatosEquipos cmd = FabricaComando.ComandoValidacionDeDatosEquipo();
-            Equipo buscado = cmd.buscarproducto(numproducto);
-            if (buscado != null)
+            try
             {
-                return "Exito;" + buscado.categoria + ";" + buscado.marca + ";" + buscado.modelo;
+                ValidacionDatosEquipos cmd = FabricaComando.ComandoValidacionDeDatosEquipo();
+                Equipo buscado = cmd.buscarproducto(numproducto);
+                if (buscado != null)
+                {
+                    return "Exito;" + buscado.categoria + ";" + buscado.marca + ";" + buscado.modelo;
+                }
+                else
+                {
+                    return "No existe el número de producto colocado, por favor verifique";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return "No existe el número de producto colocado, por favor verifique";
+                return ("No se pudo realizar la búsqueda, por favor intente nuevamente");
             }
         }
 

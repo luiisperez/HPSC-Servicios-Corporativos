@@ -111,7 +111,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
                     }
                     catch (Exception ex)
                     {
-                        string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                        string script = "alert(\"No se pudo cargar la información en la página, por favor refresque la página\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
                     }
@@ -121,13 +121,6 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
             {
                 Response.Redirect("~/Vista/Index/index.aspx");
             }
-        }
-
-        protected void visualizaremp_Click(object sender, EventArgs e)
-        {
-            string script = "alert(\"Se ha eliminado su cuenta exitosamente y será redirigido al inicio\");";
-            ScriptManager.RegisterStartupScript(this, GetType(),
-                                    "ServerControlScript", script, true);
         }
 
         protected void repPeople_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -145,7 +138,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
             }
             catch (Exception ex)
             {
-                string script = "alert(\"Se generó un error al eliminar intente nuevamente\");";
+                string script = "alert(\"No se ha podido eliminar, por favor intente nuevamente\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                         "ServerControlScript", script, true);
             }

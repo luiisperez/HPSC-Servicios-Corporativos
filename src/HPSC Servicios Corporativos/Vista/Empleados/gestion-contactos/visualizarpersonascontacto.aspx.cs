@@ -111,7 +111,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_contactos
                     }
                     catch (Exception ex)
                     {
-                        string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                        string script = "alert(\"No se pudo cargar la información en la página, intente resfrescar\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
                     }
@@ -144,7 +144,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_contactos
                 }
                 catch (Exception ex)
                 {
-                    string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                    string script = "alert(\"No se ha podido eliminar, por favor intente nuevamente\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                 }

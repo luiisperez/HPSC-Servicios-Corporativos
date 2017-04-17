@@ -36,7 +36,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_equipos
                 }
                 catch (Exception ex)
                 {
-                    string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                    string script = "alert(\"No se pudo cargar la información en la página, por favor refresque la página\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                 }

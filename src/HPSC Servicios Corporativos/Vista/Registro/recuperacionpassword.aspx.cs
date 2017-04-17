@@ -37,13 +37,22 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                         bool correovalido = validarmail.verificarcorreoemp(correo.Value);
                         if (correovalido)
                         {
-                            EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correo.Value);
-                            env.ejecutar();
-                            hexacode.Visible = true;
-                            mail.Enabled = false;
-                            mensaje.Visible = true;
-                            ViewState["codigohexadecimal"] = env.codigohexadecimal;
-                            ViewState["click"] = "243edewc"; //String al azar
+                            try
+                            {
+                                EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correo.Value);
+                                env.ejecutar();
+                                hexacode.Visible = true;
+                                mail.Enabled = false;
+                                mensaje.Visible = true;
+                                ViewState["codigohexadecimal"] = env.codigohexadecimal;
+                                ViewState["click"] = "243edewc"; //String al azar
+                            }
+                            catch (Exception ex)
+                            {
+                                var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("No se pudo enviar el correo, por favor refresque la página");
+                                var script = string.Format("alert({0});window.location ='/Vista/Registro/recuperacionpassword.aspx';", message);
+                                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                            }
                         }
                         else
                         {
@@ -58,13 +67,22 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                         bool correovalido = validarmail.verificarcorreocli(correo.Value);
                         if (correovalido)
                         {
-                            EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correo.Value);
-                            env.ejecutar();
-                            hexacode.Visible = true;
-                            mail.Visible = false;
-                            mensaje.Visible = true;
-                            ViewState["codigohexadecimal"] = env.codigohexadecimal;
-                            ViewState["click"] = "243edewc"; //String al azar
+                            try
+                            {
+                                EnviarConfirmacion env = FabricaComando.ComandoEnviarConfirmacion(correo.Value);
+                                env.ejecutar();
+                                hexacode.Visible = true;
+                                mail.Visible = false;
+                                mensaje.Visible = true;
+                                ViewState["codigohexadecimal"] = env.codigohexadecimal;
+                                ViewState["click"] = "243edewc"; //String al azar
+                            }
+                            catch (Exception ex)
+                            {
+                                var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("No se pudo enviar el correo, por favor refresque la página");
+                                var script = string.Format("alert({0});window.location ='/Vista/Registro/recuperacionpassword.aspx';", message);
+                                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                            }
                         }
                         else
                         {

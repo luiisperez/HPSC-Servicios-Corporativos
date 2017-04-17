@@ -1,5 +1,6 @@
 ﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos;
 using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes;
+using HPSC_Servicios_Corporativos.Modelo.Comun;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
@@ -30,29 +31,43 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios
                 {
                     DAOEmpleado basedatos = FabricaDAO.CrearDAOEmpleado();
                     Empleado empConsultado = basedatos.ConsultarEmpleado(user);
-                    if ((!empConsultado.contrasena.Equals(password)) || (!empConsultado.usuario.Equals(user)))
+                    if (empConsultado != null)
                     {
-                        throw new NullReferenceException(); //CREAR EXCEPCIONES PROPIAS LUEGO
+                        if (!empConsultado.contrasena.Equals(password))
+                        {
+                            throw new ExcepcionesHPSC("La contraseña colocada es incorrecta, por favor intente nuevamente", new Exception()); 
+                        }
+                        else if (empConsultado.rol.Equals("-100"))
+                        {
+                            throw new ExcepcionesHPSC("No existe ninguna cuenta con dicho usuario", new Exception());
+                        }
+                        emp = empConsultado;
                     }
-                    else if (empConsultado.rol.Equals("-100"))
+                    else
                     {
-                        throw new NullReferenceException(); //CREAR EXCEPCIONES PROPIAS LUEGO
+                        throw new ExcepcionesHPSC("La contraseña colocada es incorrecta, por favor intente nuevamente", new Exception());
                     }
-                    emp = empConsultado;
                 }
                 else if (tipouser.Equals("Cliente"))
                 {
                     DAOCliente basedatos = FabricaDAO.CrearDAOCliente();
                     Cliente cliConsultado = basedatos.ConsultarCliente(user);
-                    if ((!cliConsultado.contrasena.Equals(password)) || (!cliConsultado.usuario.Equals(user)))
+                    if (cliConsultado != null)
                     {
-                        throw new NullReferenceException(); //CREAR EXCEPCIONES PROPIAS LUEGO
+                        if (!cliConsultado.contrasena.Equals(password))
+                        {
+                            throw new ExcepcionesHPSC("La contraseña colocada es incorrecta, por favor intente nuevamente", new Exception());
+                        }
+                        else if (cliConsultado.rol.Equals("-100"))
+                        {
+                            throw new ExcepcionesHPSC("No existe ninguna cuenta con dicho usuario", new Exception());
+                        }
+                        cli = cliConsultado;
                     }
-                    else if (cliConsultado.rol.Equals("-100"))
+                    else
                     {
-                        throw new NullReferenceException(); //CREAR EXCEPCIONES PROPIAS LUEGO
+                        throw new ExcepcionesHPSC("La contraseña colocada es incorrecta, por favor intente nuevamente", new Exception());
                     }
-                    cli = cliConsultado;
                 }
             }
             catch (Exception e)

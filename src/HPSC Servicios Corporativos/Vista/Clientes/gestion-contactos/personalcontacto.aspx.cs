@@ -63,7 +63,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_contactos
                     }
                     catch (Exception ex)
                     {
-                        string script = "alert(\"Ha ocurrido un error por favor intentelo nuevamente\");";
+                        string script = "alert(\"No se pudo agregar, por favor intente nuevamente\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
                     }

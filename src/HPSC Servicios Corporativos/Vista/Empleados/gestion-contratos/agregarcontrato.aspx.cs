@@ -128,7 +128,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                     }
                     catch (Exception ex)
                     {
-                        string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                        string script = "alert(\"No se pudo cargar la información en la página, por favor refresque la página\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
                     }
@@ -204,7 +204,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                     }
                     catch (Exception ex)
                     {
-                        string script = "alert(\"Ha ocurido un error intente nuevamente\");";
+                        string script = "alert(\"No se pudo agregar, por favor intente nuevamente\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
                     }
