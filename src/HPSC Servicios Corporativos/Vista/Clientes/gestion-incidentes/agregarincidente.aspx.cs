@@ -1,6 +1,8 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador;
+using HPSC_Servicios_Corporativos.Controlador.ModeloIncidentes;
 using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEquipo;
+using HPSC_Servicios_Corporativos.Controlador.ModuloPersonaContacto;
 using HPSC_Servicios_Corporativos.Controlador.ModuloServicios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
@@ -68,19 +70,89 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_incidentes
 
         protected void aceptar_Click(object sender, EventArgs e)
         {
-            if ((!correoprincipal.Value.Equals("")) && (!correosecundario.Value.Equals("")))
+            if ((!correoprincipal.Value.Equals("")) && (!correosecundario.Value.Equals("")) && (!direccion.Value.Equals("")) && (!descripcion.Value.Equals("")) && (!numequipo.Value.Equals("")))
             {
                 try
                 {
-                    //EnviarSolicitudDeEquipo env = FabricaComando.ComandoEnviarSolicitudDeEquipo(nuevasolicitud, cliente.nombre);
-                    //env.ejecutar();
-                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha enviado su solicitud exitosamente y será revisada por nosotros en lo posible");
-                    var script = string.Format("alert({0});window.location ='/Vista/Clientes/gestion-equipos/solicitarequipo.aspx';", message);
+                    DateTime fechahoy = DateTime.Now;
+                    DateTime fecharegistro = fechahoy;
+                    DateTime fechamodificada = fechahoy/*.AddHours(-48)*/;
+                    ConsultarFeriados cmd = FabricaComando.ComandoConsultarFeriados();
+                    cmd.ejecutar();
+                    List<Feriado> feriados = cmd.feriados;
+                    ConsultarServicio _cmd = FabricaComando.ComandoConsultarServicio(idservicio.Text);
+                    _cmd.ejecutar();
+                    Servicio serv = _cmd.servicioconsultado;
+                    if (serv.canthoras != 24)
+                    {
+                        int horaini = 8;
+                        int horafin = horaini + serv.canthoras;
+                        if ((fechamodificada.Hour < horaini) && (fechamodificada.Hour >= 4))
+                        {
+                            fecharegistro = new DateTime(fechamodificada.Year, fechamodificada.Month, fechamodificada.Day, 8, 0, 0);
+                        }
+                        if ((fechamodificada.Hour >= horafin) || (fechamodificada.Hour < 4))
+                        {
+                            fecharegistro = new DateTime(fechamodificada.AddDays(1).Year, fechamodificada.AddDays(1).Month, fechamodificada.AddDays(1).Day, 8, 0, 0);
+                        }
+                    }
+                    if (serv.cantdias != 7)
+                    {
+                        DayOfWeek dia = fecharegistro.DayOfWeek;
+                        if ((dia.ToString().Equals("Sábado")) || (dia.ToString().Equals("Saturday")) || (dia.ToString().Equals("Sabado")))
+                        {
+                            fecharegistro = fecharegistro.AddDays(2);
+                        }
+                        else if ((dia.ToString().Equals("Domingo")) || (dia.ToString().Equals("Sunday")))
+                        {
+                            fecharegistro = fecharegistro.AddDays(1);
+                        }
+                    }
+                    if (serv.feriado.Equals("No"))
+                    {
+                        foreach (Feriado item in feriados)
+                        {
+                            if ((fecharegistro.Day == item.dia) && (fecharegistro.Month == item.mes))
+                            {
+                                fecharegistro = fecharegistro.AddDays(1);
+                            }
+                        }
+                    }
+                    DateTime fechacompromiso = fecharegistro.AddHours(serv.tiemporespuesta);
+                    if (serv.feriado.Equals("No"))
+                    {
+                        foreach (Feriado item in feriados)
+                        {
+                            if ((fechacompromiso.Day == item.dia) && (fechacompromiso.Month == item.mes))
+                            {
+                                fechacompromiso = fechacompromiso.AddDays(1);
+                            }
+                        }
+                    }
+                    if (serv.cantdias != 7)
+                    {
+                        DayOfWeek dia = fechacompromiso.DayOfWeek;
+                        if ((dia.ToString().Equals("Sábado")) || (dia.ToString().Equals("Saturday")) || (dia.ToString().Equals("Sabado")))
+                        {
+                            fechacompromiso = fechacompromiso.AddDays(2);
+                        }
+                        else if ((dia.ToString().Equals("Domingo")) || (dia.ToString().Equals("Sunday")))
+                        {
+                            fechacompromiso = fechacompromiso.AddDays(1);
+                        }
+                    }
+                    DateTime fecharequerida = fechacompromiso;
+                    String id = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
+                    Incidente nuevoincidente = FabricaObjetos.CrearIncidente(id, fechahoy, fechacompromiso, fecharequerida, new DateTime(), new DateTime(), "Abierto", "Soporte reactivo", impacto.Text, urgencia.Text, direccion.Value, descripcion.Value, cliente.correo, numequipo.Value, "", "", correoprincipal.Value, correosecundario.Value, idcontrato.Text, idservicio.Text);
+                    AgregarIncidente _command = FabricaComando.ComandoAgregarIncidente(nuevoincidente);
+                    _command.ejecutar();
+                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha registrado el incidente exitosamente en el sistema");
+                    var script = string.Format("alert({0});window.location ='/Vista/Clientes/gestion-incidentes/agregarincidente.aspx';", message);
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
                 }
                 catch (Exception ex)
                 {
-                    string script = "alert(\"Ha ocurrido un error por favor intentelo nuevamente\");";
+                    string script = "alert(\"No se ha podido registrar, por favor intente nuevamente\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                 }
@@ -146,6 +218,39 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_incidentes
                     {
                         return "No tiene ningún contrato vigente para registrar el incidente";
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                return ("No se pudo realizar la búsqueda, por favor intente nuevamente");
+            }
+        }
+
+        [WebMethod]
+        public static String FillFieldsContacto(String mail, String contacto)
+        {
+            try
+            {
+                ConsultarPersonasContactoPorCliente _cmd = FabricaComando.ComandoConsultarPersonasContactoPorCliente(mail);
+                _cmd.ejecutar();
+                List<PersonaContacto> listado = _cmd.listado;
+                PersonaContacto persona = FabricaObjetos.CrearPersonaContacto("", "", "", "", "", "");
+                bool verdadero = false;
+                foreach (PersonaContacto item in listado)
+                {
+                    if (item.correo.Equals(contacto))
+                    {
+                        verdadero = true;
+                        persona = item;
+                    }
+                }
+                if (verdadero)
+                {
+                    return "Exito;" + persona.nombre + " " + persona.apellido;
+                }
+                else
+                {
+                    return "No tiene ninguna persona de contacto con dicho correo";
                 }
             }
             catch (Exception ex)

@@ -620,6 +620,8 @@
   <ItemGroup>
     <Compile Include="Controlador\Comando.cs" />
     <Compile Include="Controlador\FabricaComando.cs" />
+    <Compile Include="Controlador\ModeloIncidentes\AgregarIncidente.cs" />
+    <Compile Include="Controlador\ModeloIncidentes\ConsultarFeriados.cs" />
     <Compile Include="Controlador\ModuloClientes\AgregarCliente.cs" />
     <Compile Include="Controlador\ModuloClientes\ConsultarClientes.cs" />
     <Compile Include="Controlador\ModuloClientes\ConsultarContratosCliente.cs" />
@@ -685,6 +687,12 @@
       <DependentUpon>RecursoDAO_Cliente.resx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Acceso a datos\ModuloEquipos\DAOEquipo.cs" />
+    <Compile Include="Modelo\Acceso a datos\ModuloIncidentes\DAOIncidentes.cs" />
+    <Compile Include="Modelo\Acceso a datos\ModuloIncidentes\RecursoDAO_Incidentes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursoDAO_Incidentes.resx</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Acceso a datos\ModuloPersonaContacto\DAOPersonaContacto.cs" />
     <Compile Include="Modelo\Acceso a datos\ModuloPersonaContacto\RecursoDAO_PersonaContacto.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -728,6 +736,8 @@
     <Compile Include="Modelo\Objetos\Empleado.cs" />
     <Compile Include="Modelo\Objetos\Equipo.cs" />
     <Compile Include="Modelo\Objetos\FabricaObjetos.cs" />
+    <Compile Include="Modelo\Objetos\Feriado.cs" />
+    <Compile Include="Modelo\Objetos\Incidente.cs" />
     <Compile Include="Modelo\Objetos\PersonaContacto.cs" />
     <Compile Include="Modelo\Objetos\reCaptchaV2.cs" />
     <Compile Include="Modelo\Objetos\Rol.cs" />
@@ -1254,6 +1264,10 @@
     <EmbeddedResource Include="Modelo\Acceso a datos\ModuloEquipos\RecursoDAO_Equipo.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>RecursoDAO_Equipo.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelo\Acceso a datos\ModuloIncidentes\RecursoDAO_Incidentes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursoDAO_Incidentes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Modelo\Acceso a datos\ModuloPersonaContacto\RecursoDAO_PersonaContacto.resx">
       <Generator>ResXFileCodeGenerator</Generator>

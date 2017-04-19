@@ -126,5 +126,31 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
         {
             return new List<PersonaContacto>();
         }
+
+        public static List<Feriado> CrearListaFeriados()
+        {
+            return new List<Feriado>();
+        }
+
+        public static Feriado CrearFeriado(String _descripcion, int _dia, int _mes)
+        {
+            return new Feriado(_descripcion, _dia, _mes);
+        }
+
+        public static Incidente CrearIncidente(String _id, DateTime _fecharegistro, DateTime _compromiso, DateTime _requerida, DateTime _atencion, DateTime _finservicio, 
+                         String _estatus, String _tiposerv, String _impacto, String _urgencia, String _direccion, String _descripcion, String _cliente,
+                         String _equipo, String _empleado, String _aliado, String _contacto1, String _contacto2, String _contrato, String _servicio)
+        {
+            return new Incidente(_id, _fecharegistro, _compromiso, _requerida, _atencion, _finservicio,
+                                 _estatus, _tiposerv, _impacto, _urgencia, _direccion, _descripcion, _cliente,
+                                 _equipo, _empleado, _aliado, _contacto1, _contacto2, _contrato, _servicio);
+        }
+
+        public static List<Incidente> CrearListaIncidentes()
+        {
+            return new List<Incidente>();
+        }
+
+        
     }
 }

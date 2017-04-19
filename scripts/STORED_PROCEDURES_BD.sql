@@ -1191,3 +1191,73 @@ BEGIN
 END
 
 
+
+/********************************************************* FIN CRUD CONTACTOS *********************************************************/
+
+
+
+
+
+/********************************************************* CRUD DE INCIDENTES *********************************************************/ 
+
+
+
+/****** 
+		PROCEDIMIENTO PARA CONSULTAR LOS DIAS FERIADOS
+		FECHA: 18/4/2017 11:40 AM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CONSULTAR_FERIADOS]
+AS
+BEGIN
+	SELECT F_ID, F_DESCRIPCION, F_DIA, F_MES FROM FERIADO;
+
+
+
+
+/****** 
+		PROCEDIMIENTO PARA REGISTRAR UN INCIDENTE EN LA BD
+		FECHA: 18/4/2017 12:40 PM
+******/
+USE [HPSC_SERVCORP]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[AGREGAR_INCIDENTE]
+	@i_id AS varchar(500) ,
+	@i_fecha  AS datetime ,
+	@i_fecharequerida AS datetime ,
+	@i_fechacompromiso AS datetime,
+	@i_fechaatencion AS datetime,
+	@i_fechafinservicio AS datetime,
+	@i_estatus AS varchar(200) ,
+	@i_tiposervicio AS varchar(200) ,
+	@i_impacto AS varchar(200) ,
+	@i_urgencia AS varchar(200) ,
+	@i_direccionincidente AS varchar(500) ,
+	@i_descripcionbreve AS varchar(500) ,
+	@i_fk_cliente AS varchar(350) ,
+	@i_fk_equipo AS varchar(250) ,
+	@i_fk_empleado AS varchar(350),
+	@i_fk_aliado AS varchar(350),
+	@i_fk_personal_contacto1 AS varchar(350) ,
+	@i_fk_personal_contacto2 AS varchar(350) ,
+	@i_fk_contrato  AS varchar(500) ,
+	@i_fk_servicio AS varchar(500)
+AS
+BEGIN
+	INSERT INTO INCIDENTE VALUES (@i_id, @i_fecha, @i_fecharequerida, @i_fechacompromiso, NULL, NULL, 
+								  @i_estatus, @i_tiposervicio, @i_impacto, @i_urgencia, @i_direccionincidente, @i_descripcionbreve, 
+								  @i_fk_cliente, @i_fk_equipo,	NULL, NULL, @i_fk_personal_contacto1, 
+								  @i_fk_personal_contacto2, @i_fk_contrato , @i_fk_servicio);
+	UPDATE EQUIPO SET EQ_UBICACION = @i_direccionincidente;
+END
+
+

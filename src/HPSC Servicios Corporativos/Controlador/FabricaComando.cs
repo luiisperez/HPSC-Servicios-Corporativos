@@ -1,4 +1,5 @@
-﻿using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
+﻿using HPSC_Servicios_Corporativos.Controlador.ModeloIncidentes;
+using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEmpleados;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEquipo;
 using HPSC_Servicios_Corporativos.Controlador.ModuloPersonaContacto;
@@ -252,6 +253,18 @@ namespace HPSC_Servicios_Corporativos.Controlador
         public static ConsultarPersonaContacto ComandoConsultarPersonaContacto(String _correo)
         {
             return new ConsultarPersonaContacto(_correo);
+        }
+        #endregion
+
+        #region Incidentes
+        public static ConsultarFeriados ComandoConsultarFeriados()
+        {
+            return new ConsultarFeriados();
+        }
+
+        public static AgregarIncidente ComandoAgregarIncidente(Incidente _incidente)
+        {
+            return new AgregarIncidente(_incidente);
         }
         #endregion
     }

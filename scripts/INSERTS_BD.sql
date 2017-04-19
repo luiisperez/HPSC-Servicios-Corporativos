@@ -50,5 +50,22 @@ INSERT INTO EQUIPO VALUES ('FGDFS343DFGD2S', 'Impresoras', 'Hewlett-Packard', 'H
 INSERT INTO EQUIPO VALUES ('FGDFS343DFGFDGD2S', 'Impresoras', 'Hewlett-Packard', 'HP Laserjet M3035XS Multifunction Printer', 'Operativo', 'CC477A', 'Av. Ohiggins, La Paz', 'luis.alejandro120895@gmail.com');
 
 ----------------------SERVICIO--------------------------
-INSERT INTO SERVICIO VALUES ('20173301944', 'Garantía Premium', 'Implementación', 72, 0, 'Lunes,Martes,Miércoles,Viernes',	15,	'Disponible');
+INSERT INTO SERVICIO VALUES ('20173301944', 'Garantía Premium', 'Soporte reactivo', 24, 0, 'Lunes,Martes,Miércoles,Viernes', 9, 'Disponible');
 INSERT INTO SERVICIO VALUES ('20173301945', 'Garantía Estándar', 'Implementación', 72, 0, 'Lunes,Martes,Miércoles,Viernes', 15, 'Disponible');
+
+----------------------FERIADOS--------------------------
+INSERT INTO FERIADO VALUES (1, 'Año Nuevo', 1, 1);
+INSERT INTO FERIADO VALUES (2, 'Lunes de Carnaval', 27, 2);
+INSERT INTO FERIADO VALUES (3, 'Martes de Carnaval', 28, 2);
+INSERT INTO FERIADO VALUES (4, 'Jueves Santo', 13, 4);
+INSERT INTO FERIADO VALUES (5, 'Viernes Santo', 14, 4);
+INSERT INTO FERIADO VALUES (6, 'Domingo de resurreción', 16, 4);
+INSERT INTO FERIADO VALUES (7, 'Declaración de la Independencia', 19, 4);
+INSERT INTO FERIADO VALUES (8, 'Día del Trabajo', 1, 5);
+INSERT INTO FERIADO VALUES (9, 'Batalla de Carabobo', 24, 6);
+INSERT INTO FERIADO VALUES (10, 'Día de la Independencia', 5, 7);
+INSERT INTO FERIADO VALUES (11, 'Natalicio de Simón Bolívar', 24, 7);
+INSERT INTO FERIADO VALUES (12, 'Día de la Resistencia Indígena', 12, 10);
+INSERT INTO FERIADO VALUES (13, 'Víspera de Navidad', 24, 12);
+INSERT INTO FERIADO VALUES (14, 'Navidad', 25, 12);
+INSERT INTO FERIADO VALUES (15, 'Fin de Año', 24, 12);

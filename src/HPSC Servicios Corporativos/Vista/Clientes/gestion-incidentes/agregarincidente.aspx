@@ -224,7 +224,7 @@
                             </style>
                             <asp:ScriptManager runat="server" ID="sm" EnablePageMethods="true">
                             </asp:ScriptManager>
-                            <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" Enabled="False"/>
+                            <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click"/>
                         </div>
                         <!-- /.box -->
                     </div>
@@ -262,6 +262,12 @@
                         } else {
                             var separar = result.split(";");
                             var mensaje = "Datos del servicio: \n - Nivel de servicio: " + separar[2] + " " + separar[3] + " hora(s) X " + separar[4] + " día(s) \n - Tipo de servicio: " + separar[5] + " \n - Tiempo de respuesta: " + separar[6] + "hora(s) \n - ¿Incluye feriados?: " + separar[7] + " \n - Días de trabajo: " + separar[9];
+
+                            if (Number(separar[3]) != 24) {
+                                mensaje = mensaje + " \n - Horario: 8:00 - " + (8 + parseInt(separar[3])).toString() + ":00";
+                            } else {
+                                mensaje = mensaje + " \n - Horario: Todo el día"
+                            }
                             $('#info').attr('Title', mensaje);
                             document.getElementById('<%=idcontrato.ClientID %>').value = separar[8];
                             document.getElementById('<%=idservicio.ClientID %>').value = separar[1];
@@ -291,6 +297,26 @@
                     if (!validateEmail(email)) {
                         alert(email + " no es un correo valido");
                         document.getElementById('<%=correoprincipal.ClientID%>').value = '';
+                        document.getElementById('<%=nombrepricipal.ClientID %>').value = "";
+                    } else {
+                        PageMethods.FillFieldsContacto(document.getElementById('<%=correo.ClientID %>').value, email, onSucess, onError);
+
+                        function onSucess(result) {
+                            if (result === "No tiene ninguna persona de contacto con dicho correo") {
+                                alert(result);
+                                document.getElementById('<%=correoprincipal.ClientID %>').value = "";
+                                document.getElementById('<%=nombrepricipal.ClientID %>').value = "";
+                            } else {
+                                var separar = result.split(";");
+                                document.getElementById('<%=nombrepricipal.ClientID %>').value = separar[1];
+                            }
+                        }
+
+                        function onError(result) {
+                            alert('Ha ocurrido un error, intente nuevamente');
+                            document.getElementById('<%=correosecundario.ClientID%>').value = '';
+                            document.getElementById('<%=nombrepricipal.ClientID %>').value = "";
+                        }
                     }
                 }
             }
@@ -301,6 +327,26 @@
                     if (!validateEmail(email)) {
                         alert(email + " no es un correo valido");
                         document.getElementById('<%=correosecundario.ClientID%>').value = '';
+                        document.getElementById('<%=nombrepricipal.ClientID %>').value = "";
+                    } else {
+                        PageMethods.FillFieldsContacto(document.getElementById('<%=correo.ClientID %>').value, email, onSucess, onError);
+
+                        function onSucess(result) {
+                            if (result === "No tiene ninguna persona de contacto con dicho correo") {
+                                alert(result);
+                                document.getElementById('<%=correosecundario.ClientID %>').value = "";
+                                document.getElementById('<%=nombrepricipal.ClientID %>').value = "";
+                            } else {
+                                var separar = result.split(";");
+                                document.getElementById('<%=nombresecundario.ClientID %>').value = separar[1];
+                            }
+                        }
+
+                        function onError(result) {
+                            alert('Ha ocurrido un error, intente nuevamente');
+                            document.getElementById('<%=correosecundario.ClientID%>').value = '';
+                            document.getElementById('<%=nombrepricipal.ClientID %>').value = "";
+                        }
                     }
                 }
             }
