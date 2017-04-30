@@ -100,7 +100,15 @@
                             </ul>  
                         </li>
                         <li id="zonaincidentes" runat="server">
-                            <a href="#"><i class="fa fa fa-warning"></i> Incidentes</a>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#incidentes" id="incidents" runat="server"><i class="fa fa fa-warning"></i> Incidentes <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="incidentes" class="collapse">
+                               <li> 
+                                    <a href="/Vista/Clientes/gestion-incidentes/agregarincidente.aspx">Registrar</a>
+                               </li> 
+                               <li>
+                                     <a href="/Vista/Clientes/gestion-incidentes/visualizarincidentes.aspx">Visualizar</a>
+                               </li>  
+                            </ul> 
                         </li>
                     </ul>
                 </div>
@@ -327,7 +335,7 @@
                     if (!validateEmail(email)) {
                         alert(email + " no es un correo valido");
                         document.getElementById('<%=correosecundario.ClientID%>').value = '';
-                        document.getElementById('<%=nombrepricipal.ClientID %>').value = "";
+                        document.getElementById('<%=nombresecundario.ClientID %>').value = "";
                     } else {
                         PageMethods.FillFieldsContacto(document.getElementById('<%=correo.ClientID %>').value, email, onSucess, onError);
 
@@ -335,7 +343,7 @@
                             if (result === "No tiene ninguna persona de contacto con dicho correo") {
                                 alert(result);
                                 document.getElementById('<%=correosecundario.ClientID %>').value = "";
-                                document.getElementById('<%=nombrepricipal.ClientID %>').value = "";
+                                document.getElementById('<%=nombresecundario.ClientID %>').value = "";
                             } else {
                                 var separar = result.split(";");
                                 document.getElementById('<%=nombresecundario.ClientID %>').value = separar[1];
@@ -345,7 +353,7 @@
                         function onError(result) {
                             alert('Ha ocurrido un error, intente nuevamente');
                             document.getElementById('<%=correosecundario.ClientID%>').value = '';
-                            document.getElementById('<%=nombrepricipal.ClientID %>').value = "";
+                            document.getElementById('<%=nombresecundario.ClientID %>').value = "";
                         }
                     }
                 }

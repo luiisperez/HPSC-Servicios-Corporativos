@@ -80,5 +80,39 @@ namespace HPSC_Servicios_Corporativos.Modelo.Comun
                 throw ex;
             }
         }
+
+        public void EnviarIncidente(Incidente nuevoincidente, String nombrecliente)
+        {
+            try
+            {
+                MailMessage msg = new MailMessage();
+                msg.To.Add(new MailAddress(nuevoincidente.cliente, nuevoincidente.cliente));
+                msg.To.Add(new MailAddress("luis_alejandro0812@hotmail.com", "luis_alejandro0812@hotmail.com"));
+                //msg.To.Add(new MailAddress(RecursoMail.Correo, RecursoMail.Correo));
+                msg.From = new MailAddress("noreply@hp-sc.net", "noreply@hp-sc.net");
+                msg.Subject = "Registro de Incidente N° " + nuevoincidente.id;
+                msg.Body = "Se ha registrado exitosamente el incidente de ID " + nuevoincidente.id + " de " + nombrecliente + " a continuación se presentan los siguientes detalles del mismo: " + Environment.NewLine +
+                                "   • Fecha y hora de registro: " + nuevoincidente.fecharegistro.ToString("dd/MM/yyyy HH:mm:ss") + Environment.NewLine +
+                                "   • Fecha de compromiso: " + nuevoincidente.fechacompromiso.ToString("dd/MM/yyyy HH:mm:ss") + Environment.NewLine +
+                                "   • Serial del equipo: " + nuevoincidente.equipo + Environment.NewLine +
+                                "   • Dirección: " + nuevoincidente.direccion + Environment.NewLine +
+                                "   • Descripción: " + nuevoincidente.descripcion + Environment.NewLine +
+                                "Para mayor información puede consultar en el portal y si tiene alguna duda contáctenos";
+                msg.IsBodyHtml = false;
+
+                SmtpClient client = new SmtpClient();
+                client.UseDefaultCredentials = false;
+                client.Credentials = new System.Net.NetworkCredential(RecursoMail.Correo, RecursoMail.PWD);
+                client.Port = 587; // You can use Port 25 if 587 is blocked
+                client.Host = "smtp.office365.com";
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.EnableSsl = true;
+                client.Send(msg);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

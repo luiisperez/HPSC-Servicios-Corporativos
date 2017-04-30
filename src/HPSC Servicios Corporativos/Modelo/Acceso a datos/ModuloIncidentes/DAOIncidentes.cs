@@ -1,4 +1,5 @@
-﻿using HPSC_Servicios_Corporativos.Modelo.Comun;
+﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes;
+using HPSC_Servicios_Corporativos.Modelo.Comun;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
@@ -101,6 +102,301 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_tiposervicio, SqlDbType.VarChar, incidente.tiposerv, false));
                 listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_urgencia, SqlDbType.VarChar, incidente.urgencia, false));
                 EjecutarStoredProcedure(RecursoDAO_Incidentes.ProcedimientoAgregarIncidente, listaParametro);
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
+
+        public List<Incidente> ConsultarIncidentes(String id)
+        {
+            DataTable tablaDeDatos;
+            List<Incidente> listado = FabricaObjetos.CrearListaIncidentes();
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Cliente.cli_correo, SqlDbType.VarChar, id, false));
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoConsultarIncidentesPorCliente, parametro);
+                Incidente consultado = null;
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        if ((row[4].ToString().Equals("")) && (row[5].ToString().Equals("")))
+                        {
+                            consultado = FabricaObjetos.CrearIncidente(
+                                                row[0].ToString(),
+                                                Convert.ToDateTime(row[1].ToString()),
+                                                Convert.ToDateTime(row[2].ToString()),
+                                                Convert.ToDateTime(row[3].ToString()),
+                                                new DateTime(),
+                                                new DateTime(),
+                                                row[6].ToString(),
+                                                row[7].ToString(),
+                                                row[8].ToString(),
+                                                row[9].ToString(),
+                                                row[10].ToString(),
+                                                row[11].ToString(),
+                                                row[12].ToString(),
+                                                row[13].ToString(),
+                                                row[14].ToString(),
+                                                row[15].ToString(),
+                                                row[16].ToString(),
+                                                row[17].ToString(),
+                                                row[18].ToString(),
+                                                row[19].ToString()
+                                            );
+                        }
+                        else if ((!row[4].ToString().Equals("")) && (row[5].ToString().Equals("")))
+                        {
+                            consultado = FabricaObjetos.CrearIncidente(
+                                                row[0].ToString(),
+                                                Convert.ToDateTime(row[1].ToString()),
+                                                Convert.ToDateTime(row[2].ToString()),
+                                                Convert.ToDateTime(row[3].ToString()),
+                                                Convert.ToDateTime(row[4].ToString()),
+                                                new DateTime(),
+                                                row[6].ToString(),
+                                                row[7].ToString(),
+                                                row[8].ToString(),
+                                                row[9].ToString(),
+                                                row[10].ToString(),
+                                                row[11].ToString(),
+                                                row[12].ToString(),
+                                                row[13].ToString(),
+                                                row[14].ToString(),
+                                                row[15].ToString(),
+                                                row[16].ToString(),
+                                                row[17].ToString(),
+                                                row[18].ToString(),
+                                                row[19].ToString()
+                                            );
+                        }
+                        else if ((row[4].ToString().Equals("")) && (!row[5].ToString().Equals("")))
+                        {
+                            consultado = FabricaObjetos.CrearIncidente(
+                                                row[0].ToString(),
+                                                Convert.ToDateTime(row[1].ToString()),
+                                                Convert.ToDateTime(row[2].ToString()),
+                                                Convert.ToDateTime(row[3].ToString()),
+                                                new DateTime(),
+                                                Convert.ToDateTime(row[5].ToString()),
+                                                row[6].ToString(),
+                                                row[7].ToString(),
+                                                row[8].ToString(),
+                                                row[9].ToString(),
+                                                row[10].ToString(),
+                                                row[11].ToString(),
+                                                row[12].ToString(),
+                                                row[13].ToString(),
+                                                row[14].ToString(),
+                                                row[15].ToString(),
+                                                row[16].ToString(),
+                                                row[17].ToString(),
+                                                row[18].ToString(),
+                                                row[19].ToString()
+                                            );
+                        }
+                        else
+                        {
+                            consultado = FabricaObjetos.CrearIncidente(
+                                                row[0].ToString(),
+                                                Convert.ToDateTime(row[1].ToString()),
+                                                Convert.ToDateTime(row[2].ToString()),
+                                                Convert.ToDateTime(row[3].ToString()),
+                                                Convert.ToDateTime(row[4].ToString()),
+                                                Convert.ToDateTime(row[5].ToString()),
+                                                row[6].ToString(),
+                                                row[7].ToString(),
+                                                row[8].ToString(),
+                                                row[9].ToString(),
+                                                row[10].ToString(),
+                                                row[11].ToString(),
+                                                row[12].ToString(),
+                                                row[13].ToString(),
+                                                row[14].ToString(),
+                                                row[15].ToString(),
+                                                row[16].ToString(),
+                                                row[17].ToString(),
+                                                row[18].ToString(),
+                                                row[19].ToString()
+                                            );
+                        }
+                        listado.Add(consultado);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+
+
+                }
+                return listado;
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
+
+        public List<Incidente> ConsultarIncidentesTodos()
+        {
+            DataTable tablaDeDatos;
+            List<Incidente> listado = FabricaObjetos.CrearListaIncidentes();
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoConsultarIncidentesTodos, parametro);
+                Incidente consultado = null;
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        if ((row[4].ToString().Equals("")) && (row[5].ToString().Equals("")))
+                        {
+                            consultado = FabricaObjetos.CrearIncidente(
+                                                row[0].ToString(),
+                                                Convert.ToDateTime(row[1].ToString()),
+                                                Convert.ToDateTime(row[2].ToString()),
+                                                Convert.ToDateTime(row[3].ToString()),
+                                                new DateTime(),
+                                                new DateTime(),
+                                                row[6].ToString(),
+                                                row[7].ToString(),
+                                                row[8].ToString(),
+                                                row[9].ToString(),
+                                                row[10].ToString(),
+                                                row[11].ToString(),
+                                                row[12].ToString(),
+                                                row[13].ToString(),
+                                                row[14].ToString(),
+                                                row[15].ToString(),
+                                                row[16].ToString(),
+                                                row[17].ToString(),
+                                                row[18].ToString(),
+                                                row[19].ToString()
+                                            );
+                        }
+                        else if ((!row[4].ToString().Equals("")) && (row[5].ToString().Equals("")))
+                        {
+                            consultado = FabricaObjetos.CrearIncidente(
+                                                row[0].ToString(),
+                                                Convert.ToDateTime(row[1].ToString()),
+                                                Convert.ToDateTime(row[2].ToString()),
+                                                Convert.ToDateTime(row[3].ToString()),
+                                                Convert.ToDateTime(row[4].ToString()),
+                                                new DateTime(),
+                                                row[6].ToString(),
+                                                row[7].ToString(),
+                                                row[8].ToString(),
+                                                row[9].ToString(),
+                                                row[10].ToString(),
+                                                row[11].ToString(),
+                                                row[12].ToString(),
+                                                row[13].ToString(),
+                                                row[14].ToString(),
+                                                row[15].ToString(),
+                                                row[16].ToString(),
+                                                row[17].ToString(),
+                                                row[18].ToString(),
+                                                row[19].ToString()
+                                            );
+                        }
+                        else if ((row[4].ToString().Equals("")) && (!row[5].ToString().Equals("")))
+                        {
+                            consultado = FabricaObjetos.CrearIncidente(
+                                                row[0].ToString(),
+                                                Convert.ToDateTime(row[1].ToString()),
+                                                Convert.ToDateTime(row[2].ToString()),
+                                                Convert.ToDateTime(row[3].ToString()),
+                                                new DateTime(),
+                                                Convert.ToDateTime(row[5].ToString()),
+                                                row[6].ToString(),
+                                                row[7].ToString(),
+                                                row[8].ToString(),
+                                                row[9].ToString(),
+                                                row[10].ToString(),
+                                                row[11].ToString(),
+                                                row[12].ToString(),
+                                                row[13].ToString(),
+                                                row[14].ToString(),
+                                                row[15].ToString(),
+                                                row[16].ToString(),
+                                                row[17].ToString(),
+                                                row[18].ToString(),
+                                                row[19].ToString()
+                                            );
+                        }
+                        else
+                        {
+                            consultado = FabricaObjetos.CrearIncidente(
+                                                row[0].ToString(),
+                                                Convert.ToDateTime(row[1].ToString()),
+                                                Convert.ToDateTime(row[2].ToString()),
+                                                Convert.ToDateTime(row[3].ToString()),
+                                                Convert.ToDateTime(row[4].ToString()),
+                                                Convert.ToDateTime(row[5].ToString()),
+                                                row[6].ToString(),
+                                                row[7].ToString(),
+                                                row[8].ToString(),
+                                                row[9].ToString(),
+                                                row[10].ToString(),
+                                                row[11].ToString(),
+                                                row[12].ToString(),
+                                                row[13].ToString(),
+                                                row[14].ToString(),
+                                                row[15].ToString(),
+                                                row[16].ToString(),
+                                                row[17].ToString(),
+                                                row[18].ToString(),
+                                                row[19].ToString()
+                                            );
+                        }
+                        listado.Add(consultado);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+
+
+                }
+                return listado;
             }
             catch (SqlException ex)
             {

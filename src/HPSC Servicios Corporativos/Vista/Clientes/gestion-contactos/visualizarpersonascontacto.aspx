@@ -100,7 +100,15 @@
                             </ul>  
                         </li>
                         <li id="zonaincidentes" runat="server">
-                            <a href="#"><i class="fa fa fa-warning"></i> Incidentes</a>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#incidentes" id="incidents" runat="server"><i class="fa fa fa-warning"></i> Incidentes <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="incidentes" class="collapse">
+                               <li> 
+                                    <a href="/Vista/Clientes/gestion-incidentes/agregarincidente.aspx">Registrar</a>
+                               </li> 
+                               <li>
+                                     <a href="/Vista/Clientes/gestion-incidentes/visualizarincidentes.aspx">Visualizar</a>
+                               </li>  
+                            </ul> 
                         </li>
                     </ul>
                 </div>

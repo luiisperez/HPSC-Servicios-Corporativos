@@ -1,5 +1,5 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador;
-using HPSC_Servicios_Corporativos.Controlador.ModeloIncidentes;
+using HPSC_Servicios_Corporativos.Controlador.ModuloIncidentes;
 using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEquipo;
 using HPSC_Servicios_Corporativos.Controlador.ModuloPersonaContacto;
@@ -119,16 +119,6 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_incidentes
                         }
                     }
                     DateTime fechacompromiso = fecharegistro.AddHours(serv.tiemporespuesta);
-                    if (serv.feriado.Equals("No"))
-                    {
-                        foreach (Feriado item in feriados)
-                        {
-                            if ((fechacompromiso.Day == item.dia) && (fechacompromiso.Month == item.mes))
-                            {
-                                fechacompromiso = fechacompromiso.AddDays(1);
-                            }
-                        }
-                    }
                     if (serv.cantdias != 7)
                     {
                         DayOfWeek dia = fechacompromiso.DayOfWeek;
@@ -141,12 +131,33 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_incidentes
                             fechacompromiso = fechacompromiso.AddDays(1);
                         }
                     }
+                    if (serv.feriado.Equals("No"))
+                    {
+                        foreach (Feriado item in feriados)
+                        {
+                            if ((fechacompromiso.Day == item.dia) && (fechacompromiso.Month == item.mes))
+                            {
+                                fechacompromiso = fechacompromiso.AddDays(1);
+                            }
+                        }
+                    }
                     DateTime fecharequerida = fechacompromiso;
                     String id = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
                     Incidente nuevoincidente = FabricaObjetos.CrearIncidente(id, fechahoy, fechacompromiso, fecharequerida, new DateTime(), new DateTime(), "Abierto", "Soporte reactivo", impacto.Text, urgencia.Text, direccion.Value, descripcion.Value, cliente.correo, numequipo.Value, "", "", correoprincipal.Value, correosecundario.Value, idcontrato.Text, idservicio.Text);
                     AgregarIncidente _command = FabricaComando.ComandoAgregarIncidente(nuevoincidente);
                     _command.ejecutar();
-                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha registrado el incidente exitosamente en el sistema");
+                    try
+                    {
+                        EnviarCorreoIncidenteRegistrado command = FabricaComando.ComandoEnviarCorreoIncidenteRegistrado(nuevoincidente, cliente.nombre);
+                        command.ejecutar();
+                    }
+                    catch (Exception ex)
+                    {
+                        var _message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("No se ha podido enviar el correo de confirmación de registro del incidente");
+                        var _script = string.Format("alert({0});window.location ='/Vista/Clientes/gestion-incidentes/agregarincidente.aspx';", _message);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", _script, true);
+                    }
+                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha registrado el incidente exitosamente en el sistema y a la brevedad posible recibirá un correo de confirmación");
                     var script = string.Format("alert({0});window.location ='/Vista/Clientes/gestion-incidentes/agregarincidente.aspx';", message);
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
                 }

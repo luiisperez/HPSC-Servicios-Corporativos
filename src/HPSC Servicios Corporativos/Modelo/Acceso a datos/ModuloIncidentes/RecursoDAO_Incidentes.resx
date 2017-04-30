@@ -205,4 +205,12 @@
     <value>CONSULTAR_FERIADOS</value>
     <comment>Procedimiento para consultar los días feriados</comment>
   </data>
+  <data name="ProcedimientoConsultarIncidentesPorCliente" xml:space="preserve">
+    <value>CONSULTAR_INCIDENTES_CLIENTE</value>
+    <comment>Procedimiento para consultar los incidentes de un cliente</comment>
+  </data>
+  <data name="ProcedimientoConsultarIncidentesTodos" xml:space="preserve">
+    <value>CONSULTAR_INCIDENTES_TODOS</value>
+    <comment>Procedimiento para consultar todos los incidentes</comment>
+  </data>
 </root>

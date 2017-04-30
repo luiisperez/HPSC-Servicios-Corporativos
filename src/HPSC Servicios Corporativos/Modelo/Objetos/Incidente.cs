@@ -28,6 +28,11 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
         public String contrato { get; set; }
         public String servicio { get; set; }
 
+        public Incidente()
+        {
+
+        }
+
         public Incidente(String _id, DateTime _fecharegistro, DateTime _compromiso, DateTime _requerida, DateTime _atencion, DateTime _finservicio, 
                          String _estatus, String _tiposerv, String _impacto, String _urgencia, String _direccion, String _descripcion, String _cliente,
                          String _equipo, String _empleado, String _aliado, String _contacto1, String _contacto2, String _contrato, String _servicio)

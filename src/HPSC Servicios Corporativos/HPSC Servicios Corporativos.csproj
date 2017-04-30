@@ -81,6 +81,8 @@
     <Content Include="Vista\Clientes\gestion-equipos\misequipos.aspx" />
     <Content Include="Vista\Clientes\gestion-equipos\solicitarequipo.aspx" />
     <Content Include="Vista\Clientes\gestion-incidentes\agregarincidente.aspx" />
+    <Content Include="Vista\Clientes\gestion-incidentes\consultarincidente.aspx" />
+    <Content Include="Vista\Clientes\gestion-incidentes\visualizarincidentes.aspx" />
     <Content Include="Vista\Clientes\js\bootstrap.js" />
     <Content Include="Vista\Clientes\js\bootstrap.min.js" />
     <Content Include="Vista\Clientes\js\cargadorMenu.js" />
@@ -290,6 +292,9 @@
     <Content Include="Vista\Empleados\gestion-contratos\detallescontrato.aspx" />
     <Content Include="Vista\Empleados\gestion-contratos\visualizarcontratos.aspx" />
     <Content Include="Vista\Empleados\gestion-contratos\visualizarserviciosequipo.aspx" />
+    <Content Include="Vista\Empleados\gestion-incidentes\agregarincidente.aspx" />
+    <Content Include="Vista\Empleados\gestion-incidentes\detallesincidente.aspx" />
+    <Content Include="Vista\Empleados\gestion-incidentes\incidentes.aspx" />
     <Content Include="Vista\Empleados\gestion-servicios\visualizarservicios.aspx" />
     <Content Include="Vista\Empleados\gestion-clientes\asignarequipo.aspx" />
     <Content Include="Vista\Empleados\gestion-clientes\visualizarclientes.aspx" />
@@ -310,7 +315,7 @@
     <Content Include="Vista\Empleados\font-awesome\css\font-awesome.min.css" />
     <Content Include="Vista\Empleados\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Vista\Empleados\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Vista\Empleados\forms.html" />
+    <Content Include="Vista\Index\forms.html" />
     <Content Include="Vista\Empleados\gestion-equipos\agregarequipo.aspx" />
     <Content Include="Vista\Empleados\gestion-productos\agregarproducto.aspx" />
     <Content Include="Vista\Empleados\gestion-equipos\modificarequipo.aspx" />
@@ -619,9 +624,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador\Comando.cs" />
+    <Compile Include="Controlador\ModuloAliados\ConsultarAliados.cs" />
     <Compile Include="Controlador\FabricaComando.cs" />
-    <Compile Include="Controlador\ModeloIncidentes\AgregarIncidente.cs" />
-    <Compile Include="Controlador\ModeloIncidentes\ConsultarFeriados.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\AgregarIncidente.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\ConsultarFeriados.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\ConsultarIncidentesCliente.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\ConsultarIncidentesTodos.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\EnviarCorreoIncidenteRegistrado.cs" />
     <Compile Include="Controlador\ModuloClientes\AgregarCliente.cs" />
     <Compile Include="Controlador\ModuloClientes\ConsultarClientes.cs" />
     <Compile Include="Controlador\ModuloClientes\ConsultarContratosCliente.cs" />
@@ -680,6 +689,12 @@
     <Compile Include="Controlador\ModuloUsuarios\ValidacionDatos.cs" />
     <Compile Include="Modelo\Acceso a datos\DAO.cs" />
     <Compile Include="Modelo\Acceso a datos\FabricaDAO.cs" />
+    <Compile Include="Modelo\Acceso a datos\ModuloAliado\DAOAliado.cs" />
+    <Compile Include="Modelo\Acceso a datos\ModuloAliado\RecursoDAO_Aliado.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursoDAO_Aliado.resx</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Acceso a datos\ModuloClientes\DAOCliente.cs" />
     <Compile Include="Modelo\Acceso a datos\ModuloClientes\RecursoDAO_Cliente.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -731,6 +746,7 @@
       <DependentUpon>RecursoMail.resx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Comun\ResultadoBD.cs" />
+    <Compile Include="Modelo\Objetos\Aliado.cs" />
     <Compile Include="Modelo\Objetos\Cliente.cs" />
     <Compile Include="Modelo\Objetos\Contrato.cs" />
     <Compile Include="Modelo\Objetos\Empleado.cs" />
@@ -808,6 +824,20 @@
     <Compile Include="Vista\Clientes\gestion-incidentes\agregarincidente.aspx.designer.cs">
       <DependentUpon>agregarincidente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Clientes\gestion-incidentes\consultarincidente.aspx.cs">
+      <DependentUpon>consultarincidente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-incidentes\consultarincidente.aspx.designer.cs">
+      <DependentUpon>consultarincidente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-incidentes\visualizarincidentes.aspx.cs">
+      <DependentUpon>visualizarincidentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Clientes\gestion-incidentes\visualizarincidentes.aspx.designer.cs">
+      <DependentUpon>visualizarincidentes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Empleados\administracionHPSC.aspx.cs">
       <DependentUpon>administracionHPSC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -856,6 +886,27 @@
     </Compile>
     <Compile Include="Vista\Empleados\gestion-contratos\visualizarserviciosequipo.aspx.designer.cs">
       <DependentUpon>visualizarserviciosequipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-incidentes\agregarincidente.aspx.cs">
+      <DependentUpon>agregarincidente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-incidentes\agregarincidente.aspx.designer.cs">
+      <DependentUpon>agregarincidente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-incidentes\detallesincidente.aspx.cs">
+      <DependentUpon>detallesincidente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-incidentes\detallesincidente.aspx.designer.cs">
+      <DependentUpon>detallesincidente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-incidentes\incidentes.aspx.cs">
+      <DependentUpon>incidentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-incidentes\incidentes.aspx.designer.cs">
+      <DependentUpon>incidentes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Empleados\gestion-servicios\visualizarservicios.aspx.cs">
       <DependentUpon>visualizarservicios.aspx</DependentUpon>
@@ -1256,6 +1307,10 @@
     <EmbeddedResource Include="Controlador\ModuloUsuarios\RecursosModuloUsuarios.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>RecursosModuloUsuarios.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelo\Acceso a datos\ModuloAliado\RecursoDAO_Aliado.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursoDAO_Aliado.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Modelo\Acceso a datos\ModuloClientes\RecursoDAO_Cliente.resx">
       <Generator>ResXFileCodeGenerator</Generator>

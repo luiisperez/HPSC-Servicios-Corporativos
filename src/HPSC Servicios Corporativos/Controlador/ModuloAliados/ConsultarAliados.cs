@@ -1,27 +1,28 @@
 ﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos;
-using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes;
+using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloAliado;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace HPSC_Servicios_Corporativos.Controlador.ModeloIncidentes
+namespace HPSC_Servicios_Corporativos.Controlador.ModuloAliados
 {
-    public class ConsultarFeriados:Comando
+    public class ConsultarAliados:Comando
     {
-        public List<Feriado> feriados = FabricaObjetos.CrearListaFeriados();
+        public List<Aliado> listado = FabricaObjetos.CrearListaAliados();
         public override void ejecutar()
         {
             try
             {
-                DAOIncidentes basedatos = FabricaDAO.CrearDAOIncidente();
-                feriados = basedatos.ConsultarFeriados();
+                DAOAliado basedatos = FabricaDAO.CrearDAOAliado();
+                listado = basedatos.ConsultarAliados();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+
         }
     }
 }

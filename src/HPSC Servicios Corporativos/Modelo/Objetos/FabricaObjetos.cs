@@ -151,6 +151,21 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
             return new List<Incidente>();
         }
 
+        public static Aliado CrearAliado(String _correo, String _nombre, String _direccion, String _usuario, String _contrasena)
+        {
+            return new Aliado(_correo, _nombre, _direccion, _usuario, _contrasena);
+        }
+
+        public static Aliado CrearAliado(String _correo, String _nombre, String _direccion, String _usuario, String _contrasena, String _rol)
+        {
+            return new Aliado(_correo, _nombre, _direccion, _usuario, _contrasena, _rol);
+        }
+
+        internal static List<Aliado> CrearListaAliados()
+        {
+            return new List<Aliado>();
+        }
+
         
     }
 }

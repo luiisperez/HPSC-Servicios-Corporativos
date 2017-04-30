@@ -258,5 +258,23 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes {
                 return ResourceManager.GetString("ProcedimientoConsultarFeriados", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CONSULTAR_INCIDENTES_CLIENTE.
+        /// </summary>
+        internal static string ProcedimientoConsultarIncidentesPorCliente {
+            get {
+                return ResourceManager.GetString("ProcedimientoConsultarIncidentesPorCliente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CONSULTAR_INCIDENTES_TODOS.
+        /// </summary>
+        internal static string ProcedimientoConsultarIncidentesTodos {
+            get {
+                return ResourceManager.GetString("ProcedimientoConsultarIncidentesTodos", resourceCulture);
+            }
+        }
     }
 }

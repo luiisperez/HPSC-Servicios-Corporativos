@@ -1,4 +1,4 @@
-﻿using HPSC_Servicios_Corporativos.Controlador.ModeloIncidentes;
+﻿using HPSC_Servicios_Corporativos.Controlador.ModuloIncidentes;
 using HPSC_Servicios_Corporativos.Controlador.ModuloClientes;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEmpleados;
 using HPSC_Servicios_Corporativos.Controlador.ModuloEquipo;
@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using HPSC_Servicios_Corporativos.Controlador.ModuloAliados;
 
 namespace HPSC_Servicios_Corporativos.Controlador
 {
@@ -265,6 +266,28 @@ namespace HPSC_Servicios_Corporativos.Controlador
         public static AgregarIncidente ComandoAgregarIncidente(Incidente _incidente)
         {
             return new AgregarIncidente(_incidente);
+        }
+
+        public static EnviarCorreoIncidenteRegistrado ComandoEnviarCorreoIncidenteRegistrado(Incidente _incidente, String _cliente)
+        {
+            return new EnviarCorreoIncidenteRegistrado(_incidente, _cliente);
+        }
+
+        internal static ConsultarIncidentesCliente ComandoConsultarIncidentesCliente(String id)
+        {
+            return new ConsultarIncidentesCliente(id);
+        }
+
+        public static ConsultarIncidentesTodos ComandoConsultarIncidentesTodos()
+        {
+            return new ConsultarIncidentesTodos();
+        }
+        #endregion
+
+        #region Aliado
+        public static ConsultarAliados ComandoConsultarAliados()
+        {
+            return new ConsultarAliados();
         }
         #endregion
     }

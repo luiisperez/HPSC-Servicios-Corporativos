@@ -1,4 +1,5 @@
-﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes;
+﻿using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloAliado;
+using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes;
 using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos;
 using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes;
 using HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloPersonaContacto;
@@ -64,6 +65,11 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos
         public static DAOIncidentes CrearDAOIncidente()
         {
             return new DAOIncidentes();
+        }
+
+        public static DAOAliado CrearDAOAliado()
+        {
+            return new DAOAliado();
         }
     }
 }
