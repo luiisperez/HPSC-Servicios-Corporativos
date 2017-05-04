@@ -235,7 +235,7 @@
                                             <div class=col-md-4> 
                                                 <label> <u>Urgencia: </u></label>
                                                 <asp:DropDownList ID="urgencia" runat="server" class="form-control" Height="30px" Width="100%">
-                                                    <asp:ListItem>Crítico</asp:ListItem>
+                                                    <asp:ListItem>Crítica</asp:ListItem>
                                                     <asp:ListItem>Alta</asp:ListItem>
                                                     <asp:ListItem>Media</asp:ListItem>
                                                     <asp:ListItem>Baja</asp:ListItem>

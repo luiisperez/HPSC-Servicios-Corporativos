@@ -242,6 +242,42 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MODIFICAR_ALI_EST_IMP_URG.
+        /// </summary>
+        internal static string ProcedimientoActualizarAliEstImpUrg {
+            get {
+                return ResourceManager.GetString("ProcedimientoActualizarAliEstImpUrg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MODIFICAR_EMP_EST_IMP_URG.
+        /// </summary>
+        internal static string ProcedimientoActualizarEmpEstImpUrg {
+            get {
+                return ResourceManager.GetString("ProcedimientoActualizarEmpEstImpUrg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MODIFICAR_FECHA_ATENCION .
+        /// </summary>
+        internal static string ProcedimientoActualizarFechaAtencion {
+            get {
+                return ResourceManager.GetString("ProcedimientoActualizarFechaAtencion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MODIFICAR_FECHA_CONCLUSION.
+        /// </summary>
+        internal static string ProcedimientoActualizarFechaConclusion {
+            get {
+                return ResourceManager.GetString("ProcedimientoActualizarFechaConclusion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AGREGAR_INCIDENTE.
         /// </summary>
         internal static string ProcedimientoAgregarIncidente {

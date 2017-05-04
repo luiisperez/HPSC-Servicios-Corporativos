@@ -213,4 +213,20 @@
     <value>CONSULTAR_INCIDENTES_TODOS</value>
     <comment>Procedimiento para consultar todos los incidentes</comment>
   </data>
+  <data name="ProcedimientoActualizarAliEstImpUrg" xml:space="preserve">
+    <value>MODIFICAR_ALI_EST_IMP_URG</value>
+    <comment>Procedimiento para actualizar el aliado encargado, el estatus, el impacto y la urgencia</comment>
+  </data>
+  <data name="ProcedimientoActualizarEmpEstImpUrg" xml:space="preserve">
+    <value>MODIFICAR_EMP_EST_IMP_URG</value>
+    <comment>Procedimiento para actualizar el empleado encargado, el estatus, el impacto y la urgencia</comment>
+  </data>
+  <data name="ProcedimientoActualizarFechaAtencion" xml:space="preserve">
+    <value>MODIFICAR_FECHA_ATENCION </value>
+    <comment>Procedimiento para actualizar la fecha de atención</comment>
+  </data>
+  <data name="ProcedimientoActualizarFechaConclusion" xml:space="preserve">
+    <value>MODIFICAR_FECHA_CONCLUSION</value>
+    <comment>Procedimiento para actualizar la fecha de conclusión</comment>
+  </data>
 </root>

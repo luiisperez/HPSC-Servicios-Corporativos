@@ -207,7 +207,9 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                             String horario = "Todo el dia";
                             if (serv.canthoras != 24)
                             {
-                                horario = "8:00 a las " + (8 + serv.canthoras).ToString() + ":00";
+                                DateTime horaini = new DateTime(2017, 1, 1, 8, 0, 0, 0);
+                                DateTime horafin = horaini.AddHours(serv.canthoras);
+                                horario = horaini.ToString("hh:mm tt") + " a las " + horafin.ToString("hh:mm tt");
                             }
                             fecharegistro.Text = consultado.fecharegistro.ToString("dd/MM/yyyy HH:mm:ss tt");
                             fechacompromiso.Text = consultado.fechacompromiso.ToString("dd/MM/yyyy HH:mm:ss tt");
@@ -367,10 +369,47 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
 
         protected void aceptar_Click(object sender, EventArgs e)
         {
-            if (true)
+            try
             {
-                DateTime hola = Convert.ToDateTime(fechaatencio.Value);
-                int holas = 4 + 3;
+                if (!fechaatencio.Value.Equals(""))
+                {
+                    DateTime fechaten = Convert.ToDateTime(fechaatencio.Value);
+                    ActualizarFechaAtencion cmd = FabricaComando.ComandoActualizarFechaAtencion(fechaten.ToString(), (String)Session["incidente"]);
+                    cmd.ejecutar();
+                }
+                if (!fechaconclusion.Value.Equals(""))
+                {
+                    DateTime conclufecha = Convert.ToDateTime(fechaconclusion.Value);
+                    ActualizarFechaConclusion cmd = FabricaComando.ComandoActualizarFechaConclusion(conclufecha.ToString(), (String)Session["incidente"]);
+                    cmd.ejecutar();
+                }
+                if (tipoasignado.Text.Equals("Empleado"))
+                {
+                    String correo = aliado_empleado.SelectedValue;
+                    String est = estatus.Text;
+                    String imp = impacto.Text;
+                    String urg = urgencia.Text;
+                    ActualizarEmpEstImpUrg cmd = FabricaComando.ComandoActualizarEmpEstImpUrg(correo, est, imp, urg, (String)Session["incidente"]);
+                    cmd.ejecutar();
+                }
+                else
+                {
+                    String correo = aliado_empleado.SelectedValue;
+                    String est = estatus.Text;
+                    String imp = impacto.Text;
+                    String urg = urgencia.Text;
+                    ActualizarAliEstImpUrg cmd = FabricaComando.ComandoActualizarAliEstImpUrg(correo, est, imp, urg, (String)Session["incidente"]);
+                    cmd.ejecutar();
+                }
+                var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se actualizaron los datos exitosamente");
+                var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/detallesincidente.aspx';", message);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+            }
+            catch (Exception ex)
+            {
+                string script = "alert(\"No se ha podido actualizar toda la información, por favor intente nuevamente\");";
+                ScriptManager.RegisterStartupScript(this, GetType(),
+                                        "ServerControlScript", script, true);
             }
         }
 

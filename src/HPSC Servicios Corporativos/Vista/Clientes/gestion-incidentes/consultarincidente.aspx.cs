@@ -116,8 +116,9 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_incidentes
                             String horario = "Todo el dia";
                             if (serv.canthoras != 24)
                             {
-
-                                horario = "8:00 a las " + (8 + serv.canthoras).ToString() + ":00";
+                                DateTime horaini = new DateTime(2017, 1, 1, 8, 0, 0, 0);
+                                DateTime horafin = horaini.AddHours(serv.canthoras);
+                                horario = horaini.ToString("hh:mm tt") + " a las " + horafin.ToString("hh:mm tt");
                             }
                             accordion_incidente.InnerHtml = "<div class=\"col-lg-12\" style=\"margin-top:20px;font-size:15px\">"+
                                                                 "<div class=\"col-md-4\">" +

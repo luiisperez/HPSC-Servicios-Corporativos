@@ -626,6 +626,10 @@
     <Compile Include="Controlador\Comando.cs" />
     <Compile Include="Controlador\ModuloAliados\ConsultarAliados.cs" />
     <Compile Include="Controlador\FabricaComando.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\ActualizarAliEstImpUrg.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\ActualizarEmpEstImpUrg.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\ActualizarFechaAtencion.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\ActualizarFechaConclusion.cs" />
     <Compile Include="Controlador\ModuloIncidentes\AgregarIncidente.cs" />
     <Compile Include="Controlador\ModuloIncidentes\ConsultarFeriados.cs" />
     <Compile Include="Controlador\ModuloIncidentes\ConsultarIncidentesCliente.cs" />

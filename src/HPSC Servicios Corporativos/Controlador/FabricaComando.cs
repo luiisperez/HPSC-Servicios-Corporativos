@@ -282,6 +282,28 @@ namespace HPSC_Servicios_Corporativos.Controlador
         {
             return new ConsultarIncidentesTodos();
         }
+
+        public static ActualizarFechaAtencion ComandoActualizarFechaAtencion(String fechaatenc, String id)
+        {
+            return new ActualizarFechaAtencion(fechaatenc, id);
+        }
+
+        public static ActualizarFechaConclusion ComandoActualizarFechaConclusion(String fechaconclu, String id)
+        {
+            return new ActualizarFechaConclusion(fechaconclu, id);
+        }
+
+        public static ActualizarEmpEstImpUrg ComandoActualizarEmpEstImpUrg(String _correo, String _est, String _imp, String _urg, String id)
+        {
+            return new ActualizarEmpEstImpUrg(_correo, _est, _imp, _urg, id);
+        }
+
+        public static ActualizarAliEstImpUrg ComandoActualizarAliEstImpUrg(String _correo, String _est, String _imp, String _urg, String id)
+        {
+            return new ActualizarAliEstImpUrg(_correo, _est, _imp, _urg, id);
+        }
+
+        
         #endregion
 
         #region Aliado

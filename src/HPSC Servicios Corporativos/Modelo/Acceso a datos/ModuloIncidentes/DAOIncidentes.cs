@@ -419,5 +419,139 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes
                 throw exc;
             }
         }
+
+        public void ActualizarFechaAtencion(string fechaatencion, String id)
+        {
+            List<Parametro> listaParametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_fechaatencion, SqlDbType.DateTime, fechaatencion, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_id, SqlDbType.VarChar, id, false));
+                EjecutarStoredProcedure(RecursoDAO_Incidentes.ProcedimientoActualizarFechaAtencion, listaParametro);
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
+
+        public void ActualizarFechaConclusion(string fechaconclu, String id)
+        {
+            List<Parametro> listaParametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_fechafinservicio, SqlDbType.DateTime, fechaconclu, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_id, SqlDbType.VarChar, id, false));
+                EjecutarStoredProcedure(RecursoDAO_Incidentes.ProcedimientoActualizarFechaConclusion, listaParametro);
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
+
+        public void ActualizarEmpEstImpUrg(String emp, String est, String imp, String urg, String id)
+        {
+            List<Parametro> listaParametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_fk_empleado, SqlDbType.VarChar, emp, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_estatus, SqlDbType.VarChar, est, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_impacto, SqlDbType.VarChar, imp, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_urgencia, SqlDbType.VarChar, urg, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_id, SqlDbType.VarChar, id, false));
+                EjecutarStoredProcedure(RecursoDAO_Incidentes.ProcedimientoActualizarEmpEstImpUrg, listaParametro);
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
+
+        public void ActualizarAliEstImpUrg(String ali, String est, String imp, String urg, String id)
+        {
+            List<Parametro> listaParametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_fk_aliado, SqlDbType.VarChar, ali, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_estatus, SqlDbType.VarChar, est, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_impacto, SqlDbType.VarChar, imp, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_urgencia, SqlDbType.VarChar, urg, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.i_id, SqlDbType.VarChar, id, false));
+                EjecutarStoredProcedure(RecursoDAO_Incidentes.ProcedimientoActualizarAliEstImpUrg, listaParametro);
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
     }
 }

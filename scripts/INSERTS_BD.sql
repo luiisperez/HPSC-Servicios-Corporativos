@@ -8,6 +8,9 @@ INSERT INTO ROL VALUES (4, 'Eliminado', -100);
 ----------------------CLIENTE---------------------------
 INSERT INTO CLIENTE VALUES ('luis.alejandro120895@gmail.com', 'Kikiriskiaga CA', 'Kikiriskiaga128', 'F9F299C9FE7AE645AE722D2B2E1965AE', 'Av. Ohiggins, La Paz', 3);
 
+----------------------CLIENTE---------------------------
+INSERT INTO ALIADO VALUES ('luis.alejandro120895@gmail.com', 'CRON', 'Kikiriskiaga128', 'F9F299C9FE7AE645AE722D2B2E1965AE', 'Av. Ohiggins, La Paz', 3);
+
 ----------------------EMPLEADO--------------------------
 INSERT INTO EMPLEADO VALUES ('luis.alejandro120895@gmail.com', 'Luis', 'Perez', 'LAPGrock', 'F9F299C9FE7AE645AE722D2B2E1965AE', 1);
 INSERT INTO EMPLEADO VALUES ('pepito1208295@gmail.com', 'Luis', 'Sumatra', 'LAPG', 'F9F299C9FE7AE645AE722D2B2E1965AE', 2);
