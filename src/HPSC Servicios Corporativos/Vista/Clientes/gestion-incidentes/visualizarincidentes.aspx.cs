@@ -33,8 +33,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_incidentes
                         ConsultarIncidentesCliente cmd = FabricaComando.ComandoConsultarIncidentesCliente(cliente.correo);
                         cmd.ejecutar();
                         listado = cmd.listado;
-                        rep.DataSource = listado;
-                        rep.DataBind();
+                        if (listado.Count != 0)
+                        {
+                            rep.DataSource = listado;
+                            rep.DataBind();
+                        }
                     }
                     catch (Exception ex)
                     {

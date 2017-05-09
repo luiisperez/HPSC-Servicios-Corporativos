@@ -33,8 +33,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_contratos
                         ConsultarContratosCliente cmd = FabricaComando.ComandoConsultarContratosCliente(cliente.correo);
                         cmd.ejecutar();
                         listado = cmd.contratos;
-                        rep.DataSource = listado;
-                        rep.DataBind();
+                        if (listado.Count != 0)
+                        {
+                            rep.DataSource = listado;
+                            rep.DataBind();
+                        }
                     }
                     catch (Exception ex)
                     {

@@ -62,6 +62,60 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to @ac_fin.
+        /// </summary>
+        internal static string ac_fin {
+            get {
+                return ResourceManager.GetString("ac_fin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @ac_fk_empleado.
+        /// </summary>
+        internal static string ac_fk_empleado {
+            get {
+                return ResourceManager.GetString("ac_fk_empleado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @ac_fk_incidente.
+        /// </summary>
+        internal static string ac_fk_incidente {
+            get {
+                return ResourceManager.GetString("ac_fk_incidente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @ac_id.
+        /// </summary>
+        internal static string ac_id {
+            get {
+                return ResourceManager.GetString("ac_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @ac_inicio.
+        /// </summary>
+        internal static string ac_inicio {
+            get {
+                return ResourceManager.GetString("ac_inicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @ac_tipo.
+        /// </summary>
+        internal static string ac_tipo {
+            get {
+                return ResourceManager.GetString("ac_tipo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @i_descripcionbreve.
         /// </summary>
         internal static string i_descripcionbreve {
@@ -287,6 +341,24 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ANADIR_ACTIVIDAD.
+        /// </summary>
+        internal static string ProcedimientoAnadirActividad {
+            get {
+                return ResourceManager.GetString("ProcedimientoAnadirActividad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CONSULTAR_ACTIVIDADES.
+        /// </summary>
+        internal static string ProcedimientoConsultarActividades {
+            get {
+                return ResourceManager.GetString("ProcedimientoConsultarActividades", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CONSULTAR_FERIADOS.
         /// </summary>
         internal static string ProcedimientoConsultarFeriados {
@@ -310,6 +382,15 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes {
         internal static string ProcedimientoConsultarIncidentesTodos {
             get {
                 return ResourceManager.GetString("ProcedimientoConsultarIncidentesTodos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ELIMINAR_ACTIVIDAD.
+        /// </summary>
+        internal static string ProcedimientoEliminarActividad {
+            get {
+                return ResourceManager.GetString("ProcedimientoEliminarActividad", resourceCulture);
             }
         }
     }

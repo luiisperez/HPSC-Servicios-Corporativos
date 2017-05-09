@@ -631,9 +631,12 @@
     <Compile Include="Controlador\ModuloIncidentes\ActualizarFechaAtencion.cs" />
     <Compile Include="Controlador\ModuloIncidentes\ActualizarFechaConclusion.cs" />
     <Compile Include="Controlador\ModuloIncidentes\AgregarIncidente.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\AnadirActividad.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\ConsultarActividades.cs" />
     <Compile Include="Controlador\ModuloIncidentes\ConsultarFeriados.cs" />
     <Compile Include="Controlador\ModuloIncidentes\ConsultarIncidentesCliente.cs" />
     <Compile Include="Controlador\ModuloIncidentes\ConsultarIncidentesTodos.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\EliminarActividad.cs" />
     <Compile Include="Controlador\ModuloIncidentes\EnviarCorreoIncidenteRegistrado.cs" />
     <Compile Include="Controlador\ModuloClientes\AgregarCliente.cs" />
     <Compile Include="Controlador\ModuloClientes\ConsultarClientes.cs" />
@@ -750,6 +753,7 @@
       <DependentUpon>RecursoMail.resx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Comun\ResultadoBD.cs" />
+    <Compile Include="Modelo\Objetos\Actividad.cs" />
     <Compile Include="Modelo\Objetos\Aliado.cs" />
     <Compile Include="Modelo\Objetos\Cliente.cs" />
     <Compile Include="Modelo\Objetos\Contrato.cs" />

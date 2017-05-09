@@ -105,8 +105,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
                         ConsultarServicios cmd = FabricaComando.ComandoConsultarServicios();
                         cmd.ejecutar();
                         listado = cmd.servicios;
-                        repPeople.DataSource = listado;
-                        repPeople.DataBind();
+                        if (listado.Count != 0)
+                        {
+                            repPeople.DataSource = listado;
+                            repPeople.DataBind();
+                        }
                     }
                     catch (Exception ex)
                     {

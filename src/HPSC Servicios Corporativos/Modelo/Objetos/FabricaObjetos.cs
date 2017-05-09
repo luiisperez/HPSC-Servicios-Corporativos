@@ -161,9 +161,24 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
             return new Aliado(_correo, _nombre, _direccion, _usuario, _contrasena, _rol);
         }
 
-        internal static List<Aliado> CrearListaAliados()
+        public static List<Aliado> CrearListaAliados()
         {
             return new List<Aliado>();
+        }
+
+        public static Actividad CrearActividad(String _actividad, DateTime _inicio, DateTime _fin, String _empleado)
+        {
+            return new Actividad(_actividad, _inicio, _fin, _empleado);
+        }
+
+        public static Actividad CrearActividad(String _id, String _actividad, DateTime _inicio, DateTime _fin, String _empleado)
+        {
+            return new Actividad(_id, _actividad, _inicio, _fin, _empleado);
+        }
+
+        public static List<Actividad> CrearListaActividades()
+        {
+            return new List<Actividad>();
         }
 
         

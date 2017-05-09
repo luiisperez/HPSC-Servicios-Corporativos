@@ -181,11 +181,11 @@
                                         <div class=col-lg-12 style=margin-top:20px;font-size:15px> 
                                             <div class=col-md-4> 
                                                 <label> <u>Fecha de atención: </u></label>
-                                                <input id="fechaatencio" runat="server" type='datetime-local' max="2100-12-31" class="form-control" oninvalid="alert('Debe colocar una fecha de inicio válida');setCustomValidity(' ')">
+                                                <input id="fechaatencio" runat="server" class="form-control" type="text" disabled="disabled">
                                             </div> 
                                             <div class=col-md-4> 
                                                 <label> <u>Fecha de conclusión: </u></label>
-                                                <input id="fechaconclusion" runat="server" type='datetime-local' max="2100-12-31" class="form-control" oninvalid="alert('Debe colocar una fecha de inicio válida');setCustomValidity(' ')">
+                                                <input id="fechaconclusio" runat="server" type="text" class="form-control" disabled="disabled">
                                             </div> 
                                             <div class=col-md-4> 
                                                 <style>
@@ -256,25 +256,59 @@
                                             <label> <u>Descripción: </u></label>
                                             <asp:Label ID="descripcion" runat="server" Text="Label" Font-Bold="True"></asp:Label>
                                         </div>
-                                <div style="margin-top:10px;text-align:center">
-                                    <style>
-                                        #aceptar {
-                                            background-color: #4CAF50;
-                                            color: white;
-                                            padding: 14px 20px;
-                                            margin: 8px 0;
-                                            margin-top:60px;
-                                            margin-left:-30px;
-                                            border: none;
-                                            cursor: pointer;
-                                            width: 125px;
-                                            border-radius: 15px;
-                                            font-family: 'Raleway SemiBold';
-                                        }
-                                        }
-                                    </style>
-                                    <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
-                                </div>
+                                        <div class="col-lg-12" style="margin-top:10px;text-align:center">
+                                            <style>
+                                                #aceptar {
+                                                    background-color: #4CAF50;
+                                                    color: white;
+                                                    padding: 14px 20px;
+                                                    margin: 8px 0;
+                                                    margin-top:60px;
+                                                    margin-left:-30px;
+                                                    border: none;
+                                                    cursor: pointer;
+                                                    width: 100%;
+                                                    border-radius: 15px;
+                                                    font-family: 'Raleway SemiBold';
+                                                }
+                                                #atencion {
+                                                    background-color: #507389;
+                                                    color: white;
+                                                    padding: 14px 20px;
+                                                    margin: 8px 0;
+                                                    margin-top:60px;
+                                                    margin-left:-30px;
+                                                    border: none;
+                                                    cursor: pointer;
+                                                    width: 100%;
+                                                    border-radius: 15px;
+                                                    font-family: 'Raleway SemiBold';
+                                                }
+                                                #conclusion {
+                                                    background-color: #507389;
+                                                    color: white;
+                                                    padding: 14px 20px;
+                                                    margin: 8px 0;
+                                                    margin-top:60px;
+                                                    margin-left:-30px;
+                                                    border: none;
+                                                    cursor: pointer;
+                                                    width: 100%;
+                                                    border-radius: 15px;
+                                                    font-family: 'Raleway SemiBold';
+                                                }
+                                            </style>
+                                    
+                                            <div class=col-md-4> 
+                                                <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
+                                            </div>
+                                            <div class=col-md-4> 
+                                                <input type="button" value="Colocar fecha de atención" id="atencion" onclick="fechaatencion()">
+                                            </div>
+                                            <div class=col-md-4>
+                                                <input type="button" value="Colocar fecha de conclusión" id="conclusion" onclick="fechaconclusion()">
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <label class="accordion">Datos del equipo</label>
@@ -290,6 +324,96 @@
                                     <label class="accordion">Datos del servicio</label>
                                     <div class="panel" id="accordion_servicio" runat="server">
 
+                                    </div>
+
+                                    <label class="accordion">Gestión de actividades</label>
+                                    <div class="panel" id="accordion_actividades" runat="server">
+                                        <div class="col-lg-12" style="margin-top:20px;font-size:15px"> 
+                                            <div class="col-md-3"> 
+                                                <label> <u>Actividad: </u></label>
+                                                <asp:DropDownList ID="tipoactividades" runat="server" class="form-control" Height="30px" Width="100%">
+                                                    <asp:ListItem>Conferencia telefónica</asp:ListItem>
+                                                    <asp:ListItem>Diagnóstico en sitio</asp:ListItem>
+                                                    <asp:ListItem>Diagnóstico remoto</asp:ListItem>
+                                                    <asp:ListItem>Entrenamiento</asp:ListItem>
+                                                    <asp:ListItem>Estudio</asp:ListItem>
+                                                    <asp:ListItem>Mantenimiento</asp:ListItem>
+                                                    <asp:ListItem>Reparación</asp:ListItem>
+                                                    <asp:ListItem>Reunión con el cliente</asp:ListItem>
+                                                    <asp:ListItem>Soporte remoto</asp:ListItem>
+                                                    <asp:ListItem>Traslado de ida</asp:ListItem>
+                                                    <asp:ListItem>Traslado de regreso</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div> 
+                                            <div class="col-md-3"> 
+                                                <label> <u>Fecha/Hora de inicio: </u></label>
+                                                <input id="fechahorainiact" runat="server" type='datetime-local' class="form-control" >
+                                            </div> 
+                                            <div class="col-md-3"> 
+                                                <label> <u>Fecha/Hora de finalización: </u></label>
+                                                <input id="fechahorafinact" runat="server" type='datetime-local' class="form-control">
+                                            </div> 
+                                            <%--<asp:updatepanel runat="server">
+                                                <ContentTemplate>--%>
+                                                    <div class="col-md-3"> 
+                                                        <style>
+                                                            #anadir {
+                                                                background-color: #4CAF50;
+                                                                color: white;
+                                                                padding: 1px 20px;
+                                                                margin: 8px 0;
+                                                                margin-top:25px;
+                                                                margin-left: 0px;
+                                                                border: none;
+                                                                cursor: pointer;
+                                                                width: 80%;
+                                                                height: 35px;
+                                                                border-radius: 10px;
+                                                                font-family: 'Raleway SemiBold';
+                                                            }
+                                                        </style>
+                                                        <asp:Button ID="anadir" runat="server" Text="Añadir" CssClass="btn-success" OnClick="anadir_Click" />
+                                                    </div> 
+                                                    <div class="col-lg-12" style="margin-top:20px;font-size:15px;margin-bottom:20px"> 
+                                                        <table id="tabla" class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Actividad</th>
+                                                                    <th>Fecha y hora de inicio</th>
+                                                                    <th>Fecha y hora de finalización</th>
+                                                                    <th>Realizada por: </th>
+                                                                    <th>Opciones</th>
+                                                                </tr>
+                                                            </thead>
+                                                                <tbody id="contenidotabla">
+                                                                     <asp:Repeater ID="repact" runat="server" OnItemCommand="rep_ItemCommand">
+                                                                        <ItemTemplate>
+                                                                            <tr id="<%# Eval("id") %>">
+                                                                                <td><asp:Label ID="identificador" runat="server" Text='<%# Eval("id") %>' ReadOnly="True" BorderStyle="None" Visible="false"/> <%# Eval("actividad") %></td>
+                                                                                <td><%# Eval("fechahorainicio") %></td>
+                                                                                <td><%# Eval("fechahorafin") %></td>
+                                                                                <td><asp:Label ID="name" runat="server" Text='<%# Eval("empleado") %>' ReadOnly="True" BorderStyle="None" BackColor="Transparent"/></td>
+                                                                                <td style="text-align:center">
+                                                                                    <asp:ImageButton ID="Eliminar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/eliminar.ico" Height="25px" Width="25px" ToolTip="Eliminar actividad" />
+                                                                                </td>
+                                                                            </tr>              
+                                                                        </ItemTemplate>
+                                                                     </asp:Repeater>
+                                                                </tbody>  
+                                                            <tfoot>
+                                                                <tr>
+                                                                    <th>Actividad</th>
+                                                                    <th>Fecha y hora de inicio</th>
+                                                                    <th>Fecha y hora de finalización</th>
+                                                                    <th>Realizada por: </th>
+                                                                    <th>Opciones</th>
+                                                                </tr>
+                                                            </tfoot>
+                                                        </table>
+                                                    </div>
+                                                <%--</ContentTemplate>
+                                            </asp:updatepanel>--%>
+                                        </div> 
                                     </div>
                                 </div>
                                 <!-- /.box-body -->
@@ -342,8 +466,6 @@
         }
 
         today = yyyy + '-' + mm + '-' + dd;
-        document.getElementById("fechaatencion").setAttribute("min", today);
-        document.getElementById("fechaconclusion").setAttribute("min", today);
     </script>
 
 
@@ -364,6 +486,52 @@
         }
     </script>
 
+    <script>
+        function formatAMPM(date) {
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+            return strTime;
+        }
+        function fechaconclusion() {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+
+            today = dd + '/' + mm + '/' + yyyy;
+            var today2 = formatAMPM(new Date());
+            today = today + " " + today2;
+            document.getElementById('<%=fechaconclusio.ClientID%>').value = today;
+        }
+        function fechaatencion() {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+
+            today = dd + '/' + mm + '/' + yyyy;
+            var today2 = formatAMPM(new Date());
+            today = today + " " + today2;
+            document.getElementById('<%=fechaatencio.ClientID%>').value = today;
+        }
+    </script>
 </body>
 
 </html>

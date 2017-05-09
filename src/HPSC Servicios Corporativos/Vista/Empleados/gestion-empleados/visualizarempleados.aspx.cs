@@ -113,8 +113,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_empleados
                                 listadosineliminadosniadmin.Add(empleado);
                             }
                         }
-                        repPeople.DataSource = listadosineliminadosniadmin;
-                        repPeople.DataBind();
+                        if (listadosineliminadosniadmin.Count != 0)
+                        {
+                            repPeople.DataSource = listadosineliminadosniadmin;
+                            repPeople.DataBind();
+                        }
                     }
                     catch (Exception ex)
                     {

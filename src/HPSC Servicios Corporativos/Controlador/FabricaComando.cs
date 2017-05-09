@@ -303,7 +303,20 @@ namespace HPSC_Servicios_Corporativos.Controlador
             return new ActualizarAliEstImpUrg(_correo, _est, _imp, _urg, id);
         }
 
-        
+        public static ConsultarActividades ComandoConsultarActividades(String _id)
+        {
+            return new ConsultarActividades(_id);
+        }
+
+        public static AnadirActividad ComandoAnadirActividad(String _actividad, String _inicio, String _fin, String _empleado, String _idincidente)
+        {
+            return new AnadirActividad(_actividad, _inicio, _fin, _empleado, _idincidente);
+        }
+
+        public static EliminarActividad ComandoEliminarActividad(String _idact)
+        {
+            return new EliminarActividad(_idact);
+        }
         #endregion
 
         #region Aliado

@@ -8,6 +8,7 @@ using HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -124,11 +125,19 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                         if (consultado == null)
                         {
                             var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("No existe ningún incidente con ese identificador");
-                            var script = string.Format("alert({0});window.location ='/Vista/Clientes/gestion-incidentes/visualizarincidentes.aspx';", message);
+                            var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/incidentes.aspx';", message);
                             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
                         }
                         else
                         {
+                            ConsultarActividades command = FabricaComando.ComandoConsultarActividades(consultado.id);
+                            command.ejecutar();
+                            List<Actividad> list = command.listado;
+                            if (list.Count != 0)
+                            {
+                                repact.DataSource = list;
+                                repact.DataBind();
+                            }
                             ConsultarContratos comando = FabricaComando.ComandoConsultarContratos();
                             comando.ejecutar();
                             Contrato consul = FabricaObjetos.CrearContrato("", "", new DateTime(), new DateTime());
@@ -156,13 +165,13 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                             var fechafinservicio = "No aplica";
                             if (consultado.fechaatencion != new DateTime())
                             {
-                                fechaatencion = consultado.fechaatencion.ToString("yyyy-MM-dd HH:mm").Replace(' ', 'T');
+                                fechaatencion = consultado.fechaatencion.ToString("dd/MM/yyyy hh:mm tt");
                                 fechaatencio.Value = fechaatencion;
                             }
                             if (consultado.fechafinservicio != new DateTime())
                             {
-                                fechafinservicio = consultado.fechafinservicio.ToString("yyyy-MM-dd HH:mm").Replace(' ', 'T');
-                                fechaconclusion.Value = fechafinservicio;
+                                fechafinservicio = consultado.fechafinservicio.ToString("dd/MM/yyyy hh:mm tt");
+                                fechaconclusio.Value = fechafinservicio;
                             }
                             if ((consultado.aliado.Equals("")) && (!consultado.empleado.Equals("")))
                             {
@@ -211,9 +220,9 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                                 DateTime horafin = horaini.AddHours(serv.canthoras);
                                 horario = horaini.ToString("hh:mm tt") + " a las " + horafin.ToString("hh:mm tt");
                             }
-                            fecharegistro.Text = consultado.fecharegistro.ToString("dd/MM/yyyy HH:mm:ss tt");
-                            fechacompromiso.Text = consultado.fechacompromiso.ToString("dd/MM/yyyy HH:mm:ss tt");
-                            fecharequerida.Text = consultado.fecharequerida.ToString("dd/MM/yyyy HH:mm:ss tt");
+                            fecharegistro.Text = consultado.fecharegistro.ToString("dd/MM/yyyy hh:mm tt");
+                            fechacompromiso.Text = consultado.fechacompromiso.ToString("dd/MM/yyyy hh:mm tt");
+                            fecharequerida.Text = consultado.fecharequerida.ToString("dd/MM/yyyy hh:mm tt");
                             estatus.Text = consultado.estatus;
                             impacto.Text = consultado.impacto;
                             urgencia.Text = consultado.urgencia;
@@ -373,13 +382,14 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
             {
                 if (!fechaatencio.Value.Equals(""))
                 {
-                    DateTime fechaten = Convert.ToDateTime(fechaatencio.Value);
+
+                    DateTime fechaten = DateTime.ParseExact(fechaatencio.Value, "dd/MM/yyyy hh:mm tt", CultureInfo.InvariantCulture);
                     ActualizarFechaAtencion cmd = FabricaComando.ComandoActualizarFechaAtencion(fechaten.ToString(), (String)Session["incidente"]);
                     cmd.ejecutar();
                 }
-                if (!fechaconclusion.Value.Equals(""))
+                if (!fechaconclusio.Value.Equals(""))
                 {
-                    DateTime conclufecha = Convert.ToDateTime(fechaconclusion.Value);
+                    DateTime conclufecha = DateTime.ParseExact(fechaconclusio.Value, "dd/MM/yyyy hh:mm tt", CultureInfo.InvariantCulture);
                     ActualizarFechaConclusion cmd = FabricaComando.ComandoActualizarFechaConclusion(conclufecha.ToString(), (String)Session["incidente"]);
                     cmd.ejecutar();
                 }
@@ -416,6 +426,134 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
         protected void cancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Vista/Empleados/gestion-equipos/visualizarequipos.aspx");
+        }
+
+        protected void anadir_Click(object sender, EventArgs e)
+        {
+            if ((!fechahorainiact.Value.Equals("")) && (!fechahorafinact.Value.Equals("")))
+            {
+                DateTime ini = Convert.ToDateTime(fechahorainiact.Value);
+                DateTime fin = Convert.ToDateTime(fechahorafinact.Value);
+                if (fin > ini)
+                {
+                    ConsultarIncidentesTodos comd = FabricaComando.ComandoConsultarIncidentesTodos();
+                    comd.ejecutar();
+                    listado = comd.listado;
+                    Incidente consultado = null;
+                    foreach (Incidente item in listado)
+                    {
+                        if (item.id.Equals(incidente))
+                        {
+                            consultado = item;
+                        }
+                    }
+                    if ((ini >= consultado.fecharegistro) && (fin >= consultado.fecharegistro))
+                    {
+                        ConsultarActividades com = FabricaComando.ComandoConsultarActividades(incidente);
+                        com.ejecutar();
+                        List<Actividad> lista = com.listado;
+                        bool verdad = false;
+                        foreach (Actividad item in lista)
+                        {
+                            if ((ini >= item.fechahorainicio) && (ini < item.fechahorafin) && (item.empleado.Equals(emp.nombre + " " + emp.apellido)))
+                            {
+                                verdad = true;
+                            }
+                        }
+                        if (!verdad)
+                        {
+                            try
+                            {
+                                AnadirActividad cmd = FabricaComando.ComandoAnadirActividad(tipoactividades.Text, fechahorainiact.Value, fechahorafinact.Value, emp.correo, incidente);
+                                cmd.ejecutar();
+                                //string script = "alert(\"Se ha registrado la actividad exitosamente en el sistema\");";
+                                //ScriptManager.RegisterStartupScript(this, GetType(),
+                                //                        "ServerControlScript", script, true);
+                                var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha registrado la actividad exitosamente en el sistema");
+                                var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/detallesincidente.aspx';", message);
+                                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                                ConsultarActividades command = FabricaComando.ComandoConsultarActividades(incidente);
+                                command.ejecutar();
+                                List<Actividad> list = command.listado;
+                                if (list.Count != 0)
+                                {
+                                    repact.DataSource = list;
+                                    repact.DataBind();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                string script = "alert(\"No se ha podido registrar, por favor intente nuevamente\");";
+                                ScriptManager.RegisterStartupScript(this, GetType(),
+                                                        "ServerControlScript", script, true);
+                            }
+                        }
+                        else
+                        {
+                            string script = "alert(\"Existe un error de solapamiento de horas, la actividad que deseas cargar tiene conflicto con otra ya registrada\");";
+                            ScriptManager.RegisterStartupScript(this, GetType(),
+                                                    "ServerControlScript", script, true);
+                        }
+                    }
+                    else
+                    {
+                        string script = "alert(\"La fecha de inicio o la de finalización no debe ser antes que la fecha actual, por favor revise\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                                "ServerControlScript", script, true);
+                    }
+                }
+                else
+                {
+                    string script = "alert(\"La fecha de finalización no debe ser antes que la de inicio, por favor revise\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                }
+            }
+            else
+            {
+                string script = "alert(\"Existen campos vacíos, por favor revise todos los campos\");";
+                ScriptManager.RegisterStartupScript(this, GetType(),
+                                        "ServerControlScript", script, true);
+            }
+        }
+
+        protected void rep_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            ImageButton botonpresionado = (ImageButton)e.CommandSource;
+            if (botonpresionado.ID.Equals("Eliminar"))
+            {
+                Label id = (Label)repact.Items[e.Item.ItemIndex].FindControl("identificador");
+                Label nombre = (Label)repact.Items[e.Item.ItemIndex].FindControl("name");
+                try
+                {
+                    if (nombre.Text.Equals(emp.nombre + " " + emp.apellido))
+                    {
+                        EliminarActividad cdm = FabricaComando.ComandoEliminarActividad(id.Text);
+                        cdm.ejecutar();
+                        ConsultarActividades command = FabricaComando.ComandoConsultarActividades(incidente);
+                        command.ejecutar();
+                        List<Actividad> list = command.listado;
+                        repact.DataSource = list;
+                        repact.DataBind();
+                        string script = "alert(\"Se ha eliminado la actividad exitosamente\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                                "ServerControlScript", script, true);
+                        Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-incidentes/detallesincidente.aspx");
+                    }
+                    else
+                    {
+                        string script = "alert(\"No se puede eliminar una actividad realizada por otra persona\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                                "ServerControlScript", script, true);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string script = "alert(\"No se ha podido eliminar, por favor intente nuevamente\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                }
+            }
         }
     }
 }

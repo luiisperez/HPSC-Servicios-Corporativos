@@ -145,16 +145,16 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl fechaatencio;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText fechaatencio;
         
         /// <summary>
-        /// fechaconclusion control.
+        /// fechaconclusio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl fechaconclusion;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText fechaconclusio;
         
         /// <summary>
         /// sm control.
@@ -272,5 +272,59 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl accordion_servicio;
+        
+        /// <summary>
+        /// accordion_actividades control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl accordion_actividades;
+        
+        /// <summary>
+        /// tipoactividades control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList tipoactividades;
+        
+        /// <summary>
+        /// fechahorainiact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl fechahorainiact;
+        
+        /// <summary>
+        /// fechahorafinact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl fechahorafinact;
+        
+        /// <summary>
+        /// anadir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button anadir;
+        
+        /// <summary>
+        /// repact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater repact;
     }
 }

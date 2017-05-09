@@ -229,4 +229,40 @@
     <value>MODIFICAR_FECHA_CONCLUSION</value>
     <comment>Procedimiento para actualizar la fecha de conclusión</comment>
   </data>
+  <data name="ac_fin" xml:space="preserve">
+    <value>@ac_fin</value>
+    <comment>Fecha y hora de fin de la actividad</comment>
+  </data>
+  <data name="ac_fk_empleado" xml:space="preserve">
+    <value>@ac_fk_empleado</value>
+    <comment>Empleado que realizó la actividad</comment>
+  </data>
+  <data name="ac_fk_incidente" xml:space="preserve">
+    <value>@ac_fk_incidente</value>
+    <comment>Id del incidente al que se le realizó una actividad</comment>
+  </data>
+  <data name="ac_inicio" xml:space="preserve">
+    <value>@ac_inicio</value>
+    <comment>Fecha y hora de inicio de la actividad</comment>
+  </data>
+  <data name="ac_tipo" xml:space="preserve">
+    <value>@ac_tipo</value>
+    <comment>Tipo de actividad</comment>
+  </data>
+  <data name="ProcedimientoAnadirActividad" xml:space="preserve">
+    <value>ANADIR_ACTIVIDAD</value>
+    <comment>Procedimiento para añadir una nueva actividad</comment>
+  </data>
+  <data name="ProcedimientoConsultarActividades" xml:space="preserve">
+    <value>CONSULTAR_ACTIVIDADES</value>
+    <comment>Procedimiento para consultar las actividades de un incidente</comment>
+  </data>
+  <data name="ac_id" xml:space="preserve">
+    <value>@ac_id</value>
+    <comment>Identificar de la actividad</comment>
+  </data>
+  <data name="ProcedimientoEliminarActividad" xml:space="preserve">
+    <value>ELIMINAR_ACTIVIDAD</value>
+    <comment>Procedimiento para eliminar una actividad</comment>
+  </data>
 </root>

@@ -553,5 +553,126 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes
                 throw exc;
             }
         }
+
+        public void AnadirActividad(String actividad, String inicio, String fin, String empleado, String id)
+        {
+            List<Parametro> listaParametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.ac_tipo, SqlDbType.VarChar, actividad, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.ac_inicio, SqlDbType.DateTime, inicio, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.ac_fin, SqlDbType.DateTime, fin, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.ac_fk_empleado, SqlDbType.VarChar, empleado, false));
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.ac_fk_incidente, SqlDbType.VarChar, id, false));
+                EjecutarStoredProcedure(RecursoDAO_Incidentes.ProcedimientoAnadirActividad, listaParametro);
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
+
+        public List<Actividad> ConsultarActividades(String id)
+        {
+            DataTable tablaDeDatos;
+            List<Actividad> listado = FabricaObjetos.CrearListaActividades();
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                parametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.ac_fk_incidente, SqlDbType.VarChar, id, false));
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoConsultarActividades, parametro);
+                Actividad actconsultada = null;
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        actconsultada = FabricaObjetos.CrearActividad(
+                                            row[0].ToString(),
+                                            row[1].ToString(),
+                                            Convert.ToDateTime(row[2].ToString()),
+                                            Convert.ToDateTime(row[3].ToString()),
+                                            row[4].ToString() + " " + row[5].ToString()
+                                        );
+                        listado.Add(actconsultada);
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return listado;
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
+
+        public void EliminarActividad(string idact)
+        {
+            List<Parametro> listaParametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                listaParametro.Add(FabricaDAO.asignarParametro(RecursoDAO_Incidentes.ac_id, SqlDbType.Int, idact, false));
+                EjecutarStoredProcedure(RecursoDAO_Incidentes.ProcedimientoEliminarActividad, listaParametro);
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
     }
 }

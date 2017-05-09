@@ -105,8 +105,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                         ConsultarIncidentesTodos cmd = FabricaComando.ComandoConsultarIncidentesTodos();
                         cmd.ejecutar();
                         listado = cmd.listado;
-                        rep.DataSource = listado;
-                        rep.DataBind();
+                        if (listado.Count != 0)
+                        {
+                            rep.DataSource = listado;
+                            rep.DataBind();
+                        }
                     }
                     catch (Exception ex)
                     {

@@ -106,8 +106,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_equipos
                         ConsultarEquiposTodos cmd = FabricaComando.ComandoConsultarEquiposTodos();
                         cmd.ejecutar();
                         listado = cmd.equipos;
-                        repPeople.DataSource = listado;
-                        repPeople.DataBind();
+                        if (listado.Count != 0)
+                        {
+                            repPeople.DataSource = listado;
+                            repPeople.DataBind();
+                        }
                     }
                     catch (Exception ex)
                     {

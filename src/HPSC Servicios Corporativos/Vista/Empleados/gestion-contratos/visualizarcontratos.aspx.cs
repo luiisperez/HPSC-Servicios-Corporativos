@@ -107,8 +107,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                         ConsultarContratos cmd = FabricaComando.ComandoConsultarContratos();
                         cmd.ejecutar();
                         contratos = cmd.contratos;
-                        repPeople.DataSource = contratos;
-                        repPeople.DataBind();
+                        if (contratos.Count != 0)
+                        {
+                            repPeople.DataSource = contratos;
+                            repPeople.DataBind();
+                        }
                     }
                     catch (Exception ex)
                     {

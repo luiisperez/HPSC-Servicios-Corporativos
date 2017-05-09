@@ -41,8 +41,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_contactos
                                 listadosineliminados.Add(persona);
                             }
                         }
-                        repPeople.DataSource = listadosineliminados;
-                        repPeople.DataBind();
+                        if (listadosineliminados.Count != 0)
+                        {
+                            repPeople.DataSource = listadosineliminados;
+                            repPeople.DataBind();
+                        }
                     }
                     catch (Exception ex)
                     {

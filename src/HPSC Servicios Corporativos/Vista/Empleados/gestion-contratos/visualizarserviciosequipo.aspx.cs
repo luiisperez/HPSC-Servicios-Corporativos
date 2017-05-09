@@ -138,8 +138,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                             ConsultarServiciosPorEquipo cmd = FabricaComando.ComandoConsultarServiciosPorEquipo(serial);
                             cmd.ejecutar();
                             listado = cmd.servicios;
-                            repPeople.DataSource = listado;
-                            repPeople.DataBind();
+                            if (listado.Count != 0)
+                            {
+                                repPeople.DataSource = listado;
+                                repPeople.DataBind();
+                            }
                         }
                     }
                     catch (Exception ex)
