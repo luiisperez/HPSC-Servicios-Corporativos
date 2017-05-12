@@ -350,6 +350,141 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_TOTAL.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentes {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_ATENDIDOS.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesAtendidos {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesAtendidos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_FINALIZADOS.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesFinalizados {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesFinalizados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_ICRITICO.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesICritico {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesICritico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_IMENOR.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesIMenor {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesIMenor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_IMODERADO.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesIModerado {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesIModerado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_IMPLEMENTACION.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesImplementacion {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesImplementacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_ISIGNIFICATIVO.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesISignificativo {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesISignificativo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_PREVENTIVO.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesPreventivo {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesPreventivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_REACTIVO.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesrReactivo {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesrReactivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_SIN_ATENDER.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesSinAtender {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesSinAtender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_UALTA.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesUAlta {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesUAlta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_UBAJA.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesUBaja {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesUBaja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_UCRITICA.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesUCritica {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesUCritica", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANTIDAD_INCIDENTES_UMEDIA.
+        /// </summary>
+        internal static string ProcedimientoCantidadIncidentesUMedia {
+            get {
+                return ResourceManager.GetString("ProcedimientoCantidadIncidentesUMedia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CONSULTAR_ACTIVIDADES.
         /// </summary>
         internal static string ProcedimientoConsultarActividades {

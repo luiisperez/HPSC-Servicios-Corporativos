@@ -9,6 +9,7 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
     {
         public String id { get; set; }
         public DateTime fecharegistro { get; set; }
+        public DateTime fecharegistroreal { get; set; }
         public DateTime fechacompromiso { get; set; }
         public DateTime fecharequerida { get; set; }
         public DateTime fechaatencion { get; set; }

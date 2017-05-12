@@ -95,15 +95,15 @@
 	                            <div class="form-bottom" >
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-email">Email</label>
-				                        <input type="text" name="form-email" placeholder="Correo electrónico..." class="form-email form-control" id="correoemp" runat="server" onblur="validarcorreo()" maxlength="50">
+				                        <input type="text" name="form-email" placeholder="Correo electrónico..." class="form-email form-control" id="correoemp" runat="server" onblur="validarcorreo()" maxlength="50" style="white-space: normal;">
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-first-name">First name</label>
-				                        <input type="text" name="form-first-name" placeholder="Primer nombre..." class="form-first-name form-control" id="nombreemp" runat="server" onblur="validarnombre()" maxlength="50">
+				                        <input type="text" name="form-first-name" placeholder="Primer nombre..." class="form-first-name form-control" id="nombreemp" runat="server" onblur="validarnombre()" maxlength="50" style="white-space: normal;">
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-last-name">Last name</label>
-				                        <input type="text" name="form-last-name" placeholder="Primer apellido..." class="form-last-name form-control" id="apellidoemp" runat="server" onblur="validarapellido()" maxlength="50"> 
+				                        <input type="text" name="form-last-name" placeholder="Primer apellido..." class="form-last-name form-control" id="apellidoemp" runat="server" onblur="validarapellido()" maxlength="50" style="white-space: normal;"> 
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-user">Usuario</label>
@@ -111,11 +111,11 @@
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-password">Contrasena</label>
-				                        <input type="password" name="form-password" placeholder="Contraseña..." class="form-password form-control" id="contrasenaemp" runat="server" onblur="validarcontrasena()" maxlength="50">
+				                        <input type="password" name="form-password" placeholder="Contraseña..." class="form-password form-control" id="contrasenaemp" runat="server" onblur="validarcontrasena()" maxlength="50" style="white-space: normal;">
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-val-password">VerificarContrasena</label>
-				                        <input type="password" name="form-val-password" placeholder="Verificar contraseña..." class="form-val-password form-control" id="verificarcontrasenaemp" runat="server" onblur="validarvalcontrasena()" maxlength="50">
+				                        <input type="password" name="form-val-password" placeholder="Verificar contraseña..." class="form-val-password form-control" id="verificarcontrasenaemp" runat="server" onblur="validarvalcontrasena()" maxlength="50" style="white-space: normal;">
 				                    </div>
                                     <%--=========================Estilo del boton aceptar=========================--%>
                                     <style>
@@ -134,6 +134,7 @@
                                             -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
                                             text-shadow: none;
                                             -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+                                            white-space: normal;
                                             -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
                                         }
 
@@ -162,6 +163,7 @@
                                             -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
                                             text-shadow: none;
                                             -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+                                            white-space: normal;
                                             -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
                                         }
 
@@ -185,27 +187,27 @@
 	                             <div class="form-bottom" >
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-email">Email</label>
-				                        <input type="text" name="form-email" placeholder="Correo electrónico..." class="form-email form-control" id="correocli" runat="server" onblur="validarcorreocli()" maxlength="50">
+				                        <input type="text" name="form-email" placeholder="Correo electrónico..." class="form-email form-control" id="correocli" runat="server" onblur="validarcorreocli()" maxlength="50" style="white-space: normal;">
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-company=name">Company name</label>
-				                        <input type="text" name="form-company-name" placeholder="Nombre de la empresa..." class="form-first-name form-control" id="nombrecli" runat="server" onblur="validarnombrecli()" maxlength="50">
+				                        <input type="text" name="form-company-name" placeholder="Nombre de la empresa..." class="form-first-name form-control" id="nombrecli" runat="server" onblur="validarnombrecli()" maxlength="50" style="white-space: normal;">
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-last-name">Location</label>
-				                        <input type="text" name="form-location" placeholder="Ubicación..." class="form-last-name form-control" id="direccioncli" runat="server" onblur="validardireccioncli()" maxlength="250">
+				                        <input type="text" name="form-location" placeholder="Ubicación..." class="form-last-name form-control" id="direccioncli" runat="server" onblur="validardireccioncli()" maxlength="250" style="white-space: normal;">
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-user">Usuario</label>
-				                        <input type="text" name="form-user" placeholder="Usuario..." class="form-user form-control" id="usuariocli" runat="server" onblur="validarusuariocli()" maxlength="15">
+				                        <input type="text" name="form-user" placeholder="Usuario..." class="form-user form-control" id="usuariocli" runat="server" onblur="validarusuariocli()" maxlength="15" style="white-space: normal;">
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-password">Contrasena</label>
-				                        <input type="password" name="form-password" placeholder="Contraseña..." class="form-password form-control" id="contrasenacli" runat="server" onblur="validarcontrasenacli()" maxlength="50">
+				                        <input type="password" name="form-password" placeholder="Contraseña..." class="form-password form-control" id="contrasenacli" runat="server" onblur="validarcontrasenacli()" maxlength="50" style="white-space: normal;">
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-val-password">VerificarContrasena</label>
-				                        <input type="password" name="form-val-password" placeholder="Verificar contraseña..." class="form-val-password form-control" id="contrasenavalcli" runat="server" onblur="validarvalcontrasenacli()" maxlength="50">
+				                        <input type="password" name="form-val-password" placeholder="Verificar contraseña..." class="form-val-password form-control" id="contrasenavalcli" runat="server" onblur="validarvalcontrasenacli()" maxlength="50" style="white-space: normal;">
 				                    </div>
                                     <%--=========================Estilo del boton aceptar=========================--%>
                                     <style>
@@ -224,6 +226,7 @@
                                             -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
                                             text-shadow: none;
                                             -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+                                            white-space: normal;
                                             -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
                                         }
 
@@ -252,6 +255,7 @@
                                             -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
                                             text-shadow: none;
                                             -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+                                            white-space: normal;
                                             -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
                                         }
 

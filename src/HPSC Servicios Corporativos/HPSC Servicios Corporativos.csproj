@@ -611,10 +611,8 @@
     <Content Include="Vista\Registro\assets\js\vitality.js" />
     <Content Include="Vista\Registro\borrarcuenta.aspx" />
     <Content Include="Vista\Registro\cambiopassword.aspx" />
-    <Content Include="Vista\Registro\index.html" />
     <Content Include="Vista\Registro\modificardatosempleado.aspx" />
     <Content Include="Vista\Registro\modificardatoscliente.aspx" />
-    <Content Include="Vista\Registro\prueba.aspx" />
     <Content Include="Vista\Registro\recuperacionpassword.aspx" />
     <Content Include="Vista\Registro\registro.aspx" />
     <Content Include="Vista\Registro\validarregistro.aspx" />
@@ -658,6 +656,10 @@
     <Compile Include="Controlador\ModuloEquipo\EliminarEquipo.cs" />
     <Compile Include="Controlador\ModuloEquipo\ModificarEquipo.cs" />
     <Compile Include="Controlador\ModuloEquipo\ValidacionDatosEquipos.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\EstadisticaCantidadIncidentesEstatus.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\EstadisticaCantidadIncidentesImpacto.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\EstadisticaCantidadIncidentesTipo.cs" />
+    <Compile Include="Controlador\ModuloIncidentes\EstadisticaCantidadIncidentesUrgencia.cs" />
     <Compile Include="Controlador\ModuloPersonaContacto\AgregarPersonaContacto.cs" />
     <Compile Include="Controlador\ModuloPersonaContacto\ConsultarPersonaContacto.cs" />
     <Compile Include="Controlador\ModuloPersonaContacto\ConsultarPersonasContactoPorCliente.cs" />
@@ -1048,13 +1050,6 @@
     </Compile>
     <Compile Include="Vista\Registro\modificardatoscliente.aspx.designer.cs">
       <DependentUpon>modificardatoscliente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\Registro\prueba.aspx.cs">
-      <DependentUpon>prueba.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\Registro\prueba.aspx.designer.cs">
-      <DependentUpon>prueba.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Registro\recuperacionpassword.aspx.cs">
       <DependentUpon>recuperacionpassword.aspx</DependentUpon>

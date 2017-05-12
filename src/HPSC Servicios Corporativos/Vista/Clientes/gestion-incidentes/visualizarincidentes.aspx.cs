@@ -1,5 +1,6 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador;
 using HPSC_Servicios_Corporativos.Controlador.ModuloIncidentes;
+using HPSC_Servicios_Corporativos.Controlador.ModuloServicios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,14 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_incidentes
                         listado = cmd.listado;
                         if (listado.Count != 0)
                         {
+                            foreach (Incidente item in listado)
+                            {
+                                ConsultarServicio comm = FabricaComando.ComandoConsultarServicio(item.servicio);
+                                comm.ejecutar();
+                                Servicio serv = comm.servicioconsultado;
+                                int horasresta = (-1) * serv.tiemporespuesta;
+                                item.fecharegistroreal = item.fechacompromiso.AddHours(horasresta);
+                            }
                             rep.DataSource = listado;
                             rep.DataBind();
                         }

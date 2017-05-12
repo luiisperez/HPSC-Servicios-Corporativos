@@ -265,4 +265,64 @@
     <value>ELIMINAR_ACTIVIDAD</value>
     <comment>Procedimiento para eliminar una actividad</comment>
   </data>
+  <data name="ProcedimientoCantidadIncidentes" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_TOTAL</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesAtendidos" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_ATENDIDOS</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes atendidos</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesFinalizados" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_FINALIZADOS</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes finalizados</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesICritico" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_ICRITICO</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes de impacto crítico</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesIMenor" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_IMENOR</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes de impacto menor</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesIModerado" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_IMODERADO</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes de impacto moderado</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesImplementacion" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_IMPLEMENTACION</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes de tipo implementación</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesISignificativo" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_ISIGNIFICATIVO</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes de impacto significativo</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesPreventivo" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_PREVENTIVO</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes de tipo preventivo</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesrReactivo" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_REACTIVO</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes de tipo reactivo</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesSinAtender" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_SIN_ATENDER</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes sin atender</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesUAlta" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_UALTA</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes de urgencia alta</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesUBaja" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_UBAJA</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes de urgencia baja</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesUCritica" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_UCRITICA</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes de urgencia crítica</comment>
+  </data>
+  <data name="ProcedimientoCantidadIncidentesUMedia" xml:space="preserve">
+    <value>CANTIDAD_INCIDENTES_UMEDIA</value>
+    <comment>Procedimiento para consultar la cantidad de incidentes de urgencia media</comment>
+  </data>
 </root>

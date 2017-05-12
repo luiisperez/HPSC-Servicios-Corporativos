@@ -1,4 +1,6 @@
-﻿using HPSC_Servicios_Corporativos.Modelo.Objetos;
+﻿using HPSC_Servicios_Corporativos.Controlador;
+using HPSC_Servicios_Corporativos.Controlador.ModuloIncidentes;
+using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,9 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados
     public partial class administracionHPSC : System.Web.UI.Page
     {
         public Empleado emp;
+        public String datatipo = "";
+        public String dataurgencia = "";
+        public String dataimpacto = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             HttpContext.Current.Response.AddHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -90,6 +95,15 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados
                                     "<a href=\"/Vista/Empleados/gestion-contactos/visualizarpersonascontacto.aspx\">Visualizar</a>" +
                                "</li>" +
                             "</ul>";
+                        zonaincidentes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#incidentes\" id=\"incidente\" runat=\"server\"><i class=\"fa fa fa-warning\"></i> Incidentes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"incidentes\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a href=\"/Vista/Empleados/gestion-incidentes/agregarincidente.aspx\">Agregar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-incidentes/incidentes.aspx\">Visualizar</a>" +
+                                "</li>" +
+                            "</ul>";
                     }
                     else
                     {
@@ -97,6 +111,29 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados
                         zonaclientes.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-briefcase\"></i> Clientes  <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
                         Response.Redirect("~/Vista/Empleados/administracionHPSC.aspx");
                     }
+                    EstadisticaCantidadIncidentesEstatus cmd = FabricaComando.ComandoConsultarEstadisticaCantidadIncidentesEstatus();
+                    cmd.ejecutar();
+                    EstadisticaCantidadIncidentesImpacto _cmd = FabricaComando.ComandoConsultarEstadisticaCantidadIncidentesImpacto();
+                    _cmd.ejecutar();
+                    EstadisticaCantidadIncidentesTipo __cmd = FabricaComando.ComandoConsultarEstadisticaCantidadIncidentesTipo();
+                    __cmd.ejecutar();
+                    EstadisticaCantidadIncidentesUrgencia ___cmd = FabricaComando.ComandoConsultarEstadisticaCantidadIncidentesUrgencia();
+                    ___cmd.ejecutar();
+                    casosregistrados.InnerHtml = cmd.listado[0];
+                    casosatendidos.InnerHtml = cmd.listado[1];
+                    casosnoatendidos.InnerHtml = cmd.listado[2];
+                    casosresueltos.InnerHtml = cmd.listado[3];
+                    datatipo = "{ label: \"Preventivo\", value: " + __cmd.listado[1] + " }," +
+                               "{ label: \"Reactivo\", value: " + __cmd.listado[0] + " }," +
+                               "{ label: \"Implementación\", value: " + __cmd.listado[2] + " },";
+                    dataimpacto = "{ label: \"Crítico\", value: " + _cmd.listado[0] + " }," +
+                                  "{ label: \"Significativo\", value: " + _cmd.listado[1] + " }," +
+                                  "{ label: \"Moderado\", value: " + _cmd.listado[2] + " }," +
+                                  "{ label: \"Menor\", value: " + _cmd.listado[3] + " },";
+                    dataurgencia = "{ label: \"Crítica\", value: " + ___cmd.listado[0] + " }," +
+                                   "{ label: \"Alta\", value: " + ___cmd.listado[1] + " }," +
+                                   "{ label: \"Media\", value: " + ___cmd.listado[2] + " }," +
+                                   "{ label: \"Baja\", value: " + ___cmd.listado[3] + " },";
                 }
                 catch
                 {

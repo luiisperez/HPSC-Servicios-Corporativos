@@ -145,16 +145,16 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText fechaatencio;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl fechaatencio;
         
         /// <summary>
-        /// fechaconclusio control.
+        /// fechaconclusion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText fechaconclusio;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl fechaconclusion;
         
         /// <summary>
         /// sm control.

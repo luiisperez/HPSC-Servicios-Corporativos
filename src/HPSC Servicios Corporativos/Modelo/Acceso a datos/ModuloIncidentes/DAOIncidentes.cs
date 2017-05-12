@@ -674,5 +674,356 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes
                 throw exc;
             }
         }
+
+        public List<String> ConsultarIncidentesPorEstatus()
+        {
+            DataTable tablaDeDatos;
+            DataTable tablaDeDatos1;
+            DataTable tablaDeDatos2;
+            DataTable tablaDeDatos3;
+            List<String> listado = new List<String>();
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentes, parametro);
+                tablaDeDatos1 = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesAtendidos, parametro);
+                tablaDeDatos2 = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesSinAtender, parametro);
+                tablaDeDatos3 = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesFinalizados, parametro);
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row["TOTALINCIDENTES"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                foreach (DataRow row in tablaDeDatos1.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row["ATENDIDOS"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                foreach (DataRow row in tablaDeDatos2.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row["SIN_ATENDER"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                foreach (DataRow row in tablaDeDatos3.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row["FINALIZADOS"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return listado;
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
+
+        public List<String> ConsultarIncidentesPorTipo()
+        {
+            DataTable tablaDeDatos;
+            DataTable tablaDeDatos1;
+            DataTable tablaDeDatos2;
+            List<String> listado = new List<String>();
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesrReactivo, parametro);
+                tablaDeDatos1 = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesPreventivo, parametro);
+                tablaDeDatos2 = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesImplementacion, parametro);
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row[0].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                foreach (DataRow row in tablaDeDatos1.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row[0].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                foreach (DataRow row in tablaDeDatos2.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row[0].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return listado;
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
+
+        public List<String> ConsultarIncidentesPorUrgencia()
+        {
+            DataTable tablaDeDatos;
+            DataTable tablaDeDatos1;
+            DataTable tablaDeDatos2;
+            DataTable tablaDeDatos3;
+            List<String> listado = new List<String>();
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesUCritica, parametro);
+                tablaDeDatos1 = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesUAlta, parametro);
+                tablaDeDatos2 = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesUMedia, parametro);
+                tablaDeDatos3 = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesUBaja, parametro);
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row[0].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                foreach (DataRow row in tablaDeDatos1.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row[0].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                foreach (DataRow row in tablaDeDatos2.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row[0].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                foreach (DataRow row in tablaDeDatos3.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row[0].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return listado;
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
+
+        public List<String> ConsultarIncidentesPorImpacto()
+        {
+            DataTable tablaDeDatos;
+            DataTable tablaDeDatos1;
+            DataTable tablaDeDatos2;
+            DataTable tablaDeDatos3;
+            List<String> listado = new List<String>();
+            List<Parametro> parametro = FabricaDAO.asignarListaDeParametro();
+
+            try
+            {
+                tablaDeDatos = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesICritico, parametro);
+                tablaDeDatos1 = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesISignificativo, parametro);
+                tablaDeDatos2 = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesIModerado, parametro);
+                tablaDeDatos3 = EjecutarStoredProcedureTuplas(RecursoDAO_Incidentes.ProcedimientoCantidadIncidentesIMenor, parametro);
+                foreach (DataRow row in tablaDeDatos.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row[0].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                foreach (DataRow row in tablaDeDatos1.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row[0].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                foreach (DataRow row in tablaDeDatos2.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row[0].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                foreach (DataRow row in tablaDeDatos3.Rows)
+                {
+                    try
+                    {
+                        listado.Add(row[0].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+
+
+                }
+                return listado;
+            }
+            catch (SqlException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 001: Ha ocurrido un error a nível de base de datos, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (NullReferenceException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 101: Ha ocurrido un error con una referencia nula internamente, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (ArgumentNullException ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 231: Ha ocurrido un error con un argumento nulo, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+            catch (Exception ex)
+            {
+                ExcepcionesHPSC exc = new ExcepcionesHPSC("Error 404: Ha ocurrido un error desconocido, si el error persiste por favor comuníquese con el administrador", ex);
+                throw exc;
+            }
+        }
+
+
     }
 }

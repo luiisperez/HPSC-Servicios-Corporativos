@@ -55,18 +55,20 @@
             font-weight: bold;
             float: right;
             margin-left: 5px;
+            max-height: 2000px;
         }
 
         label.accordion.active:after {
             content: "\2212";
+            max-height: 2000px;
         }
 
         div.panel {
             padding: 0 18px;
             background-color: white;
-            max-height: 0;
             overflow: hidden;
             transition: max-height 0.2s ease-out;
+            max-height: 0px;
         }
     </style>
 </head>
@@ -132,7 +134,7 @@
                             
                         </li>
                         <li id="zonaincidentes" runat="server">
-                            <a href="#"><i class="fa fa fa-warning"></i> Incidentes</a>
+                             
                         </li>
                     </ul>
                 </div>
@@ -158,7 +160,7 @@
                             <div class="box">
                                 <div class="box-body">
                                     <label class="accordion" >Datos del incidente</label>
-                                    <div class="panel" id="accordion_incidente" runat="server">
+                                    <div class="panel" id="accordion_incidente" runat="server" style="height:170%">
                                         <div class=col-lg-12 style=margin-top:20px;font-size:15px> 
                                             <div class=col-md-4> 
                                                 <style>
@@ -181,11 +183,11 @@
                                         <div class=col-lg-12 style=margin-top:20px;font-size:15px> 
                                             <div class=col-md-4> 
                                                 <label> <u>Fecha de atención: </u></label>
-                                                <input id="fechaatencio" runat="server" class="form-control" type="text" disabled="disabled">
+                                                <input id="fechaatencio" runat="server" type='datetime-local' max="2100-12-31" class="form-control" oninvalid="alert('Debe colocar una fecha de inicio válida');setCustomValidity(' ')">
                                             </div> 
                                             <div class=col-md-4> 
                                                 <label> <u>Fecha de conclusión: </u></label>
-                                                <input id="fechaconclusio" runat="server" type="text" class="form-control" disabled="disabled">
+                                                <input id="fechaconclusion" runat="server" type='datetime-local' max="2100-12-31" class="form-control" oninvalid="alert('Debe colocar una fecha de inicio válida');setCustomValidity(' ')">
                                             </div> 
                                             <div class=col-md-4> 
                                                 <style>
@@ -270,6 +272,7 @@
                                                     width: 100%;
                                                     border-radius: 15px;
                                                     font-family: 'Raleway SemiBold';
+                                                    white-space: normal;
                                                 }
                                                 #atencion {
                                                     background-color: #507389;
@@ -283,6 +286,7 @@
                                                     width: 100%;
                                                     border-radius: 15px;
                                                     font-family: 'Raleway SemiBold';
+                                                    white-space: normal;
                                                 }
                                                 #conclusion {
                                                     background-color: #507389;
@@ -296,18 +300,19 @@
                                                     width: 100%;
                                                     border-radius: 15px;
                                                     font-family: 'Raleway SemiBold';
+                                                    white-space: normal;
                                                 }
                                             </style>
                                     
-                                            <div class=col-md-4> 
+                                            <%--<div class=col-md-4>--%> 
                                                 <asp:Button ID="aceptar" runat="server" Text="Aceptar" CssClass="btn-success" OnClick="aceptar_Click" />
-                                            </div>
+                                            <%--</div>
                                             <div class=col-md-4> 
                                                 <input type="button" value="Colocar fecha de atención" id="atencion" onclick="fechaatencion()">
                                             </div>
                                             <div class=col-md-4>
                                                 <input type="button" value="Colocar fecha de conclusión" id="conclusion" onclick="fechaconclusion()">
-                                            </div>
+                                            </div>--%>
                                         </div>
                                     </div>
 
@@ -370,6 +375,7 @@
                                                                 height: 35px;
                                                                 border-radius: 10px;
                                                                 font-family: 'Raleway SemiBold';
+                                                                white-space: normal;
                                                             }
                                                         </style>
                                                         <asp:Button ID="anadir" runat="server" Text="Añadir" CssClass="btn-success" OnClick="anadir_Click" />
@@ -487,7 +493,7 @@
     </script>
 
     <script>
-        function formatAMPM(date) {
+<%--        function formatAMPM(date) {
             var hours = date.getHours();
             var minutes = date.getMinutes();
             var ampm = hours >= 12 ? 'PM' : 'AM';
@@ -530,7 +536,7 @@
             var today2 = formatAMPM(new Date());
             today = today + " " + today2;
             document.getElementById('<%=fechaatencio.ClientID%>').value = today;
-        }
+        }--%>
     </script>
 </body>
 

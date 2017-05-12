@@ -95,7 +95,7 @@
                             
                         </li>
                         <li id="zonaincidentes" runat="server">
-                            <a href="#"><i class="fa fa fa-warning"></i> Incidentes</a>
+                             
                         </li>
                     </ul>
                 </div>
@@ -120,11 +120,13 @@
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-body">
-                                    <table id="tabla" class="table table-bordered table-striped">
+                                <div class="table-responsive"> 
+                                    <table id="tabla" class="table table-bordered table-striped table-hover dt-responsive">
                                         <thead>
                                             <tr>
                                                 <th>N° de incidente</th>
                                                 <th>Fecha de registro</th>
+                                                <th>Fecha de registro en sistema</th>
                                                 <th>Fecha de compromiso</th>
                                                 <th>Estatus</th>
                                                 <th>Opciones</th>
@@ -136,6 +138,7 @@
                                                             <tr id="<%# Eval("id") %>">
                                                                 <td><asp:Label ID="identificador" runat="server" Text='<%# Eval("id") %>' ReadOnly="True" BorderStyle="None" /></td>
                                                                 <td><%# Eval("fecharegistro") %></td>
+                                                                <td><%# Eval("fecharegistroreal") %></td>
                                                                 <td><%# Eval("fechacompromiso") %></td>
                                                                 <td><%# Eval("estatus") %></td>
                                                                 <td style="text-align:center">
@@ -149,12 +152,14 @@
                                             <tr>
                                                 <th>N° de incidente</th>
                                                 <th>Fecha de registro</th>
+                                                <th>Fecha de registro en sistema</th>
                                                 <th>Fecha de compromiso</th>
                                                 <th>Estatus</th>
                                                 <th>Opciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>
+                                </div>
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -189,7 +194,9 @@
     <!-- DataTables -->
     <script src="/Vista/Common/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/Vista/Common/plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <script>table = $('#tabla').DataTable();</script>
+    <script>
+        table = $('#tabla').DataTable();
+    </script>
 
 
     <script>

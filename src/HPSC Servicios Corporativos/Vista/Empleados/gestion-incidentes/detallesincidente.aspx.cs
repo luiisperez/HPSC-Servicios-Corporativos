@@ -39,6 +39,15 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                 {
                     if (Int32.Parse(emp.rol) >= 20)
                     {
+                        zonaincidentes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#incidentes\" id=\"incidente\" runat=\"server\"><i class=\"fa fa fa-warning\"></i> Incidentes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"incidentes\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a href=\"/Vista/Empleados/gestion-incidentes/agregarincidente.aspx\">Agregar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-incidentes/incidentes.aspx\">Visualizar</a>" +
+                                "</li>" +
+                            "</ul>";
                         zonausuarios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#usuarios\" id=\"users\" runat=\"server\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
                             "<ul id=\"usuarios\" class=\"collapse\">" +
                                "<li>" +
@@ -165,13 +174,13 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                             var fechafinservicio = "No aplica";
                             if (consultado.fechaatencion != new DateTime())
                             {
-                                fechaatencion = consultado.fechaatencion.ToString("dd/MM/yyyy hh:mm tt");
+                                fechaatencion = consultado.fechaatencion.ToString("yyyy-MM-dd HH:mm").Replace(' ', 'T');
                                 fechaatencio.Value = fechaatencion;
                             }
                             if (consultado.fechafinservicio != new DateTime())
                             {
-                                fechafinservicio = consultado.fechafinservicio.ToString("dd/MM/yyyy hh:mm tt");
-                                fechaconclusio.Value = fechafinservicio;
+                                fechafinservicio = consultado.fechafinservicio.ToString("yyyy-MM-dd HH:mm").Replace(' ', 'T');
+                                fechaconclusion.Value = fechafinservicio;
                             }
                             if ((consultado.aliado.Equals("")) && (!consultado.empleado.Equals("")))
                             {
@@ -380,18 +389,49 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
         {
             try
             {
+                bool v1 = false;
+                bool v2 = false;
                 if (!fechaatencio.Value.Equals(""))
                 {
-
-                    DateTime fechaten = DateTime.ParseExact(fechaatencio.Value, "dd/MM/yyyy hh:mm tt", CultureInfo.InvariantCulture);
-                    ActualizarFechaAtencion cmd = FabricaComando.ComandoActualizarFechaAtencion(fechaten.ToString(), (String)Session["incidente"]);
-                    cmd.ejecutar();
+                    ConsultarIncidentesTodos comd = FabricaComando.ComandoConsultarIncidentesTodos();
+                    comd.ejecutar();
+                    listado = comd.listado;
+                    Incidente consultado = null;
+                    foreach (Incidente item in listado)
+                    {
+                        if (item.id.Equals(incidente))
+                        {
+                            consultado = item;
+                        }
+                    }
+                    DateTime fechaten = Convert.ToDateTime(fechaatencio.Value);
+                    if (fechaten >= consultado.fechacompromiso)
+                    {
+                        ActualizarFechaAtencion cmd = FabricaComando.ComandoActualizarFechaAtencion(fechaten.ToString(), (String)Session["incidente"]);
+                        cmd.ejecutar();
+                        v1 = true;
+                    }
                 }
-                if (!fechaconclusio.Value.Equals(""))
+                if (!fechaconclusion.Value.Equals(""))
                 {
-                    DateTime conclufecha = DateTime.ParseExact(fechaconclusio.Value, "dd/MM/yyyy hh:mm tt", CultureInfo.InvariantCulture);
-                    ActualizarFechaConclusion cmd = FabricaComando.ComandoActualizarFechaConclusion(conclufecha.ToString(), (String)Session["incidente"]);
-                    cmd.ejecutar();
+                    ConsultarIncidentesTodos comd = FabricaComando.ComandoConsultarIncidentesTodos();
+                    comd.ejecutar();
+                    listado = comd.listado;
+                    Incidente consultado = null;
+                    foreach (Incidente item in listado)
+                    {
+                        if (item.id.Equals(incidente))
+                        {
+                            consultado = item;
+                        }
+                    }
+                    DateTime conclufecha = Convert.ToDateTime(fechaconclusion.Value);
+                    if (conclufecha >= consultado.fechacompromiso)
+                    {
+                        ActualizarFechaConclusion cmd = FabricaComando.ComandoActualizarFechaConclusion(conclufecha.ToString(), (String)Session["incidente"]);
+                        cmd.ejecutar();
+                        v2 = true;
+                    }
                 }
                 if (tipoasignado.Text.Equals("Empleado"))
                 {
@@ -411,9 +451,24 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                     ActualizarAliEstImpUrg cmd = FabricaComando.ComandoActualizarAliEstImpUrg(correo, est, imp, urg, (String)Session["incidente"]);
                     cmd.ejecutar();
                 }
-                var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se actualizaron los datos exitosamente");
-                var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/detallesincidente.aspx';", message);
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                if (v1 && v2)
+                {
+                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se actualizaron los datos exitosamente");
+                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/detallesincidente.aspx';", message);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                }
+                else if (!v1 && v2)
+                {
+                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se actualizaron los datos exitosamente menos la fecha de atención porque tiene un error");
+                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/detallesincidente.aspx';", message);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                }
+                else if (!v2 && v1)
+                {
+                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se actualizaron los datos exitosamente menos la fecha de conclusión porque tiene un error");
+                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/detallesincidente.aspx';", message);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                }
             }
             catch (Exception ex)
             {
@@ -447,7 +502,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                             consultado = item;
                         }
                     }
-                    if ((ini >= consultado.fecharegistro) && (fin >= consultado.fecharegistro))
+                    if ((ini >= consultado.fechacompromiso) && (fin >= consultado.fechacompromiso))
                     {
                         ConsultarActividades com = FabricaComando.ComandoConsultarActividades(incidente);
                         com.ejecutar();
@@ -497,7 +552,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                     }
                     else
                     {
-                        string script = "alert(\"La fecha de inicio o la de finalización no debe ser antes que la fecha actual, por favor revise\");";
+                        string script = "alert(\"La fecha de inicio o la de finalización no debe ser antes que la fecha de compromiso, por favor revise\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
                     }

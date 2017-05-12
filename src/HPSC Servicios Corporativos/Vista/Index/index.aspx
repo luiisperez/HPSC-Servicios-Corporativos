@@ -462,6 +462,7 @@
             cursor: pointer;
             width: 100%;
             border-radius: 5px;
+            white-space: normal;
         }
 
         /* Extra styles for the cancel button */
@@ -470,6 +471,7 @@
             padding: 10px 18px;
             background-color: #f44336;
             border-radius: 5px;
+            white-space: normal;
         }
 
         /* Center the image and position the close button */
@@ -600,10 +602,16 @@
           </asp:updatepanel>
         </div>
 
-        <div class="containe" style="background-color:#f1f1f1">
-          <button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn" style="font-family: 'Raleway ExtraBold'">Cancelar</button>
-          <span class="psw" style="font-family: 'Raleway ExtraBold'; margin-left:270px">¿Olvido su <a href="/Vista/Registro/recuperacionpassword.aspx">contraseña?</a></span>
-          <span class="psw" style="font-family: 'Raleway ExtraBold'; font-size: large;"><a href="/Vista/Registro/registro.aspx">Presione aquí para registrarse</a></span>
+        <div class="col-md-12" style="background-color:#f1f1f1;padding: 16px">
+              <div class="col-md-4">
+                <button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn" style="font-family: 'Raleway ExtraBold'">Cancelar</button>
+              </div>        
+              <div class="col-md-4">
+                <span class="psw" style="font-family: 'Raleway ExtraBold'; white-space: normal; ">¿Olvido su <a href="/Vista/Registro/recuperacionpassword.aspx">contraseña?</a></span>
+              </div>        
+              <div class="col-md-4">
+                <span class="psw" style="font-family: 'Raleway ExtraBold'; white-space: normal; font-size: large;"><a href="/Vista/Registro/registro.aspx">Presione aquí para registrarse</a></span>
+              </div>            
         </div>
         <div class="small-container">
          

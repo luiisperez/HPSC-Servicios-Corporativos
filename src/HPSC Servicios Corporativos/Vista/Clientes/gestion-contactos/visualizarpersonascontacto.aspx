@@ -133,7 +133,8 @@
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-body">
-                                    <table id="tabla" class="table table-bordered table-striped">
+                                <div class="table-responsive"> 
+                                    <table id="tabla" class="table table-bordered table-striped table-hover dt-responsive">
                                         <thead>
                                             <tr>
                                                 <th>Nombre y apellido</th>
@@ -169,6 +170,7 @@
                                             </tr>
                                         </tfoot>
                                     </table>
+                                </div>
                             </div>
                             <!-- /.box-body -->
                         </div>

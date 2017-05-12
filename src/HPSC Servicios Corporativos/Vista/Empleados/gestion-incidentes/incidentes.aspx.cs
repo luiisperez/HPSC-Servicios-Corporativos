@@ -1,5 +1,6 @@
 ﻿using HPSC_Servicios_Corporativos.Controlador;
 using HPSC_Servicios_Corporativos.Controlador.ModuloIncidentes;
+using HPSC_Servicios_Corporativos.Controlador.ModuloServicios;
 using HPSC_Servicios_Corporativos.Modelo.Objetos;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,15 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                 {
                     if (Int32.Parse(emp.rol) >= 20)
                     {
+                        zonaincidentes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#incidentes\" id=\"incidente\" runat=\"server\"><i class=\"fa fa fa-warning\"></i> Incidentes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"incidentes\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a href=\"/Vista/Empleados/gestion-incidentes/agregarincidente.aspx\">Agregar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-incidentes/incidentes.aspx\">Visualizar</a>" +
+                                "</li>" +
+                            "</ul>";
                         zonausuarios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#usuarios\" id=\"users\" runat=\"server\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
                             "<ul id=\"usuarios\" class=\"collapse\">" +
                                "<li>" +
@@ -107,6 +117,14 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                         listado = cmd.listado;
                         if (listado.Count != 0)
                         {
+                            foreach (Incidente item in listado)
+                            {
+                                ConsultarServicio comm = FabricaComando.ComandoConsultarServicio(item.servicio);
+                                comm.ejecutar();
+                                Servicio serv = comm.servicioconsultado;
+                                int horasresta = (-1) * serv.tiemporespuesta;
+                                item.fecharegistroreal = item.fechacompromiso.AddHours(horasresta);
+                            }
                             rep.DataSource = listado;
                             rep.DataBind();
                         }

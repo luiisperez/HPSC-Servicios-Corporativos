@@ -317,6 +317,26 @@ namespace HPSC_Servicios_Corporativos.Controlador
         {
             return new EliminarActividad(_idact);
         }
+
+        public static EstadisticaCantidadIncidentesEstatus ComandoConsultarEstadisticaCantidadIncidentesEstatus()
+        {
+            return new EstadisticaCantidadIncidentesEstatus();
+        }
+
+        public static EstadisticaCantidadIncidentesImpacto ComandoConsultarEstadisticaCantidadIncidentesImpacto()
+        {
+            return new EstadisticaCantidadIncidentesImpacto();
+        }
+
+        public static EstadisticaCantidadIncidentesTipo ComandoConsultarEstadisticaCantidadIncidentesTipo()
+        {
+            return new EstadisticaCantidadIncidentesTipo();
+        }
+
+        public static EstadisticaCantidadIncidentesUrgencia ComandoConsultarEstadisticaCantidadIncidentesUrgencia()
+        {
+            return new EstadisticaCantidadIncidentesUrgencia();
+        }
         #endregion
 
         #region Aliado

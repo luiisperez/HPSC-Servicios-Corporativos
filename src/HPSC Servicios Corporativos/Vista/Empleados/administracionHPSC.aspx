@@ -61,6 +61,8 @@
                         <li class="divider"></li>
                         <li id="cerrarsesion" style="margin-left:20px">
                             <form id="cerrar" runat="server" >
+                                <asp:ScriptManager runat="server" ID="sm" EnablePageMethods="true">
+                                </asp:ScriptManager>
                                 <asp:LinkButton ID="sesioncerrar" runat="server" ForeColor="Black" Font-Underline="false" OnClick="sesioncerrar_Click"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</asp:LinkButton>
                             </form>
                         </li>
@@ -97,15 +99,138 @@
                             
                     </li>
                     <li id="zonaincidentes" runat="server">
-                        <a href="#"><i class="fa fa fa-warning"></i> Incidentes</a>
+
                     </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </nav>
 
-       
+        <div id="page-wrapper">
 
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12" style="margin-top:-20px">
+                        <h1 class="page-header" style="font-family:Raleway Black">
+                            <B>Bienvenido <%=emp.nombre%> <%=emp.apellido%></B>
+                        </h1>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12" style="margin-top:-40px">
+                        <h3 class="page-header" style="font-family:Raleway Black">
+                            <B>Cantidad de casos registrados: </B>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-folder-open fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge" id="casosregistrados" runat="server"></div>
+                                        <div>Casos registrados</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-wrench fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge" id="casosatendidos" runat="server"></div>
+                                        <div>Casos atendidos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-times-circle fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge" id="casosnoatendidos" runat="server"></div>
+                                        <div>Casos sin atender</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-check-circle fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge" id="casosresueltos" runat="server"></div>
+                                        <div>Casos resueltos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- /.row -->
+
+                
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Cantidad de casos por tipo de servicio</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="pie-tipo"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Cantidad de casos por urgencia</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="pie-urgencia"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Cantidad de casos por impacto</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="pie-impacto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        </div>
     </div>
     <!-- /#wrapper -->
 
@@ -119,7 +244,64 @@
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
+    <script type="text/javascript">
 
+       <%-- function validarnumequipo(sender, args) {
+            if (document.getElementById('<%=numequipo.ClientID %>').value != "") {
+
+                var num = document.getElementById('<%=numequipo.ClientID %>').value;
+                PageMethods.FillFields(num, onSucess, onError);
+
+                function onSucess(result) {
+                    if (result === "No existe el número de producto colocado, por favor verifique") {
+                        alert(result);
+                        document.getElementById('<%=numequipo.ClientID %>').value = "";
+                    } else {
+                        var separar = result.split(";");
+                        document.getElementById('<%=categoria.ClientID%>').value = separar[1];
+                        document.getElementById('<%=marca.ClientID%>').value = separar[2];
+                        document.getElementById('<%=modelo.ClientID%>').value = separar[3];
+
+                    }
+                }
+
+                function onError(result) {
+                    alert('Ha ocurrido un error, intente nuevamente');
+                    document.getElementById('<%=numequipo.ClientID %>').value = "";
+                }
+            }
+        }--%>
+    </script>
+    <script>
+        var data = [
+          { y: '2014', a: 50 }
+            ],
+        config = {
+            data: data,
+            xkey: 'y',
+            ykeys: ['a'],
+            labels: ['Casos'],
+            fillOpacity: 0.6,
+            hideHover: 'auto',
+            behaveLikeLine: true,
+            resize: true,
+            pointFillColors: ['#ffffff'],
+            pointStrokeColors: ['black'],
+            lineColors: ['#337AB7']
+        };
+            Morris.Donut({
+                element: 'pie-urgencia',
+                data: [<%= dataurgencia%>]
+            });
+            Morris.Donut({
+                element: 'pie-tipo',
+                data: [<%= datatipo%>]
+            });
+            Morris.Donut({
+                element: 'pie-impacto',
+                data: [<%= dataimpacto%>]
+            });
+    </script>
 </body>
 
 </html>
