@@ -317,22 +317,22 @@
                                     </div>
 
                                     <label class="accordion">Datos del equipo</label>
-                                    <div class="panel" id="accordion_equipo" runat="server">
+                                    <div class="panel" id="accordion_equipo" runat="server" style="height:170%">
 
                                     </div>
 
                                     <label class="accordion">Datos de personas de contacto</label>
-                                    <div class="panel" id="accordion_contacto" runat="server">
+                                    <div class="panel" id="accordion_contacto" runat="server" style="height:170%">
 
                                     </div>
 
                                     <label class="accordion">Datos del servicio</label>
-                                    <div class="panel" id="accordion_servicio" runat="server">
+                                    <div class="panel" id="accordion_servicio" runat="server" style="height:170%">
 
                                     </div>
 
                                     <label class="accordion">Gestión de actividades</label>
-                                    <div class="panel" id="accordion_actividades" runat="server">
+                                    <div class="panel" id="accordion_actividades" runat="server" style="height:170%">
                                         <div class="col-lg-12" style="margin-top:20px;font-size:15px"> 
                                             <div class="col-md-3"> 
                                                 <label> <u>Actividad: </u></label>
@@ -381,41 +381,53 @@
                                                         <asp:Button ID="anadir" runat="server" Text="Añadir" CssClass="btn-success" OnClick="anadir_Click" />
                                                     </div> 
                                                     <div class="col-lg-12" style="margin-top:20px;font-size:15px;margin-bottom:20px"> 
-                                                        <table id="tabla" class="table table-bordered table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Actividad</th>
-                                                                    <th>Fecha y hora de inicio</th>
-                                                                    <th>Fecha y hora de finalización</th>
-                                                                    <th>Realizada por: </th>
-                                                                    <th>Opciones</th>
-                                                                </tr>
-                                                            </thead>
-                                                                <tbody id="contenidotabla">
-                                                                     <asp:Repeater ID="repact" runat="server" OnItemCommand="rep_ItemCommand">
-                                                                        <ItemTemplate>
-                                                                            <tr id="<%# Eval("id") %>">
-                                                                                <td><asp:Label ID="identificador" runat="server" Text='<%# Eval("id") %>' ReadOnly="True" BorderStyle="None" Visible="false"/> <%# Eval("actividad") %></td>
-                                                                                <td><%# Eval("fechahorainicio") %></td>
-                                                                                <td><%# Eval("fechahorafin") %></td>
-                                                                                <td><asp:Label ID="name" runat="server" Text='<%# Eval("empleado") %>' ReadOnly="True" BorderStyle="None" BackColor="Transparent"/></td>
-                                                                                <td style="text-align:center">
-                                                                                    <asp:ImageButton ID="Eliminar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/eliminar.ico" Height="25px" Width="25px" ToolTip="Eliminar actividad" />
-                                                                                </td>
-                                                                            </tr>              
-                                                                        </ItemTemplate>
-                                                                     </asp:Repeater>
-                                                                </tbody>  
-                                                            <tfoot>
-                                                                <tr>
-                                                                    <th>Actividad</th>
-                                                                    <th>Fecha y hora de inicio</th>
-                                                                    <th>Fecha y hora de finalización</th>
-                                                                    <th>Realizada por: </th>
-                                                                    <th>Opciones</th>
-                                                                </tr>
-                                                            </tfoot>
-                                                        </table>
+                                                        
+                                                        <div class="table-responsive"> 
+                                                            <table id="tabla" class="table table-bordered table-striped table-hover dt-responsive">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="width:120px">Actividad</th>
+                                                                        <th style="width:160px">Inicio</th>
+                                                                        <th style="width:160px">Finalización</th>
+                                                                        <th style="width:150px">Horas nocturas</th>
+                                                                        <th style="width:150px">Horas diurnas</th>
+                                                                        <th style="width:150px">Horas laborales</th>
+                                                                        <th style="width:150px">Realizada por: </th>
+                                                                        <th>Opciones</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                    <tbody id="contenidotabla">
+                                                                         <asp:Repeater ID="repact" runat="server" OnItemCommand="rep_ItemCommand">
+                                                                            <ItemTemplate>
+                                                                                <tr id="<%# Eval("id") %>">
+                                                                                    <td><asp:Label ID="identificador" runat="server" Text='<%# Eval("id") %>' ReadOnly="True" BorderStyle="None" Visible="false"/> <%# Eval("actividad") %></td>
+                                                                                    <td><%# Eval("fechahorainicio") %></td>
+                                                                                    <td><%# Eval("fechahorafin") %></td>
+                                                                                    <td><%# Eval("horasnocturnas") %></td>
+                                                                                    <td><%# Eval("horasdiurnas") %></td>
+                                                                                    <td><%# Eval("horaslaborables") %></td>
+                                                                                    <td><asp:Label ID="name" runat="server" Text='<%# Eval("empleado") %>' ReadOnly="True" BorderStyle="None" BackColor="Transparent"/></td>
+                                                                                    <td style="text-align:center">
+                                                                                        <asp:ImageButton ID="Eliminar" runat="server" Text="Eliminar" ImageUrl="~/Vista/Common/img/eliminar.ico" Height="25px" Width="25px" ToolTip="Eliminar actividad" />
+                                                                                    </td>
+                                                                                </tr>              
+                                                                            </ItemTemplate>
+                                                                         </asp:Repeater>
+                                                                    </tbody>  
+                                                                <tfoot>
+                                                                    <tr>
+                                                                        <th>Actividad</th>
+                                                                        <th>Inicio</th>
+                                                                        <th>Finalización</th>
+                                                                        <th>Horas nocturas</th>
+                                                                        <th>Horas diurnas</th>
+                                                                        <th>Horas laborales</th>
+                                                                        <th>Realizada por: </th>
+                                                                        <th>Opciones</th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 <%--</ContentTemplate>
                                             </asp:updatepanel>--%>

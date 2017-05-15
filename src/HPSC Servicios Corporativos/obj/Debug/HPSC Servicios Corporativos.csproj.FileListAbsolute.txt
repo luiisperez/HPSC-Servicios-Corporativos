@@ -7,7 +7,6 @@ c:\users\lapgrock\documents\visual studio 2013\Projects\HPSC Servicios Corporati
 C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\bin\HPSC Servicios Corporativos.dll.config
 C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\bin\HPSC Servicios Corporativos.dll
 C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\bin\HPSC Servicios Corporativos.pdb
-C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC Servicios Corporativos.csprojResolveAssemblyReference.cache
 C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC Servicios Corporativos.dll
 C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC Servicios Corporativos.pdb
 C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloUsuarios.RecursoDAO_Usuario.resources
@@ -24,3 +23,4 @@ C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporati
 C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloPersonaContacto.RecursoDAO_PersonaContacto.resources
 C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes.RecursoDAO_Incidentes.resources
 C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloAliado.RecursoDAO_Aliado.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Debug\HPSC Servicios Corporativos.csprojResolveAssemblyReference.cache

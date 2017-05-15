@@ -611,6 +611,60 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes
                                             Convert.ToDateTime(row[3].ToString()),
                                             row[4].ToString() + " " + row[5].ToString()
                                         );
+                        actconsultada.horasnocturnas = 0;
+                        actconsultada.horasdiurnas = 0;
+                        actconsultada.horaslaborables = 0;
+                        DateTime inicio = Convert.ToDateTime(row[2].ToString());
+                        DateTime movil = Convert.ToDateTime(row[2].ToString());
+                        DateTime fin = Convert.ToDateTime(row[3].ToString());
+                        TimeSpan horastrabajadas = fin - inicio;
+                        TimeSpan horastrabajadasreal = fin - inicio;
+                        if (horastrabajadas.Minutes != 0)
+                        {
+                            horastrabajadasreal = new TimeSpan(horastrabajadas.Hours + 1, 0, 0);
+                        }
+                        List<Feriado> feriados = ConsultarFeriados();
+                        for (int i = 1; i <= horastrabajadasreal.Hours; i++)
+                        {
+                            movil = movil.AddHours(1);
+                            if ((movil.Hour >= 0) && (movil.Hour <= 6))
+                            {
+                                actconsultada.horasnocturnas = actconsultada.horasnocturnas + 1;
+                            }
+                            if ((movil.Hour > 6) && (movil.Hour <= 8))
+                            {
+                                actconsultada.horasdiurnas = actconsultada.horasdiurnas + 1;
+                            }
+                            if ((movil.Hour > 8) && (movil.Hour <= 17))
+                            {
+                                bool feriado = false;
+                                foreach (Feriado item in feriados)
+                                {
+                                    if ((item.dia == movil.Day) && (item.mes == movil.Month))
+                                    {
+                                        feriado = true;
+                                    }
+                                }
+                                if ((feriado == true) || (movil.DayOfWeek.ToString().Equals("Saturday")) || (movil.DayOfWeek.ToString().Equals("Sábado")) || 
+                                                         (movil.DayOfWeek.ToString().Equals("Sabado")) || (movil.DayOfWeek.ToString().Equals("Domingo")) ||
+                                                         (movil.DayOfWeek.ToString().Equals("Sunday")))
+                                {
+                                    actconsultada.horasdiurnas = actconsultada.horasdiurnas + 1;
+                                }
+                                else
+                                {
+                                    actconsultada.horaslaborables = actconsultada.horaslaborables + 1;
+                                }
+                            }
+                            if ((movil.Hour > 17) && (movil.Hour <= 19))
+                            {
+                                actconsultada.horasdiurnas = actconsultada.horasdiurnas + 1;
+                            }
+                            if ((movil.Hour > 19) && (movil.Hour < 24))
+                            {
+                                actconsultada.horasdiurnas = actconsultada.horasdiurnas + 1;
+                            }
+                        }
                         listado.Add(actconsultada);
                     }
                     catch (Exception ex)

@@ -29,17 +29,8 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
                 }
                 if (!Page.IsPostBack)
                 {
-                    if (Int32.Parse(emp.rol) >= 20)
+                    if (Int32.Parse(emp.rol) >= 20) //ADMINISTRADOR
                     {
-                        zonaincidentes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#incidentes\" id=\"incidente\" runat=\"server\"><i class=\"fa fa fa-warning\"></i> Incidentes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
-                            "<ul id=\"incidentes\" class=\"collapse\">" +
-                               "<li>" +
-                                    "<a href=\"/Vista/Empleados/gestion-incidentes/agregarincidente.aspx\">Agregar</a>" +
-                               "</li>" +
-                                "<li>" +
-                                     "<a href=\"/Vista/Empleados/gestion-incidentes/incidentes.aspx\">Visualizar</a>" +
-                                "</li>" +
-                            "</ul>";
                         zonausuarios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#usuarios\" id=\"users\" runat=\"server\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
                             "<ul id=\"usuarios\" class=\"collapse\">" +
                                "<li>" +
@@ -103,11 +94,66 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_clientes
                                     "<a href=\"/Vista/Empleados/gestion-contactos/visualizarpersonascontacto.aspx\">Visualizar</a>" +
                                "</li>" +
                             "</ul>";
+                        zonaincidentes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#incidentes\" id=\"incidente\" runat=\"server\"><i class=\"fa fa fa-warning\"></i> Incidentes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"incidentes\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a href=\"/Vista/Empleados/gestion-incidentes/agregarincidente.aspx\">Agregar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-incidentes/incidentes.aspx\">Visualizar</a>" +
+                                "</li>" +
+                            "</ul>";
+                    }
+                    else if (Int32.Parse(emp.rol) == 10) //COORDINADOR DE SERVICIOS
+                    {
+                        zonausuarios.InnerHtml = "<a href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
+                        zonaclientes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#clientes\" id=\"clients\" runat=\"server\"><i class=\"fa fa-briefcase\"></i> Clientes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"clientes\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/visualizarclientes.aspx\">Visualizar</a>" +
+                               "</li>" +
+                               "<li>" +
+                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-clientes/asignarequipo.aspx\">Asignar equipos</a>" +
+                               "</li>" +
+                            "</ul>";
+                        zonaequipos.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#equipos\" id=\"equipment\" runat=\"server\"><i class=\"fa fa-laptop\"></i> Equipos <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"equipos\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-equipos/agregarequipo.aspx\">Agregar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-equipos/visualizarequipos.aspx\">Visualizar</a>" +
+                                "</li>" +
+                            "</ul>";
+                        zonaproductos.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#productos\" id=\"products\" runat=\"server\"><i class=\"fa fa-barcode\"></i> Productos <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"productos\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a id=\"visualizarclientes\" href=\"/Vista/Empleados/gestion-productos/agregarproducto.aspx\">Agregar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-productos/visualizarproductos.aspx\">Visualizar</a>" +
+                                "</li>" +
+                            "</ul>";
+                        zonacontratos.InnerHtml = "<a href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-folder-open\"></i> Servicios <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
+                        zonaasignacionservicios.InnerHtml = "<a href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-book\"></i> Contratos <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
+                        zonapersonascontacto.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#personas\" id=\"contact\" runat=\"server\"><i class=\"fa fa-phone\"></i> Personal de contacto <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"personas\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a href=\"/Vista/Empleados/gestion-contactos/visualizarpersonascontacto.aspx\">Visualizar</a>" +
+                               "</li>" +
+                            "</ul>";
+                        zonaincidentes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#incidentes\" id=\"incidente\" runat=\"server\"><i class=\"fa fa fa-warning\"></i> Incidentes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"incidentes\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a href=\"/Vista/Empleados/gestion-incidentes/agregarincidente.aspx\">Agregar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-incidentes/incidentes.aspx\">Visualizar</a>" +
+                                "</li>" +
+                            "</ul>";
                     }
                     else
                     {
-                        zonausuarios.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
-                        zonaclientes.InnerHtml = "<a  href=\"#\" onclick=\"privilegiosinsuficientes()\"><i class=\"fa fa-briefcase\"></i> Clientes  <i class=\"fa fa-lock\" aria-hidden=\"true\"></i></a>";
                         Response.Redirect("~/Vista/Empleados/administracionHPSC.aspx");
                     }
                 }

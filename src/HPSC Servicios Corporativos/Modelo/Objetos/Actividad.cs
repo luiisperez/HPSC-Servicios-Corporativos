@@ -12,6 +12,9 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
         public DateTime fechahorainicio { get; set; }
         public DateTime fechahorafin { get; set; }
         public String empleado { get; set; }
+        public int horaslaborables { get; set; }
+        public int horasdiurnas { get; set; }
+        public int horasnocturnas { get; set; } 
 
         public Actividad(String _actividad, DateTime _inicio, DateTime _fin, String _empleado)
         {

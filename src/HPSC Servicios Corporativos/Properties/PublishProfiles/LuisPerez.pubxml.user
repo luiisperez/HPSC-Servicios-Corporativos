@@ -1,0 +1,2225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbdwi9GRvuEWcqmiNy4lkZwAAAAACAAAAAAAQZgAAAAEAACAAAACokuLeVy/MUVSV22WzJI9JBWuMOWmXbQCdt7f4ZthDlAAAAAAOgAAAAAIAACAAAAC2SJe/kdiJK3Jk2RdEJ5B8AMfPd7M6CJ3ccVH558BQtiAAAAAbypGVPmr5FJ4FrxlFgNTIKWceiMrMqOQp568fEtgdJkAAAAAHXmdkKdknDpt1IoV7gG4l9Tr0/85shmo/W3dPTcTRj1mHMJbU4u4YIuijJSEo1Lbu/ZMO88ln+oYIwYI4YxgI</EncryptedPassword>
+    <_PublishTargetUrl>ftp://hpsc.cloudmt.net/wwwroot</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/HPSC Servicios Corporativos.dll">
+      <publishTime>05/12/2017 17:40:14</publishTime>
+    </File>
+    <File Include="bin/Recaptcha.dll">
+      <publishTime>12/14/2010 18:19:48</publishTime>
+    </File>
+    <File Include="Vista/Clientes/administracionCliente.aspx">
+      <publishTime>04/19/2017 17:57:41</publishTime>
+    </File>
+    <File Include="Vista/Clientes/css/bootstrap-rtl.css">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/css/bootstrap-rtl.min.css">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/css/bootstrap.css">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/css/bootstrap.min.css">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/css/plugins/morris.css">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/css/sb-admin-rtl.css">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/css/sb-admin.css">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/css/font-awesome.css">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/css/font-awesome.min.css">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/fonts/fontawesome-webfont.eot">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/fonts/fontawesome-webfont.svg">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/fonts/fontawesome-webfont.ttf">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/fonts/fontawesome-webfont.woff">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/fonts/FontAwesome.otf">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/bordered-pulled.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/core.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/fixed-width.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/font-awesome.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/icons.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/larger.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/list.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/mixins.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/path.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/rotated-flipped.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/spinning.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/stacked.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/less/variables.less">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/font-awesome.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/_bordered-pulled.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/_core.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/_fixed-width.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/_icons.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/_larger.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/_list.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/_mixins.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/_path.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/_rotated-flipped.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/_spinning.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/_stacked.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/font-awesome/scss/_variables.scss">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/gestion-contactos/modificarpersonacontacto.aspx">
+      <publishTime>04/19/2017 17:57:24</publishTime>
+    </File>
+    <File Include="Vista/Clientes/gestion-contactos/personalcontacto.aspx">
+      <publishTime>04/19/2017 17:57:18</publishTime>
+    </File>
+    <File Include="Vista/Clientes/gestion-contactos/visualizarpersonascontacto.aspx">
+      <publishTime>05/09/2017 11:27:44</publishTime>
+    </File>
+    <File Include="Vista/Clientes/gestion-contratos/detallecontrato.aspx">
+      <publishTime>04/19/2017 17:56:48</publishTime>
+    </File>
+    <File Include="Vista/Clientes/gestion-contratos/miscontratos.aspx">
+      <publishTime>05/09/2017 11:28:40</publishTime>
+    </File>
+    <File Include="Vista/Clientes/gestion-equipos/misequipos.aspx">
+      <publishTime>05/09/2017 11:29:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/gestion-equipos/solicitarequipo.aspx">
+      <publishTime>04/19/2017 17:56:33</publishTime>
+    </File>
+    <File Include="Vista/Clientes/gestion-incidentes/agregarincidente.aspx">
+      <publishTime>04/26/2017 17:57:48</publishTime>
+    </File>
+    <File Include="Vista/Clientes/gestion-incidentes/consultarincidente.aspx">
+      <publishTime>04/20/2017 02:20:15</publishTime>
+    </File>
+    <File Include="Vista/Clientes/gestion-incidentes/visualizarincidentes.aspx">
+      <publishTime>05/09/2017 11:29:45</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/bootstrap.js">
+      <publishTime>03/20/2017 08:46:06</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/bootstrap.min.js">
+      <publishTime>03/20/2017 08:46:06</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/cargadorMenu.js">
+      <publishTime>03/20/2017 08:46:06</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/jquery.js">
+      <publishTime>03/20/2017 08:46:06</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/plugins/flot/excanvas.min.js">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/plugins/flot/flot-data.js">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/plugins/flot/jquery.flot.js">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/plugins/flot/jquery.flot.pie.js">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/plugins/flot/jquery.flot.resize.js">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/plugins/flot/jquery.flot.tooltip.min.js">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/plugins/morris/morris-data.js">
+      <publishTime>03/20/2017 08:46:05</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/plugins/morris/morris.js">
+      <publishTime>03/20/2017 08:46:06</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/plugins/morris/morris.min.js">
+      <publishTime>03/20/2017 08:46:06</publishTime>
+    </File>
+    <File Include="Vista/Clientes/js/plugins/morris/raphael.min.js">
+      <publishTime>03/20/2017 08:46:06</publishTime>
+    </File>
+    <File Include="Vista/Common/img/eliminar.ico">
+      <publishTime>03/13/2017 20:01:41</publishTime>
+    </File>
+    <File Include="Vista/Common/img/hpsc-logo.ico">
+      <publishTime>02/21/2017 20:36:49</publishTime>
+    </File>
+    <File Include="Vista/Common/img/modificar.ico">
+      <publishTime>03/23/2017 18:39:18</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/dataTables.bootstrap.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/dataTables.bootstrap.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/dataTables.bootstrap.min.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/css/dataTables.autoFill.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/css/dataTables.autoFill.min.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/examples/columns.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/examples/complete-callback.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/examples/fill-both.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/examples/fill-horizontal.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/examples/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/examples/scrolling.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/examples/simple.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/examples/step-callback.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/images/filler.png">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/js/dataTables.autoFill.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/js/dataTables.autoFill.min.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/AutoFill/Readme.txt">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/alt_insert.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/colvis.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/col_filter.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/fixedcolumns.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/fixedheader.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/jqueryui.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/new_init.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/predefined.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/realtime.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/reset.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/scrolling.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/server_side.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/simple.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/examples/state_save.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/images/insert.png">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/License.txt">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColReorder/Readme.md">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/css/dataTables.colVis.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/css/dataTables.colvis.jqueryui.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/css/dataTables.colVis.min.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/button_order.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/exclude_columns.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/group_columns.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/jqueryui.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/mouseover.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/new_init.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/restore.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/simple.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/text.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/title_callback.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/two_tables.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/examples/two_tables_identical.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/js/dataTables.colVis.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/js/dataTables.colVis.min.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/License.txt">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/ColVis/Readme.md">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/css/dataTables.fixedColumns.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/css/dataTables.fixedColumns.min.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/bootstrap.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/colvis.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/col_filter.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/css_size.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/index_column.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/left_right_columns.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/right_column.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/rowspan.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/server-side-processing.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/simple.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/size_fixed.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/size_fluid.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/examples/two_columns.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/js/dataTables.fixedColumns.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/js/dataTables.fixedColumns.min.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/License.txt">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedColumns/Readme.md">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedHeader/css/dataTables.fixedHeader.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedHeader/css/dataTables.fixedHeader.min.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedHeader/examples/header_footer.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedHeader/examples/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedHeader/examples/simple.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedHeader/examples/top_left_right.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedHeader/examples/two_tables.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedHeader/examples/zIndexes.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedHeader/js/dataTables.fixedHeader.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/FixedHeader/Readme.txt">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/KeyTable/css/dataTables.keyTable.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/KeyTable/css/dataTables.keyTable.min.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/KeyTable/examples/events.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/KeyTable/examples/html.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/KeyTable/examples/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/KeyTable/examples/scrolling.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/KeyTable/examples/simple.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/KeyTable/js/dataTables.keyTable.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/KeyTable/js/dataTables.keyTable.min.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/KeyTable/Readme.txt">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/css/dataTables.responsive.scss">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/child-rows/column-control.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/child-rows/custom-renderer.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/child-rows/disable-child-rows.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/child-rows/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/child-rows/right-column.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/child-rows/whole-row-control.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/display-control/auto.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/display-control/classes.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/display-control/complexHeader.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/display-control/fixedHeader.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/display-control/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/display-control/init-classes.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/initialisation/ajax.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/initialisation/className.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/initialisation/default.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/initialisation/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/initialisation/new.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/initialisation/option.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/styling/bootstrap.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/styling/compact.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/styling/foundation.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/styling/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/examples/styling/scrolling.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/js/dataTables.responsive.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/License.txt">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Responsive/Readme.md">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/css/dataTables.scroller.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/examples/api_scrolling.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/examples/data/2500.txt">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/examples/data/ssp.php">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/examples/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/examples/large_js_source.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/examples/server-side_processing.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/examples/simple.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/examples/state_saving.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/images/loading-background.png">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/js/dataTables.scroller.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/js/dataTables.scroller.min.js">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/Scroller/Readme.txt">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/css/dataTables.tableTools.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/css/dataTables.tableTools.min.css">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/ajax.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/alter_buttons.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/bootstrap.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/button_text.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/collection.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/defaults.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/index.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/jqueryui.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/multiple_tables.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/multi_instance.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/new_init.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/pdf_message.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/plug-in.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/select_column.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/select_multi.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/select_os.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/select_single.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/simple.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/examples/swf_path.html">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/collection.png">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/collection_hover.png">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/copy.png">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/copy_hover.png">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/csv.png">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/csv_hover.png">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/pdf.png">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/pdf_hover.png">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/print.png">
+      <publishTime>03/13/2017 14:11:10</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/print_hover.png">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/psd/collection.psd">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/psd/copy document.psd">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/psd/file_types.psd">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/psd/printer.psd">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/xls.png">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/images/xls_hover.png">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.js">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/Readme.md">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/swf/copy_csv_xls.swf">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/images/sort_asc.png">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/images/sort_asc_disabled.png">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/images/sort_both.png">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/images/sort_desc.png">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/images/sort_desc_disabled.png">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/jquery.dataTables.css">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/jquery.dataTables.js">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/jquery.dataTables.min.css">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/jquery.dataTables.min.js">
+      <publishTime>03/13/2017 16:06:05</publishTime>
+    </File>
+    <File Include="Vista/Common/plugins/datatables/jquery.dataTables_themeroller.css">
+      <publishTime>03/13/2017 14:11:11</publishTime>
+    </File>
+    <File Include="Vista/Empleados/administracionHPSC.aspx">
+      <publishTime>05/11/2017 21:36:18</publishTime>
+    </File>
+    <File Include="Vista/Empleados/css/bootstrap-rtl.css">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/css/bootstrap-rtl.min.css">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/css/bootstrap.css">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/css/bootstrap.min.css">
+      <publishTime>03/13/2017 10:06:48</publishTime>
+    </File>
+    <File Include="Vista/Empleados/css/plugins/morris.css">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/css/sb-admin-rtl.css">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/css/sb-admin.css">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/css/font-awesome.css">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/css/font-awesome.min.css">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/fonts/fontawesome-webfont.eot">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/fonts/fontawesome-webfont.svg">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/fonts/fontawesome-webfont.ttf">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/fonts/fontawesome-webfont.woff">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/fonts/FontAwesome.otf">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/bordered-pulled.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/core.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/fixed-width.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/font-awesome.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/icons.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/larger.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/list.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/mixins.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/path.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/rotated-flipped.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/spinning.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/stacked.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/less/variables.less">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/font-awesome.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/_bordered-pulled.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/_core.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/_fixed-width.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/_icons.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/_larger.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/_list.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/_mixins.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/_path.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/_rotated-flipped.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/_spinning.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/_stacked.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/font-awesome/scss/_variables.scss">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-clientes/asignarequipo.aspx">
+      <publishTime>05/09/2017 14:39:14</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-clientes/visualizarclientes.aspx">
+      <publishTime>05/09/2017 14:39:10</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-contactos/modificarpersonacontacto.aspx">
+      <publishTime>05/09/2017 14:39:04</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-contactos/visualizarpersonascontacto.aspx">
+      <publishTime>05/09/2017 14:38:58</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-contratos/agregarcontrato.aspx">
+      <publishTime>05/09/2017 14:38:52</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-contratos/detallescontrato.aspx">
+      <publishTime>05/09/2017 14:38:45</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-contratos/visualizarcontratos.aspx">
+      <publishTime>05/09/2017 14:38:37</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-contratos/visualizarserviciosequipo.aspx">
+      <publishTime>05/09/2017 14:38:28</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-empleados/rolesempleados.aspx">
+      <publishTime>05/09/2017 14:38:21</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-empleados/visualizarempleados.aspx">
+      <publishTime>05/09/2017 14:38:16</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-equipos/agregarequipo.aspx">
+      <publishTime>05/09/2017 14:38:10</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-equipos/modificarequipo.aspx">
+      <publishTime>05/09/2017 14:38:05</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-equipos/visualizarequipos.aspx">
+      <publishTime>05/09/2017 14:37:54</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-incidentes/agregarincidente.aspx">
+      <publishTime>04/26/2017 22:29:51</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-incidentes/detallesincidente.aspx">
+      <publishTime>05/10/2017 17:05:44</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-incidentes/incidentes.aspx">
+      <publishTime>05/09/2017 14:37:28</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-productos/agregarproducto.aspx">
+      <publishTime>05/09/2017 14:37:20</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-productos/modificarproducto.aspx">
+      <publishTime>05/09/2017 14:37:07</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-productos/visualizarproductos.aspx">
+      <publishTime>05/09/2017 14:36:56</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-servicios/agregarservicio.aspx">
+      <publishTime>05/09/2017 14:36:47</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-servicios/modificarservicio.aspx">
+      <publishTime>05/09/2017 14:36:39</publishTime>
+    </File>
+    <File Include="Vista/Empleados/gestion-servicios/visualizarservicios.aspx">
+      <publishTime>05/09/2017 14:36:27</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/bootstrap.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/bootstrap.min.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/cargadorMenu.js">
+      <publishTime>03/13/2017 09:53:26</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/jquery.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/plugins/flot/excanvas.min.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/plugins/flot/flot-data.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/plugins/flot/jquery.flot.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/plugins/flot/jquery.flot.pie.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/plugins/flot/jquery.flot.resize.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/plugins/flot/jquery.flot.tooltip.min.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/plugins/morris/morris-data.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/plugins/morris/morris.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/plugins/morris/morris.min.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Empleados/js/plugins/morris/raphael.min.js">
+      <publishTime>03/13/2017 08:40:12</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/css/bootstrap/bootstrap.css">
+      <publishTime>02/21/2017 10:02:40</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/css/bootstrap/bootstrap.min.css">
+      <publishTime>02/21/2017 21:34:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/css/hpsc.css">
+      <publishTime>02/22/2017 23:01:26</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/css/plugins/animate.css">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/css/plugins/background.css">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/css/plugins/magnific-popup.css">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/css/plugins/owl-carousel/AjaxLoader.gif">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/css/plugins/owl-carousel/grabbing.png">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/css/plugins/owl-carousel/owl.carousel.css">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/css/plugins/owl-carousel/owl.theme.css">
+      <publishTime>02/21/2017 21:07:08</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/css/plugins/owl-carousel/owl.transitions.css">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/css/font-awesome.css">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/css/font-awesome.min.css">
+      <publishTime>02/21/2017 10:54:10</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/fonts/fontawesome-webfont.eot">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/fonts/fontawesome-webfont.svg">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/fonts/fontawesome-webfont.ttf">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/fonts/fontawesome-webfont.woff">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/fonts/fontawesome-webfont.woff2">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/fonts/FontAwesome.otf">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/animated.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/bordered-pulled.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/core.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/fixed-width.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/font-awesome.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/icons.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/larger.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/list.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/mixins.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/path.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/rotated-flipped.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/stacked.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/less/variables.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/font-awesome.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/_animated.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/_bordered-pulled.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/_core.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/_fixed-width.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/_icons.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/_larger.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/_list.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/_mixins.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/_path.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/_rotated-flipped.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/_stacked.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/font-awesome/scss/_variables.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/background-header.jpg">
+      <publishTime>02/21/2017 10:15:10</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/bg-aside.jpg">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/bg-caracas2.jpg">
+      <publishTime>02/21/2017 10:42:07</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/bg-header-day.jpg">
+      <publishTime>02/21/2017 10:41:03</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/bg-header.jpg">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/bg-mobile-fallback.jpg">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/bg-pricing.jpg">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/bg.jpg">
+      <publishTime>02/21/2017 10:27:37</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/bgfooter.jpg">
+      <publishTime>02/21/2017 11:07:27</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/hpsc%402x.png">
+      <publishTime>02/21/2017 18:52:29</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/hpsc-logo%402x.png">
+      <publishTime>02/21/2017 19:18:50</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/hpsc-logo.png">
+      <publishTime>02/21/2017 19:18:50</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/hpsc.png">
+      <publishTime>02/21/2017 18:52:29</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-aliados/cron.jpg">
+      <publishTime>03/02/2017 17:50:37</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-aliados/Cron.png">
+      <publishTime>03/02/2017 17:19:57</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-aliados/excon.jpg">
+      <publishTime>02/22/2017 23:05:55</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-aliados/hp.jpg">
+      <publishTime>02/22/2017 21:47:43</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-aliados/hpe.jpg">
+      <publishTime>02/22/2017 22:18:25</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-aliados/microsoft.jpg">
+      <publishTime>02/22/2017 22:40:27</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-aliados/mt_2005.jpg">
+      <publishTime>02/22/2017 22:58:42</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/aguilar.psd">
+      <publishTime>03/02/2017 17:53:32</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/aguilarlawyer.jpg">
+      <publishTime>03/20/2017 19:20:34</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/cocacola.jpg">
+      <publishTime>02/22/2017 19:47:23</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/ford.jpg">
+      <publishTime>02/22/2017 18:58:18</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/movistar.jpg">
+      <publishTime>02/22/2017 17:15:15</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/novobanco.jpg">
+      <publishTime>02/22/2017 19:21:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/Originales/aguilar.jpg">
+      <publishTime>03/02/2017 18:02:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/Originales/cocacola.jpg">
+      <publishTime>02/22/2017 19:47:23</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/Originales/ford.jpg">
+      <publishTime>02/22/2017 18:58:18</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/Originales/movistar.jpg">
+      <publishTime>02/22/2017 17:15:15</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/Originales/novobanco.jpg">
+      <publishTime>02/22/2017 19:21:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/Originales/polar.jpg">
+      <publishTime>02/22/2017 19:00:17</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/logos-clientes/polar.jpg">
+      <publishTime>02/22/2017 19:00:17</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/night-bg-opacity.jpg">
+      <publishTime>02/21/2017 10:37:46</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/bg-1.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/bg-2.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/bg-3.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/bg-4.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/grid/graphic/1.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/grid/graphic/2.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/grid/graphic/3.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/grid/graphic/4.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/grid/graphic/5.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/grid/identity/1.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/grid/identity/2.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/grid/identity/3.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/grid/web/1.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/grid/web/2.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/grid/web/3.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/grid/web/4.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/mobile-screens.png">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/portfolio/tablet-screens.png">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/profile%402x.png">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/profile.png">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/registro-bg.jpg">
+      <publishTime>03/06/2017 18:54:37</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/servicios/1.jpg">
+      <publishTime>02/21/2017 12:57:09</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/servicios/2.jpg">
+      <publishTime>02/21/2017 13:04:00</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/servicios/3.jpg">
+      <publishTime>02/21/2017 13:13:58</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/servicios/4.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/servicios/5.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/testimonios/aguilar.jpg">
+      <publishTime>03/02/2017 18:02:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/testimonios/cocacola.jpg">
+      <publishTime>02/22/2017 19:47:23</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/testimonios/cron.jpg">
+      <publishTime>03/02/2017 17:50:37</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/testimonios/excon.jpg">
+      <publishTime>02/22/2017 23:05:55</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/testimonios/ford.jpg">
+      <publishTime>02/22/2017 18:58:18</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/testimonios/hp.jpg">
+      <publishTime>02/22/2017 21:47:43</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/testimonios/hpe.jpg">
+      <publishTime>02/22/2017 22:18:25</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/testimonios/microsoft.jpg">
+      <publishTime>02/22/2017 22:40:27</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/testimonios/movistar.jpg">
+      <publishTime>02/22/2017 17:15:15</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/testimonios/mt_2005.jpg">
+      <publishTime>02/22/2017 22:58:42</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/testimonios/novobanco.jpg">
+      <publishTime>02/22/2017 19:21:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/testimonios/polar.jpg">
+      <publishTime>02/22/2017 19:00:17</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/bootstrap/bootstrap.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/bootstrap/bootstrap.min.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/jquery.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/background/background.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/background/core.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/background/transition.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/cbpAnimatedHeader.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/classie.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/jqBootstrapValidation.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/jquery.easing.min.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/jquery.magnific-popup/jquery.magnific-popup.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/jquery.magnific-popup/jquery.magnific-popup.min.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/jquery.mixitup.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/owl-carousel/owl.carousel.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/retina/retina.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/retina/retina.min.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/wow/wow.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/plugins/wow/wow.min.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/js/vitality.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/about.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/asides.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/buttons.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/contact.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/footer.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/global.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/header.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/mixins.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/navbar.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/portfolio.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/pricing.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/services.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/themes.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/typography.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/variables.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/less/vitality.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Index/index.aspx">
+      <publishTime>05/09/2017 14:08:47</publishTime>
+    </File>
+    <File Include="Vista/Index/postlogin.aspx">
+      <publishTime>05/08/2017 19:46:53</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/css/bootstrap-theme.css">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/css/bootstrap-theme.css.map">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/css/bootstrap-theme.min.css">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/css/bootstrap.css">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/css/bootstrap.css.map">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/css/bootstrap.min.css">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/js/bootstrap.js">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/js/bootstrap.min.js">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/bootstrap/js/npm.js">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/css/form-elements.css">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/css/style.css">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/css/font-awesome.css">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/css/font-awesome.min.css">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/fonts/fontawesome-webfont.eot">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/fonts/fontawesome-webfont.svg">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/fonts/fontawesome-webfont.ttf">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/fonts/fontawesome-webfont.woff">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/fonts/fontawesome-webfont.woff2">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/fonts/FontAwesome.otf">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/HELP-US-OUT.txt">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/animated.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/bordered-pulled.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/core.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/fixed-width.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/font-awesome.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/icons.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/larger.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/list.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/mixins.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/path.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/rotated-flipped.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/stacked.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/less/variables.less">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/font-awesome.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/_animated.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/_bordered-pulled.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/_core.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/_fixed-width.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/_icons.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/_larger.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/_list.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/_mixins.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/_path.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/_rotated-flipped.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/_stacked.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/font-awesome/scss/_variables.scss">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/ico/apple-touch-icon-114-precomposed.png">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/ico/apple-touch-icon-144-precomposed.png">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/ico/apple-touch-icon-57-precomposed.png">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/ico/apple-touch-icon-72-precomposed.png">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/ico/favicon.png">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/img/backgrounds/1.jpg">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/js/jquery-1.11.1.js">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/js/jquery-1.11.1.min.js">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/js/jquery.backstretch.js">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/js/jquery.backstretch.min.js">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/js/placeholder.js">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assetos/js/scripts.js">
+      <publishTime>03/16/2017 15:56:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/css/bootstrap/bootstrap.css">
+      <publishTime>02/21/2017 10:02:40</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/css/bootstrap/bootstrap.min.css">
+      <publishTime>02/21/2017 21:34:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/css/hpsc.css">
+      <publishTime>02/22/2017 23:01:26</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/css/plugins/animate.css">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/css/plugins/background.css">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/css/plugins/magnific-popup.css">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/css/plugins/owl-carousel/AjaxLoader.gif">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/css/plugins/owl-carousel/grabbing.png">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/css/plugins/owl-carousel/owl.carousel.css">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/css/plugins/owl-carousel/owl.theme.css">
+      <publishTime>02/21/2017 21:07:08</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/css/plugins/owl-carousel/owl.transitions.css">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/css/font-awesome.css">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/css/font-awesome.min.css">
+      <publishTime>02/21/2017 10:54:10</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/fonts/fontawesome-webfont.eot">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/fonts/fontawesome-webfont.svg">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/fonts/fontawesome-webfont.ttf">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/fonts/fontawesome-webfont.woff">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/fonts/fontawesome-webfont.woff2">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/fonts/FontAwesome.otf">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/animated.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/bordered-pulled.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/core.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/fixed-width.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/font-awesome.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/icons.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/larger.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/list.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/mixins.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/path.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/rotated-flipped.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/stacked.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/less/variables.less">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/font-awesome.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/_animated.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/_bordered-pulled.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/_core.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/_fixed-width.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/_icons.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/_larger.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/_list.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/_mixins.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/_path.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/_rotated-flipped.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/_stacked.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/font-awesome/scss/_variables.scss">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/background-header.jpg">
+      <publishTime>02/21/2017 10:15:10</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/bg-aside.jpg">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/bg-caracas2.jpg">
+      <publishTime>02/21/2017 10:42:07</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/bg-header-day.jpg">
+      <publishTime>02/21/2017 10:41:03</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/bg-header.jpg">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/bg-mobile-fallback.jpg">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/bg-pricing.jpg">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/bg.jpg">
+      <publishTime>02/21/2017 10:27:37</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/bgfooter.jpg">
+      <publishTime>02/21/2017 11:07:27</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/hpsc%402x.png">
+      <publishTime>02/21/2017 18:52:29</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/hpsc-logo%402x.png">
+      <publishTime>02/21/2017 19:18:50</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/hpsc-logo.png">
+      <publishTime>02/21/2017 19:18:50</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/hpsc.png">
+      <publishTime>02/21/2017 18:52:29</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-aliados/cron.jpg">
+      <publishTime>03/02/2017 17:50:37</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-aliados/Cron.png">
+      <publishTime>03/02/2017 17:19:57</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-aliados/excon.jpg">
+      <publishTime>02/22/2017 23:05:55</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-aliados/hp.jpg">
+      <publishTime>02/22/2017 21:47:43</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-aliados/hpe.jpg">
+      <publishTime>02/22/2017 22:18:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-aliados/microsoft.jpg">
+      <publishTime>02/22/2017 22:40:27</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-aliados/mt_2005.jpg">
+      <publishTime>02/22/2017 22:58:42</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/aguilar.jpg">
+      <publishTime>03/02/2017 18:02:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/aguilar.psd">
+      <publishTime>03/02/2017 17:53:32</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/cocacola.jpg">
+      <publishTime>02/22/2017 19:47:23</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/ford.jpg">
+      <publishTime>02/22/2017 18:58:18</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/movistar.jpg">
+      <publishTime>02/22/2017 17:15:15</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/novobanco.jpg">
+      <publishTime>02/22/2017 19:21:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/Originales/aguilar.jpg">
+      <publishTime>03/02/2017 18:02:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/Originales/cocacola.jpg">
+      <publishTime>02/22/2017 19:47:23</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/Originales/ford.jpg">
+      <publishTime>02/22/2017 18:58:18</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/Originales/movistar.jpg">
+      <publishTime>02/22/2017 17:15:15</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/Originales/novobanco.jpg">
+      <publishTime>02/22/2017 19:21:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/Originales/polar.jpg">
+      <publishTime>02/22/2017 19:00:17</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/logos-clientes/polar.jpg">
+      <publishTime>02/22/2017 19:00:17</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/night-bg-opacity.jpg">
+      <publishTime>02/21/2017 10:37:46</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/bg-1.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/bg-2.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/bg-3.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/grid/graphic/1.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/grid/graphic/2.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/grid/graphic/3.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/grid/graphic/4.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/grid/graphic/5.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/grid/identity/1.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/grid/identity/2.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/grid/identity/3.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/grid/web/1.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/grid/web/2.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/grid/web/3.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/grid/web/4.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/mobile-screens.png">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/tablet-screens.png">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/profile%402x.png">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/profile.png">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/registro-bg.jpg">
+      <publishTime>03/06/2017 18:54:37</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/servicios/1.jpg">
+      <publishTime>02/21/2017 12:57:09</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/servicios/2.jpg">
+      <publishTime>02/21/2017 13:04:00</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/servicios/3.jpg">
+      <publishTime>02/21/2017 13:13:58</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/servicios/4.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/servicios/5.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/testimonios/aguilar.jpg">
+      <publishTime>03/02/2017 18:02:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/testimonios/cocacola.jpg">
+      <publishTime>02/22/2017 19:47:23</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/testimonios/cron.jpg">
+      <publishTime>03/02/2017 17:50:37</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/testimonios/excon.jpg">
+      <publishTime>02/22/2017 23:05:55</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/testimonios/ford.jpg">
+      <publishTime>02/22/2017 18:58:18</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/testimonios/hp.jpg">
+      <publishTime>02/22/2017 21:47:43</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/testimonios/hpe.jpg">
+      <publishTime>02/22/2017 22:18:25</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/testimonios/microsoft.jpg">
+      <publishTime>02/22/2017 22:40:27</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/testimonios/movistar.jpg">
+      <publishTime>02/22/2017 17:15:15</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/testimonios/mt_2005.jpg">
+      <publishTime>02/22/2017 22:58:42</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/testimonios/novobanco.jpg">
+      <publishTime>02/22/2017 19:21:47</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/testimonios/polar.jpg">
+      <publishTime>02/22/2017 19:00:17</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/bootstrap/bootstrap.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/bootstrap/bootstrap.min.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/jquery.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/background/background.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/background/core.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/background/transition.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/cbpAnimatedHeader.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/classie.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/jqBootstrapValidation.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/jquery.easing.min.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/jquery.magnific-popup/jquery.magnific-popup.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/jquery.magnific-popup/jquery.magnific-popup.min.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/jquery.mixitup.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/owl-carousel/owl.carousel.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/retina/retina.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/retina/retina.min.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/wow/wow.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/plugins/wow/wow.min.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/js/vitality.js">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/about.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/asides.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/buttons.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/contact.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/footer.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/global.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/header.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/mixins.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/navbar.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/portfolio.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/pricing.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/services.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/themes.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/typography.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/variables.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/less/vitality.less">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/borrarcuenta.aspx">
+      <publishTime>03/17/2017 15:24:58</publishTime>
+    </File>
+    <File Include="Vista/Registro/cambiopassword.aspx">
+      <publishTime>03/17/2017 15:23:06</publishTime>
+    </File>
+    <File Include="Vista/Registro/modificardatosempleado.aspx">
+      <publishTime>03/21/2017 18:03:00</publishTime>
+    </File>
+    <File Include="Vista/Registro/recuperacionpassword.aspx">
+      <publishTime>03/17/2017 15:23:22</publishTime>
+    </File>
+    <File Include="Vista/Registro/registro.aspx">
+      <publishTime>05/09/2017 12:58:08</publishTime>
+    </File>
+    <File Include="Vista/Registro/validarregistro.aspx">
+      <publishTime>03/17/2017 15:23:19</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/12/2017 15:37:49</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

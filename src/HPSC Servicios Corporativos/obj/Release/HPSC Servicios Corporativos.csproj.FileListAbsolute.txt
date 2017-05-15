@@ -1,0 +1,20 @@
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\bin\HPSC Servicios Corporativos.dll.config
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\bin\HPSC Servicios Corporativos.dll
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\bin\HPSC Servicios Corporativos.pdb
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\bin\Recaptcha.dll
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\bin\Recaptcha.pdb
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC Servicios Corporativos.csprojResolveAssemblyReference.cache
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC_Servicios_Corporativos.Controlador.ModuloClientes.RecursosModuloClientes.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios.RecursosModuloUsuarios.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloAliado.RecursoDAO_Aliado.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloClientes.RecursoDAO_Cliente.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloEquipos.RecursoDAO_Equipo.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes.RecursoDAO_Incidentes.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloPersonaContacto.RecursoDAO_PersonaContacto.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloProductos.RecursoDAO_Producto.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloServicios.RecursoDAO_Servicio.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloUsuarios.RecursoDAO_Usuario.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC_Servicios_Corporativos.Modelo.Comun.RecursoMail.resources
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC Servicios Corporativos.csproj.GenerateResource.Cache
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC Servicios Corporativos.dll
+C:\Users\LAPGrock\Documents\Visual Studio 2013\Projects\HPSC Servicios Corporativos\src\HPSC Servicios Corporativos\obj\Release\HPSC Servicios Corporativos.pdb
