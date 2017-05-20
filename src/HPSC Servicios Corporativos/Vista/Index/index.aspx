@@ -98,12 +98,26 @@
             <img src="assets/img/hpsc-logo.png" width="200" height="250" class="img-responsive img-centered" alt="">
             <div class="HPSC-name" style="font-family: 'Raleway Black'">HPSC Servicios Corporativos</div>
             <hr class="colored">
-            <div class="brand-name-subtext">Aqui puede ir el lema de la empresa</div>
         </div>
         <div class="scroll-down">
             <a class="btn page-scroll" href="#servicios"><i class="fa fa-angle-down fa-fw"></i></a>
         </div>
     </header>
+    <section id="about">
+        <div class="container text-center wow fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Sobre nosotros</h2>
+                    <p>HPSC Servicios Corporativos es una empresa especializada en Servicios de Tecnologías de Información, 
+                       aliada con los principales fabricantes de la industria de la tecnología, y con un portafolio de s
+                       ervicios orientados al cliente y adaptados al entorno económico actual, haciendo especial énfasis en la calidad y 
+                       excelencia del servicio.
+                    </p>
+                    <hr class="colored">
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="bg-gray" id="servicios">
         <div class="container text-center wow fadeIn">
             <div class="row">

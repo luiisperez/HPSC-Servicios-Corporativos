@@ -7,11 +7,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbdwi9GRvuEWcqmiNy4lkZwAAAAACAAAAAAAQZgAAAAEAACAAAACokuLeVy/MUVSV22WzJI9JBWuMOWmXbQCdt7f4ZthDlAAAAAAOgAAAAAIAACAAAAC2SJe/kdiJK3Jk2RdEJ5B8AMfPd7M6CJ3ccVH558BQtiAAAAAbypGVPmr5FJ4FrxlFgNTIKWceiMrMqOQp568fEtgdJkAAAAAHXmdkKdknDpt1IoV7gG4l9Tr0/85shmo/W3dPTcTRj1mHMJbU4u4YIuijJSEo1Lbu/ZMO88ln+oYIwYI4YxgI</EncryptedPassword>
-    <_PublishTargetUrl>ftp://hpsc.cloudmt.net/wwwroot</_PublishTargetUrl>
+    <_PublishTargetUrl>ftp://ftp.cloudmt.net/wwwroot</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/HPSC Servicios Corporativos.dll">
-      <publishTime>05/12/2017 17:40:14</publishTime>
+      <publishTime>05/16/2017 17:19:08</publishTime>
     </File>
     <File Include="bin/Recaptcha.dll">
       <publishTime>12/14/2010 18:19:48</publishTime>
@@ -1004,7 +1004,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2017 22:29:51</publishTime>
     </File>
     <File Include="Vista/Empleados/gestion-incidentes/detallesincidente.aspx">
-      <publishTime>05/10/2017 17:05:44</publishTime>
+      <publishTime>05/16/2017 15:39:09</publishTime>
     </File>
     <File Include="Vista/Empleados/gestion-incidentes/incidentes.aspx">
       <publishTime>05/09/2017 14:37:28</publishTime>
@@ -1541,7 +1541,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2017 09:42:48</publishTime>
     </File>
     <File Include="Vista/Index/index.aspx">
-      <publishTime>05/09/2017 14:08:47</publishTime>
+      <publishTime>05/15/2017 17:43:59</publishTime>
     </File>
     <File Include="Vista/Index/postlogin.aspx">
       <publishTime>05/08/2017 19:46:53</publishTime>
@@ -2206,6 +2206,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Vista/Registro/cambiopassword.aspx">
       <publishTime>03/17/2017 15:23:06</publishTime>
     </File>
+    <File Include="Vista/Registro/modificardatoscliente.aspx">
+      <publishTime>03/21/2017 18:03:04</publishTime>
+    </File>
     <File Include="Vista/Registro/modificardatosempleado.aspx">
       <publishTime>03/21/2017 18:03:00</publishTime>
     </File>
@@ -2213,7 +2216,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/17/2017 15:23:22</publishTime>
     </File>
     <File Include="Vista/Registro/registro.aspx">
-      <publishTime>05/09/2017 12:58:08</publishTime>
+      <publishTime>05/15/2017 17:02:34</publishTime>
     </File>
     <File Include="Vista/Registro/validarregistro.aspx">
       <publishTime>03/17/2017 15:23:19</publishTime>

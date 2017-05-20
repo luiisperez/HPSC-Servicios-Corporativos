@@ -95,7 +95,7 @@
 	                            <div class="form-bottom" >
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-email">Email</label>
-				                        <input type="text" name="form-email" placeholder="Correo electrónico..." class="form-email form-control" id="correoemp" runat="server" onblur="validarcorreo()" maxlength="50" style="white-space: normal;">
+				                        <input type="text" name="form-email" placeholder="Correo electrónico..." class="form-email form-control" id="correoemp" runat="server" onblur="validarcorreoemp()" maxlength="50" style="white-space: normal;">
 				                    </div>
 				                    <div class="form-group">
 				                        <label class="sr-only" for="form-first-name">First name</label>
@@ -285,6 +285,21 @@
             function validateEmail(email) {
                 var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 return re.test(email);
+            }
+
+            function validarcorreoemp(sender, args) {
+                var email = document.getElementById('<%=correoemp.ClientID%>').value;
+                if (email != '') {
+                    if (!validateEmail(email)) {
+                        alert(email + " no es un correo valido");
+                        document.getElementById('correoemp').value = '';
+                    } else {
+                        if (!email.includes("hp-sc.net")) {
+                            alert(email + " no es un correo coorporativo");
+                            document.getElementById('correoemp').value = '';
+                        }
+                    }
+                }
             }
 
             function validarcorreo(sender, args) {

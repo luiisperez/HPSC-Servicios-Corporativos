@@ -47,6 +47,9 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                                 "<li>" +
                                      "<a href=\"/Vista/Empleados/gestion-empleados/rolesempleados.aspx\">Asignación de roles</a>" +
                                 "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-empleados/compensaciones.aspx\">Compensaciones</a>" +
+                                "</li>" +
                             "</ul>";
                         zonaclientes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#clientes\" id=\"clients\" runat=\"server\"><i class=\"fa fa-briefcase\"></i> Clientes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
                             "<ul id=\"clientes\" class=\"collapse\">" +
@@ -569,48 +572,59 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                     }
                     if ((ini >= consultado.fechacompromiso) && (fin >= consultado.fechacompromiso))
                     {
-                        ConsultarActividades com = FabricaComando.ComandoConsultarActividades(incidente);
-                        com.ejecutar();
-                        List<Actividad> lista = com.listado;
-                        bool verdad = false;
-                        foreach (Actividad item in lista)
+                        TimeSpan horamax = new TimeSpan(24, 0, 0);
+                        TimeSpan horausada = fin - ini;
+                        if (horausada < horamax)
                         {
-                            if ((ini >= item.fechahorainicio) && (ini < item.fechahorafin) && (item.empleado.Equals(emp.nombre + " " + emp.apellido)))
+                            ConsultarActividades com = FabricaComando.ComandoConsultarActividades(incidente);
+                            com.ejecutar();
+                            List<Actividad> lista = com.listado;
+                            bool verdad = false;
+                            foreach (Actividad item in lista)
                             {
-                                verdad = true;
-                            }
-                        }
-                        if (!verdad)
-                        {
-                            try
-                            {
-                                AnadirActividad cmd = FabricaComando.ComandoAnadirActividad(tipoactividades.Text, fechahorainiact.Value, fechahorafinact.Value, emp.correo, incidente);
-                                cmd.ejecutar();
-                                //string script = "alert(\"Se ha registrado la actividad exitosamente en el sistema\");";
-                                //ScriptManager.RegisterStartupScript(this, GetType(),
-                                //                        "ServerControlScript", script, true);
-                                var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha registrado la actividad exitosamente en el sistema");
-                                var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/detallesincidente.aspx';", message);
-                                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
-                                ConsultarActividades command = FabricaComando.ComandoConsultarActividades(incidente);
-                                command.ejecutar();
-                                List<Actividad> list = command.listado;
-                                if (list.Count != 0)
+                                if ((ini >= item.fechahorainicio) && (ini < item.fechahorafin) && (item.empleado.Equals(emp.nombre + " " + emp.apellido)))
                                 {
-                                    repact.DataSource = list;
-                                    repact.DataBind();
+                                    verdad = true;
                                 }
                             }
-                            catch (Exception ex)
+                            if (!verdad)
                             {
-                                string script = "alert(\"No se ha podido registrar, por favor intente nuevamente\");";
+                                try
+                                {
+                                    AnadirActividad cmd = FabricaComando.ComandoAnadirActividad(tipoactividades.Text, fechahorainiact.Value, fechahorafinact.Value, emp.correo, incidente);
+                                    cmd.ejecutar();
+                                    //string script = "alert(\"Se ha registrado la actividad exitosamente en el sistema\");";
+                                    //ScriptManager.RegisterStartupScript(this, GetType(),
+                                    //                        "ServerControlScript", script, true);
+                                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha registrado la actividad exitosamente en el sistema");
+                                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/detallesincidente.aspx';", message);
+                                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                                    ConsultarActividades command = FabricaComando.ComandoConsultarActividades(incidente);
+                                    command.ejecutar();
+                                    List<Actividad> list = command.listado;
+                                    if (list.Count != 0)
+                                    {
+                                        repact.DataSource = list;
+                                        repact.DataBind();
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    string script = "alert(\"No se ha podido registrar, por favor intente nuevamente\");";
+                                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                                            "ServerControlScript", script, true);
+                                }
+                            }
+                            else
+                            {
+                                string script = "alert(\"Existe un error de solapamiento de horas, la actividad que deseas cargar tiene conflicto con otra ya registrada\");";
                                 ScriptManager.RegisterStartupScript(this, GetType(),
                                                         "ServerControlScript", script, true);
                             }
                         }
                         else
                         {
-                            string script = "alert(\"Existe un error de solapamiento de horas, la actividad que deseas cargar tiene conflicto con otra ya registrada\");";
+                            string script = "alert(\"Una actividad no puede durar más de 24 horas, por favor revise\");";
                             ScriptManager.RegisterStartupScript(this, GetType(),
                                                     "ServerControlScript", script, true);
                         }

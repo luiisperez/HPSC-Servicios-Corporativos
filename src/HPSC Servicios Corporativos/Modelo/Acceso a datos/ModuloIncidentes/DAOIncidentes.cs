@@ -618,24 +618,31 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes
                         DateTime movil = Convert.ToDateTime(row[2].ToString());
                         DateTime fin = Convert.ToDateTime(row[3].ToString());
                         TimeSpan horastrabajadas = fin - inicio;
-                        TimeSpan horastrabajadasreal = fin - inicio;
-                        if (horastrabajadas.Minutes != 0)
-                        {
-                            horastrabajadasreal = new TimeSpan(horastrabajadas.Hours + 1, 0, 0);
-                        }
+                        int horastrabajadasreal = horastrabajadas.Minutes + (horastrabajadas.Hours * 60);
+                        double hora = 60;
+                        double x = horastrabajadas.Minutes;
+                        double fracciontiempo = 1 / hora;
                         List<Feriado> feriados = ConsultarFeriados();
-                        for (int i = 1; i <= horastrabajadasreal.Hours; i++)
+                        for (int i = 1; i <= horastrabajadasreal; i++)
                         {
-                            movil = movil.AddHours(1);
-                            if ((movil.Hour >= 0) && (movil.Hour <= 6))
+                            movil = movil.AddMinutes(1);
+                            TimeSpan h = movil.TimeOfDay;
+                            TimeSpan cero = new TimeSpan(0, 0, 0);
+                            TimeSpan seis = new TimeSpan(6, 0, 0);
+                            TimeSpan ocho = new TimeSpan(8, 0, 0);
+                            TimeSpan diecisiete = new TimeSpan(17, 0, 0);
+                            TimeSpan diecinueve = new TimeSpan(19, 0, 0);
+                            TimeSpan venticuatro = new TimeSpan(24, 0, 0);
+
+                            if ((h >= cero) && (h <= seis))
                             {
-                                actconsultada.horasnocturnas = actconsultada.horasnocturnas + 1;
+                                actconsultada.horasnocturnas = actconsultada.horasnocturnas + fracciontiempo;
                             }
-                            if ((movil.Hour > 6) && (movil.Hour <= 8))
+                            if ((h > seis) && (h <= ocho))
                             {
-                                actconsultada.horasdiurnas = actconsultada.horasdiurnas + 1;
+                                actconsultada.horasdiurnas = actconsultada.horasdiurnas + fracciontiempo;
                             }
-                            if ((movil.Hour > 8) && (movil.Hour <= 17))
+                            if ((h > ocho) && (h <= diecisiete))
                             {
                                 bool feriado = false;
                                 foreach (Feriado item in feriados)
@@ -649,22 +656,25 @@ namespace HPSC_Servicios_Corporativos.Modelo.Acceso_a_datos.ModuloIncidentes
                                                          (movil.DayOfWeek.ToString().Equals("Sabado")) || (movil.DayOfWeek.ToString().Equals("Domingo")) ||
                                                          (movil.DayOfWeek.ToString().Equals("Sunday")))
                                 {
-                                    actconsultada.horasdiurnas = actconsultada.horasdiurnas + 1;
+                                    actconsultada.horasdiurnas = actconsultada.horasdiurnas + fracciontiempo;
                                 }
                                 else
                                 {
-                                    actconsultada.horaslaborables = actconsultada.horaslaborables + 1;
+                                    actconsultada.horaslaborables = actconsultada.horaslaborables + fracciontiempo;
                                 }
                             }
-                            if ((movil.Hour > 17) && (movil.Hour <= 19))
+                            if ((h > diecisiete) && (h <= diecinueve))
                             {
-                                actconsultada.horasdiurnas = actconsultada.horasdiurnas + 1;
+                                actconsultada.horasdiurnas = actconsultada.horasdiurnas + fracciontiempo;
                             }
-                            if ((movil.Hour > 19) && (movil.Hour < 24))
+                            if ((h > diecinueve) && (h < venticuatro))
                             {
-                                actconsultada.horasdiurnas = actconsultada.horasdiurnas + 1;
+                                actconsultada.horasdiurnas = actconsultada.horasdiurnas + fracciontiempo;
                             }
                         }
+                        actconsultada.horasdiurnas = Math.Round(actconsultada.horasdiurnas, 2);
+                        actconsultada.horasnocturnas = Math.Round(actconsultada.horasnocturnas, 2);
+                        actconsultada.horaslaborables = Math.Round(actconsultada.horaslaborables, 2);
                         listado.Add(actconsultada);
                     }
                     catch (Exception ex)

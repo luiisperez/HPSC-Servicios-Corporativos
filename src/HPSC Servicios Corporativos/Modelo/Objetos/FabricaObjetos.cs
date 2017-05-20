@@ -181,6 +181,14 @@ namespace HPSC_Servicios_Corporativos.Modelo.Objetos
             return new List<Actividad>();
         }
 
-        
+        public static HorasEmpleado CrearHorasEmpleado(String _emp)
+        {
+            return new HorasEmpleado(_emp);
+        }
+
+        public static List<HorasEmpleado> CrearListaHorasEmpleados()
+        {
+            return new List<HorasEmpleado>();
+        }
     }
 }

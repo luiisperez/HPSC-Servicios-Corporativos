@@ -25,6 +25,9 @@
     <!-- Custom Fonts -->
     <link href="/Vista/Empleados/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <script src="http://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
+    <link href="http://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -356,7 +359,7 @@
                                             </div> 
                                             <div class="col-md-3"> 
                                                 <label> <u>Fecha/Hora de finalización: </u></label>
-                                                <input id="fechahorafinact" runat="server" type='datetime-local' class="form-control">
+                                                <input id="fechahorafinact" runat="server" type='datetime-local' class="form-control" >
                                             </div> 
                                             <%--<asp:updatepanel runat="server">
                                                 <ContentTemplate>--%>

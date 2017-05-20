@@ -38,6 +38,9 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_productos
                                 "<li>" +
                                      "<a href=\"/Vista/Empleados/gestion-empleados/rolesempleados.aspx\">Asignación de roles</a>" +
                                 "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-empleados/compensaciones.aspx\">Compensaciones</a>" +
+                                "</li>" +
                             "</ul>";
                         zonaclientes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#clientes\" id=\"clients\" runat=\"server\"><i class=\"fa fa-briefcase\"></i> Clientes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
                             "<ul id=\"clientes\" class=\"collapse\">" +

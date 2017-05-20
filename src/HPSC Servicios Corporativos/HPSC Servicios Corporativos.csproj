@@ -292,6 +292,7 @@
     <Content Include="Vista\Empleados\gestion-contratos\detallescontrato.aspx" />
     <Content Include="Vista\Empleados\gestion-contratos\visualizarcontratos.aspx" />
     <Content Include="Vista\Empleados\gestion-contratos\visualizarserviciosequipo.aspx" />
+    <Content Include="Vista\Empleados\gestion-empleados\compensaciones.aspx" />
     <Content Include="Vista\Empleados\gestion-incidentes\agregarincidente.aspx" />
     <Content Include="Vista\Empleados\gestion-incidentes\detallesincidente.aspx" />
     <Content Include="Vista\Empleados\gestion-incidentes\incidentes.aspx" />
@@ -725,6 +726,7 @@
     <Compile Include="Modelo\Objetos\Equipo.cs" />
     <Compile Include="Modelo\Objetos\FabricaObjetos.cs" />
     <Compile Include="Modelo\Objetos\Feriado.cs" />
+    <Compile Include="Modelo\Objetos\HorasEmpleado.cs" />
     <Compile Include="Modelo\Objetos\Incidente.cs" />
     <Compile Include="Modelo\Objetos\PersonaContacto.cs" />
     <Compile Include="Modelo\Objetos\reCaptchaV2.cs" />
@@ -858,6 +860,13 @@
     </Compile>
     <Compile Include="Vista\Empleados\gestion-contratos\visualizarserviciosequipo.aspx.designer.cs">
       <DependentUpon>visualizarserviciosequipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-empleados\compensaciones.aspx.cs">
+      <DependentUpon>compensaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Empleados\gestion-empleados\compensaciones.aspx.designer.cs">
+      <DependentUpon>compensaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Empleados\gestion-incidentes\agregarincidente.aspx.cs">
       <DependentUpon>agregarincidente.aspx</DependentUpon>
