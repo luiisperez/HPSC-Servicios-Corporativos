@@ -32,6 +32,21 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="/Empleados/js/cargadorMenu.js"></script>
+    <style>
+        header .HPSC {
+            font-family:Raleway-Black;
+            font-size: 3em;
+            font-weight: 900;
+            line-height: 1.6em;
+            display: inline-block;
+            font-size: 300%;
+         }
+        @font-face{
+            font-family: "Raleway-Black";
+            src: url("/Vista/Common/Raleway-Black.ttf");
+            url("/Vista/Common/Raleway-Black.ttf");
+        }
+    </style>
 </head>
 
 <body>
@@ -113,7 +128,7 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12" style="margin-top:-20px">
-                        <h1 class="page-header" style="font-family:Raleway Black">
+                        <h1 class="page-header" style="font-family:Raleway-Black">
                             <B>Bienvenido <%=emp.nombre%> <%=emp.apellido%></B>
                         </h1>
                     </div>
@@ -121,7 +136,7 @@
                 <!-- /.row -->
                 <div class="row">
                     <div class="col-lg-12" style="margin-top:-40px">
-                        <h3 class="page-header" style="font-family:Raleway Black">
+                        <h3 class="page-header" style="font-family:Raleway-Black">
                             <B>Cantidad de casos registrados: </B>
                         </h3>
                     </div>

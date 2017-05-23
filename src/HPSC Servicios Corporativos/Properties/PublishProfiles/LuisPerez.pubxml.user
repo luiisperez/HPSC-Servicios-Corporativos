@@ -6,15 +6,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbdwi9GRvuEWcqmiNy4lkZwAAAAACAAAAAAAQZgAAAAEAACAAAACokuLeVy/MUVSV22WzJI9JBWuMOWmXbQCdt7f4ZthDlAAAAAAOgAAAAAIAACAAAAC2SJe/kdiJK3Jk2RdEJ5B8AMfPd7M6CJ3ccVH558BQtiAAAAAbypGVPmr5FJ4FrxlFgNTIKWceiMrMqOQp568fEtgdJkAAAAAHXmdkKdknDpt1IoV7gG4l9Tr0/85shmo/W3dPTcTRj1mHMJbU4u4YIuijJSEo1Lbu/ZMO88ln+oYIwYI4YxgI</EncryptedPassword>
-    <_PublishTargetUrl>ftp://ftp.cloudmt.net/wwwroot</_PublishTargetUrl>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbdwi9GRvuEWcqmiNy4lkZwAAAAACAAAAAAAQZgAAAAEAACAAAABg4dQwWV85tJqhABGtb6sfShqcHFIdACQDW8FJg8pxcgAAAAAOgAAAAAIAACAAAABPOSevGqHsnG7MO1sWByOPP+ouyGzs4FWbuPS/tz2uYyAAAABv52PSXi4OEWaUb/BLfOSWb0zKafO3DKj/G5Sbzi5bW0AAAABeg2jKf2OAlVZwUzQsxL63HDrFp7gaccxo/Pc2wZ957tkJAE0uRKirpH1TGQIPrMX2lOPRFs6WvHh12/8sLPrQ</EncryptedPassword>
+    <_PublishTargetUrl>ftp://ftp.smarterasp.net/wwwroot</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/HPSC Servicios Corporativos.dll">
-      <publishTime>05/16/2017 17:19:08</publishTime>
+      <publishTime>05/22/2017 20:41:03</publishTime>
     </File>
     <File Include="bin/Recaptcha.dll">
       <publishTime>12/14/2010 18:19:48</publishTime>
+    </File>
+    <File Include="redirect.aspx">
+      <publishTime>05/22/2017 20:39:41</publishTime>
     </File>
     <File Include="Vista/Clientes/administracionCliente.aspx">
       <publishTime>04/19/2017 17:57:41</publishTime>
@@ -823,8 +826,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Vista/Common/plugins/datatables/jquery.dataTables_themeroller.css">
       <publishTime>03/13/2017 14:11:11</publishTime>
     </File>
+    <File Include="Vista/Common/Raleway-Black.ttf">
+      <publishTime>05/22/2017 17:05:21</publishTime>
+    </File>
     <File Include="Vista/Empleados/administracionHPSC.aspx">
-      <publishTime>05/11/2017 21:36:18</publishTime>
+      <publishTime>05/22/2017 17:15:00</publishTime>
     </File>
     <File Include="Vista/Empleados/css/bootstrap-rtl.css">
       <publishTime>03/13/2017 08:40:12</publishTime>
@@ -985,6 +991,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Vista/Empleados/gestion-contratos/visualizarserviciosequipo.aspx">
       <publishTime>05/09/2017 14:38:28</publishTime>
     </File>
+    <File Include="Vista/Empleados/gestion-empleados/compensaciones.aspx">
+      <publishTime>05/20/2017 13:42:21</publishTime>
+    </File>
     <File Include="Vista/Empleados/gestion-empleados/rolesempleados.aspx">
       <publishTime>05/09/2017 14:38:21</publishTime>
     </File>
@@ -1076,7 +1085,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2017 21:34:48</publishTime>
     </File>
     <File Include="Vista/Index/assets/css/hpsc.css">
-      <publishTime>02/22/2017 23:01:26</publishTime>
+      <publishTime>05/22/2017 16:36:02</publishTime>
     </File>
     <File Include="Vista/Index/assets/css/plugins/animate.css">
       <publishTime>02/21/2017 09:42:47</publishTime>
@@ -1218,6 +1227,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Vista/Index/assets/fonts/glyphicons-halflings-regular.woff2">
       <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/about_us/mision.jpg">
+      <publishTime>05/22/2017 18:44:17</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/about_us/valores.jpg">
+      <publishTime>05/22/2017 18:45:00</publishTime>
+    </File>
+    <File Include="Vista/Index/assets/img/about_us/vision.jpg">
+      <publishTime>05/22/2017 18:45:47</publishTime>
     </File>
     <File Include="Vista/Index/assets/img/background-header.jpg">
       <publishTime>02/21/2017 10:15:10</publishTime>
@@ -1541,10 +1559,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2017 09:42:48</publishTime>
     </File>
     <File Include="Vista/Index/index.aspx">
-      <publishTime>05/15/2017 17:43:59</publishTime>
+      <publishTime>05/22/2017 19:36:00</publishTime>
     </File>
     <File Include="Vista/Index/postlogin.aspx">
-      <publishTime>05/08/2017 19:46:53</publishTime>
+      <publishTime>05/22/2017 19:36:17</publishTime>
     </File>
     <File Include="Vista/Registro/assetos/bootstrap/css/bootstrap-theme.css">
       <publishTime>03/16/2017 15:56:25</publishTime>
@@ -1873,6 +1891,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Vista/Registro/assets/fonts/glyphicons-halflings-regular.eot">
       <publishTime>02/21/2017 09:42:47</publishTime>
     </File>
+    <File Include="Vista/Registro/assets/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>02/21/2017 09:42:47</publishTime>
+    </File>
     <File Include="Vista/Registro/assets/fonts/glyphicons-halflings-regular.ttf">
       <publishTime>02/21/2017 09:42:47</publishTime>
     </File>
@@ -1991,6 +2012,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2017 09:42:48</publishTime>
     </File>
     <File Include="Vista/Registro/assets/img/portfolio/bg-3.jpg">
+      <publishTime>02/21/2017 09:42:48</publishTime>
+    </File>
+    <File Include="Vista/Registro/assets/img/portfolio/bg-4.jpg">
       <publishTime>02/21/2017 09:42:48</publishTime>
     </File>
     <File Include="Vista/Registro/assets/img/portfolio/grid/graphic/1.jpg">
@@ -2201,28 +2225,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2017 09:42:48</publishTime>
     </File>
     <File Include="Vista/Registro/borrarcuenta.aspx">
-      <publishTime>03/17/2017 15:24:58</publishTime>
+      <publishTime>05/22/2017 17:19:09</publishTime>
     </File>
     <File Include="Vista/Registro/cambiopassword.aspx">
-      <publishTime>03/17/2017 15:23:06</publishTime>
+      <publishTime>05/22/2017 17:18:56</publishTime>
     </File>
     <File Include="Vista/Registro/modificardatoscliente.aspx">
-      <publishTime>03/21/2017 18:03:04</publishTime>
+      <publishTime>05/22/2017 17:18:36</publishTime>
     </File>
     <File Include="Vista/Registro/modificardatosempleado.aspx">
-      <publishTime>03/21/2017 18:03:00</publishTime>
+      <publishTime>05/22/2017 17:18:06</publishTime>
     </File>
     <File Include="Vista/Registro/recuperacionpassword.aspx">
-      <publishTime>03/17/2017 15:23:22</publishTime>
+      <publishTime>05/22/2017 17:17:33</publishTime>
     </File>
     <File Include="Vista/Registro/registro.aspx">
-      <publishTime>05/15/2017 17:02:34</publishTime>
+      <publishTime>05/22/2017 17:17:13</publishTime>
     </File>
     <File Include="Vista/Registro/validarregistro.aspx">
-      <publishTime>03/17/2017 15:23:19</publishTime>
+      <publishTime>05/22/2017 17:19:22</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/12/2017 15:37:49</publishTime>
+      <publishTime>05/22/2017 12:17:56</publishTime>
     </File>
   </ItemGroup>
 </Project>

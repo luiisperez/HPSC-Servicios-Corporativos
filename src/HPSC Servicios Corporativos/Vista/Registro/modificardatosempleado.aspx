@@ -4,6 +4,21 @@
 <html lang="en">
 
     <head>
+    <style>
+        header .HPSC {
+            font-family:Raleway-Black;
+            font-size: 3em;
+            font-weight: 900;
+            line-height: 1.6em;
+            display: inline-block;
+            font-size: 300%;
+         }
+        @font-face{
+            font-family: "Raleway-Black";
+            src: url("/Vista/Common/Raleway-Black.ttf");
+            url("/Vista/Common/Raleway-Black.ttf");
+        }
+    </style>
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,7 +95,7 @@
                 	
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1 style="color:white; font-family: 'Raleway Black'; font-size: 50px;">MODIFICACIÓN DE DATOS</h1>
+                            <h1 style="color:white; font-family: 'Raleway-Black'; font-size: 50px;">MODIFICACIÓN DE DATOS</h1>
                         </div>
                     </div>
                     <div style="width:40%;margin:0 auto">
@@ -395,7 +410,7 @@
           <!-- Modal Content -->
           <form class="modal-content animate">
             <div style="font-family: 'Raleway'; font-size: 35px; text-align:center; margin: 10px auto 0px auto">
-              <h3 style="font-family: 'Raleway Black';">Indicaciones</h3>
+              <h3 style="font-family: 'Raleway-Black';">Indicaciones</h3>
               <div style="margin-left:50px;margin-top:40px;margin-bottom:40px;margin-right:50px">
                   <p style="text-align:justify; font-size: medium; color:black"> • Nombre de Usuario no mayor a 15 caracteres.</p>
                   <p style="text-align:justify; font-size: medium; color:black"> • Contraseña mínimo 8 caracteres.</p>

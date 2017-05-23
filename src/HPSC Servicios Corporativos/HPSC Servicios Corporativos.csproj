@@ -349,6 +349,9 @@
     <Content Include="Vista\Index\assets\font-awesome\css\font-awesome.min.css" />
     <Content Include="Vista\Index\assets\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Vista\Index\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Vista\Index\assets\img\about_us\mision.jpg" />
+    <Content Include="Vista\Index\assets\img\about_us\valores.jpg" />
+    <Content Include="Vista\Index\assets\img\about_us\vision.jpg" />
     <Content Include="Vista\Index\assets\img\background-header.jpg" />
     <Content Include="Vista\Index\assets\img\bg-aside.jpg" />
     <Content Include="Vista\Index\assets\img\bg-caracas2.jpg" />
@@ -1266,6 +1269,7 @@
     <Content Include="Vista\Clientes\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\LuisPerez.pubxml" />
     <Content Include="Vista\Index\assets\img\logos-clientes\aguilar.psd" />
+    <Content Include="Vista\Common\Raleway-Black.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

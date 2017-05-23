@@ -39,6 +39,9 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_empleados
                                 "<li>" +
                                      "<a href=\"/Vista/Empleados/gestion-incidentes/incidentes.aspx\">Visualizar</a>" +
                                 "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-empleados/compensaciones.aspx\">Compensaciones</a>" +
+                                "</li>" +
                             "</ul>";
                         zonausuarios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#usuarios\" id=\"users\" runat=\"server\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
                             "<ul id=\"usuarios\" class=\"collapse\">" +

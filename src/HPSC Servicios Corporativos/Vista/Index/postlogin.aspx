@@ -49,6 +49,21 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    <style>
+        header .HPSC {
+            font-family:Raleway-Black;
+            font-size: 3em;
+            font-weight: 900;
+            line-height: 1.6em;
+            display: inline-block;
+            font-size: 300%;
+         }
+        @font-face{
+            font-family: "Raleway-Black";
+            src: url("/Vista/Common/Raleway-Black.ttf");
+            url("/Vista/Common/Raleway-Black.ttf");
+        }
+    </style>
 </head>
 <!-- Alternate Body Classes: .modern and .vintage -->
 
@@ -149,11 +164,12 @@
     <header style="background-image: url('assets/img/bg-header-day.jpg');">
         <div class="intro-content">
             <img src="assets/img/hpsc-logo.png" width="200" height="250" class="img-responsive img-centered" alt="">
-            <div class="HPSC-name" style="font-family: 'Raleway Black'">HPSC Servicios Corporativos</div>
+            <div class="HPSC" style="font-size:46px">HPSC Servicios Corporativos</div>
             <hr class="colored">
+            <div class="brand-name-subtext">Aqui puede ir el lema de la empresa</div>
         </div>
         <div class="scroll-down">
-            <a class="btn page-scroll" href="#servicios"><i class="fa fa-angle-down fa-fw"></i></a>
+            <a class="btn page-scroll" href="#about"><i class="fa fa-angle-down fa-fw"></i></a>
         </div>
     </header>
     <section id="about">
@@ -167,6 +183,41 @@
                        excelencia del servicio.
                     </p>
                     <hr class="colored">
+                </div>
+                <div class="row content-row">
+                    <div class="col-lg-12">
+                        <div class="about-carousel">
+                            <div class="item">
+                                <img src="assets/img/about_us/mision.jpg" class="img-responsive" alt="" id="mision" >
+                                <div class="caption">
+                                    <h3 style="color:white">Misión</h3>
+                                    <hr class="colored-small">
+                                    <p style="color:white; font-size: medium; margin:8px; text-align: center;">Proveer servicios de tecnologías de información que contribuyan
+                                                                                                               al desarrollo del potencial de negocios de nuestros clientes y asociados</p>
+                                </div> 
+                            </div>
+                            <div class="item">
+                                <img src="assets/img/about_us/vision.jpg" class="img-responsive" alt="" id="vision">
+                                <div class="caption">
+                                    <h3 style="color:white">Visión</h3>
+                                    <hr class="colored-small">
+                                    <p style="color:white; font-size: medium; margin:8px; text-align: center;">Posicionarnos como la mejor empresa proveedora de servicios de tecnologías 
+                                                                                                               de información en Venezuela, a través de estrategias de desarrollo profesional, 
+                                                                                                               económico y social que beneficien a nuestros clientes, accionistas, empleados y asociados</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="assets/img/about_us/valores.jpg" class="img-responsive" alt="" id="valores">
+                                <div class="caption">
+                                    <h3 style="color:white">Valores</h3>
+                                    <hr class="colored-small">
+                                    <p style="color:white; font-size: medium; margin:8px; text-align: center;">Los valores que nos representan son el respeto, la tolerancia,
+                                                                                                               el compromiso, la responsabilidad, la puntualidad, la excelencia,
+                                                                                                               la disciplina y la perseverancia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -408,52 +459,6 @@
             </div>
         </div>
     </section>
-    <section class="testimonials bg-gray">
-        <div class="container wow fadeIn">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <div class="testimonials-carousel">
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <p class="lead">"Trabajar con HPSC Servicios Corporativos fue una experiencia excelente"</p>
-                                    <hr class="colored">
-                                    <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, temporibus, laborum, dignissimos doloremque corporis alias nostrum recusandae culpa id quisquam harum impedit sed sunt non obcaecati vero ipsam aut fugit?</p>
-                                    <div class="testimonial-info">
-                                        <div class="testimonial-img">
-                                            <img src="assets/img/testimonios/ford.jpg" width="50" height="50" class="img-circle img-responsive" alt="">
-                                        </div>
-                                        <div class="testimonial-author">
-                                            <span class="name">Nombre del autor</span>
-                                            <p class="small">Cargo en la empresa</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <p class="lead">"HPSC Servicios Corporativos ofrece lo mejor a sus clientes"</p>
-                                    <hr class="colored">
-                                    <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, temporibus, laborum, dignissimos doloremque corporis alias nostrum recusandae culpa id quisquam harum impedit sed sunt non obcaecati vero ipsam aut fugit?</p>
-                                    <div class="testimonial-info">
-                                        <div class="testimonial-img">
-                                            <img src="assets/img/testimonios/mt_2005.jpg" width="50" height="50" class="img-circle img-responsive" alt="">
-                                        </div>
-                                        <div class="testimonial-author">
-                                            <span class="name">Nombre del autor</span>
-                                            <p class="small">Cargo en la empresa</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <footer class="footer" style="background-image: url('assets/img/bgfooter.jpg')">
         <div class="container text-center">
             <div class="row">
@@ -477,11 +482,11 @@
             <div class="row social">
                 <div class="col-lg-12">
                     <ul class="list-inline">
-                        <li><a href="#"><i class="fa fa-facebook fa-fw fa-2x"></i></a>
+                        <li><a href="https://plus.google.com/105791488798181839131"><i class="fa fa-google-plus fa-fw fa-2x"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-twitter fa-fw fa-2x"></i></a>
+                        <li><a href="https://twitter.com/hpsc_servcorp"><i class="fa fa-twitter fa-fw fa-2x"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-linkedin fa-fw fa-2x"></i></a>
+                        <li><a href="https://www.linkedin.com/company-beta/10392786/"><i class="fa fa-linkedin fa-fw fa-2x"></i></a>
                         </li>
                     </ul>
                 </div>

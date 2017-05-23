@@ -5,6 +5,7 @@ INSERT INTO ROL VALUES (2, 'Sin rol', -1);
 INSERT INTO ROL VALUES (3, 'Cliente', -10);
 INSERT INTO ROL VALUES (4, 'Eliminado', -100);
 INSERT INTO ROL VALUES (5, 'Coordinador de servicios', 10);
+INSERT INTO ROL VALUES (6, 'Ingeniero de soporte', 10);
 
 ----------------------CLIENTE---------------------------
 INSERT INTO CLIENTE VALUES ('luis.alejandro120895@gmail.com', 'Kikiriskiaga CA', 'Kikiriskiaga128', 'F9F299C9FE7AE645AE722D2B2E1965AE', 'Av. Ohiggins, La Paz', 3);
