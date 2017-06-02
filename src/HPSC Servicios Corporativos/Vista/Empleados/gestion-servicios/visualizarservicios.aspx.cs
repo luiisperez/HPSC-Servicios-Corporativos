@@ -198,9 +198,10 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_servicios
                 {
                     EliminarServicio cmd = FabricaComando.ComandoEliminarServicio(id.Text);
                     cmd.ejecutar();
-                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha eliminado el servicio y pasará a estar como \"No disponible\"");
-                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-servicios/visualizarservicios.aspx';", message);
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                    string script = "alert(\"Se ha eliminado el servicio y pasará a estar como \"No disponible\"\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                    Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-servicios/visualizarservicios.aspx");
                 }
                 catch (Exception ex)
                 {

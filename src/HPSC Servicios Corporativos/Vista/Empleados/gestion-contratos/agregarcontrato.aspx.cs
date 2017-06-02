@@ -44,15 +44,6 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                                      "<a href=\"/Vista/Empleados/gestion-empleados/compensaciones.aspx\">Compensaciones</a>" +
                                 "</li>" +
                             "</ul>";
-                        zonausuarios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#usuarios\" id=\"users\" runat=\"server\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
-                            "<ul id=\"usuarios\" class=\"collapse\">" +
-                               "<li>" +
-                                    "<a id=\"visualizarempleados\" href=\"/Vista/Empleados/gestion-empleados/visualizarempleados.aspx\">Visualizar</a>" +
-                               "</li>" +
-                                "<li>" +
-                                     "<a href=\"/Vista/Empleados/gestion-empleados/rolesempleados.aspx\">Asignación de roles</a>" +
-                                "</li>" +
-                            "</ul>";
                         zonaclientes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#clientes\" id=\"clients\" runat=\"server\"><i class=\"fa fa-briefcase\"></i> Clientes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
                             "<ul id=\"clientes\" class=\"collapse\">" +
                                "<li>" +
@@ -107,6 +98,15 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                                     "<a href=\"/Vista/Empleados/gestion-contactos/visualizarpersonascontacto.aspx\">Visualizar</a>" +
                                "</li>" +
                             "</ul>";
+                        zonaincidentes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#incidentes\" id=\"incidente\" runat=\"server\"><i class=\"fa fa fa-warning\"></i> Incidentes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"incidentes\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a href=\"/Vista/Empleados/gestion-incidentes/agregarincidente.aspx\">Agregar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-incidentes/incidentes.aspx\">Visualizar</a>" +
+                                "</li>" +
+                            "</ul>";
                     }
                     else
                     {
@@ -134,7 +134,9 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                             if (item.disponibilidad.Equals("Disponible"))
                             {
                                 String dias = item.dias;
-                                checkservicios.Items.Add(new ListItem(item.nivelservicio + " " + item.canthoras + "x" + item.dias.Split(',').Count() + ", Tipo de servicio: " + item.tiposervicio + ", Feriado: " + item.feriado + ", Tiempo de respuesta: " + item.tiemporespuesta + " hora(s)" + ", Días de trabajo: " + dias.Replace(",", ", "), item.identificador));
+                                String detail = "- Tipo de servicio: " + item.tiposervicio + "\n- Feriado: " + item.feriado + "\n- Tiempo de respuesta: " + item.tiemporespuesta + " hora(s)" + "\n-" + "  Días de trabajo: " + dias.Replace(",", ", ");
+                                String info = "<i class=\"fa fa-info-circle\" Title=\"" + detail + "\" id=\"info\" runat=\"server\"></i>";
+                                checkservicios.Items.Add(new ListItem(item.nivelservicio + " " + item.canthoras + "x" + item.dias.Split(',').Count() + " " + info, item.identificador));
                             }
                         }
                     }

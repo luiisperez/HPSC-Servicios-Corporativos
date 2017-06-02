@@ -81,9 +81,6 @@
                            <li> 
                                 <a id="visualizarequipos" href="/Vista/Clientes/gestion-equipos/misequipos.aspx">Visualizar</a>
                            </li> 
-                           <li>
-                                 <a href="/Vista/Clientes/gestion-equipos/solicitarequipo.aspx">Solicitar equipo</a>
-                           </li>  
                         </ul>  
                     </li>
                     <li id="zonacontratos" runat="server">
@@ -123,6 +120,21 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    
+<script>
+    $(document).keydown(function (event) {
+        if (event.keyCode == 123) {
+            return false;
+        }
+        else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+            return false;  //Prevent from ctrl+shift+i
+        }
+    });
+
+    $(document).on("contextmenu", function (e) {
+        e.preventDefault();
+    }); //PREVIENE F12, CTRL+SHIFT+I Y CLICK DERECHO
+</script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>

@@ -4,6 +4,31 @@
 <html lang="en">
 
 <head>
+    <style>
+        header .HPSC {
+            font-family:Raleway-Black;
+            font-size: 3em;
+            font-weight: 900;
+            line-height: 1.6em;
+            display: inline-block;
+            font-size: 300%;
+         }
+        @font-face{
+            font-family: "Raleway-Black";
+            src: url("/Vista/Common/Raleway-Black.ttf");
+            url("/Vista/Common/Raleway-Black.ttf");
+        }
+        @font-face{
+            font-family: "Raleway-Semibold";
+            src: url("/Vista/Common/Raleway-SemiBold.ttf");
+            url("/Vista/Common/Raleway-SemiBold.ttf");
+        }
+        @font-face{
+            font-family: "Raleway-Medium";
+            src: url("/Vista/Common/Raleway-Medium.ttf");
+            url("/Vista/Common/Raleway-Medium.ttf");
+        }
+    </style>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -78,7 +103,7 @@
                         
                         </li>
                         <li id="zonaclientes" runat="server">
-                           
+                        
                         </li>
                         <li id="zonaproductos" runat="server">
                             
@@ -87,7 +112,7 @@
                             
                         </li>
                         <li id="zonacontratos" runat="server">
-                            
+
                         </li>
                         <li id="zonaasignacionservicios" runat="server">
                             
@@ -96,7 +121,7 @@
                             
                         </li>
                         <li id="zonaincidentes" runat="server">
-                             
+
                         </li>
                     </ul>
                 </div>
@@ -201,7 +226,22 @@
     <!-- DataTables -->
     <script src="/Vista/Common/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/Vista/Common/plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <script>table = $('#tabla').DataTable();</script>'
+    <script>table = $('#tabla').DataTable();</script>
+    
+<script>
+    $(document).keydown(function (event) {
+        if (event.keyCode == 123) {
+            return false;
+        }
+        else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+            return false;  //Prevent from ctrl+shift+i
+        }
+    });
+
+    $(document).on("contextmenu", function (e) {
+        e.preventDefault();
+    }); //PREVIENE F12, CTRL+SHIFT+I Y CLICK DERECHO
+</script>
 </body>
 
 </html>

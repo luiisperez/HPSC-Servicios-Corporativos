@@ -58,14 +58,12 @@ namespace HPSC_Servicios_Corporativos.Vista.Registro
                     Cliente nuevocliente = FabricaObjetos.CrearCliente(correocli.Value, nombrecli.Value, direccioncli.Value, usuariocli.Value, contrasenacli.Value);
                     ModificarCliente mod = FabricaComando.ComandoModificarCliente(nuevocliente);
                     mod.ejecutar();
-                    string script = "alert(\"Ha modificado sus datos exitosamente y será redirigido a la ventana anterior\");";
-                    ScriptManager.RegisterStartupScript(this, GetType(),
-                                            "ServerControlScript", script, true);
                     ValidacionDatosCliente obtenerhash = FabricaComando.ComandoValidacionDeDatosDeCliente();
                     nuevocliente.contrasena = obtenerhash.calcularhash(nuevocliente.contrasena);
                     Session["Usuario"] = nuevocliente;
-                    ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
-                                                            "setTimeout(function() {history.go(-2) }, 500);", true);
+                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Ha modificado sus datos exitosamente");
+                    string script = string.Format("alert({0});window.location ='/Vista/Empleados/administracionHPSC.aspx';", message);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
                 }
                 else
                 {

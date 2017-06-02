@@ -18,6 +18,16 @@
             src: url("/Vista/Common/Raleway-Black.ttf");
             url("/Vista/Common/Raleway-Black.ttf");
         }
+        @font-face{
+            font-family: "Raleway-Semibold";
+            src: url("/Vista/Common/Raleway-SemiBold.ttf");
+            url("/Vista/Common/Raleway-SemiBold.ttf");
+        }
+        @font-face{
+            font-family: "Raleway-Medium";
+            src: url("/Vista/Common/Raleway-Medium.ttf");
+            url("/Vista/Common/Raleway-Medium.ttf");
+        }
     </style>
 
         <meta charset="utf-8">
@@ -184,7 +194,7 @@
                 </div>
             </div>
             <asp:Panel ID="mensaje" runat="server" Visible="false">
-                <div style="text-align:center"><label style="font-family: 'Raleway Medium'; font-style: italic; font-weight: bold; color: #FFFFFF;">*Este código puede tardar un poco en ser enviado a su correo</label></div>            
+                <div style="text-align:center"><label style="font-family: 'Raleway-Medium'; font-style: italic; font-weight: bold; color: #FFFFFF;">*Este código puede tardar un poco en ser enviado a su correo</label></div>            
             </asp:Panel>
         </div>
         
@@ -213,6 +223,21 @@
                 }
             }
         </script>
+    
+<script>
+    $(document).keydown(function (event) {
+        if (event.keyCode == 123) {
+            return false;
+        }
+        else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+            return false;  //Prevent from ctrl+shift+i
+        }
+    });
+
+    $(document).on("contextmenu", function (e) {
+        e.preventDefault();
+    }); //PREVIENE F12, CTRL+SHIFT+I Y CLICK DERECHO
+</script>
 
 
 

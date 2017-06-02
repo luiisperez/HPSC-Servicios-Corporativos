@@ -166,7 +166,7 @@
             <img src="assets/img/hpsc-logo.png" width="200" height="250" class="img-responsive img-centered" alt="">
             <div class="HPSC" style="font-size:46px">HPSC Servicios Corporativos</div>
             <hr class="colored">
-            <div class="brand-name-subtext">Aqui puede ir el lema de la empresa</div>
+            <div class="brand-name-subtext">Servicios de soporte y soluciones informáticas</div>
         </div>
         <div class="scroll-down">
             <a class="btn page-scroll" href="#about"><i class="fa fa-angle-down fa-fw"></i></a>
@@ -462,21 +462,16 @@
     <footer class="footer" style="background-image: url('assets/img/bgfooter.jpg')">
         <div class="container text-center">
             <div class="row">
-                <div class="col-md-4 contact-details">
-                    <h4 style="color:white" id="telefono"><i class="fa fa-phone" style="color:white"></i> Teléfono</h4>
-                    <p style="color:white">555-213-4567</p>
+                <div class="col-md-6 contact-details">
+                    <h4 style="color:white" id="telefono"><i class="fa fa-phone" style="color:white"></i> Teléfono(s)</h4>
+                    <p style="color:white">+58 (212) 6194641 / (212) 2410477</p>
                 </div>
-                <div class="col-md-4 contact-details">
+                <div class="col-md-6 contact-details">
                     <h4 style="color:white"><i class="fa fa-map-marker" style="color:white"></i> Visítenos</h4>
                     <p style="color:white">
                         <a target="_blank" href="https://www.google.co.ve/maps/place/Edificio+Andr%C3%A9s+German+Otero,+Caracas,+Miranda/@10.4983869,-66.7902003,18z/data=!3m1!4b1!4m5!3m4!1s0x8c2a577208f8ce03:0xd2aafcfd0ddb836e!8m2!3d10.4984837!4d-66.7894939" style="color:white" id="mapa" onmouseover="hoverMapa()">
                         Edificio Andrés German Otero
                         <br style="color:white">Caracas, Miranda</a>
-                </div>
-                <div class="col-md-4 contact-details">
-                    <h4 style="color:white" id="mail"><i class="fa fa-envelope" style="color:white"></i> Correo</h4>
-                    <p style="color:white"><a target="_blank" href="mailto:@hotmail.com" style="color:white" id="correo" onmouseover="hoverCorreo()">mail@example.com</a>
-                    </p>
                 </div>
             </div>
             <div class="row social">
@@ -493,7 +488,7 @@
             </div>
             <div class="row copyright">
                 <div class="col-lg-12">
-                    <p class="small">&copy; </p>
+                    <p class="small">HPSC Servicios Corporativos &copy; </p>
                 </div>
             </div>
         </div>
@@ -562,6 +557,21 @@
     }, function () {
         $('#cerrarsesion').stop(true).animate({ opacity: 1 }, 200);
     });
+</script>
+    
+<script>
+             $(document).keydown(function (event) {
+                 if (event.keyCode == 123) {
+                     return false;
+                 }
+                 else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+                     return false;  //Prevent from ctrl+shift+i
+                 }
+             });
+
+             $(document).on("contextmenu", function (e) {
+                 e.preventDefault();
+             }); //PREVIENE F12, CTRL+SHIFT+I Y CLICK DERECHO
 </script>
 
 </html>

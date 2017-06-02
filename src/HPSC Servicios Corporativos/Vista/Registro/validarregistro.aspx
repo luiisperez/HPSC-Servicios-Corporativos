@@ -18,6 +18,16 @@
             src: url("/Vista/Common/Raleway-Black.ttf");
             url("/Vista/Common/Raleway-Black.ttf");
         }
+        @font-face{
+            font-family: "Raleway-Semibold";
+            src: url("/Vista/Common/Raleway-SemiBold.ttf");
+            url("/Vista/Common/Raleway-SemiBold.ttf");
+        }
+        @font-face{
+            font-family: "Raleway-Medium";
+            src: url("/Vista/Common/Raleway-Medium.ttf");
+            url("/Vista/Common/Raleway-Medium.ttf");
+        }
     </style>
 
         <meta charset="utf-8">
@@ -49,21 +59,6 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assetos/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assetos/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assetos/ico/apple-touch-icon-57-precomposed.png">
-    <style>
-        header .HPSC {
-            font-family:Raleway-Black;
-            font-size: 3em;
-            font-weight: 900;
-            line-height: 1.6em;
-            display: inline-block;
-            font-size: 300%;
-         }
-        @font-face{
-            font-family: "Raleway-Black";
-            src: url("/Vista/Common/Raleway-Black.ttf");
-            url("/Vista/Common/Raleway-Black.ttf");
-        }
-    </style>
 
     </head>
 
@@ -128,7 +123,7 @@
                                             margin-bottom:15px;
                                         }
                                     </style>
-                                    <div class="g-recaptcha" data-sitekey="6LflJRgUAAAAAOG7E_zK0ofxaZgtXvUZawm8w3hP" id="capatcha"></div>
+                                    <div class="g-recaptcha" data-sitekey="6LeEySIUAAAAALFYRxfSGctbhKvOtUt4R3mlPJ3Y" id="capatcha"></div>
                                     <%--=========================Estilo del boton aceptar=========================--%>
                                     <style>
                                         #aceptaremp {
@@ -195,7 +190,7 @@
                     </div>
                 </div>
             </div>
-            <div style="text-align:center"><label style="font-family: 'Raleway Medium'; font-style: italic; font-weight: bold; color: #FFFFFF;">*Este código puede tardar un poco en ser enviado a su correo</label></div>
+            <div style="text-align:center"><label style="font-family: 'Raleway-Medium'; font-style: italic; font-weight: bold; color: #FFFFFF;">*Este código puede tardar un poco en ser enviado a su correo</label></div>
             
         </div>
         
@@ -208,6 +203,21 @@
                 }
             }
         </script>
+    
+<script>
+    $(document).keydown(function (event) {
+        if (event.keyCode == 123) {
+            return false;
+        }
+        else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+            return false;  //Prevent from ctrl+shift+i
+        }
+    });
+
+    $(document).on("contextmenu", function (e) {
+        e.preventDefault();
+    }); //PREVIENE F12, CTRL+SHIFT+I Y CLICK DERECHO
+</script>
 
 
 

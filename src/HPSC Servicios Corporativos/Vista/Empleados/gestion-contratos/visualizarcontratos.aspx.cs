@@ -44,15 +44,6 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                                      "<a href=\"/Vista/Empleados/gestion-empleados/compensaciones.aspx\">Compensaciones</a>" +
                                 "</li>" +
                             "</ul>";
-                        zonausuarios.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#usuarios\" id=\"users\" runat=\"server\"><i class=\"fa fa-user\"></i> Empleados <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
-                            "<ul id=\"usuarios\" class=\"collapse\">" +
-                               "<li>" +
-                                    "<a id=\"visualizarempleados\" href=\"/Vista/Empleados/gestion-empleados/visualizarempleados.aspx\">Visualizar</a>" +
-                               "</li>" +
-                                "<li>" +
-                                     "<a href=\"/Vista/Empleados/gestion-empleados/rolesempleados.aspx\">Asignación de roles</a>" +
-                                "</li>" +
-                            "</ul>";
                         zonaclientes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#clientes\" id=\"clients\" runat=\"server\"><i class=\"fa fa-briefcase\"></i> Clientes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
                             "<ul id=\"clientes\" class=\"collapse\">" +
                                "<li>" +
@@ -107,6 +98,15 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                                     "<a href=\"/Vista/Empleados/gestion-contactos/visualizarpersonascontacto.aspx\">Visualizar</a>" +
                                "</li>" +
                             "</ul>";
+                        zonaincidentes.InnerHtml = "<a href=\"javascript:;\" data-toggle=\"collapse\" data-target=\"#incidentes\" id=\"incidente\" runat=\"server\"><i class=\"fa fa fa-warning\"></i> Incidentes <i class=\"fa fa-fw fa-caret-down\"></i></a>" +
+                            "<ul id=\"incidentes\" class=\"collapse\">" +
+                               "<li>" +
+                                    "<a href=\"/Vista/Empleados/gestion-incidentes/agregarincidente.aspx\">Agregar</a>" +
+                               "</li>" +
+                                "<li>" +
+                                     "<a href=\"/Vista/Empleados/gestion-incidentes/incidentes.aspx\">Visualizar</a>" +
+                                "</li>" +
+                            "</ul>";
                     }
                     else
                     {
@@ -149,9 +149,10 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                 {
                     EliminarContrato _cmd = FabricaComando.ComandoEliminarContrato(id.Text);
                     _cmd.ejecutar();
-                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha eliminado el contrato exitosamente");
-                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-contratos/visualizarcontratos.aspx;", message);
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                    string script = "alert(\"Se ha eliminado el contrato exitosamente\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                    Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-contratos/visualizarcontratos.aspx");
                 }
                 catch (Exception ex)
                 {

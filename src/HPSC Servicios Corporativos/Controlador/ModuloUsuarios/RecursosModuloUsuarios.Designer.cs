@@ -61,7 +61,7 @@ namespace HPSC_Servicios_Corporativos.Controlador.ModuloUsuarios {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 6LflJRgUAAAAAFDxekUxJWIHhJtmxMrDcBAj3X1P.
+        ///   Looks up a localized string similar to 6LeEySIUAAAAAMCXdeS7qdkTt_qwIyoEUCWu3F0T.
         /// </summary>
         internal static string SecretKeyreCAPTCHA {
             get {

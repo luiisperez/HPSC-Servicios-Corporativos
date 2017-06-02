@@ -82,9 +82,10 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_contactos
                 {
                     EliminarPersonaContacto cmd = FabricaComando.ComandoEliminarPersonaContacto(id.Text);
                     cmd.ejecutar();
-                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha eliminado exitosamente la persona de contacto");
-                    var script = string.Format("alert({0});window.location ='/Vista/Clientes/gestion-contactos/visualizarpersonascontacto.aspx';", message);
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                    string script = "alert(\"Se ha eliminado exitosamente la persona de contacto\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                    Response.AddHeader("REFRESH", "1;URL=/Vista/Clientes/gestion-contactos/visualizarpersonascontacto.aspx");
                 }
                 catch (Exception ex)
                 {

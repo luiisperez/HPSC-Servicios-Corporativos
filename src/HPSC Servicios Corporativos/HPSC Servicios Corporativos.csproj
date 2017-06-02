@@ -61,6 +61,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Default.aspx" />
     <Content Include="Vista\Clientes\administracionCliente.aspx" />
     <Content Include="Vista\Clientes\css\bootstrap-rtl.css" />
     <Content Include="Vista\Clientes\css\bootstrap-rtl.min.css" />
@@ -79,7 +80,6 @@
     <Content Include="Vista\Clientes\gestion-contratos\detallecontrato.aspx" />
     <Content Include="Vista\Clientes\gestion-contratos\miscontratos.aspx" />
     <Content Include="Vista\Clientes\gestion-equipos\misequipos.aspx" />
-    <Content Include="Vista\Clientes\gestion-equipos\solicitarequipo.aspx" />
     <Content Include="Vista\Clientes\gestion-incidentes\agregarincidente.aspx" />
     <Content Include="Vista\Clientes\gestion-incidentes\consultarincidente.aspx" />
     <Content Include="Vista\Clientes\gestion-incidentes\visualizarincidentes.aspx" />
@@ -100,6 +100,7 @@
     <Content Include="Vista\Common\img\eliminar.ico" />
     <Content Include="Vista\Common\img\hpsc-logo.ico" />
     <Content Include="Vista\Common\img\modificar.ico" />
+    <Content Include="Vista\Common\img\visualizar.ico" />
     <Content Include="Vista\Common\plugins\datatables\dataTables.bootstrap.css" />
     <Content Include="Vista\Common\plugins\datatables\dataTables.bootstrap.js" />
     <Content Include="Vista\Common\plugins\datatables\dataTables.bootstrap.min.js" />
@@ -662,6 +663,13 @@
       <DependentUpon>RecursosModuloUsuarios.resx</DependentUpon>
     </Compile>
     <Compile Include="Controlador\ModuloUsuarios\ValidacionDatos.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Acceso a datos\DAO.cs" />
     <Compile Include="Modelo\Acceso a datos\FabricaDAO.cs" />
     <Compile Include="Modelo\Acceso a datos\ModuloAliado\DAOAliado.cs" />
@@ -737,6 +745,13 @@
     <Compile Include="Modelo\Objetos\Servicio.cs" />
     <Compile Include="Modelo\Objetos\SolicitudEquipo.cs" />
     <Compile Include="Modelo\Objetos\UsuarioRegistrar.cs" />
+    <Compile Include="mp.Master.cs">
+      <DependentUpon>mp.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mp.Master.designer.cs">
+      <DependentUpon>mp.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\Clientes\administracionCliente.aspx.cs">
       <DependentUpon>administracionCliente.aspx</DependentUpon>
@@ -786,13 +801,6 @@
     </Compile>
     <Compile Include="Vista\Clientes\gestion-equipos\misequipos.aspx.designer.cs">
       <DependentUpon>misequipos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\Clientes\gestion-equipos\solicitarequipo.aspx.cs">
-      <DependentUpon>solicitarequipo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\Clientes\gestion-equipos\solicitarequipo.aspx.designer.cs">
-      <DependentUpon>solicitarequipo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Clientes\gestion-incidentes\agregarincidente.aspx.cs">
       <DependentUpon>agregarincidente.aspx</DependentUpon>
@@ -1099,58 +1107,6 @@
     <Content Include="Vista\Index\assets\less\typography.less" />
     <Content Include="Vista\Index\assets\less\variables.less" />
     <Content Include="Vista\Index\assets\less\vitality.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.eot" />
-    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.woff" />
-    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Vista\Registro\assets\font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\animated.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\bordered-pulled.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\core.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\fixed-width.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\font-awesome.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\icons.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\larger.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\list.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\mixins.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\path.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\rotated-flipped.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\stacked.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\less\variables.less" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\font-awesome.scss" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\_animated.scss" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\_bordered-pulled.scss" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\_core.scss" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\_fixed-width.scss" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\_icons.scss" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\_larger.scss" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\_list.scss" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\_mixins.scss" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\_path.scss" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\_rotated-flipped.scss" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\_stacked.scss" />
-    <Content Include="Vista\Registro\assets\font-awesome\scss\_variables.scss" />
-    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Vista\Registro\assets\img\logos-clientes\aguilar.psd" />
-    <Content Include="Vista\Registro\assets\less\about.less" />
-    <Content Include="Vista\Registro\assets\less\asides.less" />
-    <Content Include="Vista\Registro\assets\less\buttons.less" />
-    <Content Include="Vista\Registro\assets\less\contact.less" />
-    <Content Include="Vista\Registro\assets\less\footer.less" />
-    <Content Include="Vista\Registro\assets\less\global.less" />
-    <Content Include="Vista\Registro\assets\less\header.less" />
-    <Content Include="Vista\Registro\assets\less\mixins.less" />
-    <Content Include="Vista\Registro\assets\less\navbar.less" />
-    <Content Include="Vista\Registro\assets\less\portfolio.less" />
-    <Content Include="Vista\Registro\assets\less\pricing.less" />
-    <Content Include="Vista\Registro\assets\less\services.less" />
-    <Content Include="Vista\Registro\assets\less\themes.less" />
-    <Content Include="Vista\Registro\assets\less\typography.less" />
-    <Content Include="Vista\Registro\assets\less\variables.less" />
-    <Content Include="Vista\Registro\assets\less\vitality.less" />
     <Content Include="Vista\Empleados\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="Vista\Empleados\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Vista\Empleados\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -1267,9 +1223,64 @@
     <Content Include="Vista\Clientes\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Vista\Clientes\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Vista\Clientes\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="mp.Master" />
     <None Include="Properties\PublishProfiles\LuisPerez.pubxml" />
     <Content Include="Vista\Index\assets\img\logos-clientes\aguilar.psd" />
     <Content Include="Vista\Common\Raleway-Black.ttf" />
+    <Content Include="Vista\Common\Raleway-Medium.ttf" />
+    <Content Include="Vista\Common\Raleway-SemiBold.ttf" />
+    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Vista\Registro\assets\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Vista\Registro\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\animated.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\core.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\fixed-width.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\font-awesome.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\icons.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\larger.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\list.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\mixins.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\path.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\stacked.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\less\variables.less" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_animated.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_core.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_icons.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_larger.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_list.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_mixins.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_path.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_stacked.scss" />
+    <Content Include="Vista\Registro\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Vista\Registro\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Vista\Registro\assets\img\logos-clientes\aguilar.psd" />
+    <Content Include="Vista\Registro\assets\less\about.less" />
+    <Content Include="Vista\Registro\assets\less\asides.less" />
+    <Content Include="Vista\Registro\assets\less\buttons.less" />
+    <Content Include="Vista\Registro\assets\less\contact.less" />
+    <Content Include="Vista\Registro\assets\less\footer.less" />
+    <Content Include="Vista\Registro\assets\less\global.less" />
+    <Content Include="Vista\Registro\assets\less\header.less" />
+    <Content Include="Vista\Registro\assets\less\mixins.less" />
+    <Content Include="Vista\Registro\assets\less\navbar.less" />
+    <Content Include="Vista\Registro\assets\less\portfolio.less" />
+    <Content Include="Vista\Registro\assets\less\pricing.less" />
+    <Content Include="Vista\Registro\assets\less\services.less" />
+    <Content Include="Vista\Registro\assets\less\themes.less" />
+    <Content Include="Vista\Registro\assets\less\typography.less" />
+    <Content Include="Vista\Registro\assets\less\variables.less" />
+    <Content Include="Vista\Registro\assets\less\vitality.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

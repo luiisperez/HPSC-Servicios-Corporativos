@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SecretKeyreCAPTCHA" xml:space="preserve">
-    <value>6LflJRgUAAAAAFDxekUxJWIHhJtmxMrDcBAj3X1P</value>
+    <value>6LeEySIUAAAAAMCXdeS7qdkTt_qwIyoEUCWu3F0T</value>
     <comment>Clave privada para la comunicación de el lado del servidor con Google para validar la resolución del reCAPTCHA</comment>
   </data>
 </root>
