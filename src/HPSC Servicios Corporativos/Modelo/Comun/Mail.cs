@@ -87,8 +87,8 @@ namespace HPSC_Servicios_Corporativos.Modelo.Comun
             {
                 MailMessage msg = new MailMessage();
                 msg.To.Add(new MailAddress(nuevoincidente.cliente, nuevoincidente.cliente));
-                msg.To.Add(new MailAddress("luis_alejandro0812@hotmail.com", "luis_alejandro0812@hotmail.com"));
-                //msg.To.Add(new MailAddress(RecursoMail.Correo, RecursoMail.Correo));
+                //msg.To.Add(new MailAddress("luis_alejandro0812@hotmail.com", "luis_alejandro0812@hotmail.com"));
+                msg.To.Add(new MailAddress(RecursoMail.Correo, RecursoMail.Correo));
                 msg.From = new MailAddress("noreply@hp-sc.net", "noreply@hp-sc.net");
                 msg.Subject = "Registro de Incidente N° " + nuevoincidente.id;
                 msg.Body = "Se ha registrado exitosamente el incidente de ID " + nuevoincidente.id + " de " + nombrecliente + " a continuación se presentan los siguientes detalles del mismo: " + Environment.NewLine +
