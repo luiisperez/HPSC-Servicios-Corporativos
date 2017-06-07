@@ -186,8 +186,10 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
         {
             if ((!inifecha.Value.Equals("")) && (!finfecha.Value.Equals("")))
             {
-
-                if (!(Convert.ToDateTime(inifecha.Value) > Convert.ToDateTime(finfecha.Value)))
+                DateTime inicio = Convert.ToDateTime(inifecha.Value);
+                DateTime fin = Convert.ToDateTime(finfecha.Value);
+                int meses = (fin.Month - inicio.Month) + 12 * (fin.Year - inicio.Year); 
+                if (meses >= 1)
                 {
                     try
                     {
@@ -225,7 +227,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                 }
                 else
                 {
-                    string script = "alert(\"La fecha inicio no puede ser posterior a la fecha de finalización\");";
+                    string script = "alert(\"La duración mínima de un contrato es de un (1) mes\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                 }

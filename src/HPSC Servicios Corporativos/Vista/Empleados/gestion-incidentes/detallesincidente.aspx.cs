@@ -521,21 +521,24 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                 }
                 if (v1 && v2)
                 {
-                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se actualizaron los datos exitosamente");
-                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/detallesincidente.aspx';", message);
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                    string script = "alert(\"Se actualizaron los datos exitosamente\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                    Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-incidentes/detallesincidente.aspx");
                 }
                 else if (!v1 && v2)
                 {
-                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se actualizaron los datos exitosamente menos la fecha de atención porque tiene un error");
-                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/detallesincidente.aspx';", message);
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                    string script = "alert(\"Se actualizaron los datos exitosamente menos la fecha de atención porque tiene un error\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                    Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-incidentes/detallesincidente.aspx");
                 }
                 else if (!v2 && v1)
                 {
-                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se actualizaron los datos exitosamente menos la fecha de conclusión porque tiene un error");
-                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/detallesincidente.aspx';", message);
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                    string script = "alert(\"Se actualizaron los datos exitosamente menos la fecha de conclusión porque tiene un error\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                            "ServerControlScript", script, true);
+                    Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-incidentes/detallesincidente.aspx");
                 }
             }
             catch (Exception ex)
@@ -593,12 +596,10 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                                 {
                                     AnadirActividad cmd = FabricaComando.ComandoAnadirActividad(tipoactividades.Text, fechahorainiact.Value, fechahorafinact.Value, emp.correo, incidente);
                                     cmd.ejecutar();
-                                    //string script = "alert(\"Se ha registrado la actividad exitosamente en el sistema\");";
-                                    //ScriptManager.RegisterStartupScript(this, GetType(),
-                                    //                        "ServerControlScript", script, true);
-                                    var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha registrado la actividad exitosamente en el sistema");
-                                    var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-incidentes/detallesincidente.aspx';", message);
-                                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                                    string script = "alert(\"Se ha registrado la actividad exitosamente en el sistema\");";
+                                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                                            "ServerControlScript", script, true);
+                                    Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-incidentes/detallesincidente.aspx");
                                     ConsultarActividades command = FabricaComando.ComandoConsultarActividades(incidente);
                                     command.ejecutar();
                                     List<Actividad> list = command.listado;

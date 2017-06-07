@@ -211,11 +211,11 @@
                                         <div class=col-lg-12 style=margin-top:20px;font-size:15px> 
                                             <div class=col-md-4> 
                                                 <label> <u>Fecha de atención: </u></label>
-                                                <input id="fechaatencio" runat="server" type='datetime-local' max="2100-12-31" class="form-control" oninvalid="alert('Debe colocar una fecha de inicio válida');setCustomValidity(' ')">
+                                                <input id="fechaatencio" runat="server" type='datetime-local' max="2100-12-31" class="form-control" oninvalid="setCustomValidity('Debe colocar una fecha de atención válida')">
                                             </div> 
                                             <div class=col-md-4> 
                                                 <label> <u>Fecha de conclusión: </u></label>
-                                                <input id="fechaconclusion" runat="server" type='datetime-local' max="2100-12-31" class="form-control" oninvalid="alert('Debe colocar una fecha de inicio válida');setCustomValidity(' ')">
+                                                <input id="fechaconclusion" runat="server" type='datetime-local' max="2100-12-31" class="form-control" oninvalid="setCustomValidity('Debe colocar una fecha de conclusión válida')">
                                             </div> 
                                             <div class=col-md-4> 
                                                 <style>
@@ -380,11 +380,11 @@
                                             </div> 
                                             <div class="col-md-3"> 
                                                 <label> <u>Fecha/Hora de inicio: </u></label>
-                                                <input id="fechahorainiact" runat="server" type='datetime-local' class="form-control" >
+                                                <input id="fechahorainiact" runat="server" type='datetime-local' class="form-control" oninvalid="setCustomValidity('Debe colocar una fecha de inicio válida')">
                                             </div> 
                                             <div class="col-md-3"> 
                                                 <label> <u>Fecha/Hora de finalización: </u></label>
-                                                <input id="fechahorafinact" runat="server" type='datetime-local' class="form-control" >
+                                                <input id="fechahorafinact" runat="server" type='datetime-local' class="form-control" oninvalid="setCustomValidity('Debe colocar una fecha de conclusión válida')">
                                             </div> 
                                             <%--<asp:updatepanel runat="server">
                                                 <ContentTemplate>--%>

@@ -192,11 +192,11 @@
                                             <div class="col-xs-12">
                                                 <div class="col-xs-6">
                                                     <label>Fecha de inicio:  </label>
-                                                    <input id="inifecha" runat="server" type='date' max="2100-12-31" class="form-control" oninvalid="alert('Debe colocar una fecha de inicio válida');setCustomValidity(' ')">
+                                                    <input id="inifecha" runat="server" type='date' max="2100-12-31" class="form-control" oninvalid="setCustomValidity('Debe colocar una fecha de inicio válida')">
                                                 </div>
                                                 <div class="col-xs-6">
                                                     <label>Fecha de fin:  </label>
-                                                    <input id="finfecha" runat="server" type='date' max="2100-12-31" class="form-control" oninvalid="alert('Debe colocar una fecha de finalización válida');setCustomValidity(' ')">
+                                                    <input id="finfecha" runat="server" type='date' max="2100-12-31" class="form-control" oninvalid="setCustomValidity('Debe colocar una fecha de finalización válida')">
                                                 </div>
                                             </div>
                                         </div>
