@@ -213,24 +213,9 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                         }
                         else
                         {
-                            ConsultarEquipoContrato cmd = FabricaComando.ComandoConsultarEquipoContrato(contrato);
-                            cmd.ejecutar();
-                            List<Equipo> eq = cmd.lista;
-                            ConsultarServicioContrato _cmd = FabricaComando.ComandoConsultarServicioContrato(contrato);
-                            _cmd.ejecutar();
-                            List<Servicio> s = _cmd.lista;
-                            if ((s == null) || (eq == null))
-                            {
-                                string script = "alert(\"No se ha seleccionado ningún contrato y/o equipo, por favor revise\");";
-                                ScriptManager.RegisterStartupScript(this, GetType(),
-                                                        "ServerControlScript", script, true);
-                            }
-                            else
-                            {
-                                var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha agregado el contrato exitosamente, el identificador del contrato es: CID-" + contrato);
-                                var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-contratos/agregarcontrato.aspx';", message);
-                                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
-                            }
+                            string script = "alert(\"No se ha seleccionado ningún contrato y/o equipo, por favor revise\");";
+                            ScriptManager.RegisterStartupScript(this, GetType(),
+                                                    "ServerControlScript", script, true);
                         }
                     }
                     catch (Exception ex)
