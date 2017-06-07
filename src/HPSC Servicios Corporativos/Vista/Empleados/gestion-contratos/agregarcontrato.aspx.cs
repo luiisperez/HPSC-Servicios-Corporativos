@@ -184,6 +184,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
 
         protected void aceptar_Click(object sender, EventArgs e)
         {
+            String contrato = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
             if ((!inifecha.Value.Equals("")) && (!finfecha.Value.Equals("")))
             {
                 DateTime inicio = Convert.ToDateTime(inifecha.Value);
@@ -204,7 +205,6 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                            .ToList();
                         if ((equiposseleccionados.Count != 0) && (serviciosseleccionados.Count != 0))
                         {
-                            String contrato = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
                             AgregarContrato cmd = FabricaComando.ComandoAsignarServicio(serviciosseleccionados, equiposseleccionados, inifecha.Value, finfecha.Value, contrato);
                             cmd.ejecutar();
                             var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha agregado el contrato exitosamente, el identificador del contrato es: CID-" + contrato);
@@ -213,9 +213,24 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_asignacion_servici
                         }
                         else
                         {
-                            string script = "alert(\"No se ha seleccionado ningún contrato y/o equipo, por favor revise\");";
-                            ScriptManager.RegisterStartupScript(this, GetType(),
-                                                    "ServerControlScript", script, true);
+                            ConsultarEquipoContrato cmd = FabricaComando.ComandoConsultarEquipoContrato(contrato);
+                            cmd.ejecutar();
+                            List<Equipo> eq = cmd.lista;
+                            ConsultarServicioContrato _cmd = FabricaComando.ComandoConsultarServicioContrato(contrato);
+                            _cmd.ejecutar();
+                            List<Servicio> s = _cmd.lista;
+                            if ((s == null) || (eq == null))
+                            {
+                                string script = "alert(\"No se ha seleccionado ningún contrato y/o equipo, por favor revise\");";
+                                ScriptManager.RegisterStartupScript(this, GetType(),
+                                                        "ServerControlScript", script, true);
+                            }
+                            else
+                            {
+                                var message = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize("Se ha agregado el contrato exitosamente, el identificador del contrato es: CID-" + contrato);
+                                var script = string.Format("alert({0});window.location ='/Vista/Empleados/gestion-contratos/agregarcontrato.aspx';", message);
+                                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "", script, true);
+                            }
                         }
                     }
                     catch (Exception ex)

@@ -11,7 +11,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/HPSC Servicios Corporativos.dll">
-      <publishTime>06/06/2017 08:59:42</publishTime>
+      <publishTime>06/07/2017 14:45:07</publishTime>
     </File>
     <File Include="bin/Recaptcha.dll">
       <publishTime>12/14/2010 18:19:48</publishTime>
@@ -995,7 +995,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/29/2017 13:01:03</publishTime>
     </File>
     <File Include="Vista/Empleados/gestion-contratos/agregarcontrato.aspx">
-      <publishTime>06/02/2017 10:40:06</publishTime>
+      <publishTime>06/07/2017 14:09:28</publishTime>
     </File>
     <File Include="Vista/Empleados/gestion-contratos/detallescontrato.aspx">
       <publishTime>05/29/2017 13:00:31</publishTime>
@@ -1028,7 +1028,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/29/2017 12:57:18</publishTime>
     </File>
     <File Include="Vista/Empleados/gestion-incidentes/detallesincidente.aspx">
-      <publishTime>05/29/2017 12:57:01</publishTime>
+      <publishTime>06/07/2017 14:13:28</publishTime>
     </File>
     <File Include="Vista/Empleados/gestion-incidentes/incidentes.aspx">
       <publishTime>05/29/2017 12:56:48</publishTime>
