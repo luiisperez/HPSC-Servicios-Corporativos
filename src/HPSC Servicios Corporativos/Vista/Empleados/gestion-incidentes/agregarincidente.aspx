@@ -154,11 +154,10 @@
                                         </div>
                                         <div class="col-xs-6">
                                             <label style="text-align:right">Seriales:  </label>
-                                            <input list="listado_equipos" name="numequipo" runat="server" id="numequipo" style="height:30px; width:70%" autocomplete="off" class="form-control" onblur="validarnumequipo()">
-                                            <datalist id="listado_equipos" runat="server">
-                                                
+                                            <input list="listado_eq" name="listado" runat="server" id="equipoinput" style="height:30px; width:70%" class="form-control">
+                                            <datalist id="listado_eq" runat="server">
+
                                             </datalist>
-                                            <asp:TextBox ID="correo" runat="server" Height="0px" Width="0px" BorderStyle="None"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-md-12" style="margin-top:10px;margin-left:50px">
@@ -272,53 +271,6 @@
         </div>
         <!-- /#wrapper -->
     </form>
-    <script type="text/javascript">
-
-               function validarnumequipo() {
-                   if (document.getElementById('<%=numequipo.ClientID %>').value != "") {
-                    var num = document.getElementById('<%=numequipo.ClientID %>').value;
-                    var correo = document.getElementById('<%=correo.ClientID %>').value;
-                    PageMethods.FillFields(num, correo, onSucess, onError);
-
-                    function onSucess(result) {
-                        if (result === "No existe el serial colocado, por favor verifique") {
-                            alert(result);
-                            $('#info').attr('Title', '');
-                            document.getElementById('<%=numequipo.ClientID %>').value = "";
-                        } else if (result === "No se pudo realizar la búsqueda, por favor intente nuevamente") {
-                            alert(result);
-                            $('#info').attr('Title', '');
-                            document.getElementById('<%=numequipo.ClientID %>').value = "";
-                        } else if (result === "No tiene ningún contrato vigente para registrar el incidente") {
-                            alert(result);
-                            $('#info').attr('Title', '');
-                            document.getElementById('<%=numequipo.ClientID %>').value = "";
-                        } else {
-                            var separar = result.split(";");
-                            var mensaje = "Datos del servicio: \n - Nivel de servicio: " + separar[2] + " " + separar[3] + " hora(s) X " + separar[4] + " día(s) \n - Tipo de servicio: " + separar[5] + " \n - Tiempo de respuesta: " + separar[6] + "hora(s) \n - ¿Incluye feriados?: " + separar[7] + " \n - Días de trabajo: " + separar[9];
-
-                            if (Number(separar[3]) != 24) {
-                                mensaje = mensaje + " \n - Horario: 8:00 - " + (8 + parseInt(separar[3])).toString() + ":00";
-                            } else {
-                                mensaje = mensaje + " \n - Horario: Todo el día"
-                            }
-                            $('#info').attr('Title', mensaje);
-                            document.getElementById('<%=idcontrato.ClientID %>').value = separar[8];
-                            document.getElementById('<%=idservicio.ClientID %>').value = separar[1];
-                            document.getElementById('<%=direccion.ClientID %>').value = separar[10];
-                        }
-            }
-
-            function onError(result) {
-                alert('Ha ocurrido un error, intente nuevamente');
-                $('#info').attr('Title', '');
-                document.getElementById('<%=numequipo.ClientID %>').value = "";
-                    }
-                } else {
-                    $('#info').attr('Title', '');
-                }
-            }
-        </script>
     <script>
         function validateEmail(email) {
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

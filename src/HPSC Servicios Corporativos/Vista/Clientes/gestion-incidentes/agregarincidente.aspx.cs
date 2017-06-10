@@ -74,7 +74,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Clientes.gestion_incidentes
             {
                 try
                 {
-                    DateTime fechahoy = DateTime.Now;
+                    DateTime fechahoy = DateTime.Now.ToUniversalTime().AddHours(-4);
                     DateTime fecharegistro = fechahoy;
                     DateTime fechamodificada = fechahoy/*.AddHours(-48)*/;
                     ConsultarFeriados cmd = FabricaComando.ComandoConsultarFeriados();

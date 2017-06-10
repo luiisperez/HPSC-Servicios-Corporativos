@@ -160,7 +160,7 @@
                                     <div class="col-md-12" style="margin-top:10px;margin-left:50px">
                                         <div class="col-xs-6">
                                             <label style="text-align:right">Seriales:  </label>
-                                            <input list="listado_equipos" name="numequipo" runat="server" id="numequipo" style="height:30px; width:70%" autocomplete="off" class="form-control" onblur="validarnumequipo()">
+                                            <input list="listado_equipos" name="numequipo" runat="server" id="numequipo" style="height:30px; width:70%" class="form-control" onblur="validarnumequipo()">
                                             <datalist id="listado_equipos" runat="server">
                                                 
                                             </datalist>

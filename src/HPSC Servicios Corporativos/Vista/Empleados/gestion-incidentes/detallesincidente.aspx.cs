@@ -528,14 +528,14 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                 }
                 else if (!v1 && v2)
                 {
-                    string script = "alert(\"Se actualizaron los datos exitosamente menos la fecha de atención porque tiene un error\");";
+                    string script = "alert(\"Se actualizaron los datos exitosamente\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                     Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-incidentes/detallesincidente.aspx");
                 }
                 else if (!v2 && v1)
                 {
-                    string script = "alert(\"Se actualizaron los datos exitosamente menos la fecha de conclusión porque tiene un error\");";
+                    string script = "alert(\"Se actualizaron los datos exitosamente\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
                     Response.AddHeader("REFRESH", "1;URL=/Vista/Empleados/gestion-incidentes/detallesincidente.aspx");

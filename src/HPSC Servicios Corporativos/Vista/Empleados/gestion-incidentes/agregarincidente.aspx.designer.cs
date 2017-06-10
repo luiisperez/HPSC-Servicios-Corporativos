@@ -112,31 +112,22 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes {
         protected global::System.Web.UI.WebControls.DropDownList list_clientes;
         
         /// <summary>
-        /// numequipo control.
+        /// equipoinput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText numequipo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText equipoinput;
         
         /// <summary>
-        /// listado_equipos control.
+        /// listado_eq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl listado_equipos;
-        
-        /// <summary>
-        /// correo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox correo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl listado_eq;
         
         /// <summary>
         /// tiposerv control.

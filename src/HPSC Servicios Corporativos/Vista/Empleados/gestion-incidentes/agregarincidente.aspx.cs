@@ -229,11 +229,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                         opciones = opciones + "<option value=\"" + item.serial + "\" label=\"" + itemvalue + "\" >";
                     }
                 }
-                listado_equipos.InnerHtml = opciones;
+                listado_eq.InnerHtml = opciones;
             }
             else
             {
-                listado_equipos.InnerHtml = "NULL";
+                listado_eq.InnerHtml = "NULL";
             }
         }
 
@@ -287,7 +287,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                 Equipo equip = FabricaObjetos.CrearEquipo("", "", "");
                 foreach (Equipo item in equipos)
                 {
-                    if (item.serial.Equals(numequipo.Value))
+                    if (item.serial.Equals(equipoinput.Value))
                     {
                         verdad = true;
                         equip = item;
@@ -298,13 +298,13 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                     string script = "alert(\"El serial ingresado no es válido, por favor ingrese un serial válido\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                             "ServerControlScript", script, true);
-                    numequipo.Value = "";
+                    equipoinput.Value = "";
                     tiposerv.Text = "";
                     info.Attributes.Add("Title", "");
                 }
                 else
                 {
-                    ConsultarServiciosPorEquipo _cmd = FabricaComando.ComandoConsultarServiciosPorEquipo(numequipo.Value);
+                    ConsultarServiciosPorEquipo _cmd = FabricaComando.ComandoConsultarServiciosPorEquipo(equipoinput.Value);
                     _cmd.ejecutar();
                     List<Servicio> listado = _cmd.servicios;
                     Servicio menor = FabricaObjetos.CrearServicio("", "", 99999, 0, "", 99999);
@@ -347,7 +347,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                         string script = "alert(\"No tiene ningún contrato vigente para registrar el incidente\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
-                        numequipo.Value = "";
+                        equipoinput.Value = "";
                         tiposerv.Text = "";
                         info.Attributes.Add("Title", "");
                     }
@@ -358,7 +358,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                 string script = "alert(\"No se pudo realizar la búsqueda, por favor intente nuevamente\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                         "ServerControlScript", script, true);
-                numequipo.Value = "";
+                equipoinput.Value = "";
                 tiposerv.Text = "";
                 info.Attributes.Add("Title", "");
             }
@@ -366,11 +366,11 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
 
         protected void aceptar_Click(object sender, EventArgs e)
         {
-            if ((!correoprincipal.Value.Equals("")) && (!correosecundario.Value.Equals("")) && (!direccion.Value.Equals("")) && (!descripcion.Value.Equals("")) && (!numequipo.Value.Equals("")))
+            if ((!correoprincipal.Value.Equals("")) && (!correosecundario.Value.Equals("")) && (!direccion.Value.Equals("")) && (!descripcion.Value.Equals("")) && (!equipoinput.Value.Equals("")))
             {
                 try
                 {
-                    DateTime fechahoy = DateTime.Now;
+                    DateTime fechahoy = DateTime.Now.ToUniversalTime().AddHours(-4);
                     DateTime fecharegistro = fechahoy;
                     DateTime fechamodificada = fechahoy/*.AddHours(-48)*/;
                     ConsultarFeriados cmd = FabricaComando.ComandoConsultarFeriados();
@@ -439,7 +439,7 @@ namespace HPSC_Servicios_Corporativos.Vista.Empleados.gestion_incidentes
                     }
                     DateTime fecharequerida = fechacompromiso;
                     String id = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
-                    Incidente nuevoincidente = FabricaObjetos.CrearIncidente(id, fechahoy, fechacompromiso, fecharequerida, new DateTime(), new DateTime(), "Abierto", tiposerv.SelectedValue, impacto.Text, urgencia.Text, direccion.Value, descripcion.Value, list_clientes.SelectedValue, numequipo.Value, "", "", correoprincipal.Value, correosecundario.Value, idcontrato.Text, idservicio.Text);
+                    Incidente nuevoincidente = FabricaObjetos.CrearIncidente(id, fechahoy, fechacompromiso, fecharequerida, new DateTime(), new DateTime(), "Abierto", tiposerv.SelectedValue, impacto.Text, urgencia.Text, direccion.Value, descripcion.Value, list_clientes.SelectedValue, equipoinput.Value, "", "", correoprincipal.Value, correosecundario.Value, idcontrato.Text, idservicio.Text);
                     AgregarIncidente _command = FabricaComando.ComandoAgregarIncidente(nuevoincidente);
                     _command.ejecutar();
                     try
