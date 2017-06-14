@@ -6,12 +6,21 @@ INSERT INTO ROL VALUES (3, 'Cliente', -10);
 INSERT INTO ROL VALUES (4, 'Eliminado', -100);
 INSERT INTO ROL VALUES (5, 'Coordinador de servicios', 10);
 INSERT INTO ROL VALUES (6, 'Ingeniero de soporte', 10);
+INSERT INTO ROL VALUES (7, 'Aliado', -5);
 
 ----------------------CLIENTE---------------------------
 INSERT INTO CLIENTE VALUES ('luis.alejandro120895@gmail.com', 'Kikiriskiaga CA', 'Kikiriskiaga128', 'F9F299C9FE7AE645AE722D2B2E1965AE', 'Av. Ohiggins, La Paz', 3);
 
-----------------------CLIENTE---------------------------
-INSERT INTO ALIADO VALUES ('luis.alejandro120895@gmail.com', 'CRON', 'Kikiriskiaga128', 'F9F299C9FE7AE645AE722D2B2E1965AE', 'Av. Ohiggins, La Paz', 3);
+----------------------ALIADO (MODIFICAR A CONVENIENCIA)---------------------------
+INSERT INTO ALIADO VALUES ('info@cronsistemas.com.ve', 'CRON Sistemas, C.A.', 'cronsistemas', 'B96C0ADF7B666E8C839A771D1416B6DF', 'Av. 19 con calle 72, Edificio Marta Planta Baja Local 4. Maracaibo, Estado Zulia. Venezuela', 7); /*Clave CronSistemas.17*/
+INSERT INTO ALIADO VALUES ('correodeprueba@gmail.com', 'Armando José Gil González', 'armando.17', '4037D798A00635112FD5F75616C47525', 'Direccion provicional', 7); /*Clave Armando.17*/
+INSERT INTO ALIADO VALUES ('correodeprueba1@gmail.com', 'José Antonio Díaz González', 'jadiaz.17', 'B8828AF52ABCBDAF70824E29AEA9FC13', 'Direccion provicional', 7); /*Clave Jadiaz.17*/
+INSERT INTO ALIADO VALUES ('correodeprueba2@gmail.com', 'MEGAPC Sistemas, C.A.', 'megapc', 'A316A44ACFB8E4E25B039F64FEB00808', 'Direccion provicional', 7); /*Clave Megapc.17*/
+INSERT INTO ALIADO VALUES ('correodeprueba3@gmail.com', 'Miguel Angel Coronado Silva', 'macoronado.17', '7E2FE1B17D674B4FA9CDA09C3B3AB5A5', 'Direccion provicional', 7); /*Clave Macoronado.17*/
+INSERT INTO ALIADO VALUES ('correodeprueba4@gmail.com', 'Pro Sistemas, C.A.', 'prosistemas', 'EE1CABDD6F547F2C00FBDD6971D03589', 'Direccion provicional', 7); /*Clave Prosistemas.17*/
+INSERT INTO ALIADO VALUES ('correodeprueba5@gmail.com', 'Services Computer FyE, C.A.', 'servcompfe', '9070BCB05D7DFFC3B44ED40992E7D982', 'Direccion provicional', 7); /*Clave Servcompfe.17*/
+INSERT INTO ALIADO VALUES ('correodeprueba6@gmail.com', 'Servicios Especializados G & B', 'servespgb', '6F2BD50A49D3B0D0136B9BD3C7FE343B', 'Direccion provicional', 7); /*Clave Servespgb.17*/
+INSERT INTO ALIADO VALUES ('correodeprueba7@gmail.com', 'Servicios KOMPU 9000, C.A.', 'kompu9000', 'E44D7CF877A94E14A357C1A244E445E5', 'Direccion provicional', 7); /*Clave Kompu9000.17*/
 
 ----------------------EMPLEADO--------------------------
 INSERT INTO EMPLEADO VALUES ('luis.alejandro120895@gmail.com', 'Luis', 'Perez', 'LAPGrock', 'F9F299C9FE7AE645AE722D2B2E1965AE', 1);
