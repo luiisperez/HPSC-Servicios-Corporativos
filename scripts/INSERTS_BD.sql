@@ -24,6 +24,7 @@ INSERT INTO ALIADO VALUES ('correodeprueba7@gmail.com', 'Servicios KOMPU 9000, C
 
 ----------------------EMPLEADO--------------------------
 INSERT INTO EMPLEADO VALUES ('luis.alejandro120895@gmail.com', 'Luis', 'Perez', 'LAPGrock', 'F9F299C9FE7AE645AE722D2B2E1965AE', 1);
+INSERT INTO EMPLEADO VALUES ('jose.torres@hp-sc.net', 'José', 'Torres', 'JoseTorres', '5BD5658E1D7D0D3C39FDC107AD2D4AA5', 1);
 INSERT INTO EMPLEADO VALUES ('admin', 'Administrador', 'del sistema', 'admin', '5BD5658E1D7D0D3C39FDC107AD2D4AA5', 1); /* Clave HpscAdmin0.*/
 INSERT INTO EMPLEADO VALUES ('pepito1208295@gmail.com', 'Luis', 'Sumatra', 'LAPG', 'F9F299C9FE7AE645AE722D2B2E1965AE', 2);
 INSERT INTO EMPLEADO VALUES ('jjuanito120895@gmail.com', 'Sanson', 'Perez', 'LAPGrock55454', 'F9F299C9FE7AE645AE722D2B2E1965AE', 2);
